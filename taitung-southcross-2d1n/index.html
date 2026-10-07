@@ -24,8 +24,11 @@
   h1{font-size:clamp(2.6rem,7vw,6.2rem);line-height:.98;letter-spacing:-.055em;margin:18px 0 16px;max-width:920px}
   .hero p{font-size:clamp(1rem,2.1vw,1.25rem);max-width:760px;color:#eff6f1;margin:0}
   .hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.hero-meta span{padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-weight:650;font-size:.9rem}
-  .nav{position:sticky;top:0;z-index:20;background:rgba(246,242,232,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-  .nav .wrap{display:flex;gap:8px;overflow:auto;padding:10px 0}.nav a{text-decoration:none;white-space:nowrap;font-size:.9rem;padding:8px 12px;border-radius:999px}.nav a:hover{background:#e9e2d3}
+  .nav{position:sticky;top:0;z-index:50;background:rgba(246,242,232,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);box-shadow:0 6px 18px rgba(30,45,36,.06)}
+  .nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 0;scrollbar-width:none}.nav .wrap::-webkit-scrollbar{display:none}
+  .nav a{text-decoration:none;white-space:nowrap;font-size:.88rem;padding:8px 12px;border-radius:999px;color:#43534b;font-weight:750;transition:.18s ease}
+  .nav a:hover{background:#e9e2d3}.nav a.active{background:var(--forest);color:#fff}.nav a.day-tab{border:1px solid #becac3}.nav a.day-tab.active{border-color:var(--forest)}
+  html{scroll-padding-top:76px} section{scroll-margin-top:76px}
   section{padding:72px 0}.section-title{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;margin-bottom:28px}.section-title h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1.05;margin:0;letter-spacing:-.04em}.section-title p{margin:0;color:var(--muted);max-width:560px}
   .summary{margin-top:-34px;position:relative;z-index:5}.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 18px 60px rgba(45,48,35,.10)}
   .summary-item{padding:22px}.summary-item+.summary-item{border-left:1px solid var(--line)}.summary-item b{display:block;font-size:1.35rem}.summary-item small{color:var(--muted)}
@@ -47,14 +50,14 @@
 
   .route-map-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:18px;margin:8px 0 34px;box-shadow:0 12px 30px rgba(52,56,42,.06)}
   .route-map-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin-bottom:14px;flex-wrap:wrap}.route-map-head h3{margin:0;font-size:1.35rem}.route-map-head p{margin:3px 0 0;color:var(--muted);font-size:.9rem}
-  #day1-map{height:440px;border-radius:18px;overflow:hidden;border:1px solid #d7ded9;z-index:1}.map-note{font-size:.82rem;color:var(--muted);margin:10px 2px 0}
+  .route-map{height:440px;border-radius:18px;overflow:hidden;border:1px solid #d7ded9;z-index:1}.map-note{font-size:.82rem;color:var(--muted);margin:10px 2px 0}
   .photo-strip{display:grid;grid-template-columns:1.35fr .8fr .8fr;gap:7px;margin-top:16px}.photo-strip img{width:100%;height:150px;object-fit:cover;border-radius:12px}.photo-strip img:first-child{height:150px}
-  .food-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.food-chip{background:#f4f5ef;border:1px solid #dfe4da;border-radius:13px;padding:11px}.food-chip b{display:block;font-size:.9rem}.food-chip span{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+  .food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:14px}.food-chip{background:#f4f5ef;border:1px solid #dfe4da;border-radius:13px;padding:11px}.food-chip b{display:block;font-size:.9rem}.food-chip span{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
   .alert-inline{margin-top:14px;background:#fff8ef;border:1px solid #efd3b8;border-radius:14px;padding:12px 14px;font-size:.88rem;color:#6a4a3b}
   .place-gallery{display:grid;grid-template-columns:1.35fr .65fr;grid-template-rows:105px 105px;gap:5px}.place-gallery img{width:100%;height:100%;object-fit:cover}.place-gallery img:first-child{grid-row:1/3}
   .map-pin{display:inline-block;width:24px;height:24px;border-radius:50%;background:var(--forest);color:#fff;font-weight:800;text-align:center;line-height:24px;font-size:.75rem;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-  @media(max-width:820px){#day1-map{height:380px}.food-grid{grid-template-columns:1fr 1fr}.photo-strip{grid-template-columns:1fr 1fr}.photo-strip img:first-child{grid-column:1/3}.photo-strip img{height:135px}.photo-strip img:first-child{height:190px}}
-  @media(max-width:560px){#day1-map{height:330px}.food-grid{grid-template-columns:1fr 1fr}.photo-strip{grid-template-columns:1fr}.photo-strip img:first-child{grid-column:auto}.photo-strip img,.photo-strip img:first-child{height:180px}}
+  @media(max-width:820px){.route-map{height:380px}.food-grid{grid-template-columns:1fr 1fr}.photo-strip{grid-template-columns:1fr 1fr}.photo-strip img:first-child{grid-column:1/3}.photo-strip img{height:135px}.photo-strip img:first-child{height:190px}}
+  @media(max-width:560px){.route-map{height:330px}.food-grid{grid-template-columns:1fr 1fr}.photo-strip{grid-template-columns:1fr}.photo-strip img:first-child{grid-column:auto}.photo-strip img,.photo-strip img:first-child{height:180px}}
 
   footer{padding:34px 0 60px;color:#6d786f;font-size:.86rem;border-top:1px solid var(--line)}
   .print-note{display:none}
@@ -82,8 +85,13 @@
     </div>
   </div>
 </header>
-<nav class="nav"><div class="wrap">
-  <a href="#overview">行程總覽</a><a href="#route-map">路線地圖</a><a href="#day1">DAY 1 南迴</a><a href="#day2">DAY 2 南橫</a><a href="#spots">景點精選</a><a href="#stay">住宿與準備</a><a href="#sources">資料來源</a>
+<nav class="nav" id="section-nav"><div class="wrap">
+  <a href="#overview" data-section="overview">總覽</a>
+  <a href="#day1" data-section="day1" class="day-tab">DAY 1｜南迴</a>
+  <a href="#day2" data-section="day2" class="day-tab">DAY 2｜南橫</a>
+  <a href="#spots" data-section="spots">景點</a>
+  <a href="#stay" data-section="stay">住宿</a>
+  <a href="#sources" data-section="sources">資料</a>
 </div></nav>
 
 <main>
@@ -102,14 +110,14 @@
 
 <section id="day1"><div class="wrap">
   <div class="section-title"><div><div class="eyebrow" style="color:var(--forest);border-color:#bbc8c0;background:#edf1ec">DAY 1 · THURSDAY</div><h2>高雄 → 雙流 → 金崙 → 太麻里 → 台東</h2></div><p>第一天把主菜放在雙流瀑布完整版；下午不再追大量景點，而是用金崙在地麵包、咖啡與小吃，加上太麻里農產與招財貓土地公，慢慢收進台東市區。</p></div>
-  <div class="day-head"><div class="day-badge">DAY<br>01</div><div><h3>森林瀑布 × 金崙風土 × 太麻里小旅行</h3><p>08:00 高雄出發 · 17:50–18:10 左右入住</p></div></div>
+  <div class="day-head"><div class="day-badge">DAY<br>01</div><div><h3>森林瀑布 × 金崙風土 × 太麻里小旅行</h3><p>08:00 高雄出發 · 18:00–18:15 左右入住</p></div></div>
 
   <div class="route-map-card" id="route-map">
     <div class="route-map-head"><div><h3>Day 1 相對位置地圖</h3><p>先看整體位置：高雄南下進雙流，再沿台 9 線一路往北經金崙、太麻里進台東。</p></div>
       <a class="btn" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=%E9%AB%98%E9%9B%84&destination=%E6%B2%90%E8%88%8D%E6%96%87%E6%97%85%20%E9%90%B5%E8%8A%B1%E7%A7%80%E6%B3%B0%E9%A4%A8&waypoints=%E9%9B%99%E6%B5%81%E5%9C%8B%E5%AE%B6%E6%A3%AE%E6%9E%97%E9%81%8A%E6%A8%82%E5%8D%80%7C%E9%87%91%E5%B4%99%E8%BB%8A%E7%AB%99%7C%E5%A4%AA%E9%BA%BB%E9%87%8C%E5%9C%B0%E5%8D%80%E8%BE%B2%E6%9C%83%7C%E5%A4%AA%E9%BA%BB%E9%87%8C%E7%A6%8F%E8%88%88%E5%AE%AE">Google Maps 全路線</a>
     </div>
-    <div id="day1-map" aria-label="Day 1 route map"></div>
-    <div class="map-note">地圖上的連線用來看相對位置與行進方向；實際駕車請以 Google Maps 當日導航路線為準。金崙的麵包、咖啡、臭豆腐與蔥油餅集中在同一個聚落停留區。</div>
+    <div id="day1-map" class="route-map" aria-label="Day 1 route map"></div>
+    <div class="map-note">地圖上的連線用來看相對位置與行進方向；實際駕車請以 Google Maps 當日導航路線為準。金崙的麵包、咖啡、臭豆腐、蔥油餅與小米甜甜圈集中在同一個聚落停留區。</div>
   </div>
 
   <div class="notice"><div class="icon">🍞</div><div><strong>穀臼那哪不是一般「到店挑麵包」的排法。</strong><p>建議前一晚約 18:00 後看 FB／IG 公布隔天口味並私訊預訂，Day 1 只安排快速自取。把它視為 15:00 前的時間關卡，不要為了現場挑選壓縮雙流。</p></div></div>
@@ -132,9 +140,9 @@
     <div class="stop"><div class="time">14:20</div><div class="stop-card"><h4>金崙第一站｜穀臼那哪預訂麵包自取</h4><p>前一晚先看店家公布的隔日品項並私訊預訂；抵達後快速取貨即可。特色是自養酵母、長時間發酵，並把刺蔥、飛機菜、小米、紅藜等部落食材揉進麵包。</p>
       <div class="tags"><span class="tag">前一晚預訂</span><span class="tag orange">15:00 前自取</span><span class="tag">停 5–10 分</span></div>
       <div class="photo-strip">
-        <img src="https://www.slowtaitung.com/photodata/20250807012802aa4e88.jpg" alt="穀臼那哪手工麵包店內" loading="lazy">
-        <img src="https://pimg.1px.tw/anne108/1757657223-741779700-g.jpg" alt="穀臼那哪手工麵包外觀" loading="lazy">
         <img src="https://bdsone.taitung.gov.tw/photodata/20251110023223_1794ea.webp" alt="穀臼那哪手工麵包" loading="lazy">
+        <img src="https://tour.taitung.gov.tw/image/55576/?r=1780388109756" alt="金崙沙灘與聚落海景" loading="lazy">
+        <img src="https://tour.taitung.gov.tw/image/55577/?r=1780388137512" alt="金崙聖若瑟天主堂" loading="lazy">
       </div>
       <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=穀臼那哪手工麵包">Google Maps</a></div>
     </div></div>
@@ -142,42 +150,43 @@
     <div class="stop"><div class="time">14:30</div><div class="stop-card"><h4>金崙第二站｜LI.KA CAFE 力卡珈琲</h4><p>這一站才是真正坐下來休息的下午茶。可以喝馬告、洛神、紅烏龍等帶在地風味的飲品，讓雙流三小時健行後有一段完整的放空時間。</p>
       <div class="tags"><span class="tag">部落咖啡</span><span class="tag">在地食材</span><span class="tag orange">35–40 分</span></div>
       <div class="photo-strip">
-        <img src="https://cc.tvbs.com.tw/img/program/upload/2021/12/14/20211214164515-9a2f94bf.jpg" alt="LI.KA CAFE 外觀" loading="lazy">
-        <img src="https://niuniublog.tw/wp-content/uploads/pixnet/1637820913-1987688751-g_l.jpg" alt="LI.KA CAFE 店內與下午茶" loading="lazy">
-        <img src="https://supertaste.tvbs.com.tw/_next/image?q=75&url=https%3A%2F%2Fcc.tvbs.com.tw%2Fimg%2Fprogram%2Fupload%2F2021%2F12%2F14%2F20211214164515-9a2f94bf.jpg&w=1440" alt="LI.KA CAFE" loading="lazy">
+        <img src="https://supertaste-images.tvbs.com.tw/?url=https%3A%2F%2Fsupertaste-asset.tvbs.com.tw%2Flegacy%2Fimg%2Fprogram%2Fupload%2F2020%2F08%2F19%2F20200819102808-e48cec63.jpg&w=768&q=75" alt="LI.KA CAFE 力卡珈琲" loading="lazy">
+        <img src="https://supertaste-images.tvbs.com.tw/?url=https%3A%2F%2Fsupertaste-asset.tvbs.com.tw%2Flegacy%2Fimg%2Fprogram%2Fupload%2F2020%2F08%2F19%2F20200819102810-00d4f9d9.jpg&w=768&q=75" alt="LI.KA CAFE 餐點與飲品" loading="lazy">
+        <img src="https://supertaste-images.tvbs.com.tw/?url=https%3A%2F%2Fsupertaste-asset.tvbs.com.tw%2Flegacy%2Fimg%2Fprogram%2Fupload%2F2020%2F08%2F19%2F20200819102811-f8ca847d.jpg&w=768&q=75" alt="LI.KA CAFE 店內空間" loading="lazy">
       </div>
       <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=LI.KA CAFE 力卡珈琲">Google Maps</a></div>
     </div></div>
 
-    <div class="stop"><div class="time">15:10</div><div class="stop-card"><h4>金崙下午小吃串｜玉米江臭豆腐＋鳩谷蔥油餅</h4><p>兩家都約 15:00 後開賣，剛好接在力卡之後。兩人以「小份／分食」方式吃，把它們當散步小吃，不取代晚餐；若其中一家排隊過長，就外帶或縮短停留。</p>
+    <div class="stop"><div class="time">15:10</div><div class="stop-card"><h4>金崙下午小吃串｜玉米江＋鳩谷＋鹿燈下</h4><p>力卡之後改成一段小吃散步：玉米江臭豆腐、鳩谷蔥油餅，再加鹿燈下小米甜甜圈。三樣都用「小份／分食」策略，不當正餐；如果某一家排隊太長，就外帶或直接跳過，晚上仍留胃口給台東市區。</p>
       <div class="food-grid">
         <div class="food-chip"><b>玉米江臭豆腐</b><span>外酥內嫩＋泡菜</span></div>
         <div class="food-chip"><b>鳩谷蔥油餅</b><span>肉末・九層塔・蛋・蔥</span></div>
+        <div class="food-chip"><b>鹿燈下小米甜甜圈</b><span>現炸 Q 彈，當甜點收尾</span></div>
         <div class="food-chip"><b>份量策略</b><span>兩人分食，不吃成正餐</span></div>
-        <div class="food-chip"><b>時間策略</b><span>合計約 35–40 分</span></div>
+        <div class="food-chip"><b>時間策略</b><span>合計約 45–50 分</span></div>
       </div>
       <div class="photo-strip">
-        <img src="https://lh3.ggpht.com/p/AF1QipPnKfFK9gOVdYi_00hV8W_x9wPirpIOYyMzmyeJ=s1024" alt="玉米江臭豆腐店" loading="lazy">
-        <img src="https://static.popdaily.com.tw/u/202212/ecd368f6-e0ec-419b-8901-cc9f81937e0d.jpg" alt="蔥油餅示意" loading="lazy">
-        <img src="https://scontent-atl3-2.cdninstagram.com/v/t51.75761-15/494233807_18503144023022725_5646531399350130235_n.jpg?stp=cmp1_dst-jpg_e35_s640x640_tt6" alt="金崙美食 Reel 畫面" loading="lazy">
+        <img src="https://tour.taitung.gov.tw/image/55576/?r=1780388109756" alt="金崙海邊與聚落" loading="lazy">
+        <img src="https://tour.taitung.gov.tw/image/55577/?r=1780388137512" alt="金崙聚落特色建築" loading="lazy">
+        <img src="https://bdsone.taitung.gov.tw/photodata/20251110023223_1794ea.webp" alt="金崙在地風土與手作麵包" loading="lazy">
       </div>
-      <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=玉米江臭豆腐">玉米江地圖</a><a class="btn secondary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=鳩谷蔥油餅">鳩谷地圖</a></div>
+      <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=玉米江臭豆腐">玉米江地圖</a><a class="btn secondary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=鳩谷蔥油餅">鳩谷地圖</a><a class="btn secondary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=鹿燈下小米甜甜圈">鹿燈下地圖</a></div>
       <div class="alert-inline">如果雙流比預期晚超過 30 分鐘，先保住「預訂麵包自取」，力卡縮短成外帶，小吃則照排隊狀況彈性處理。</div>
     </div></div>
 
-    <div class="stop"><div class="time">16:15</div><div class="stop-card"><h4>太麻里地區農會｜農特產品補貨</h4><p>正式把「買農產品」放進旅程：優先看金針、洛神、小米／紅藜、釋迦加工品與當季農產。這站 17:00 關門，所以排在福興宮之前。</p><div class="tags"><span class="tag">農產品</span><span class="tag">伴手禮</span><span class="tag orange">20–25 分</span></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=太麻里地區農會農特產品展售中心">Google Maps</a></div></div></div>
+    <div class="stop"><div class="time">16:25</div><div class="stop-card"><h4>太麻里地區農會｜農特產品補貨</h4><p>正式把「買農產品」放進旅程：優先看金針、洛神、小米／紅藜、釋迦加工品與當季農產。這站 17:00 關門，所以排在福興宮之前。</p><div class="tags"><span class="tag">農產品</span><span class="tag">伴手禮</span><span class="tag orange">20–25 分</span></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=太麻里地區農會農特產品展售中心">Google Maps</a></div></div></div>
 
-    <div class="stop"><div class="time">16:45</div><div class="stop-card"><h4>太麻里福興宮｜招財貓土地公</h4><p>巨型招財貓、紅燈籠與土地公廟結合，停留 15–20 分鐘就很有記憶點。它營業時間比農會長，所以放在農會後面最沒有壓力。</p>
+    <div class="stop"><div class="time">16:50</div><div class="stop-card"><h4>太麻里福興宮｜招財貓土地公</h4><p>巨型招財貓、紅燈籠與土地公廟結合，停留 15–20 分鐘就很有記憶點。它營業時間比農會長，所以放在農會後面最沒有壓力。</p>
       <div class="tags"><span class="tag">招財祈福</span><span class="tag">特色廟宇</span><span class="tag orange">15–20 分</span></div>
       <div class="photo-strip">
-        <img src="https://pimg.1px.tw/blog/tungbin/album/404197606/883090043273680546.jpg" alt="太麻里福興宮招財貓" loading="lazy">
-        <img src="https://www.lookit.tw/upload/o5/nHF/e4fa0a14c30d428d8ec82c3f659d4238.jpg" alt="太麻里福興宮巨大招財貓" loading="lazy">
-        <img src="https://www.taimali.gov.tw/home/cache/preview/5717fa87a22c608519e3ebd62a77df66.jpg" alt="太麻里風景" loading="lazy">
+        <img src="https://tour.taitung.gov.tw/image/55580/?r=1780388198876" alt="太麻里福興宮與招財貓" loading="lazy">
+        <img src="https://tour.taitung.gov.tw/image/52290/640x480" alt="太麻里福興宮招財貓土地公" loading="lazy">
+        <img src="https://tour.taitung.gov.tw/image/55580/640x480" alt="太麻里福興宮" loading="lazy">
       </div>
       <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=太麻里福興宮福德正神 招財貓土地公廟">Google Maps</a></div>
     </div></div>
 
-    <div class="stop"><div class="time">17:50</div><div class="stop-card"><h4>入住｜沐舍文旅・鐵花秀泰館</h4><p>抵達台東市區後把車停好，第一天不再安排需要開車的景點。洗澡、休息一下，晚餐直接留在鐵花村／正氣路周邊找。</p><div class="tags"><span class="tag">住宿</span><span class="tag">市中心</span></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=沐舍文旅 鐵花秀泰館">Google Maps</a></div></div></div>
+    <div class="stop"><div class="time">18:00</div><div class="stop-card"><h4>入住｜沐舍文旅・鐵花秀泰館</h4><p>抵達台東市區後把車停好，第一天不再安排需要開車的景點。洗澡、休息一下，晚餐直接留在鐵花村／正氣路周邊找。</p><div class="tags"><span class="tag">住宿</span><span class="tag">市中心</span></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=沐舍文旅 鐵花秀泰館">Google Maps</a></div></div></div>
 
     <div class="stop"><div class="time">18:30+</div><div class="stop-card"><h4>鐵花村／正氣路附近晚餐</h4><p>下午的臭豆腐與蔥油餅都只是小吃，所以晚餐仍保留正常食量。週四若觀光夜市有營業，也可以直接從飯店步行過去。</p><div class="tags"><span class="tag">晚餐</span><span class="tag">步行</span><span class="tag">不再開車</span></div></div></div>
   </div>
@@ -190,6 +199,15 @@
 
 <section class="mountain" id="day2"><div class="wrap">
   <div class="section-title"><div><div class="eyebrow" style="color:var(--forest);border-color:#aebfb4;background:#f3f7f3">DAY 2 · FRIDAY</div><h2>台東 → 南橫 → 甲仙 → 左營</h2></div><p>取消森林公園與鹿野高台，早上不用為了景點提早退房。早餐吃完、整理好，09:00 左右才正式離開台東。</p></div>
+
+  <div class="route-map-card" id="day2-route-map">
+    <div class="route-map-head"><div><h3>Day 2 南橫路線地圖</h3><p>從台東市區往海端進台 20 線，翻過埡口到梅山口，再經甲仙、旗山回左營。地圖主要用來看山線各點的相對位置。</p></div>
+      <a class="btn" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=%E6%B2%90%E8%88%8D%E6%96%87%E6%97%85%20%E9%90%B5%E8%8A%B1%E7%A7%80%E6%B3%B0%E9%A4%A8&destination=%E5%B7%A6%E7%87%9F&waypoints=%E6%B5%B7%E7%AB%AF%7C%E9%9C%A7%E9%B9%BF%E5%B3%BD%E8%B0%B7%7C%E5%88%A9%E7%A8%BB%E9%83%A8%E8%90%BD%7C%E5%8D%97%E6%A9%AB%E5%9F%A1%E5%8F%A3%7C%E5%8D%97%E6%A9%AB%E5%A4%A9%E6%B1%A0%7C%E7%94%B2%E4%BB%99%7C%E6%97%97%E5%B1%B1">Google Maps 全路線</a>
+    </div>
+    <div id="day2-map" class="route-map" aria-label="Day 2 route map"></div>
+    <div class="map-note">山區實際可通行路段、施工放行與導航路徑以當日公路局公告為準；這張圖不取代即時導航。</div>
+  </div>
+
   <div class="checkpoint"><div><h4>這一天的核心不是早起，是準時。</h4><p>施工點 161K+100 在利稻與向陽之間。行程設計目標為 11:45–12:00 抵達，銜接 11:50–13:20 放行窗口；通過後再進向陽、埡口、天池。</p></div><div class="clock"><div><b>09:00</b><span>飯店出發</span></div><div><b>11:50</b><span>目標放行窗口</span></div><div><b>14:00 前</b><span>進核心管制區</span></div><div><b>15:15–15:30</b><span>梅山口出來</span></div></div></div>
   <div class="timeline">
     <div class="stop"><div class="time">07:45</div><div class="stop-card"><h4>睡飽、吃早餐、慢慢整理</h4><p>第二天上午完全不塞台東市區景點。把體力留給高山路段，也避免前一晚逛完夜市隔天又得趕著起床。</p><div class="tags"><span class="tag">不趕行程</span><span class="tag">飯店早餐</span></div></div></div>
@@ -212,8 +230,8 @@
   <div class="section-title"><div><h2>沿路景點精選</h2></div><p>Day 1 已改成「少景點、深停留」；照片也以這次真正會去的地方為主，Day 2 則保留南橫核心景觀。</p></div>
   <div class="places">
     <article class="place"><div class="place-gallery"><img src="https://recreation.forest.gov.tw/Files/Forest/RA/photo/view/0600003/fac_0600003.jpg" alt="雙流瀑布"><img src="https://recreation.forest.gov.tw/Files/Forest/RA/photo/view/0600003/第一涉水區.jpg" alt="雙流溪流"><img src="https://recreation.forest.gov.tw/Files/Forest/RA/photo/view/0600003/彩虹橋.jpg" alt="雙流彩虹橋"></div><div class="place-body"><h4>雙流瀑布</h4><p>第一天真正的主景點。瀑布步道往返約 6 公里，官方建議遊客中心至瀑布來回約 3 小時。</p><small>推薦停留｜約 3 小時</small></div></article>
-    <article class="place"><div class="place-gallery"><img src="https://www.slowtaitung.com/photodata/20250807012802aa4e88.jpg" alt="穀臼那哪"><img src="https://cc.tvbs.com.tw/img/program/upload/2021/12/14/20211214164515-9a2f94bf.jpg" alt="力卡珈琲"><img src="https://lh3.ggpht.com/p/AF1QipPnKfFK9gOVdYi_00hV8W_x9wPirpIOYyMzmyeJ=s1024" alt="玉米江臭豆腐"></div><div class="place-body"><h4>金崙美食散策</h4><p>把穀臼那哪、力卡、玉米江與鳩谷視為同一個聚落停留區，不需要每吃一家就重新上車趕路。</p><small>推薦停留｜約 1.5 小時</small></div></article>
-    <article class="place"><div class="place-gallery"><img src="https://pimg.1px.tw/blog/tungbin/album/404197606/883090043273680546.jpg" alt="福興宮招財貓"><img src="https://www.lookit.tw/upload/o5/nHF/e4fa0a14c30d428d8ec82c3f659d4238.jpg" alt="福興宮"><img src="https://www.taimali.gov.tw/home/cache/preview/5717fa87a22c608519e3ebd62a77df66.jpg" alt="太麻里"></div><div class="place-body"><h4>太麻里｜農會＋福興宮</h4><p>先趕在 17:00 前買農產品，再去招財貓土地公。兩站相距不遠，是進台東市區前很順的收尾。</p><small>推薦停留｜合計約 45 分鐘</small></div></article>
+    <article class="place"><div class="place-gallery"><img src="https://tour.taitung.gov.tw/image/55576/?r=1780388109756" alt="金崙沙灘"><img src="https://bdsone.taitung.gov.tw/photodata/20251110023223_1794ea.webp" alt="穀臼那哪"><img src="https://supertaste-images.tvbs.com.tw/?url=https%3A%2F%2Fsupertaste-asset.tvbs.com.tw%2Flegacy%2Fimg%2Fprogram%2Fupload%2F2020%2F08%2F19%2F20200819102808-e48cec63.jpg&w=768&q=75" alt="力卡珈琲"></div><div class="place-body"><h4>金崙美食散策</h4><p>把穀臼那哪、力卡、玉米江、鳩谷與鹿燈下視為同一個聚落停留區，走路串著吃，不需要每一家都重新上車。</p><small>推薦停留｜約 1.5–1.75 小時</small></div></article>
+    <article class="place"><div class="place-gallery"><img src="https://tour.taitung.gov.tw/image/55580/?r=1780388198876" alt="福興宮招財貓"><img src="https://tour.taitung.gov.tw/image/52290/640x480" alt="福興宮"><img src="https://tour.taitung.gov.tw/image/55580/640x480" alt="太麻里福興宮"></div><div class="place-body"><h4>太麻里｜農會＋福興宮</h4><p>先趕在 17:00 前買農產品，再去招財貓土地公。兩站相距不遠，是進台東市區前很順的收尾。</p><small>推薦停留｜合計約 45 分鐘</small></div></article>
     <article class="place"><img src="https://tour.taitung.gov.tw/image/47143/?r=1718242357247" alt="霧鹿峽谷" loading="lazy"><div class="place-body"><h4>霧鹿峽谷</h4><p>第二天南橫東段景觀開始劇烈變化的地方，短停看峽谷與地質即可。</p><small>推薦停留｜20 分鐘</small></div></article>
     <article class="place"><img src="https://tour.taitung.gov.tw/image/47140/?r=1718242342097" alt="南橫埡口 2722 公尺" loading="lazy"><div class="place-body"><h4>埡口 2722 m</h4><p>真正感受到「越過中央山脈」尺度的一站，也是 Day 2 最不能刪的核心。</p><small>推薦停留｜20–25 分鐘</small></div></article>
     <article class="place"><img src="https://www.taiwan.nps.gov.tw/upload/filesys/image/01_chinese/2022_Journal/14/trail3.jpg" alt="南橫天池" loading="lazy"><div class="place-body"><h4>天池・長青祠</h4><p>這趟只走短版，把築路歷史、高山森林與天池景觀一起收進來，不壓縮下山緩衝。</p><small>推薦停留｜35–40 分鐘</small></div></article>
@@ -223,7 +241,7 @@
 <section id="stay"><div class="wrap">
   <div class="section-title"><div><h2>住宿與出發前準備</h2></div><p>這趟不是長途環島，但第二天有高山道路，準備方向跟一般市區自駕不太一樣。</p></div>
   <div class="hotel">
-    <div class="hotel-card"><h3>沐舍文旅・鐵花秀泰館</h3><p>位於台東市中山路，交通部觀光署資料顯示目前正常營運；飯店位置適合入住後改用步行逛市區與夜市。</p><div class="fact-list"><div class="fact"><span>地址</span><b>台東市中山路393號3樓</b></div><div class="fact"><span>電話</span><b>089-350201</b></div><div class="fact"><span>Day 1 建議入住</span><b>17:50–18:10</b></div><div class="fact"><span>Day 2 建議出發</span><b>09:00</b></div></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=沐舍文旅 鐵花秀泰館">開啟飯店地圖</a></div></div>
+    <div class="hotel-card"><h3>沐舍文旅・鐵花秀泰館</h3><p>位於台東市中山路，交通部觀光署資料顯示目前正常營運；飯店位置適合入住後改用步行逛市區與夜市。</p><div class="fact-list"><div class="fact"><span>地址</span><b>台東市中山路393號3樓</b></div><div class="fact"><span>電話</span><b>089-350201</b></div><div class="fact"><span>Day 1 建議入住</span><b>18:00–18:15</b></div><div class="fact"><span>Day 2 建議出發</span><b>09:00</b></div></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=沐舍文旅 鐵花秀泰館">開啟飯店地圖</a></div></div>
     <div class="prep"><h3>兩人自駕 Checklist</h3><p>南橫海拔高、天候變化快，第二天建議把補給一次準備完整。</p><div class="checklist"><div class="check">✓ 油箱在海端前補足</div><div class="check">✓ 每人至少 1–1.5L 飲水</div><div class="check">✓ 午餐／飯糰／麵包先買</div><div class="check">✓ 輕薄外套＋防風層</div><div class="check">✓ 雨具與止暈用品</div><div class="check">✓ 手機離線地圖／行動電源</div><div class="check">✓ 出發前查南橫通阻</div><div class="check">✓ 山區遇濃霧就降速或折返</div></div></div>
   </div>
 </div></section>
@@ -240,38 +258,75 @@
     <div class="source"><a target="_blank" href="https://www.taiwan.nps.gov.tw/home/zh-tw/topic/18654">臺灣國家公園｜南橫天池遊憩區與中之關步道</a><br>天池、長青祠與 3.5 公里中之關步道資訊。</div>
     <div class="source"><a target="_blank" href="https://media.taiwan.net.tw/zh-tw/portal/travel/details/hotel_a15010000h_014124">交通部觀光署｜沐舍文旅・鐵花秀泰館</a><br>旅館地址、電話與營運資訊。</div>
   </div>
-  <p style="margin-top:16px">照片來源：臺東縣政府觀光旅遊處、玉山國家公園管理處官方網站。景點開放、施工與天候均可能臨時調整。</p>
+  <p style="margin-top:16px">照片優先改用林業保育署、臺東縣政府觀光旅遊網與店家／媒體公開頁面；若來源臨時阻擋外連，頁面會顯示照片替代卡，不再出現破圖圖示。景點開放、施工與天候均可能臨時調整。</p>
 </div></section>
 </main>
-<footer><div class="wrap">旅程版本｜2026.10.07 更新 · 09.24–09.25 雙人自駕<br><span class="print-note">列印版本：建議 A4 直式，瀏覽器開啟「背景圖形」可保留版面效果。</span></div></footer>
+<footer><div class="wrap">旅程版本｜2026.10.07 晚間更新 · 09.24–09.25 雙人自駕<br><span class="print-note">列印版本：建議 A4 直式，瀏覽器開啟「背景圖形」可保留版面效果。</span></div></footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (function(){
-  const el = document.getElementById('day1-map');
-  if(!el || typeof L === 'undefined') return;
-  const map = L.map('day1-map', {scrollWheelZoom:false});
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
+  function makeMap(id, points){
+    const el = document.getElementById(id);
+    if(!el || typeof L === 'undefined') return;
+    const map = L.map(id, {scrollWheelZoom:false});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom:19,
+      attribution:'&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    const latlngs = points.map(p => [p.lat,p.lng]);
+    L.polyline(latlngs, {color:'#2d5c4b', weight:4, opacity:.82, dashArray:'7,8'}).addTo(map);
+    points.forEach(p => {
+      const icon = L.divIcon({className:'', html:'<span class="map-pin">'+p.n+'</span>', iconSize:[24,24], iconAnchor:[12,12]});
+      L.marker([p.lat,p.lng], {icon}).addTo(map).bindPopup('<b>'+p.name+'</b><br>'+p.note);
+    });
+    map.fitBounds(latlngs, {padding:[28,28]});
+  }
 
-  const points = [
+  makeMap('day1-map', [
     {n:'1', name:'高雄出發', lat:22.6273, lng:120.3014, note:'08:00'},
     {n:'2', name:'雙流國家森林遊樂區', lat:22.216149, lng:120.79956, note:'09:50–13:30｜瀑布完整版＋簡單午餐'},
-    {n:'3', name:'金崙美食散策', lat:22.531807, lng:120.967251, note:'14:20–15:50｜麵包→力卡→臭豆腐→蔥油餅'},
-    {n:'4', name:'太麻里地區農會', lat:22.60548, lng:121.00391, note:'16:15–16:40'},
-    {n:'5', name:'太麻里福興宮', lat:22.6126404, lng:121.0058779, note:'16:45–17:05'},
-    {n:'6', name:'沐舍文旅・鐵花秀泰館', lat:22.753382, lng:121.148911, note:'17:50–18:10 入住'}
-  ];
+    {n:'3', name:'金崙美食散策', lat:22.531807, lng:120.967251, note:'14:20–16:05｜麵包→力卡→玉米江→鳩谷→鹿燈下'},
+    {n:'4', name:'太麻里地區農會', lat:22.60548, lng:121.00391, note:'16:25–16:45'},
+    {n:'5', name:'太麻里福興宮', lat:22.6126404, lng:121.0058779, note:'16:50–17:10'},
+    {n:'6', name:'沐舍文旅・鐵花秀泰館', lat:22.753382, lng:121.148911, note:'18:00–18:15 入住'}
+  ]);
 
-  const latlngs = points.map(p => [p.lat,p.lng]);
-  L.polyline(latlngs, {color:'#2d5c4b', weight:4, opacity:.8, dashArray:'7,8'}).addTo(map);
-  points.forEach(p => {
-    const icon = L.divIcon({className:'', html:'<span class="map-pin">'+p.n+'</span>', iconSize:[24,24], iconAnchor:[12,12]});
-    L.marker([p.lat,p.lng], {icon}).addTo(map).bindPopup('<b>'+p.name+'</b><br>'+p.note);
+  makeMap('day2-map', [
+    {n:'1', name:'台東市區', lat:22.7534, lng:121.1489, note:'09:00 出發'},
+    {n:'2', name:'海端／關山補給', lat:23.1008, lng:121.1760, note:'10:00 左右'},
+    {n:'3', name:'霧鹿峽谷', lat:23.1408, lng:121.0648, note:'10:45'},
+    {n:'4', name:'利稻部落', lat:23.1830, lng:121.0280, note:'11:20'},
+    {n:'5', name:'向陽施工管制', lat:23.2480, lng:120.9860, note:'11:45｜銜接放行窗口'},
+    {n:'6', name:'埡口', lat:23.2740, lng:120.8870, note:'13:00'},
+    {n:'7', name:'天池・長青祠', lat:23.2680, lng:120.8210, note:'13:50'},
+    {n:'8', name:'梅山口', lat:23.2740, lng:120.7350, note:'15:15–15:30'},
+    {n:'9', name:'甲仙', lat:23.0830, lng:120.5910, note:'16:40'},
+    {n:'10', name:'旗山（選配）', lat:22.8880, lng:120.4830, note:'18:00'},
+    {n:'11', name:'左營', lat:22.6877, lng:120.2946, note:'19:00–20:00'}
+  ]);
+
+  const navLinks = [...document.querySelectorAll('#section-nav a[data-section]')];
+  const sections = navLinks.map(a => document.getElementById(a.dataset.section)).filter(Boolean);
+  const setActive = id => navLinks.forEach(a => a.classList.toggle('active', a.dataset.section === id));
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if(visible) setActive(visible.target.id);
+  }, {rootMargin:'-82px 0px -55% 0px', threshold:[0,.1,.25,.5]});
+  sections.forEach(s => observer.observe(s));
+  if(sections.length) setActive('overview');
+
+
+  document.querySelectorAll('img').forEach(img => {
+    img.referrerPolicy = 'no-referrer';
+    img.addEventListener('error', function handleImgError(){
+      img.removeEventListener('error', handleImgError);
+      const label = (img.alt || '旅程照片').replace(/[<>&]/g,'');
+      const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560"><rect width="100%" height="100%" fill="%23e7ece7"/><text x="50%" y="46%" dominant-baseline="middle" text-anchor="middle" fill="%23536b60" font-family="sans-serif" font-size="30">照片暫時無法載入</text><text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" fill="%23778980" font-family="sans-serif" font-size="20">'+label+'</text></svg>';
+      img.src = 'data:image/svg+xml;charset=UTF-8,' + svg;
+    });
   });
-  map.fitBounds(latlngs, {padding:[28,28]});
+
 })();
 </script>
 </body>
