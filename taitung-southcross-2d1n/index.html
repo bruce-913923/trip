@@ -52,6 +52,11 @@
   .route-map-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin-bottom:14px;flex-wrap:wrap}.route-map-head h3{margin:0;font-size:1.35rem}.route-map-head p{margin:3px 0 0;color:var(--muted);font-size:.9rem}
   .route-map{height:440px;border-radius:18px;overflow:hidden;border:1px solid #d7ded9;z-index:1}.map-note{font-size:.82rem;color:var(--muted);margin:10px 2px 0}
   .scene-photo{margin-top:16px}.scene-photo img{width:100%;height:230px;object-fit:cover;border-radius:14px}.scene-photo small{display:block;margin-top:6px;color:var(--muted);font-size:.76rem}
+  .exact-photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+  .exact-photo-grid figure{margin:0;background:#f3f5f1;border:1px solid #dfe4de;border-radius:14px;overflow:hidden}
+  .exact-photo-grid img{width:100%;height:155px;object-fit:cover}
+  .exact-photo-grid figcaption{padding:7px 9px;font-size:.76rem;color:#526159;font-weight:700}
+  @media(max-width:620px){.exact-photo-grid{grid-template-columns:1fr}.exact-photo-grid img{height:210px}}
   .photo-strip{display:grid;grid-template-columns:1.35fr .8fr .8fr;gap:7px;margin-top:16px}.photo-strip img{width:100%;height:150px;object-fit:cover;border-radius:12px}.photo-strip img:first-child{height:150px}
   .food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:14px}.food-chip{background:#f4f5ef;border:1px solid #dfe4da;border-radius:13px;padding:11px}.food-chip b{display:block;font-size:.9rem}.food-chip span{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
   .alert-inline{margin-top:14px;background:#fff8ef;border:1px solid #efd3b8;border-radius:14px;padding:12px 14px;font-size:.88rem;color:#6a4a3b}
@@ -147,10 +152,10 @@
 
     <div class="stop"><div class="time">14:20</div><div class="stop-card"><h4>金崙第一站｜穀臼那哪預訂麵包自取</h4><p>前一晚先看店家公布的隔日品項並私訊預訂；抵達後快速取貨即可。特色是自養酵母、長時間發酵，並把刺蔥、飛機菜、小米、紅藜等部落食材揉進麵包。</p>
       <div class="tags"><span class="tag">前一晚預訂</span><span class="tag orange">15:00 前自取</span><span class="tag">停 5–10 分</span></div>
-      <div class="photo-strip">
-        <img src="https://bdsone.taitung.gov.tw/photodata/20251110023223_1794ea.webp" alt="穀臼那哪手工麵包" loading="lazy">
-        <img src="https://tour.taitung.gov.tw/image/55576/?r=1780388109756" alt="金崙沙灘與聚落海景" loading="lazy">
-        <img src="https://tour.taitung.gov.tw/image/55577/?r=1780388137512" alt="金崙聖若瑟天主堂" loading="lazy">
+      <div class="exact-photo-grid">
+        <figure><img src="https://bdsone.taitung.gov.tw/photodata/20251110023223_1794ea.webp" alt="穀臼那哪手工麵包" loading="lazy"><figcaption>穀臼那哪｜店家／麵包</figcaption></figure>
+        <figure><img src="https://www.zztaitung.com/wp-content/uploads/2025/10/slowtaitung06.jpg" alt="穀臼那哪手工麵包工作室" loading="lazy"><figcaption>穀臼那哪｜店面與商品</figcaption></figure>
+        <figure><img src="https://maomao.tw/wp-content/uploads/2025/03/597371.jpg" alt="穀臼那哪酸種手工麵包" loading="lazy"><figcaption>穀臼那哪｜實際麵包</figcaption></figure>
       </div>
       <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=穀臼那哪手工麵包">Google Maps</a></div>
     </div></div>
@@ -173,16 +178,16 @@
         <div class="food-chip"><b>份量策略</b><span>兩人分食，不吃成正餐</span></div>
         <div class="food-chip"><b>時間策略</b><span>合計約 45–50 分</span></div>
       </div>
-      <div class="photo-strip">
-        <img src="https://tour.taitung.gov.tw/image/55576/?r=1780388109756" alt="金崙海邊與聚落" loading="lazy">
-        <img src="https://tour.taitung.gov.tw/image/55577/?r=1780388137512" alt="金崙聚落特色建築" loading="lazy">
-        <img src="https://bdsone.taitung.gov.tw/photodata/20251110023223_1794ea.webp" alt="金崙在地風土與手作麵包" loading="lazy">
+      <div class="exact-photo-grid">
+        <figure><img src="https://lh3.ggpht.com/p/AF1QipPnKfFK9gOVdYi_00hV8W_x9wPirpIOYyMzmyeJ=s1024" alt="玉米江臭豆腐店" loading="lazy"><figcaption>玉米江臭豆腐｜店面</figcaption></figure>
+        <figure><img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/524908492_744673121529477_8104088066386039380_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx2048x1533&amp;ctp=p600x600&amp;_nc_cat=101&amp;ccb=1-7&amp;_nc_sid=6376bf&amp;_nc_ohc=aMpUQRY4MIYQ7kNvwGo_Bpy&amp;_nc_oc=AdqxVtGUMWH0gF2DpJ7rZmQsKsjgQ00RSYVrSSOvbbeQOX7B80BRET50HQNeh1yUXeo&amp;_nc_zt=23&amp;_nc_ht=scontent-sjc6-1.xx&amp;_nc_gid=oEUfXDwZ0H9XbE_Y1A9v3Q&amp;_nc_ss=7b289&amp;oh=00_AQNy7F-fQMwGZxMNSxfuECjXR6cSmvA8r-4pVuFNszhOjg&amp;oe=6ACC3B84" alt="鳩谷蔥油餅" loading="lazy"><figcaption>鳩谷蔥油餅｜實際餐點</figcaption></figure>
+        <figure><img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/647301666_28158084993781943_970905646482775903_n.jpg?stp=cp6_dst-jpg_tt6&amp;cstp=mx2048x1536&amp;ctp=p600x600&amp;_nc_cat=107&amp;ccb=1-7&amp;_nc_sid=6376bf&amp;_nc_ohc=EYH-M0xuFIAQ7kNvwFf0rV1&amp;_nc_oc=Adq10D9GmVCc8WdzT8usQQ5CS5oHk9ptvtAbm2lB98tqH62_2qQYz97oTYtvh2cJnIo&amp;_nc_zt=23&amp;_nc_ht=scontent-sjc6-1.xx&amp;_nc_gid=EAZyJJe_PAFIF8_1-FWucQ&amp;_nc_ss=7b289&amp;oh=00_AQNPZJVwWNB9pWssmTM6_51dAsV4_nqhRBp4qAx8Xw8ngQ&amp;oe=6ACC4E2C" alt="鹿燈下小米甜甜圈" loading="lazy"><figcaption>鹿燈下小米甜甜圈｜實際攤位／甜甜圈</figcaption></figure>
       </div>
       <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=玉米江臭豆腐">玉米江地圖</a><a class="btn secondary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=鳩谷蔥油餅">鳩谷地圖</a><a class="btn secondary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=鹿燈下小米甜甜圈">鹿燈下地圖</a></div>
       <div class="alert-inline">如果雙流比預期晚超過 30 分鐘，先保住「預訂麵包自取」，力卡縮短成外帶，小吃則照排隊狀況彈性處理。</div>
     </div></div>
 
-    <div class="stop"><div class="time">16:25</div><div class="stop-card"><h4>太麻里地區農會｜農特產品補貨</h4><p>正式把「買農產品」放進旅程：優先看金針、洛神、小米／紅藜、釋迦加工品與當季農產。這站 17:00 關門，所以排在福興宮之前。</p><div class="tags"><span class="tag">農產品</span><span class="tag">伴手禮</span><span class="tag orange">20–25 分</span></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=太麻里地區農會農特產品展售中心">Google Maps</a></div></div></div>
+    <div class="stop"><div class="time">16:25</div><div class="stop-card"><h4>太麻里地區農會｜農特產品補貨</h4><p>正式把「買農產品」放進旅程：優先看金針、洛神、小米／紅藜、釋迦加工品與當季農產。這站 17:00 關門，所以排在福興宮之前。</p><div class="tags"><span class="tag">農產品</span><span class="tag">伴手禮</span><span class="tag orange">20–25 分</span></div><div class="scene-photo"><img src="https://ezgo.ardswc.gov.tw/_api/content/images/agrispots/646/1024x768_29d431466d4f46e185c7e49d85e20e2f.jpg" alt="太麻里地區農會農特產品展售中心" loading="lazy"><small>太麻里地區農會農特產品展售中心｜農業易遊網</small></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=太麻里地區農會農特產品展售中心">Google Maps</a></div></div></div>
 
     <div class="stop"><div class="time">16:50</div><div class="stop-card"><h4>太麻里福興宮｜招財貓土地公</h4><p>巨型招財貓、紅燈籠與土地公廟結合，停留 15–20 分鐘就很有記憶點。它營業時間比農會長，所以放在農會後面最沒有壓力。</p>
       <div class="tags"><span class="tag">招財祈福</span><span class="tag">特色廟宇</span><span class="tag orange">15–20 分</span></div>
@@ -248,7 +253,7 @@
     </div></div>
     <div class="stop"><div class="time">11:20</div><div class="stop-card"><h4>利稻部落</h4><p>海端鄉海拔最高的主要聚落之一，也是南橫東段很重要的布農族部落。整個村落坐在群山包圍的河階台地上，視野跟前面的峽谷完全不同；這站值得看，但停留控制在 10–15 分鐘。</p>
       <div class="tags"><span class="tag">布農文化</span><span class="tag">河階聚落</span><span class="tag orange">短停 10–15 分</span></div>
-      <div class="scene-photo"><img src="https://tour.taitung.gov.tw/image/47138/?r=1718242350227" alt="利稻部落" loading="lazy"><small>照片｜臺東縣政府觀光旅遊處</small></div>
+      <div class="scene-photo"><img src="https://www.peopo.org/files/public/styles/wide/public/gallery/5672/5672-144364.jpg.webp?itok=kVn-NrQw" alt="雲霧中的利稻部落" loading="lazy"><small>利稻部落實景｜PeoPo 公民新聞</small></div>
       <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=利稻部落">Google Maps</a></div>
     </div></div>
     <div class="stop"><div class="time">11:45</div><div class="stop-card" style="border-color:#e3a37b;background:#fff8f3"><h4>161K+100 向陽施工管制｜本日關鍵</h4><p><strong>目標銜接 11:50–13:20 開放時段。</strong> 若提前抵達就停妥等待，不要為了多塞一個景點延誤。官方公告亦提醒放行時段可能因施工狀況調整。</p><div class="tags"><span class="tag orange">重要</span><span class="tag orange">11:50–13:20</span></div></div></div>
@@ -298,7 +303,7 @@
   <div class="section-title"><div><h2>沿路景點精選</h2></div><p>Day 1 已改成「少景點、深停留」；照片也以這次真正會去的地方為主，Day 2 則保留南橫核心景觀。</p></div>
   <div class="places">
     <article class="place"><div class="place-gallery"><img src="https://recreation.forest.gov.tw/Files/Forest/RA/photo/view/0600003/fac_0600003.jpg" alt="雙流瀑布"><img src="https://recreation.forest.gov.tw/Files/Forest/RA/photo/view/0600003/第一涉水區.jpg" alt="雙流溪流"><img src="https://recreation.forest.gov.tw/Files/Forest/RA/photo/view/0600003/彩虹橋.jpg" alt="雙流彩虹橋"></div><div class="place-body"><h4>雙流瀑布</h4><p>第一天真正的主景點。瀑布步道往返約 6 公里，官方建議遊客中心至瀑布來回約 3 小時。</p><small>推薦停留｜約 3 小時</small></div></article>
-    <article class="place"><div class="place-gallery"><img src="https://tour.taitung.gov.tw/image/55576/?r=1780388109756" alt="金崙沙灘"><img src="https://bdsone.taitung.gov.tw/photodata/20251110023223_1794ea.webp" alt="穀臼那哪"><img src="https://supertaste-images.tvbs.com.tw/?url=https%3A%2F%2Fsupertaste-asset.tvbs.com.tw%2Flegacy%2Fimg%2Fprogram%2Fupload%2F2020%2F08%2F19%2F20200819102808-e48cec63.jpg&w=768&q=75" alt="力卡珈琲"></div><div class="place-body"><h4>金崙美食散策</h4><p>把穀臼那哪、力卡、玉米江、鳩谷與鹿燈下視為同一個聚落停留區，走路串著吃，不需要每一家都重新上車。</p><small>推薦停留｜約 1.5–1.75 小時</small></div></article>
+    <article class="place"><div class="place-gallery"><img src="https://bdsone.taitung.gov.tw/photodata/20251110023223_1794ea.webp" alt="穀臼那哪手工麵包"><img src="https://www.slowtaitung.com/photodata/20250731021021_29f5a0.webp" alt="LI.KA CAFE 力卡珈琲"><img src="https://lh3.ggpht.com/p/AF1QipPnKfFK9gOVdYi_00hV8W_x9wPirpIOYyMzmyeJ=s1024" alt="玉米江臭豆腐"></div><div class="place-body"><h4>金崙美食散策</h4><p>把穀臼那哪、力卡、玉米江、鳩谷與鹿燈下視為同一個聚落停留區，走路串著吃，不需要每一家都重新上車。</p><small>推薦停留｜約 1.5–1.75 小時</small></div></article>
     <article class="place"><div class="place-gallery"><img src="https://tour.taitung.gov.tw/image/55580/?r=1780388198876" alt="福興宮招財貓"><img src="https://tour.taitung.gov.tw/image/52290/640x480" alt="福興宮"><img src="https://tour.taitung.gov.tw/image/55580/640x480" alt="太麻里福興宮"></div><div class="place-body"><h4>太麻里｜農會＋福興宮</h4><p>先趕在 17:00 前買農產品，再去招財貓土地公。兩站相距不遠，是進台東市區前很順的收尾。</p><small>推薦停留｜合計約 45 分鐘</small></div></article>
     <article class="place"><img src="https://tour.taitung.gov.tw/image/47143/?r=1718242357247" alt="霧鹿峽谷" loading="lazy"><div class="place-body"><h4>霧鹿峽谷</h4><p>第二天南橫東段景觀開始劇烈變化的地方，短停看峽谷與地質即可。</p><small>推薦停留｜20 分鐘</small></div></article>
     <article class="place"><img src="https://tour.taitung.gov.tw/image/47140/?r=1718242342097" alt="南橫埡口 2722 公尺" loading="lazy"><div class="place-body"><h4>埡口 2722 m</h4><p>真正感受到「越過中央山脈」尺度的一站，也是 Day 2 最不能刪的核心。</p><small>推薦停留｜20–25 分鐘</small></div></article>
@@ -329,10 +334,10 @@
     <div class="source"><a target="_blank" href="https://media.taiwan.net.tw/zh-tw/portal/travel/details/hotel_a15010000h_014124">交通部觀光署｜沐舍文旅・鐵花秀泰館</a><br>旅館地址、電話與營運資訊。</div>
     <div class="source"><a target="_blank" href="https://tour.taitung.gov.tw/file/1044/">都蘭觀海平台｜台東最美星空</a><br>官方觀星指南列都蘭觀海平台為低遮蔽夜間觀星點，全天候開放並設停車場、景觀台。</div>
   </div>
-  <p style="margin-top:16px">照片優先改用林業保育署、臺東縣政府觀光旅遊網與店家／媒體公開頁面；若來源臨時阻擋外連，頁面會顯示照片替代卡，不再出現破圖圖示。景點開放、施工與天候均可能臨時調整。</p>
+  <p style="margin-top:16px">照片現在採「一對一地點」原則：餐飲卡只放該店／該餐點，景點卡只放該景點；不再用附近海景或其他地標補圖。若來源臨時阻擋外連，頁面會顯示替代卡，不會拿別的照片代替。景點開放、施工與天候均可能臨時調整。</p>
 </div></section>
 </main>
-<footer><div class="wrap">旅程版本｜2026.10.07 Day 2 圖片更新 · 09.24–09.25 雙人自駕<br><span class="print-note">列印版本：建議 A4 直式，瀏覽器開啟「背景圖形」可保留版面效果。</span></div></footer>
+<footer><div class="wrap">旅程版本｜2026.10.07 圖片精準校正 · 09.24–09.25 雙人自駕<br><span class="print-note">列印版本：建議 A4 直式，瀏覽器開啟「背景圖形」可保留版面效果。</span></div></footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
