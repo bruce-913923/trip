@@ -51,6 +51,7 @@
   .route-map-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:18px;margin:8px 0 34px;box-shadow:0 12px 30px rgba(52,56,42,.06)}
   .route-map-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin-bottom:14px;flex-wrap:wrap}.route-map-head h3{margin:0;font-size:1.35rem}.route-map-head p{margin:3px 0 0;color:var(--muted);font-size:.9rem}
   .route-map{height:440px;border-radius:18px;overflow:hidden;border:1px solid #d7ded9;z-index:1}.map-note{font-size:.82rem;color:var(--muted);margin:10px 2px 0}
+  .scene-photo{margin-top:16px}.scene-photo img{width:100%;height:230px;object-fit:cover;border-radius:14px}.scene-photo small{display:block;margin-top:6px;color:var(--muted);font-size:.76rem}
   .photo-strip{display:grid;grid-template-columns:1.35fr .8fr .8fr;gap:7px;margin-top:16px}.photo-strip img{width:100%;height:150px;object-fit:cover;border-radius:12px}.photo-strip img:first-child{height:150px}
   .food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:14px}.food-chip{background:#f4f5ef;border:1px solid #dfe4da;border-radius:13px;padding:11px}.food-chip b{display:block;font-size:.9rem}.food-chip span{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
   .alert-inline{margin-top:14px;background:#fff8ef;border:1px solid #efd3b8;border-radius:14px;padding:12px 14px;font-size:.88rem;color:#6a4a3b}
@@ -225,7 +226,7 @@
 </div></section>
 
 <section class="mountain" id="day2"><div class="wrap">
-  <div class="section-title"><div><div class="eyebrow" style="color:var(--forest);border-color:#aebfb4;background:#f3f7f3">DAY 2 · FRIDAY</div><h2>台東 → 南橫 → 甲仙 → 左營</h2></div><p>取消森林公園與鹿野高台，早上不用為了景點提早退房。早餐吃完、整理好，09:00 左右才正式離開台東。</p></div>
+  <div class="section-title"><div><div class="eyebrow" style="color:var(--forest);border-color:#aebfb4;background:#f3f7f3">DAY 2 · FRIDAY</div><h2>台東 → 南橫 → 甲仙 → 左營</h2></div><p>取消森林公園與鹿野高台，早上不用為了景點提早退房。這版把 Day 2 的核心停靠點都補上實景照片，進山前就能先知道每一站大概會看到什麼。</p></div>
 
   <div class="route-map-card" id="day2-route-map">
     <div class="route-map-head"><div><h3>Day 2 南橫路線地圖</h3><p>從台東市區往海端進台 20 線，翻過埡口到梅山口，再經甲仙、旗山回左營。地圖主要用來看山線各點的相對位置。</p></div>
@@ -240,14 +241,54 @@
     <div class="stop"><div class="time">07:45</div><div class="stop-card"><h4>睡飽、吃早餐、慢慢整理</h4><p>第二天上午完全不塞台東市區景點。把體力留給高山路段，也避免前一晚逛完夜市隔天又得趕著起床。</p><div class="tags"><span class="tag">不趕行程</span><span class="tag">飯店早餐</span></div></div></div>
     <div class="stop"><div class="time">09:00</div><div class="stop-card"><h4>退房｜直接往海端</h4><p>離開台東市區後一路北上，接台 20 線。沿途不再繞鹿野，讓進山時間掌握在自己手上。</p><div class="tags"><span class="tag">直上南橫</span></div></div></div>
     <div class="stop"><div class="time">10:00</div><div class="stop-card"><h4>海端／關山｜最後補給</h4><p>把油箱補足、買好水、咖啡與簡單午餐。南橫裡不要預設「餓了再找店」，食物先準備好，時間會自由很多。</p><div class="tags"><span class="tag">加油</span><span class="tag">午餐外帶</span><span class="tag">飲水</span></div></div></div>
-    <div class="stop"><div class="time">10:45</div><div class="stop-card"><h4>霧鹿峽谷</h4><p>新武呂溪長年切割形成深邃峽谷，岩壁又因溫泉礦物沉積呈現多層次色澤。這一段開始，景觀會從縱谷快速切換成高山峽谷。</p><div class="tags"><span class="tag">峽谷</span><span class="tag">地質</span><span class="tag orange">停留 20 分</span></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=霧鹿峽谷">Google Maps</a></div></div></div>
-    <div class="stop"><div class="time">11:20</div><div class="stop-card"><h4>利稻部落</h4><p>海拔超過 1,000 公尺的布農族部落，聚落坐落在被山勢包圍的河階台地上。這站值得停，但要控制在 10–15 分鐘，避免錯過後方工程放行。</p><div class="tags"><span class="tag">布農文化</span><span class="tag">河階聚落</span><span class="tag orange">短停 10–15 分</span></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=利稻部落">Google Maps</a></div></div></div>
+    <div class="stop"><div class="time">10:45</div><div class="stop-card"><h4>霧鹿峽谷</h4><p>新武呂溪長年切割形成深邃的大 S 型峽谷，溫泉礦物又把岩壁染出黃、棕、黑、墨綠等色層。這一段開始，景觀會從縱谷快速切換成真正的高山峽谷。</p>
+      <div class="tags"><span class="tag">峽谷</span><span class="tag">地質</span><span class="tag orange">停留 20 分</span></div>
+      <div class="scene-photo"><img src="https://tour.taitung.gov.tw/image/47143/?r=1718242357247" alt="霧鹿峽谷" loading="lazy"><small>照片｜臺東縣政府觀光旅遊處</small></div>
+      <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=霧鹿峽谷">Google Maps</a></div>
+    </div></div>
+    <div class="stop"><div class="time">11:20</div><div class="stop-card"><h4>利稻部落</h4><p>海端鄉海拔最高的主要聚落之一，也是南橫東段很重要的布農族部落。整個村落坐在群山包圍的河階台地上，視野跟前面的峽谷完全不同；這站值得看，但停留控制在 10–15 分鐘。</p>
+      <div class="tags"><span class="tag">布農文化</span><span class="tag">河階聚落</span><span class="tag orange">短停 10–15 分</span></div>
+      <div class="scene-photo"><img src="https://tour.taitung.gov.tw/image/47138/?r=1718242350227" alt="利稻部落" loading="lazy"><small>照片｜臺東縣政府觀光旅遊處</small></div>
+      <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=利稻部落">Google Maps</a></div>
+    </div></div>
     <div class="stop"><div class="time">11:45</div><div class="stop-card" style="border-color:#e3a37b;background:#fff8f3"><h4>161K+100 向陽施工管制｜本日關鍵</h4><p><strong>目標銜接 11:50–13:20 開放時段。</strong> 若提前抵達就停妥等待，不要為了多塞一個景點延誤。官方公告亦提醒放行時段可能因施工狀況調整。</p><div class="tags"><span class="tag orange">重要</span><span class="tag orange">11:50–13:20</span></div></div></div>
-    <div class="stop"><div class="time">12:30</div><div class="stop-card"><h4>向陽｜進入南橫高山核心</h4><p>通過施工區後，旅行正式進入最有「翻越中央山脈」感的一段。此後不再新增東段小景點，直接把時間留給埡口與天池。</p><div class="tags"><span class="tag">高山段</span><span class="tag">午餐可車上簡單吃</span></div></div></div>
-    <div class="stop"><div class="time">13:00</div><div class="stop-card"><h4>埡口｜海拔 2,722 m</h4><p>南橫代表性的高海拔地標，也是中央山脈兩側氣候與視野切換最有感的位置。天候好時，山谷、雲海與層層山稜非常壯觀。</p><div class="tags"><span class="tag">本日必留</span><span class="tag">高山景觀</span><span class="tag orange">停留 20–25 分</span></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=南橫 埡口">Google Maps</a></div></div></div>
-    <div class="stop"><div class="time">13:50</div><div class="stop-card"><h4>天池＋長青祠｜走「短版」就好</h4><p>長青祠紀念南橫築路殉職人員，觀景平台能遠眺山谷；天池則是南橫高山地標之一。這趟只安排 35–40 分鐘，不走完整中之關步道（全程單程約 1.5 小時）。</p><div class="tags"><span class="tag">人文</span><span class="tag">高山湖泊</span><span class="tag orange">35–40 分</span></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=南橫 天池 長青祠">Google Maps</a></div></div></div>
-    <div class="stop"><div class="time">15:15</div><div class="stop-card"><h4>梅山口｜提早離開管制核心</h4><p>目標 15:15–15:30 左右離開梅山口，而不是卡著 17:00 最後淨空時間。這樣即使路上遇到慢車、落石清理或臨時小等待，仍保有足夠安全餘裕。</p><div class="tags"><span class="tag">安全緩衝</span><span class="tag">離開核心管制段</span></div></div></div>
-    <div class="stop"><div class="time">16:40</div><div class="stop-card"><h4>甲仙｜芋冰休息站</h4><p>開完南橫後最適合真正坐下來休息的一站。文化路一帶以芋冰、芋粿等芋頭小吃聞名，抓 30–40 分鐘補充糖分、上洗手間、伸展。</p><div class="tags"><span class="tag">芋冰</span><span class="tag">休息</span><span class="tag orange">30–40 分</span></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=甲仙 芋冰一條街">Google Maps</a></div></div></div>
+    <div class="stop"><div class="time">12:30</div><div class="stop-card"><h4>向陽｜進入南橫高山核心</h4><p>通過施工區後，海拔快速拉高到兩千公尺以上，二葉松、紅檜與雲霧帶開始成為主角。這一站以沿線高山景觀為主；向陽森林遊樂區目前仍有工程休園範圍，不把「進園」當成行程必要條件。</p>
+      <div class="tags"><span class="tag">高山段</span><span class="tag">雲海／松林</span><span class="tag">午餐可車上簡單吃</span></div>
+      <div class="photo-strip">
+        <img src="https://recreation.forest.gov.tw/Files/Forest/RA/photo/view/0700002/fac_0700002.jpg" alt="向陽高山森林景觀" loading="lazy">
+        <img src="https://recreation.forest.gov.tw/Files/Forest/RA/photo/trail/0700002/0700002005202109130.jpg" alt="向陽步道與松林" loading="lazy">
+        <img src="https://recreation.forest.gov.tw/image/special/700002_01.jpg" alt="向陽森林與雲霧" loading="lazy">
+      </div>
+      <div class="stop-actions"><a class="btn secondary" target="_blank" href="https://recreation.forest.gov.tw/Forest/RA?typ=0&typ_id=0700002">官方資訊</a></div>
+    </div></div>
+    <div class="stop"><div class="time">13:00</div><div class="stop-card"><h4>埡口｜海拔 2,722 m</h4><p>南橫公路最高點，也是東、西兩側氣候與地形切換最有感的一站。季風抬升時常在約 2,500 公尺形成雲海，天氣乾淨時則可以看到一層又一層的中央山脈稜線。</p>
+      <div class="tags"><span class="tag">本日必留</span><span class="tag">高山景觀</span><span class="tag orange">停留 20–25 分</span></div>
+      <div class="scene-photo"><img src="https://tour.taitung.gov.tw/image/47140/?r=1718242342097" alt="南橫埡口" loading="lazy"><small>照片｜臺東縣政府觀光旅遊處</small></div>
+      <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=南橫 埡口">Google Maps</a></div>
+    </div></div>
+    <div class="stop"><div class="time">13:50</div><div class="stop-card"><h4>天池＋長青祠｜走「短版」就好</h4><p>長青祠是為紀念闢建南橫時殉職的工作人員而設，旁邊就是中之關古道天池端入口；再往上走可到天池。這裡同時有築路歷史、森林與高山湖泊，是 Day 2 最完整的一站。</p>
+      <div class="tags"><span class="tag">人文</span><span class="tag">高山湖泊</span><span class="tag orange">35–40 分</span></div>
+      <div class="photo-strip">
+        <img src="https://www.taiwan.nps.gov.tw/upload/filesys/image/01_chinese/2022_Journal/14/trail1.jpg" alt="南橫天池遊憩區" loading="lazy">
+        <img src="https://www.taiwan.nps.gov.tw/upload/filesys/image/01_chinese/2022_Journal/14/trail2.jpg" alt="長青祠與中之關步道周邊" loading="lazy">
+        <img src="https://www.taiwan.nps.gov.tw/upload/filesys/image/01_chinese/2022_Journal/14/trail3.jpg" alt="天池高山森林景觀" loading="lazy">
+      </div>
+      <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=南橫 天池 長青祠">Google Maps</a><a class="btn secondary" target="_blank" href="https://www.taiwan.nps.gov.tw/home/zh-tw/topic/18654">官方介紹</a></div>
+    </div></div>
+    <div class="stop"><div class="time">15:15</div><div class="stop-card"><h4>梅山口｜提早離開管制核心</h4><p>梅山口是南橫西段進出玉山國家公園的重要門戶，也是山區少數有完整遊客服務的節點。這裡的重點不是久玩，而是確認已順利離開核心管制路段、上洗手間並稍作休息。</p>
+      <div class="tags"><span class="tag">安全緩衝</span><span class="tag">布農文化</span><span class="tag">遊客中心</span></div>
+      <div class="photo-strip">
+        <img src="https://khh.travel/image/42832/1920x1080" alt="梅山遊客中心空拍" loading="lazy">
+        <img src="https://khh.travel/Image/42839/?r=1673340917544" alt="梅山遊客中心與山景" loading="lazy">
+        <img src="https://khh.travel/Image/42836/?r=1674098215282" alt="梅山周邊森林步道" loading="lazy">
+      </div>
+      <div class="stop-actions"><a class="btn secondary" target="_blank" href="https://khh.travel/zh-tw/attractions/detail/90/">官方介紹</a></div>
+    </div></div>
+    <div class="stop"><div class="time">16:40</div><div class="stop-card"><h4>甲仙｜芋冰休息站</h4><p>從高山路段下來後，甲仙就是最適合真正坐下來休息的一站。文化路、中正路一帶是「筍芋之鄉」的核心商圈，芋冰、芋粿、芋圓、芋仔餅都集中在這裡。</p>
+      <div class="tags"><span class="tag">芋冰</span><span class="tag">山城商圈</span><span class="tag orange">30–40 分</span></div>
+      <div class="scene-photo"><img src="https://khh.travel/image/50374/1920x1080" alt="甲仙形象商圈" loading="lazy"><small>照片｜高雄旅遊網</small></div>
+      <div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=甲仙 芋冰一條街">Google Maps</a><a class="btn secondary" target="_blank" href="https://khh.travel/zh-tw/attractions/detail/54/">官方介紹</a></div>
+    </div></div>
     <div class="stop"><div class="time">18:00</div><div class="stop-card"><h4>旗山老街｜選配晚餐</h4><p>如果兩個人精神都還好，就在旗山用老街與晚餐收尾；如果山路已經開累了，這站直接取消，甲仙休息完就回左營。</p><div class="tags"><span class="tag">選配</span><span class="tag">晚餐</span><span class="tag">老街</span></div><div class="stop-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=旗山老街">Google Maps</a></div><div class="optional"><strong>體力優先：</strong>旗山不是必跑景點；Day 2 的主菜已經是南橫。</div></div></div>
     <div class="stop"><div class="time">19:00–20:00</div><div class="stop-card"><h4>回到左營</h4><p>若跳過旗山，會較早回家；若在旗山吃晚餐，大約落在 20:00 左右抵達左營。實際依當天山區路況與停留時間調整。</p><div class="tags"><span class="tag">旅程結束</span></div></div></div>
   </div>
@@ -281,7 +322,9 @@
     <div class="source"><a target="_blank" href="https://thbu3.thb.gov.tw/cp.aspx?n=11472">公路局南區養護工程分局｜南橫公路通行狀況</a><br>梅山口–向陽原則 07:00–14:00 進入、17:00 前離開，每週二三四不開放。</div>
     <div class="source"><a target="_blank" href="https://thbu3.thb.gov.tw/News_Content_table.aspx?n=4796&s=304988">公路局｜台20線 161K+100 向陽施工管制</a><br>2026/09/14–10/31 分段放行，包含 11:50–13:20 開放窗口。</div>
     <div class="source"><a target="_blank" href="https://tour.taitung.gov.tw/zh-tw/tour/details/885">台東觀光旅遊網｜南迴火車一日遊</a><br>太麻里、金崙海灘、多良車站等景點資料。</div>
-    <div class="source"><a target="_blank" href="https://tour.taitung.gov.tw/zh-tw/tour/details/112">台東觀光旅遊網｜南橫山線</a><br>埡口、利稻部落、霧鹿峽谷等景點介紹。</div>
+    <div class="source"><a target="_blank" href="https://tour.taitung.gov.tw/zh-tw/tour/details/112">台東觀光旅遊網｜南橫山線</a><br>埡口、利稻部落、霧鹿峽谷等景點介紹與官方照片。</div>
+    <div class="source"><a target="_blank" href="https://recreation.forest.gov.tw/Forest/RA?typ=0&typ_id=0700002">林業保育署｜向陽國家森林遊樂區</a><br>向陽高山森林、步道與目前工程休園資訊。</div>
+    <div class="source"><a target="_blank" href="https://khh.travel/zh-tw/attractions/detail/90/">高雄旅遊網｜梅山遊客中心與甲仙形象商圈</a><br>南橫西段梅山口與甲仙山城官方景點介紹及照片。</div>
     <div class="source"><a target="_blank" href="https://www.taiwan.nps.gov.tw/home/zh-tw/topic/18654">臺灣國家公園｜南橫天池遊憩區與中之關步道</a><br>天池、長青祠與 3.5 公里中之關步道資訊。</div>
     <div class="source"><a target="_blank" href="https://media.taiwan.net.tw/zh-tw/portal/travel/details/hotel_a15010000h_014124">交通部觀光署｜沐舍文旅・鐵花秀泰館</a><br>旅館地址、電話與營運資訊。</div>
     <div class="source"><a target="_blank" href="https://tour.taitung.gov.tw/file/1044/">都蘭觀海平台｜台東最美星空</a><br>官方觀星指南列都蘭觀海平台為低遮蔽夜間觀星點，全天候開放並設停車場、景觀台。</div>
@@ -289,7 +332,7 @@
   <p style="margin-top:16px">照片優先改用林業保育署、臺東縣政府觀光旅遊網與店家／媒體公開頁面；若來源臨時阻擋外連，頁面會顯示照片替代卡，不再出現破圖圖示。景點開放、施工與天候均可能臨時調整。</p>
 </div></section>
 </main>
-<footer><div class="wrap">旅程版本｜2026.10.07 星空方案更新 · 09.24–09.25 雙人自駕<br><span class="print-note">列印版本：建議 A4 直式，瀏覽器開啟「背景圖形」可保留版面效果。</span></div></footer>
+<footer><div class="wrap">旅程版本｜2026.10.07 Day 2 圖片更新 · 09.24–09.25 雙人自駕<br><span class="print-note">列印版本：建議 A4 直式，瀏覽器開啟「背景圖形」可保留版面效果。</span></div></footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
