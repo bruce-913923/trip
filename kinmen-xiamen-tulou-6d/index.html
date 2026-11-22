@@ -269,7 +269,8 @@ const choose=(i,scroll)=>{
   document.querySelectorAll('[data-nav-day]').forEach(b=>b.classList.toggle('active',Number(b.dataset.navDay)===i));
   const events=d.events.map(e=>{
     const mode=e[3],query=e[5],t=labels[mode],detail=e[4];
-    return '<article class="event"><div class="clock">'+esc(e[0])+'</div><div class="event-main"><h4>'+esc(e[1])+'</h4><p>'+esc(e[2])+'</p><div class="event-tags"><span class="event-tag '+(mode==='fixed'?'fixed':mode==='shop'?'shop':mode==='warn'?'warn':'')+'">'+t+'</span>'+(detail?'<span class="event-tag">'+esc(detail)+'</span>':'')+'</div>'+(query?'<div class="event-action"><a class="action" target="_blank" rel="noopener" href="'+gao(query)+'">高德地圖 ↗</a><a class="action secondary" target="_blank" rel="noopener" href="'+apple(query)+'">Apple 地圖 ↗</a></div>':'')+'</div></article>';
+    const detailLinks=guideData.filter(g=>g.day===i&&e[1].includes(g.match)).slice(0,2).map(g=>'<a class="guide-jump" href="#guide-'+g.id+'">📖 '+esc(g.title.split('｜')[0])+' 介紹 ↗</a>').join('');
+    return '<article class="event"><div class="clock">'+esc(e[0])+'</div><div class="event-main"><h4>'+esc(e[1])+'</h4><p>'+esc(e[2])+'</p><div class="event-tags"><span class="event-tag '+(mode==='fixed'?'fixed':mode==='shop'?'shop':mode==='warn'?'warn':'')+'">'+t+'</span>'+(detail?'<span class="event-tag">'+esc(detail)+'</span>':'')+'</div>'+(query?'<div class="event-action"><a class="action" target="_blank" rel="noopener" href="'+gao(query)+'">高德地圖 ↗</a><a class="action secondary" target="_blank" rel="noopener" href="'+apple(query)+'">Apple 地圖 ↗</a></div>':'')+detailLinks+'</div></article>';
   }).join('');
   $('day-panel').innerHTML='<header class="day-banner"><div><span class="pill '+((i===1||i===5)?'warn':'')+'">DAY 0'+(i+1)+' · 2026/'+esc(d.date)+'（'+esc(d.dow)+'） · '+esc(d.mood)+'</span><h3>'+esc(d.headline)+'</h3><p class="note">'+esc(d.tip)+'</p></div><span style="font-size:2.5rem">'+(['🏯','🌊','🎭','🏝️','🏛️','✈️'][i])+'</span></header><div class="day-timeline">'+events+'</div><div class="day-bottom"><div><b>🍽️ 當日餐食</b><p>'+esc(d.meals)+'</p></div><div><b>🛏️ 當晚住宿</b><p>'+esc(d.hotel)+'</p></div></div>';
   setMapDay(i);
@@ -401,6 +402,49 @@ document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{
   });
 }
 renderPriceTables();
+
+
+// Per-stop field guide. Explanations distinguish sourced site history from itinerary estimates.
+const guideData=[
+{day:0,id:'tulou',match:'土樓民俗文化村',title:'永定土樓民俗文化村｜世界遺產',desc:'福建土樓不是單獨的一棟房子，而是一套整個家族共同生活的防禦型住宅。厚實的夯土外牆、向內開放的天井、少量的外側開口，兼顧居住與防護。福建土樓的代表性建築於 2008 年列入 UNESCO 世界遺產。洪坑村保留許多不同平面形式的土樓。',look:'先從溪橋看村落與土樓的關係，再近距離觀察夯土牆、木構廊道、集體生活空間。',tips:'這天從廈門轉車到永定，抵達可能已是下午；先看最核心的兩棟，別把時間全花在買紀念品。',time:'景區若要仔細走 1.5–2 小時；跟團實際時間依車程。',source:'https://whc.unesco.org/en/list/1113/',sourceLabel:'UNESCO 官方介紹',query:'洪坑土樓民俗文化村'},
+{day:0,id:'zhencheng',match:'土樓民俗文化村',title:'振成樓｜人稱「土樓王子」',desc:'振成樓是洪坑土樓群最著名的圓樓之一。外環四層、每層四十八間，依八卦方位分隔；內環有兩層，中央公共廳堂融合中西建築元素。比起只在外面拍照，走進庭院才看得出同一棟樓如何讓許多家庭共同生活。',look:'站在中央天井向上拍環形樓層；看防火隔牆、樓梯、拱門和中堂石柱。',tips:'建議先拍全景再細看，部分樓層可能限制參觀或另有管理要求，不要預設能登高。',time:'建議 25–40 分鐘。',source:'https://www.longyan.gov.cn/fw/zstp/rdlb/202511/t20251107_2255844.htm',sourceLabel:'龍岩市政府景區介紹',query:'永定振成樓'},
+{day:0,id:'fuyu',match:'土樓民俗文化村',title:'福裕樓｜府第式土樓',desc:'福裕樓不像振成樓是圓形，而是偏向府第式、庭院式的聚落住宅。看這棟可以理解：土樓並非一律都要圓形，客家家族會因地形、家族需求與當代風格發展多樣建築。',look:'看對稱院落、門廊、紅磚與木構造，以及多進式的住宅佈局。',tips:'若時間很短，把振成樓作為第一優先，福裕樓補充另一種土樓樣式。',time:'建議 20–30 分鐘。',source:'https://www.longyan.gov.cn/fw/zstp/rdlb/202511/t20251107_2255844.htm',sourceLabel:'龍岩市政府',query:'永定福裕樓'},
+{day:0,id:'bonfire',match:'篝火狂歡',title:'篝火狂歡晚會｜客家夜間活動',desc:'計畫書列有篝火晚會，通常是團體交流與夜間民俗氛圍活動；節目形式、是否有客家歌舞、地點與是否因天候停辦，文件並沒有寫明。',look:'當作旅行第一晚的文化體驗，不用期待每晚有固定規模的大型表演。',tips:'若天氣轉冷帶薄外套，活動仍依飯店或導遊當晚確認。',time:'約 30–60 分鐘（純推估）。',source:'',sourceLabel:'',query:'永定土樓王子大酒店'},
+{day:1,id:'fengdong',match:'風動石',title:'東山風動石｜海邊巨石奇觀',desc:'東山島的代表地標，海邊巨石因形態與「風吹似乎會晃動」的傳說而聞名。景區依著礁石海岸，還能觀察古城、海景與閩南石頭景觀的組合。',look:'從側面拍巨石與石座的比例，再把海景帶進畫面。',tips:'海邊風較大，岩石邊注意腳步；不要攀爬危險邊緣。',time:'建議 30–45 分鐘。',source:'https://www.trip.com/travel-guide/attraction/dongshan/dongshan-wind-rock-scenic-area-80785/',sourceLabel:'景區資訊與評論',query:'東山風動石景區'},
+{day:1,id:'guandi',match:'關帝廟',title:'東山關帝廟｜閩南與海洋信仰',desc:'東山島關帝信仰具有地方歷史意義，廟宇裝飾和屋脊細節能觀察閩南傳統匠藝。它與海島社會的航海、商貿及宗教活動相連，適合與風動石一起看。',look:'留意牌樓、剪黏、木雕、石雕與廟前廣場的視角。',tips:'進廟時尊重祭祀活動，拍照先看現場告示。',time:'建議 20–30 分鐘。',source:'https://www.trip.com/travel-guide/destination/dongshan-2662/',sourceLabel:'東山島旅遊指南',query:'東山關帝廟'},
+{day:1,id:'nanmen',match:'南門灣',title:'南門灣｜彩色海灣聚落',desc:'南門灣沿著彎曲海岸分布民居與海堤，因彩色房屋與海景相映而受攝影旅客歡迎。這裡的魅力是漁港小鎮的生活氛圍，不是有大量需要逐一買票的景點。',look:'從高處看彎月形海岸，沿海堤拍房屋、海浪、居民生活。',tips:'跟團時間少，選一段海堤散步就好；沿岸汽機車及潮汐仍要注意。',time:'建議 30–50 分鐘。',source:'https://www.trip.com/moments/destination-dongshan-island-2140865/',sourceLabel:'旅客東山島遊記',query:'東山島南門灣'},
+{day:1,id:'jimei',match:'集美學村',title:'集美學村＋龍舟池｜華僑教育建築',desc:'集美學村與陳嘉庚推動的教育事業密切相關，學校建築呈現閩南屋頂、現代式教學建築與西式元素相融合的「嘉庚風格」。龍舟池是景觀核心之一，池岸邊能看連續的校舍立面。',look:'沿龍舟池取景，看紅瓦與白色牆面倒映水中。',tips:'若 11/23 車程較晚，只能夕陽或夜間短停，不能當成完整步行參訪。',time:'建議 30–45 分鐘。',source:'https://www.trip.com/travel-guide/attraction/xiamen/jimei-school-village-10558788/',sourceLabel:'集美景點資訊',query:'集美學村龍舟池'},
+{day:2,id:'tea',match:'茶文化體驗',title:'中國茶文化與品茶｜購物站也是文化體驗',desc:'福建與烏龍茶文化有深厚關聯，品茶常會介紹茶類、沖泡次數、水溫與香氣特色；但這個行程沒有指明店家、茶山或茶葉品牌，所以不能預先判定商品品質。',look:'試著比較清香型、焙火型風味，留意茶葉克數與產地而不只是禮盒包裝。',tips:'詢價時請店員明確說「一盒淨重幾克、是哪一款、實付人民幣多少」，沒有喜歡不買也可以。',time:'站點約 40–90 分鐘（預估）。',source:'',sourceLabel:'',query:'廈門茶文化'},
+{day:2,id:'oldyard',match:'老院子',title:'廈門老院子｜閩南紅磚古厝與民俗',desc:'老院子以閩南古厝、紅磚、燕尾脊、院落和漁村生活為主題，屬文化主題園區而非原樣保存的歷史古村。可快速理解閩南民居、僑鄉與海洋文化之間的連結。',look:'看紅磚古厝的燕尾脊、院落空間和傳統生活展示。',tips:'園區與《閩南傳奇》表演是不同安排；抓緊演出入場時間。',time:'建議約 1–1.5 小時（團體可能更短）。',source:'https://www.loongwander.com/zh-TW/article/xiamen-laoyuanzi-scenic-area',sourceLabel:'園區介紹',query:'廈門老院子景區'},
+{day:2,id:'legend',match:'閩南傳奇',title:'《閩南傳奇》秀｜會移動的觀眾席',desc:'這不是一般固定座位舞台劇。環形劇場透過機械觀眾席的轉動，讓觀眾逐段面對不同演出場景，內容圍繞閩南歷史、民俗與海洋文化，結合聲光、舞蹈和大型場景。',look:'留意座椅移動時視角如何轉換，以及舞台上的水幕、船舶、歌舞等場景。',tips:'近期 Trip.com 評價約 4.8/5；演出場次固定，與導遊確認幾點進場。若對暈動敏感，可先詢問座位移動情形。',time:'整體約 1.5–2 小時（實際演出以當場為準）。',source:'https://tw.trip.com/travel-guide/attraction/xiamen/huaxia-performance-legend-of-southern-fujian-show-22638192/',sourceLabel:'Trip.com 真實觀眾心得',query:'閩南傳奇秀'},
+{day:3,id:'silk',match:'絲綢博物館',title:'絲綢博物館｜如何判斷材質',desc:'計畫書只寫「絲綢博物館」，沒有明確博物館正式名稱或地址，因此不宜自行認定是公立館。可以當成材質與蠶絲織物展示、伴隨產品介紹的站點。',look:'觀察蠶絲來源、織物樣品及不同混紡纖維的標示。',tips:'如遇絲被或床組推銷，要求完整中文品名、蠶絲填充重量（不是被子總重）、檢驗標籤、退貨條款和幣別；不需要購買。',time:'約 40–90 分鐘（預估）。',source:'',sourceLabel:'',query:'廈門絲綢博物館'},
+{day:3,id:'walkway',match:'山海健康步道',title:'山海健康步道｜城市空中散步',desc:'廈門山海健康步道是結合山丘、架空橋梁與城市景觀的步行系統，部分路段可看到山海相接與城市高樓。整條主線不是旅行團能一次走完的長度，通常選景觀較好的入口走一段。',look:'可以拍高架橋的流線、樹冠、廈門市景與遠處海面。',tips:'導遊需指定確切步道入口；帶水、防曬並穿好走的鞋。只走一小段也能看景。',time:'建議 30–60 分鐘。',source:'https://xmjkbd.com/',sourceLabel:'步道營運介紹',query:'廈門山海健康步道'},
+{day:3,id:'gulangyu',match:'鼓浪嶼',title:'鼓浪嶼｜2017 年世界文化遺產',desc:'鼓浪嶼曾是近代國際交流重鎮，1843 年廈門開港，島上逐漸形成閩南、西式與僑鄉文化交融的建築景觀，留下別墅、花園與洋樓街巷。2017 年列入 UNESCO 世界文化遺產。',look:'與其匆匆拍海邊，不如留意彩色門窗、長廊、紅磚、石板路及各式建築細部。',tips:'上島需搭船，島上以步行為主；確認導遊指定的碼頭、回船集合點與時間。',time:'團體半日 3–4 小時左右（含船等候，視實際安排）。',source:'https://whc.unesco.org/en/list/1541/',sourceLabel:'UNESCO 官方介紹',query:'廈門鼓浪嶼'},
+{day:3,id:'longtou',match:'龍頭路',title:'龍頭路｜小吃與紀念品熱區',desc:'鼓浪嶼的龍頭路是遊客最容易逛到的商業街區，沿線小吃、糕點、手作與伴手禮聚集。熱鬧但熱門店也可能排隊，部分招牌價格偏觀光區。',look:'可以挑幾間有特色的店，拍騎樓與巷弄，不必每家都試。',tips:'此日晚餐自理，不想逛太久可選沙茶麵、魚丸湯等閩南小吃；先看價目表並顧好集合時間。',time:'建議 30–45 分鐘。',source:'https://whc.unesco.org/en/list/1541/',sourceLabel:'鼓浪嶼歷史背景',query:'鼓浪嶼龍頭路'},
+{day:3,id:'beach',match:'港仔後沙灘',title:'港仔後沙灘｜鼓浪嶼的海邊',desc:'從街巷轉到鼓浪嶼海岸，沙灘讓旅程從建築散步變成海灣景色。可看鼓浪嶼與廈門本島的水岸環境，配合天空和岸邊礁石拍照。',look:'低角度拍浪花、海面與日光；黃昏通常更有層次。',tips:'不建議為短暫停留準備游泳，注意潮汐、濕滑石面，團體請勿離開太遠。',time:'建議 15–30 分鐘。',source:'https://whc.unesco.org/en/list/1541/',sourceLabel:'鼓浪嶼 UNESCO',query:'鼓浪嶼港仔後沙灘'},
+{day:4,id:'tongrentang',match:'同仁堂',title:'同仁堂參訪｜認明成分與品項',desc:'同仁堂是中醫藥相關品牌，但計畫書沒有標明實際分店或展示內容。這種行程站點可能包含品牌故事、產品介紹及選購；不能事先推定產品適合個人服用。',look:'可了解傳統中藥材分類、製程與標示，但切勿把推銷當成個人醫療建議。',tips:'若是藥品、保健品請看成分與合法標示，服用前確認與現有藥物是否衝突；不需要現場購買。',time:'約 40–80 分鐘（預估）。',source:'',sourceLabel:'',query:'廈門同仁堂'},
+{day:4,id:'nanputuo',match:'南普陀寺',title:'南普陀寺｜廈門佛教古剎',desc:'南普陀位於五老峰南麓、鄰近廈門大學，是廈門代表性寺院之一。可看到典型佛教寺院軸線上的殿宇、香客活動與石雕、佛教題材裝飾。',look:'沿寺前廣場看殿宇與山景的層次，留意屋頂細節與石階。',tips:'宗教場所保持安靜，不拍攝限制區域；高溫或下雨時留意石階安全。',time:'建議 40–60 分鐘。',source:'https://www.trip.com/travel-guide/attraction/xiamen/south-putuo-temple-75930/',sourceLabel:'南普陀景區資訊',query:'廈門南普陀寺'},
+{day:4,id:'xmu',match:'廈門大學',title:'廈門大學｜本團只看校園外觀',desc:'廈門大學毗鄰南普陀與沙坡尾，是近代中國具代表性的高校之一。它的傳統式屋頂與近代校舍常被稱作嘉庚風格的一部分，但本團計畫書只安排「外觀」，沒有承諾進校園。',look:'可從外側拍校門、周邊街景與建築環境。',tips:'不要因網路照片看到芙蓉湖或校內景點就以為團體一定會入校；校園參觀另有規範。',time:'外觀停留約 10–25 分鐘。',source:'https://www.xmu.edu.cn/',sourceLabel:'廈門大學官網',query:'廈門大學'},
+{day:4,id:'timeisland',match:'時光幻境',title:'屿見閩南・時光幻境｜互動式文化園區',desc:'把閩南不同年代的街巷場景、民俗演出、角色互動和主題活動融合在一個園區。旅客評論特別提到室內表演與 NPC 互動，適合把時間花在演出而非只快速拍照。',look:'先看節目表，挑 1–2 場最想看的演出，再安排閩南風格街景拍照。',tips:'Trip.com 建議 3–5 小時；跟團約下午半天，入園先確認場次時間。',time:'建議 2.5–4 小時，依團體實際停留。',source:'https://tw.trip.com/travel-guide/attraction/xiamen/time-meets-island-150107038/',sourceLabel:'2026 旅客評論',query:'屿見閩南時光幻境'},
+{day:4,id:'zhongshan',match:'中山路',title:'中山路步行街｜廈門老城騎樓',desc:'中山路是廈門老城區的重要商業街區，街道兩側有連續騎樓、商店與地方小吃。可以把它看作城市日常生活與近代街景的集合，而不是只有購物。',look:'拍騎樓連續拱廊、老店招牌和入夜燈光。',tips:'人多時集合最重要，先確認集合位置和門牌；若自由購物，也先問明價格幣別。',time:'建議 45–75 分鐘。',source:'https://www.trip.com/travel-guide/attraction/xiamen/zhongshan-road-pedestrian-street-85948/',sourceLabel:'中山路景點資訊',query:'廈門中山路步行街'},
+{day:5,id:'coast',match:'環島路',title:'七彩環島路｜沿海城市景觀',desc:'環島路串聯廈門島東南一側的濱海景觀，能看到沙灘、綠地與海灣。這天計畫書列為「車遊」，不代表每個觀景點都會下車。',look:'車上沿海看浪潮、沙灘與自行車道，適合快速體會廈門海岸城市的特色。',tips:'因 10:00 船班優先，這段海岸車遊可能縮短，請勿為了拍照延誤回程。',time:'約 15–30 分鐘（車覽估算）。',source:'https://www.trip.com/travel-guide/attraction/xiamen/huandao-road-75916/',sourceLabel:'環島路資訊',query:'廈門環島路'},
+{day:5,id:'bridge',match:'五緣灣大橋',title:'五緣灣大橋｜現代廈門的海灣',desc:'五緣灣在廈門島東北部，是近代都市更新及休閒水岸的一部分；經過大橋可以看海灣、道路與現代城市天際線。',look:'車上欣賞兩側海灣與橋樑構造即可。',tips:'此站主要是車覽，無法保證停車拍照。船班優先。',time:'車覽約 5–15 分鐘。',source:'',sourceLabel:'',query:'廈門五緣灣大橋'},
+{day:5,id:'juguang',match:'莒光樓',title:'金門莒光樓｜戰地精神象徵',desc:'莒光樓建於 1952 年，以中國傳統城樓風格結合現代基座，展示金門戰地文化與民俗。金門觀光旅遊網介紹頂樓可遠眺金廈風景，館內也有胡璉將軍相關展示。',look:'先拍整棟樓的外觀與牌樓式屋頂，時間允許上樓俯瞰金門。',tips:'官方介紹參觀免費；團體實際停留取決於返台班機的報到時間。',time:'建議 30–60 分鐘。',source:'https://kinmen.travel/zh-tw/Travel/Attraction/389',sourceLabel:'金門觀光官方介紹',query:'金門莒光樓'}
+];
+function renderGuides(){
+ const target=$('guide-cards');
+ target.innerHTML=days.map((day,d)=>'<div class="guide-day"><h3>DAY 0'+(d+1)+' · '+esc(day.date)+'｜'+esc(day.headline)+'</h3><div class="guide-grid">'+guideData.filter(g=>g.day===d).map(g=>
+   '<details class="guide-card" id="guide-'+esc(g.id)+'"><summary>'+esc(g.title)+'</summary><div class="inner"><p>'+esc(g.desc)+'</p><div class="label">🔎 到現場看什麼</div><p class="val">'+esc(g.look)+'</p><div class="label">💡 跟團實用提醒</div><p class="val">'+esc(g.tips)+'</p><div class="label">⏱️ 建議停留</div><p class="val">'+esc(g.time)+'</p><div class="guide-links"><a class="action" target="_blank" rel="noopener" href="'+gao(g.query)+'">高德地圖 ↗</a>'+(g.source?'<a class="action secondary" target="_blank" rel="noopener" href="'+esc(g.source)+'">'+esc(g.sourceLabel)+' ↗</a>':'')+'</div></div></details>'
+ ).join('')+'</div></div>').join('');
+ // Clicking a deep link opens the corresponding accordion.
+ document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#guide-"]');
+  if(!a)return;
+  const details=document.getElementById(a.getAttribute('href').slice(1));
+  if(details)details.open=true;
+ });
+}
+renderGuides();
 
 const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const defaultDay=Math.max(0,Math.min(5,parseInt(today.slice(-2),10)-22));
