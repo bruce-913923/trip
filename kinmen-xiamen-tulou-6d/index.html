@@ -254,6 +254,8 @@ h3{font-size:19px;margin:0}
 @media(max-width:540px){.update-banner{align-items:start}.update-banner button{padding:9px;font-size:11px}}
 
 
+/* Keep iOS/WebKit native overscroll navigation from competing with the in-page gesture. */
+@supports (overscroll-behavior-y: contain){html,body{overscroll-behavior-y:contain}}
 /* App-style pull-to-refresh for iPhone Home Screen and mobile browsers. */
 .pull-refresh{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));left:50%;z-index:100;pointer-events:none;display:flex;align-items:center;gap:9px;min-height:42px;max-width:calc(100vw - 30px);padding:9px 15px;border-radius:99px;background:#fff;color:#245c43;border:1px solid #cee0d0;box-shadow:0 8px 28px #123d3328;font-size:12px;font-weight:850;white-space:nowrap;opacity:0;transform:translate(-50%,calc(-125% + var(--pull-reveal,0px)));transition:opacity .12s ease,transform .12s ease}
 .pull-refresh.visible{opacity:1}
