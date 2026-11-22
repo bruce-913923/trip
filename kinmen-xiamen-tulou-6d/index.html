@@ -26,6 +26,49 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
 @media(max-width:830px){.day-chooser{grid-template-columns:repeat(3,1fr)}.stay-grid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.metric:nth-child(3){border-left:0;border-top:1px solid var(--line)}.metric:nth-child(4){border-top:1px solid var(--line)}}
 @media(max-width:560px){.hero{min-height:395px}.hero .wrap{padding:56px 0 76px}.hero h1{font-size:2.8rem}.hero p{font-size:.92rem}section{padding:43px 0}.summary{margin-top:-32px}.metric{padding:14px}.metric b{font-size:1rem}.day-chooser{gap:7px}.day-choice{padding:13px 9px;border-radius:12px}.day-choice b{font-size:.88rem}.day-choice small{font-size:.7rem}.day-banner{padding:20px;grid-template-columns:1fr}.day-timeline{padding:20px 13px 0}.event{grid-template-columns:49px 1fr;gap:22px}.event:before{left:60px}.event .clock{font-size:.8rem}.event-main{padding:13px}.event-main:before{left:-28px}.day-bottom{grid-template-columns:1fr;padding:18px}.map-canvas{height:345px}.stay-grid,.photogrid,.info-grid{grid-template-columns:1fr}.photo img{height:220px}.hero-stats span{font-size:.75rem}.map-head{padding:15px}}
 @media print{nav,.floating,.map-controls,.action{display:none!important}.hero{min-height:auto}.hero .wrap{padding:22px 0}.summary{margin-top:0}.day-choice{background:white!important;color:var(--ink)!important}.day-choice[aria-selected=false]{display:none}.event-main,.stay-card,.info-card{break-inside:avoid}.map-canvas{height:220px}}
+
+/* On-site field guide: prices, stories, reviews */
+.quick-jumps{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.quick-jumps a{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;text-decoration:none;border:1px solid #bccfc0;background:#fffdf8;color:var(--green);border-radius:99px;font-size:.85rem;font-weight:850}
+.quick-jumps a:hover{background:#e1eee3}
+.price-intro{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:var(--green);color:white;border-radius:19px;padding:19px 20px;margin-bottom:18px}
+.price-intro p{font-size:.85rem;color:#dbebe1}
+.category-title{font-size:1.19rem;margin:25px 0 10px;display:flex;align-items:center;gap:9px}
+.price-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:17px;background:var(--paper);box-shadow:0 8px 20px #142b2009}
+.price-table{width:100%;border-collapse:collapse;min-width:660px;font-size:.88rem}
+.price-table th{background:#edf2e9;color:#355848;font-size:.78rem;text-align:left;white-space:nowrap;padding:12px 11px}
+.price-table td{padding:12px 11px;border-top:1px solid #e9e9df;vertical-align:middle}
+.price-table td:nth-child(2){color:var(--sub);font-size:.81rem;max-width:230px}
+.price-table td strong{font-size:1.02rem;color:var(--green)}
+.price-table td a{color:#1c6448;font-size:.79rem;font-weight:850;text-underline-offset:3px}
+.price-input{width:96px;border:1px solid #cbd7cb;background:white;border-radius:9px;padding:8px 9px;font-size:.9rem;font-variant-numeric:tabular-nums}
+.price-status{display:block;color:#526d59;margin-top:5px;font-size:.76rem;font-weight:750;white-space:normal;max-width:190px}
+.price-status.high{color:#a94c33}.price-status.low{color:#29714c}.price-status.equal{color:#66776d}
+.price-chip{display:inline-block;padding:3px 8px;background:#e0eee5;border-radius:99px;color:#286045;font-size:.75rem;font-weight:800}
+.guide-tip{font-size:.86rem;color:#52655a;background:#f0f4ec;padding:13px 16px;border-left:3px solid #83a889;border-radius:11px;margin:14px 0}
+.guide-day{padding-top:23px}
+.guide-day>h3{color:var(--green);font-size:1.2rem;margin:0 0 12px}
+.guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.guide-card{border:1px solid #dadfd5;background:var(--paper);border-radius:17px;overflow:hidden;align-self:start;scroll-margin-top:85px}
+.guide-card summary{list-style:none;padding:16px 18px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:.98rem;font-weight:850;line-height:1.4}
+.guide-card summary::-webkit-details-marker{display:none}.guide-card summary::after{content:"＋";color:var(--green);font-size:1.18rem}.guide-card[open] summary::after{content:"−"}
+.guide-card[open] summary{background:#eef4eb;border-bottom:1px solid #d9e5d9}
+.guide-card .inner{padding:16px 18px;font-size:.89rem}.guide-card .inner p{margin-bottom:12px;color:#43594d}
+.guide-card .label{font-size:.76rem;font-weight:850;color:#276346;margin:9px 0 3px}.guide-card .val{margin:0;color:#526559}
+.guide-card .guide-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.guide-jump{display:inline-flex;align-items:center;margin-top:10px;padding:5px 9px;background:#e7efe9;border:1px solid #d1dfd3;border-radius:9px;font-size:.79rem;font-weight:850;text-decoration:none;color:#2c6246}
+.reviews-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.review-card{border:1px solid var(--line);background:var(--paper);border-radius:18px;padding:18px}
+.review-card h3{font-size:1.04rem;margin:7px 0}
+.review-card p{color:#52645a;font-size:.89rem;margin:0 0 12px}
+.review-type{display:inline-block;font-size:.73rem;font-weight:900;padding:4px 9px;border-radius:99px;background:#e5efe8;color:#346249}
+.review-type.risk{background:#fff0dd;color:#9b532e}
+.review-card a{font-size:.84rem;color:var(--green);font-weight:850}
+.shopping-notes{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:14px}
+.shopping-notes>div{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:16px;font-size:.87rem;color:#526559}
+.shopping-notes strong{display:block;color:var(--green);margin-bottom:5px}
+@media(max-width:730px){.guide-grid,.reviews-grid,.shopping-notes{grid-template-columns:1fr}.price-intro{grid-template-columns:1fr}}
+@media print{.price-input{display:none}.guide-card{break-inside:avoid}.quick-jumps{display:none}}
 </style>
 </head>
 <body>
@@ -38,7 +81,7 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
 <nav aria-label="頁面導航"><div class="wrap nav-inner">
   <a href="#overview">總覽</a><a href="#schedule">每日行程</a>
   <button data-nav-day="0">DAY 1</button><button data-nav-day="1">DAY 2</button><button data-nav-day="2">DAY 3</button><button data-nav-day="3">DAY 4</button><button data-nav-day="4">DAY 5</button><button data-nav-day="5">DAY 6</button>
-  <a href="#map-section">地圖</a><a href="#hotels">住宿</a><a href="#tips">提醒</a>
+  <a href="#shopping">價格速查</a><a href="#guides">景點故事</a><a href="#reviews">旅客心得</a><a href="#map-section">地圖</a><a href="#hotels">住宿</a><a href="#tips">提醒</a>
 </div></nav>
 <main>
 <section class="summary" id="overview"><div class="wrap">
@@ -49,15 +92,32 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
     <div class="metric"><span>交通方式</span><b>飛機＋小三通＋遊覽車</b></div>
   </div>
   <div class="route"><span>高雄／台中</span><i>→</i><span>金門</span><i>→</i><span>廈門</span><i>→</i><span>永定土樓</span><i>→</i><span>東山島</span><i>→</i><span>廈門</span><i>→</i><span>金門</span><i>→</i><span>台灣</span></div>
-  <div class="notice"><strong>購物站自由參觀・沒有強制購物</strong>茶葉、絲綢、乳膠、同仁堂及特產等站點可隨意看看；喜歡再向店員詢價，不需要購買。團體的集合時間與行程仍以當天導遊通知為準。</div>
+  <div class="quick-jumps"><a href="#shopping">🛍️ 商品價格</a><a href="#guides">📖 景點介紹</a><a href="#reviews">💬 社群心得</a><a href="#schedule">🗓️ 今日行程</a></div><div class="notice"><strong>購物站自由參觀・沒有強制購物</strong>茶葉、絲綢、乳膠、同仁堂及特產等站點可隨意看看；喜歡再向店員詢價，不需要購買。團體的集合時間與行程仍以當天導遊通知為準。</div>
 </div></section>
 
+
+<section id="shopping"><div class="wrap">
+  <div class="section-head"><div><div class="overline">PRICE CHECK · 2026.11.22</div><h2>金門購物價格速查</h2></div><p>貢糖、牛肉乾、鋼刀與麵線的品牌和實際比價來源。直接在現場輸入店家報價，馬上看到價差；輸入紀錄會保留在這台手機的瀏覽器。</p></div>
+  <div class="price-intro"><div><b>參考售價均為新台幣 NT$，不是人民幣。</b><p>價格是本次查詢到的公開賣場售價，可能變動。促銷、運費、重量與款式不同時，請先確認是否為同一商品再比較。</p></div><span style="font-size:2.5rem">🧮</span></div>
+  <h3 class="category-title">🍬 豬腳貢糖｜四家品牌比較</h3><div class="price-table-wrap"><table class="price-table"><thead><tr><th>品牌</th><th>規格／特色</th><th>公開參考價</th><th>現場報價（NT$）</th><th>價源</th></tr></thead><tbody id="price-candy"></tbody></table></div>
+  <div class="guide-tip">這四款都標示 12 入，但單包重量不一定相同：金瑞成標示 220g±10g，其它需看包裝。聖祖 NT$170 是官網會員價，不能單憑比別牌貴就說旅行社加價。買前確認試吃口感、保存期限與多包折扣。</div>
+  <h3 class="category-title">🥩 牛肉乾｜先看品牌，再核對克數</h3><div class="price-table-wrap"><table class="price-table"><thead><tr><th>品牌</th><th>規格／備註</th><th>公開參考價</th><th>現場報價（NT$）</th><th>價源</th></tr></thead><tbody id="price-jerky"></tbody></table></div>
+  <div class="guide-tip">牛肉乾比較容易比錯：不同容量、牛肉角／薄片、口味都會改變售價。未確認重量的價格只能當「大致行情」，不能視為同規格價差。想精準比較可以用「售價 ÷ 克數 × 100」算每 100g 成本。</div>
+  <h3 class="category-title">🔪 金門鋼刀｜與早上看到的價牌對照</h3><div class="price-table-wrap"><table class="price-table"><thead><tr><th>品牌／型號</th><th>規格</th><th>網路參考價</th><th>現場報價（NT$）</th><th>價源</th></tr></thead><tbody id="price-knife"></tbody></table></div>
+  <div class="guide-tip">鋼刀是按「型號＋單刀或刀組」比價。早上看到的價牌：金永利 B1-1 NT$1,600、B1 雙刀 NT$2,900、金合利 D4 NT$1,800、F1 雙刀 NT$3,600，已預填供你直接比較。特價可能不含運費或有數量限制；購買後放托運行李，勿隨身登機。</div>
+  <h3 class="category-title">🍜 麵線與其他特產</h3><div class="price-table-wrap"><table class="price-table"><thead><tr><th>品牌</th><th>規格</th><th>公開參考價</th><th>現場報價（NT$）</th><th>價源</th></tr></thead><tbody id="price-extra"></tbody></table></div>
+  <div class="shopping-notes">
+    <div><strong>旅遊團購物站：完全自由</strong>這團沒有強制購物。喜歡商品再問價格、有效日期與退貨條件；不買直接參觀即可。店家若主張「團員優惠」，可和上方公開價核對。</div>
+    <div><strong>乳膠／絲綢／茶葉／同仁堂</strong>品項沒有統一可比規格，勿只看標價打幾折；請要求重量、材質、成分、產地與人民幣實付價明確列出。沒有需求就不必當場決定。</div>
+  </div>
+</div></section>
 <section id="schedule"><div class="wrap">
   <div class="section-head"><div><div class="overline">ITINERARY</div><h2>每天去哪裡？</h2></div><p>點選日期切換當天時間軸。紫色「固定班次」依計畫書；其他時間依一般車程與參觀節奏推估。</p></div>
   <div class="day-chooser" id="day-chooser" role="tablist" aria-label="選擇日期"></div>
   <div class="day-panel" id="day-panel" aria-live="polite"></div>
 </div></section>
 
+<section id="guides"><div class="wrap"><div class="section-head"><div><div class="overline">SCENIC FIELD GUIDE</div><h2>景點背景與看點</h2></div><p>按照六天的行程排列；點景點名稱展開歷史、拍照重點、建議停留與實用提醒。</p></div><div class="guide-tip">要預先讀的重點：振成樓和福裕樓、東山島三景、閩南傳奇、鼓浪嶼、中山路。每個導覽卡都會附資料來源連結。</div><div id="guide-cards"></div></div></section>
 <section id="map-section"><div class="wrap">
   <div class="section-head"><div><div class="overline">INTERACTIVE MAP</div><h2>景點在哪裡？</h2></div><p>一般街道地圖，不是衛星圖。可縮放、拖曳並點擊標記；虛線僅表示行程順序，不代表實際行車路線。</p></div>
   <div class="map-card">
@@ -88,6 +148,21 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
   </div>
 </div></section>
 
+
+<section id="reviews"><div class="wrap">
+  <div class="section-head"><div><div class="overline">COMMUNITY & GUEST REVIEWS</div><h2>其他旅客真實心得</h2></div><p>區分網友參團遊記、景點評論與飯店住客反饋，僅摘要與本次行程相關的部分。</p></div>
+  <div class="notice amber"><strong>不是這一團的評價</strong>目前沒有查到能確認屬於本次 2026/11/22、14 人同團、同業者的公開評論。下面的 Dcard、PTT 是其他旅行團，不能用來指稱本團強制購物；你已說明這團是自願選購。</div>
+  <div class="reviews-grid" style="margin-top:16px">
+    <article class="review-card"><span class="review-type risk">Dcard｜2024・其他金廈購物團</span><h3>參團客分享購物站推銷過程</h3><p>一位旅客寫到乳膠、茶葉、蠶絲等站點的長時間說明與團員之間的購買壓力，並提及部分費用未事先充分告知。是當事人的個別體驗，與你這團的購物規則不能混為一談。</p><a href="https://www.dcard.tw/f/travel/p/254925312" target="_blank" rel="noopener">看 Dcard 原始遊記（2024/3）↗</a></article>
+    <article class="review-card"><span class="review-type risk">PTT｜2019・其他金廈五日團</span><h3>低價團曾有「購物站停太久」抱怨</h3><p>這篇舊心得抱怨旅遊景點被壓縮、購物站停留偏長以及現場推銷壓力。年份很久，不能推論今日本團必然出現一樣的情況；現場以旅行社安排與你實際經驗為準。</p><a href="https://www.ptt.cc/bbs/travel/M.1558894125.A.5F0.html" target="_blank" rel="noopener">看 PTT 原始心得 ↗</a></article>
+    <article class="review-card"><span class="review-type">Trip.com｜永定土樓旅遊心得</span><h3>土樓最大看點是內外環結構</h3><p>旅遊攻略多建議拍振成樓圓形全景、內庭八卦式分隔、福裕樓的府第格局。這團可能傍晚到，建議先看最重要的建築細節再拍團照。</p><a href="https://www.longyan.gov.cn/fw/zstp/rdlb/202511/t20251107_2255844.htm" target="_blank" rel="noopener">核對龍岩官方景點介紹 ↗</a></article>
+    <article class="review-card"><span class="review-type">Trip.com｜閩南傳奇秀・2026</span><h3>移動座椅與多舞台是觀眾最常提到的特色</h3><p>頁面旅客評分約 4.8/5，評論稱座位會隨演出移動，音樂與場景結合有特色。需注意原計畫書沒有寫確定演出梯次，入場依導遊通知。</p><a href="https://tw.trip.com/travel-guide/attraction/xiamen/huaxia-performance-legend-of-southern-fujian-show-22638192/" target="_blank" rel="noopener">看 Trip.com 旅客評論 ↗</a></article>
+    <article class="review-card"><span class="review-type">Trip.com｜嶼見閩南・2026</span><h3>互動表演多，不宜只當拍照景點</h3><p>Trip.com 約 4.6/5，旅客特別提及沉浸式表演與角色互動。平台建議停留 3–5 小時；你這團若只停一個下午，先看演出時刻比較值得。</p><a href="https://tw.trip.com/travel-guide/attraction/xiamen/time-meets-island-150107038/" target="_blank" rel="noopener">看 Trip.com 旅客評論 ↗</a></article>
+    <article class="review-card"><span class="review-type">Trip.com｜翔鷺大酒店・2026/8–10</span><h3>房間寬敞受好評，但要確認是不是無窗團體房</h3><p>2026 年住客有稱讚飯店規模、房間和服務的心得，也有入住登記流程、洗衣機不足的抱怨。平台確實有「經濟雙床房－無窗」房型，建議向旅行社查實際配房名稱。</p><a href="https://tw.trip.com/hotels/xiamen-hotel-detail-375295/xianglu-grand-hotel/review.html" target="_blank" rel="noopener">看飯店住客評論 ↗</a></article>
+    <article class="review-card"><span class="review-type">PTT｜小三通交通經驗・2026</span><h3>船班與回程機票是最後一天的重點</h3><p>有 2026 年旅客分享金廈小三通行程與兩岸交通經驗；但船班仍可能因天候和海象變更。你這團最重要是 11/27 10:00 開船，優先預留通關時間。</p><a href="https://www.ptt.cc/bbs/Jinmen/M.1769911753.A.399.html" target="_blank" rel="noopener">看 PTT 金廈交通遊記 ↗</a></article>
+  </div>
+  <div class="guide-tip">閱讀社群評論請看發文日期、旅行社是否相同、是不是同一套行程與飯店房型。單篇個人心得不是普遍事實，旅遊平台的分數也會變動。</div>
+</div></section>
 <section id="tips"><div class="wrap">
   <div class="section-head"><div><div class="overline">TRAVEL NOTES</div><h2>出發與當地小提醒</h2></div></div>
   <div class="info-grid">
