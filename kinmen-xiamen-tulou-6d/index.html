@@ -324,7 +324,6 @@ function activateMap(){
   window.setTimeout(()=>{if(!mapLoaded){$('map-standby').innerHTML='<span style="font-size:2rem">🧭</span><b>街道底圖暫時無法載入</b><p>可能是網路連線限制；可點下方景點按鈕直接用高德地圖／Apple 地圖開啟導航。</p>';}},14000);
  }catch(e){$('map-standby').innerHTML='<b>目前無法載入互動地圖</b><p>下方景點導航仍可使用。</p>';}
 }
-
 // Public reference prices checked 2026-11-22; values are NT$, not guaranteed shop quotes.
 const priceCatalog={
  candy:[
@@ -351,21 +350,16 @@ const priceCatalog={
   {id:'e3',name:'天一｜豬腳貢糖（團購）',spec:'14 顆・210g±5%・11/18 截團促銷；非現售保證',ref:130,url:'https://sichago.com.tw/groupDetail/10418',label:'歷史團購價'}
  ]
 };
+
 function renderPriceTables(){
+  const safeGet=k=>{try{return localStorage.getItem(k)}catch(_){return null}};
+  const safeSet=(k,v)=>{try{localStorage.setItem(k,v)}catch(_){}};
   ['candy','jerky','knife','extra'].forEach(group=>{
     const target=$('price-'+group);
     target.innerHTML=priceCatalog[group].map(item=>{
-      const saved=localStorage.getItem('kinmen_quoted_'+item.id);
+      const saved=safeGet('kinmen_quoted_'+item.id);
       const quote=saved!==null?saved:(item.quote!==undefined?String(item.quote):'');
-      return '<tr><td><b>'+esc(item.name)+'</b></td><td>'+esc(item.spec)+'</td><td><strong>NT('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-const defaultDay=Math.max(0,Math.min(5,parseInt(today.slice(-2),10)-22));
-choose(today.startsWith('2026-11-')?defaultDay:0,false);
-activateMap();
-document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none';img.parentElement.style.minHeight='210px'}));
-})();
-</script>
-</body>
-</html>+item.ref.toLocaleString('en-US')+'</strong></td><td><label><input type="number" class="price-input" min="0" step="1" inputmode="numeric" aria-label="'+esc(item.name)+'現場售價" placeholder="輸入價格" data-price-id="'+item.id+'" value="'+esc(quote)+'"></label><span class="price-status" id="stat-'+item.id+'"></span></td><td><a href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+esc(item.label)+' ↗</a></td></tr>';
+      return '<tr><td><b>'+esc(item.name)+'</b></td><td>'+esc(item.spec)+'</td><td><strong>NT$'+item.ref.toLocaleString('en-US')+'</strong></td><td><input type="number" class="price-input" min="0" step="1" inputmode="numeric" aria-label="'+esc(item.name)+'現場售價" placeholder="輸入價格" data-price-id="'+item.id+'" value="'+esc(quote)+'"><span class="price-status" id="stat-'+item.id+'"></span></td><td><a href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+esc(item.label)+' ↗</a></td></tr>';
     }).join('');
   });
   document.querySelectorAll('[data-price-id]').forEach(input=>{
@@ -378,31 +372,14 @@ document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{
       if(!Number.isFinite(quote)||quote<0){stat.textContent='價格無效';stat.className='price-status high';return;}
       const diff=quote-item.ref;
       const pct=Math.abs(diff)/item.ref*100;
-      stat.textContent=diff>0?'比參考價貴 NT('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-const defaultDay=Math.max(0,Math.min(5,parseInt(today.slice(-2),10)-22));
-choose(today.startsWith('2026-11-')?defaultDay:0,false);
-activateMap();
-document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none';img.parentElement.style.minHeight='210px'}));
-})();
-</script>
-</body>
-</html>+diff.toLocaleString('en-US')+'（'+pct.toFixed(1)+'%）':diff<0?'比參考價便宜 NT('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-const defaultDay=Math.max(0,Math.min(5,parseInt(today.slice(-2),10)-22));
-choose(today.startsWith('2026-11-')?defaultDay:0,false);
-activateMap();
-document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none';img.parentElement.style.minHeight='210px'}));
-})();
-</script>
-</body>
-</html>+Math.abs(diff).toLocaleString('en-US')+'（'+pct.toFixed(1)+'%）':'與參考價相同';
+      stat.textContent=diff>0?'比參考價貴 NT$'+diff.toLocaleString('en-US')+'（'+pct.toFixed(1)+'%）':diff<0?'比參考價便宜 NT$'+Math.abs(diff).toLocaleString('en-US')+'（'+pct.toFixed(1)+'%）':'與參考價相同';
       stat.className='price-status '+(diff>0?'high':diff<0?'low':'equal');
     }
     refresh();
-    input.addEventListener('input',()=>{localStorage.setItem('kinmen_quoted_'+item.id,input.value);refresh()});
+    input.addEventListener('input',()=>{safeSet('kinmen_quoted_'+item.id,input.value);refresh()});
   });
 }
 renderPriceTables();
-
 
 // Per-stop field guide. Explanations distinguish sourced site history from itinerary estimates.
 const guideData=[
