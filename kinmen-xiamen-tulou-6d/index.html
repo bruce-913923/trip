@@ -103,6 +103,23 @@ h3{font-size:19px;margin:0}
 .map-places{display:flex;overflow-x:auto;gap:7px;padding:12px 14px}
 .map-places a{white-space:nowrap;border:1px solid #d8e5d9;background:#f4f8f3;padding:6px 10px;border-radius:100px;text-decoration:none;font-size:11px;font-weight:750;color:#3d6d50}
 .map-pin{width:28px;height:28px;display:grid;place-items:center;background:#1c6447;border:2px solid white;border-radius:99px;color:white;font-size:12px;font-weight:900;box-shadow:0 3px 7px #0003}
+.page-tools{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.map-toolbar{padding:13px 16px;background:#f9fbf7;border-bottom:1px solid var(--line)}
+.geo-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.geo-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:38px;border:1px solid #c9d9ce;border-radius:10px;padding:8px 11px;background:#fff;color:#366950;font-size:12px;font-weight:850}
+.geo-btn.primary{background:#23664e;color:#fff;border-color:#23664e}
+.geo-btn.primary[aria-pressed="true"]{background:#deece3;color:#245d43}
+.geo-btn.stop{border-color:#e5d4c9;color:#8d5741}
+.geo-btn:disabled{opacity:.5;cursor:default}
+.geo-status{display:block;margin-top:10px;padding:9px 11px;background:#eef3ee;color:#375b47;border-radius:9px;font-size:12px;line-height:1.7}
+.geo-status.error{background:#fff2e5;color:#8a5135}
+.map-privacy{font-size:10.5px;color:#7b8c7e;margin-top:7px;line-height:1.55}
+.map-current-dot{position:relative;display:block;width:18px;height:18px;border:3px solid white;border-radius:50%;background:#1679e5;box-shadow:0 1px 9px #1a66d566;pointer-events:none}
+.map-current-dot::before{content:"";position:absolute;inset:-9px;border-radius:50%;background:#2685eb27;z-index:-1;animation:geo-pulse 2.7s ease-out infinite}
+@keyframes geo-pulse{0%{transform:scale(.7);opacity:.8}90%,100%{transform:scale(2);opacity:0}}
+@media(prefers-reduced-motion:reduce){.map-current-dot::before{animation:none}}
+@media(max-width:540px){.page-tools{gap:8px}.page-tools .small-link{font-size:11px}.geo-controls{gap:6px}.geo-btn{padding:8px 9px;font-size:11px}.map-toolbar{padding:11px 12px}}
+
 .sight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .sight-card{align-self:start;background:#fff;border:1px solid var(--line);border-radius:17px;overflow:hidden;scroll-margin-top:25px}
 .sight-card summary{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;list-style:none;padding:17px 18px;font-weight:850;font-size:14px}
@@ -267,7 +284,7 @@ h3{font-size:19px;margin:0}
  </aside>
  <main class="content">
   <section class="view" id="view-plan" aria-labelledby="plan-title">
-    <header class="page-heading"><div><div class="eyebrow">YOUR DAILY PLAN</div><h2 id="plan-title">每日行程</h2></div><button type="button" class="small-link" id="today-button">查看今天</button></header>
+    <header class="page-heading"><div><div class="eyebrow">YOUR DAILY PLAN</div><h2 id="plan-title">每日行程</h2></div><div class="page-tools"><button type="button" class="small-link" id="today-button">查看今天</button><button type="button" class="small-link" id="quick-locate">◎ 我在哪裡</button></div></header>
     <div class="status-strip"><span class="dot"></span><div><b>旅程現場紀錄</b>｜11/22 已回報 13:00 抵達廈門「俏湖蘭」午餐，碼頭至餐廳約 15 分鐘車程。</div></div>
     <div class="date-scroll" id="day-tabs" role="tablist" aria-label="選擇旅遊日期"></div>
     <div class="day-hero" id="day-hero"></div>
@@ -276,7 +293,21 @@ h3{font-size:19px;margin:0}
     <div class="timeline" id="timeline"></div>
     <details class="map-panel" id="map-panel">
       <summary>🗺️ 路線位置與街道地圖</summary>
-      <div><div class="map-help">需要時才載入街道圖。若地圖無法顯示，下面的景點連結仍能開啟高德導航；虛線只表示順序，不是道路導航。</div><div class="map-frame"><div class="map-wait" id="map-wait">正在準備街道地圖…</div><div class="map-canvas" id="street-map"></div></div><div class="map-places" id="map-places"></div></div>
+      <div>
+        <div class="map-toolbar">
+         <div class="geo-controls">
+          <button type="button" class="geo-btn primary" id="locate-me">◎ 定位我</button>
+          <button type="button" class="geo-btn" id="recenter-me" hidden>◉ 回到我的位置</button>
+          <button type="button" class="geo-btn stop" id="stop-location" hidden>■ 停止定位</button>
+          <button type="button" class="geo-btn" id="fit-day">◇ 顯示今日路線</button>
+         </div>
+         <output id="geo-status" class="geo-status" role="status" aria-live="polite">按「定位我」後，允許瀏覽器使用位置，會在地圖顯示藍色定位點。</output>
+         <div class="map-privacy">只有按下按鈕才使用手機定位；網站不會儲存 GPS 座標。精度圈表示估計誤差，並非保證位置。</div>
+        </div>
+        <div class="map-frame"><div class="map-wait" id="map-wait">正在準備街道地圖…</div><div class="map-canvas" id="street-map"></div></div>
+        <div class="map-help">地圖採一般道路圖。若圖磚連線失敗，可用下方高德地圖導航；虛線是景點順序，不代表實際道路。若在 App 內無法定位，請改用 Safari 開啟此網站。</div>
+        <div class="map-places" id="map-places"></div>
+      </div>
     </details>
   </section>
   <section class="view" id="view-sights" hidden aria-labelledby="sights-title">
@@ -618,6 +649,99 @@ function renderInfo(){
  $('review-list').innerHTML=reviewData.map(r=>'<details class="review"><summary>'+escapeHTML(r.title)+'</summary><div class="review-inner"><div style="color:#7d907f;font-size:11px;font-weight:800;margin-bottom:6px">'+escapeHTML(r.type)+'</div><p>'+r.desc+'</p>'+(r.link?'<a href="'+escapeHTML(r.link)+'" target="_blank" rel="noopener">'+escapeHTML(r.linkText)+'</a>':'')+'</div></details>').join('');
 }
 let mapInstance=null,mapLoaded=false,mapMarkers=[],mapAttempt=0;
+
+let gpsWatchId=null,gpsPosition=null,gpsMarker=null,gpsFirstFix=false;
+function setGeoStatus(message,isError){
+ const out=$('geo-status');
+ out.textContent=message;
+ out.classList.toggle('error',Boolean(isError));
+}
+function updateGeoButtons(){
+ const watching=gpsWatchId!==null;
+ $('locate-me').textContent=watching?'● 定位追蹤中':'◎ 定位我';
+ $('locate-me').setAttribute('aria-pressed',String(watching));
+ $('recenter-me').hidden=!gpsPosition;
+ $('stop-location').hidden=!watching && !gpsPosition;
+}
+function locationFailure(err){
+ const errors={
+  1:'定位權限遭拒。請在 iPhone「設定 → 隱私權與安全性 → 定位服務」允許 Safari 網站存取，並開啟「精確位置」。若從 App 內開啟，建議改用 Safari。',
+  2:'目前無法取得定位。請確認手機已啟用定位服務，並移至訊號較好的地方再試。',
+  3:'定位逾時。可稍後再試，或確認 GPS／行動網路訊號。'
+ };
+ setGeoStatus(errors[err&&err.code]||'無法取得手機定位，請確認瀏覽器定位權限後重試。',true);
+ if(gpsWatchId!==null&&navigator.geolocation){navigator.geolocation.clearWatch(gpsWatchId);gpsWatchId=null}
+ updateGeoButtons();
+}
+function circleCoordinates(lng,lat,radius){
+ const rad=Math.PI/180,deg=180/Math.PI,R=6378137;
+ const meters=Math.max(1,Math.min(50000,radius));
+ const latRad=lat*rad,lonRad=lng*rad,d=meters/R,ring=[];
+ for(let i=0;i<=64;i++){
+  const bearing=(i/64)*2*Math.PI;
+  const nlat=Math.asin(Math.sin(latRad)*Math.cos(d)+Math.cos(latRad)*Math.sin(d)*Math.cos(bearing));
+  const nlon=lonRad+Math.atan2(Math.sin(bearing)*Math.sin(d)*Math.cos(latRad),Math.cos(d)-Math.sin(latRad)*Math.sin(nlat));
+  ring.push([nlon*deg,nlat*deg]);
+ }
+ return ring;
+}
+function drawGps(){
+ if(!mapInstance||!mapLoaded||!gpsPosition)return;
+ const {lng,lat,accuracy}=gpsPosition;
+ if(!gpsMarker){
+  const dot=document.createElement('div');dot.className='map-current-dot';dot.setAttribute('aria-label','我的目前位置');
+  gpsMarker=new maplibregl.Marker({element:dot,anchor:'center'}).setLngLat([lng,lat]).addTo(mapInstance);
+ }else gpsMarker.setLngLat([lng,lat]);
+ // Keep location layer when street-map provider style changes.
+ const feature={type:'Feature',properties:{},geometry:{type:'Polygon',coordinates:[circleCoordinates(lng,lat,accuracy)]}};
+ if(!mapInstance.getSource('user-gps-accuracy')){
+  mapInstance.addSource('user-gps-accuracy',{type:'geojson',data:{type:'FeatureCollection',features:[feature]}});
+  mapInstance.addLayer({id:'user-gps-area',type:'fill',source:'user-gps-accuracy',paint:{'fill-color':'#187be7','fill-opacity':.12}});
+  mapInstance.addLayer({id:'user-gps-outline',type:'line',source:'user-gps-accuracy',paint:{'line-color':'#187be7','line-opacity':.5,'line-width':1.5}});
+ }else mapInstance.getSource('user-gps-accuracy').setData({type:'FeatureCollection',features:[feature]});
+}
+function focusGps(){
+ if(!gpsPosition||!mapInstance||!mapLoaded){setGeoStatus(gpsPosition?'已取得座標，但街道底圖尚未載入。可在下方開啟導航。':'請先按「定位我」取得手機座標。',false);return}
+ const {lng,lat,accuracy}=gpsPosition;
+ const zoom=accuracy>2500?11:accuracy>500?13:15;
+ mapInstance.resize();mapInstance.flyTo({center:[lng,lat],zoom,duration:600});
+}
+function clearGpsDrawing(){
+ if(gpsMarker){gpsMarker.remove();gpsMarker=null}
+ if(!mapInstance||!mapLoaded)return;
+ for(const id of ['user-gps-outline','user-gps-area'])if(mapInstance.getLayer(id))mapInstance.removeLayer(id);
+ if(mapInstance.getSource('user-gps-accuracy'))mapInstance.removeSource('user-gps-accuracy');
+}
+function stopGps(){
+ if(gpsWatchId!==null&&navigator.geolocation){navigator.geolocation.clearWatch(gpsWatchId);gpsWatchId=null}
+ gpsPosition=null;gpsFirstFix=false;
+ clearGpsDrawing();
+ setGeoStatus('已停止定位並移除定位點。需要時可再次點「定位我」。',false);
+ updateGeoButtons();
+}
+function onLocation(position){
+ const c=position.coords;
+ if(!Number.isFinite(c.latitude)||!Number.isFinite(c.longitude))return;
+ gpsPosition={lat:c.latitude,lng:c.longitude,accuracy:Number.isFinite(c.accuracy)?c.accuracy:0};
+ const uncertainty=gpsPosition.accuracy>0?' · 約 ±'+Math.round(gpsPosition.accuracy).toLocaleString('zh-TW')+' 公尺':' · 精度未知';
+ setGeoStatus('目前座標：'+gpsPosition.lat.toFixed(6)+'° N，'+gpsPosition.lng.toFixed(6)+'° E'+uncertainty,false);
+ updateGeoButtons();
+ drawGps();
+ if(!gpsFirstFix){gpsFirstFix=true;focusGps()}
+}
+function startGps(){
+ if(gpsWatchId!==null){focusGps();return}
+ if(!window.isSecureContext){setGeoStatus('定位需要 HTTPS 安全連線。請以 https://bruce-913923.github.io/trip/kinmen-xiamen-tulou-6d/ 開啟。',true);return}
+ if(!navigator.geolocation){setGeoStatus('此瀏覽器沒有提供 GPS 定位功能，請在 Safari 開啟網頁並檢查定位服務設定。',true);return}
+ setGeoStatus('正在取得手機位置…如跳出權限提示，請選擇允許。',false);
+ gpsFirstFix=false;
+ try{
+  const id=navigator.geolocation.watchPosition(onLocation,locationFailure,{enableHighAccuracy:true,timeout:20000,maximumAge:8000});
+  gpsWatchId=id;
+  updateGeoButtons();
+ }catch(e){locationFailure(e)}
+}
+
 function ensureMapScript(){
  if(window.maplibregl)return Promise.resolve();
  if(window.__mapLoader)return window.__mapLoader;
@@ -641,6 +765,7 @@ function updateMap(){
  mapInstance.addSource('trip-route',{type:'geojson',data:{type:'Feature',properties:{},geometry:{type:'LineString',coordinates:list.map(x=>[x.lng,x.lat])}}});
  mapInstance.addLayer({id:'trip-line',type:'line',source:'trip-route',paint:{'line-color':'#ac6f41','line-width':3,'line-dasharray':[2,2]}});
  mapInstance.resize();mapInstance.fitBounds(bounds,{padding:45,maxZoom:11,duration:350});
+ drawGps();
 }
 async function loadMap(){
  if(mapInstance){mapInstance.resize();return}
@@ -649,7 +774,7 @@ async function loadMap(){
   $('map-wait').textContent='街道地圖載入中，若外部圖資受限仍可使用下方導航連結。';
   mapInstance=new maplibregl.Map({container:'street-map',style:'https://tiles.openfreemap.org/styles/liberty',center:[118.12,24.6],zoom:8,dragRotate:false});
   mapInstance.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
-  mapInstance.on('style.load',()=>{mapLoaded=true;$('street-map').style.opacity='1';$('map-wait').style.display='none';updateMap()});
+  mapInstance.on('style.load',()=>{mapLoaded=true;$('street-map').style.opacity='1';$('map-wait').style.display='none';updateMap();drawGps()});
   mapInstance.on('error',e=>{
    const str=String(e?.error?.message||'');
    if(mapAttempt===0&&(!mapLoaded||/403|401|tile|forbidden|404/i.test(str))){
@@ -665,6 +790,11 @@ document.addEventListener('click',e=>{
  const route=e.target.closest('[data-route]');if(route){selectView(route.dataset.route);return}
  const day=e.target.closest('[data-day]');if(day){selectDay(Number(day.dataset.day));return}
  const todayBtn=e.target.closest('#today-button');if(todayBtn){selectDay(startDay);return}
+ const quick=e.target.closest('#quick-locate');if(quick){if(state.view!=='plan')selectView('plan',false);$('map-panel').open=true;$('map-panel').scrollIntoView({block:'center',behavior:'smooth'});startGps();return}
+ const locate=e.target.closest('#locate-me');if(locate){startGps();return}
+ const recenter=e.target.closest('#recenter-me');if(recenter){focusGps();return}
+ const stop=e.target.closest('#stop-location');if(stop){stopGps();return}
+ const fit=e.target.closest('#fit-day');if(fit){updateMap();return}
  const sight=e.target.closest('[data-sight]');if(sight){
   selectView('sights',true);
   setTimeout(()=>{const el=$('guide-'+sight.dataset.sight);if(el){el.open=true;el.scrollIntoView({behavior:'smooth',block:'start'})}},160);return
@@ -684,8 +814,7 @@ window.addEventListener('hashchange',()=>{
  else if(hash==='hotels'||hash==='tips')selectView('info',false);
  else if(['schedule','day1','day2','day3','day4','day5','day6'].includes(hash)){if(hash.startsWith('day'))state.day=Math.max(0,Number(hash.slice(-1))-1);selectView('plan',false)}
 });
-renderInfo();
-renderDay();
+()=>doneInit+"\nupdateGeoButtons();"
 renderSights();
 const initialHash=location.hash.slice(1);
 if(initialHash==='guides')selectView('sights',false);
