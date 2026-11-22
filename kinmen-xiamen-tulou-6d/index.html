@@ -69,6 +69,49 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
 .shopping-notes strong{display:block;color:var(--green);margin-bottom:5px}
 @media(max-width:730px){.guide-grid,.reviews-grid,.shopping-notes{grid-template-columns:1fr}.price-intro{grid-template-columns:1fr}}
 @media print{.price-input{display:none}.guide-card{break-inside:avoid}.quick-jumps{display:none}}
+
+/* Store-by-store item price investigation */
+.shop-audit-intro{background:#edf3ed;border:1px solid #c6dccd;border-radius:18px;padding:17px 19px;margin:12px 0 18px}
+.shop-audit-intro strong{display:block;color:var(--green);font-size:1.02rem}
+.shop-audit-intro p{font-size:.86rem;color:#526659;margin-top:6px}
+.shop-audit-list{display:grid;gap:11px;margin:18px 0 25px}
+.shop-detail{background:var(--paper);border:1px solid #d8ddd3;border-radius:18px;overflow:hidden;scroll-margin-top:88px}
+.shop-detail>summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:17px 20px;list-style:none}
+.shop-detail>summary::-webkit-details-marker{display:none}
+.shop-detail>summary:after{content:'＋';color:#306348;font-size:1.25rem;font-weight:600;flex-shrink:0}
+.shop-detail[open]>summary:after{content:'−'}
+.shop-detail[open]>summary{background:#edf3eb;border-bottom:1px solid #d8e2d5}
+.shop-detail .shop-heading{display:block;font-size:1.06rem;font-weight:850;line-height:1.4}
+.shop-detail .shop-date{display:block;font-size:.75rem;color:#617668;font-weight:850;margin-bottom:4px}
+.shop-detail .shop-preview{font-size:.81rem;color:#67776b;display:block;margin-top:5px;font-weight:450}
+.shop-detail .shop-body{padding:19px}
+.shop-detail .shop-body>p{font-size:.87rem;color:#53675c;margin:0 0 15px}
+.shop-audit-table{width:100%;border-collapse:collapse;font-size:.84rem}
+.shop-audit-table-wrap{overflow-x:auto;border:1px solid #dfe5dc;border-radius:12px}
+.shop-audit-table{min-width:665px}
+.shop-audit-table th{background:#f0f3ec;color:#385545;text-align:left;font-size:.76rem;padding:10px;white-space:nowrap}
+.shop-audit-table td{padding:12px 10px;border-top:1px solid #e6e9e1;vertical-align:top}
+.shop-audit-table th:first-child{width:21%}
+.shop-audit-table th:nth-child(2){width:23%}
+.shop-audit-table th:nth-child(3){width:28%}
+.shop-audit-table th:nth-child(4){width:28%}
+.shop-audit-table b{color:var(--green)}
+.shop-audit-table small{display:block;color:#718077;line-height:1.5;margin-top:5px}
+.shop-audit-table a{color:#2d6850;font-weight:800;text-underline-offset:3px}
+.shop-mark{display:inline-block;font-size:.72rem;border-radius:99px;padding:2px 7px;background:#e7f1e7;color:#34674d;font-weight:850;margin-bottom:4px}
+.shop-mark.caution{background:#fff0dc;color:#975125}
+.shop-mark.unknown{background:#eef0ed;color:#646f66}
+.shop-check{background:#f5f7f2;border-left:3px solid #8eae99;padding:11px 13px;margin-top:13px;border-radius:10px;font-size:.84rem;color:#506456}
+.shop-check strong{color:var(--green)}
+.shop-sources{margin-top:9px;font-size:.75rem;color:#718078}
+.shop-sources a{color:#386b53}
+.shop-highlight{background:#fff5e9;border:1px solid #e7d2b8;border-radius:12px;padding:13px;margin-bottom:12px;color:#704d31;font-size:.86rem}
+.shop-report-form{border:1px solid #c9dacb;border-radius:14px;padding:14px;background:#f1f7f0;margin-top:16px}
+.shop-report-form b{display:block;color:var(--green);margin-bottom:8px}
+.shop-report-line{display:flex;gap:8px;flex-wrap:wrap}
+.shop-report-line input,.shop-report-line select{min-width:0;flex:1 1 120px;border:1px solid #bccdbf;border-radius:9px;padding:9px 11px;font-size:.85rem;background:white;color:var(--ink)}
+.shop-report-form .saved-quote{margin-top:7px;color:#507158;font-size:.79rem;min-height:18px}
+@media(max-width:560px){.shop-detail>summary{padding:14px}.shop-detail .shop-body{padding:12px}.shop-report-line{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -81,7 +124,7 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
 <nav aria-label="頁面導航"><div class="wrap nav-inner">
   <a href="#overview">總覽</a><a href="#schedule">每日行程</a>
   <button data-nav-day="0">DAY 1</button><button data-nav-day="1">DAY 2</button><button data-nav-day="2">DAY 3</button><button data-nav-day="3">DAY 4</button><button data-nav-day="4">DAY 5</button><button data-nav-day="5">DAY 6</button>
-  <a href="#shopping">價格速查</a><a href="#guides">景點故事</a><a href="#reviews">旅客心得</a><a href="#map-section">地圖</a><a href="#hotels">住宿</a><a href="#tips">提醒</a>
+  <a href="#shop-audit">購物站比價</a><a href="#shopping">價格速查</a><a href="#guides">景點故事</a><a href="#reviews">旅客心得</a><a href="#map-section">地圖</a><a href="#hotels">住宿</a><a href="#tips">提醒</a>
 </div></nav>
 <main>
 <section class="summary" id="overview"><div class="wrap">
@@ -92,14 +135,104 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
     <div class="metric"><span>交通方式</span><b>飛機＋小三通＋遊覽車</b></div>
   </div>
   <div class="route"><span>高雄／台中</span><i>→</i><span>金門</span><i>→</i><span>廈門</span><i>→</i><span>永定土樓</span><i>→</i><span>東山島</span><i>→</i><span>廈門</span><i>→</i><span>金門</span><i>→</i><span>台灣</span></div>
-  <div class="quick-jumps"><a href="#shopping">🛍️ 商品價格</a><a href="#guides">📖 景點介紹</a><a href="#reviews">💬 社群心得</a><a href="#schedule">🗓️ 今日行程</a></div><div class="notice"><strong>購物站自由參觀・沒有強制購物</strong>茶葉、絲綢、乳膠、同仁堂及特產等站點可隨意看看；喜歡再向店員詢價，不需要購買。團體的集合時間與行程仍以當天導遊通知為準。</div>
+  <div class="quick-jumps"><a href="#shop-audit">🧾 購物站避坑價</a><a href="#shopping">🛍️ 商品價格</a><a href="#guides">📖 景點介紹</a><a href="#reviews">💬 社群心得</a><a href="#schedule">🗓️ 今日行程</a></div><div class="notice"><strong>購物站自由參觀・沒有強制購物</strong>茶葉、絲綢、乳膠、同仁堂及特產等站點可隨意看看；喜歡再向店員詢價，不需要購買。團體的集合時間與行程仍以當天導遊通知為準。</div>
 </div></section>
 
 
 <section id="shopping"><div class="wrap">
   <div class="section-head"><div><div class="overline">PRICE CHECK · 2026.11.22</div><h2>金門購物價格速查</h2></div><p>貢糖、牛肉乾、鋼刀與麵線的品牌和實際比價來源。直接在現場輸入店家報價，馬上看到價差；輸入紀錄會保留在這台手機的瀏覽器。</p></div>
   <div class="price-intro"><div><b>參考售價均為新台幣 NT$，不是人民幣。</b><p>價格是本次查詢到的公開賣場售價，可能變動。促銷、運費、重量與款式不同時，請先確認是否為同一商品再比較。</p></div><span style="font-size:2.5rem">🧮</span></div>
-  <h3 class="category-title">🚌 依日期查看所有購物站</h3>
+  
+<div class="shop-audit-intro" id="shop-audit">
+  <strong>先看「這一站主打商品和市場價」，不是只看停靠時間。</strong>
+  <p>每張卡分成：其他旅行團曾遇到的實際報價 → 一般通路公開售價 → 是否有高價風險。計畫書沒提供站點營業商家、品牌與型號，所以不會把其他團售價當成你這團售價；人民幣 RMB、台幣 NT$ 分別標示，請勿直接混算。</p>
+</div>
+<div class="shop-audit-list">
+  <details class="shop-detail" id="shop-day1">
+    <summary><span><span class="shop-date">DAY 1・11/22 ＋ DAY 6・11/27｜金門</span><span class="shop-heading">🍬 貢糖・麵線・牛肉乾等特產</span><span class="shop-preview">貢糖 12 入約 NT$100–170；品牌比價表在下方</span></span></summary>
+    <div class="shop-body">
+      <p>計畫書明載兩次金門特產巡禮，第一天提到貢糖及麵線。牛肉乾與鋼刀是你另外詢問的金門商品，不保證每個團體購物站都有販賣。</p>
+      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>主打商品</th><th>團體可能看到</th><th>一般通路公開價</th><th>高價判斷</th></tr></thead><tbody>
+      <tr><td><b>豬腳貢糖 12 入</b></td><td>旅行團伴手禮門市報價未知</td><td>金名祖 NT$100、金瑞成 NT$120、天工 NT$130、聖祖 NT$170（會員價），詳見下方品牌比價表</td><td><span class="shop-mark">可直接比價</span><div>有品牌、12 入及重量就能比較；聖祖定價較高不等於旅行團加價。</div></td></tr>
+      <tr><td><b>手工／高粱麵線</b></td><td>可試吃與購買，店名未列</td><td>馬家 360g（8 束）公開價約 NT$230；同規格再比</td><td><span class="shop-mark unknown">先核對</span><div>重量、束數、口味及品牌不同，不要只看盒數。</div></td></tr>
+      <tr><td><b>牛肉乾、金門鋼刀</b></td><td>不是 Word 已確認的固定購物站商品</td><td>良金、喬安、金合利、金永利等型號價格已整理於下方</td><td><span class="shop-mark unknown">按規格比較</span><div>刀具看型號與套組；牛肉乾看每 100g 價格。</div></td></tr>
+      </tbody></table></div>
+      <div class="shop-check"><strong>購物策略：</strong>金門標示清楚的食品，通常比大陸站點的高額寢具更容易比價；若只是零售價附近、效期新鮮，又真的喜歡，就不必因為是團體站點而排斥。</div>
+      <a class="guide-jump" href="#price-candy">⬇ 看金門四大類品牌商品表</a>
+    </div>
+  </details>
+
+  <details class="shop-detail" id="shop-day2">
+    <summary><span><span class="shop-date">DAY 2・11/23｜廈門</span><span class="shop-heading">🛏️ 自貿區睡眠體驗中心・乳膠寢具</span><span class="shop-preview">其他團曾報 7.5cm 床墊 NT$44,910；與零售通路有顯著價差疑慮</span></span></summary>
+    <div class="shop-body">
+      <div class="shop-highlight"><strong>最需要注意的購物站。</strong> 2024 年 Dcard 有旅客記錄名稱相近的「自貿睡眠體驗中心」販售乳膠床墊；2025–2026 年也有低價廈門團的高額寢具消費爭議。這些是<b>其他團／其他店的經驗</b>，不能證明本團是同一家或會開同樣價格。</div>
+      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>主打商品</th><th>其他團實際報價</th><th>一般零售通路（供比較）</th><th>判斷</th></tr></thead><tbody>
+       <tr><td><b>乳膠床墊 7.5cm</b><small>品牌尺寸不明</small></td><td>2024 年 Dcard：<b>NT$44,910</b>，原組合含枕頭與被子</td><td>PChome 森好眠 5 尺 7.5cm <b>NT$10,925</b>；另有 HABABY 加大雙人 7.5cm 約 NT$15,800</td><td><span class="shop-mark caution">高價警戒</span><div>明顯高於多個同厚度零售例子；但品牌、尺寸、密度、贈品及售後不同，不能直接當成完全同款的溢價。</div></td></tr>
+       <tr><td><b>乳膠床墊 10cm／15cm</b></td><td>2024 年另一團：10cm 約 NT$50,000–60,000；15cm 約 NT$60,000–70,000</td><td>PChome 森好眠 5 尺 10cm <b>NT$12,635</b>；5 尺 15cm 約 <b>NT$19,760</b></td><td><span class="shop-mark caution">高價警戒</span><div>相近厚度可查得更低價；如無精確品牌型號與保固，先不要在現場決定。</div></td></tr>
+       <tr><td><b>乳膠床墊／枕頭／被子組</b></td><td>2026 年另團：床墊約 <b>RMB 15,988</b>／張，尺寸未記載</td><td>無法與特定型號對應。一般公開零售床墊有大量不同品牌、厚度、尺寸與材質</td><td><span class="shop-mark unknown">無法直接換算溢價</span><div>要問枕頭數、被子材質、床墊尺寸、乳膠含量及運送退貨條件。</div></td></tr>
+      </tbody></table></div>
+      <div class="shop-check"><strong>現場一定問：</strong>乳膠比例是多少？是整塊乳膠還是混合材質？床墊尺寸與密度？有無完整品牌官網／型號可查？送貨到台灣與退貨誰付運費？宣稱疾病治療效果沒有明確證據時，不要視為可信賣點。</div>
+      <div class="shop-sources">來源：<a target="_blank" rel="noopener" href="https://www.dcard.tw/f/travel/p/254906054">2024 Dcard 同類站點原文 ↗</a>・<a target="_blank" rel="noopener" href="https://www.dcard.tw/f/travel/p/261581866">2026 Dcard 實際報價 ↗</a>・<a target="_blank" rel="noopener" href="https://24h.pchome.com.tw/store/DEBR2S">PChome 同厚度零售例子 ↗</a>・<a target="_blank" rel="noopener" href="https://feebee.com.tw/all/%E5%8A%A0%E5%A4%A7%E9%9B%99%E4%BA%BA%20%E4%B9%B3%E8%86%A0%E5%BA%8A%E5%A2%8A/">HABABY 比價資料 ↗</a>。</div>
+    </div>
+  </details>
+
+  <details class="shop-detail" id="shop-day3">
+    <summary><span><span class="shop-date">DAY 3・11/24｜廈門</span><span class="shop-heading">🍵 茶文化體驗・大紅袍、普洱、田七花</span><span class="shop-preview">其他團：大紅袍 RMB 800／盒、普洱 RMB 2,000／磚</span></span></summary>
+    <div class="shop-body">
+      <p>你的團寫的是「中國茶文化－品茶」，沒有寫店家名稱。以下商品來自 2026 年不同金廈團的茶葉站心得，並非確定你一定會遇到的品牌或價格。</p>
+      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>可能主打</th><th>其他團實際報價</th><th>一般市場公開價例子</th><th>判斷</th></tr></thead><tbody>
+       <tr><td><b>武夷大紅袍</b></td><td>2026 年有團員買 <b>RMB 800／盒</b>；未公布淨重／茶級</td><td>京東消費指南：武夷星 128g 約 <b>RMB 100</b>、170g 禮盒約 <b>RMB 200</b>、108g 特級約 <b>RMB 350</b></td><td><span class="shop-mark caution">不明品牌高價要警覺</span><div>800 比多個知名品牌零售例子高；但若是特殊正岩、稀有等級，價格可能不同，無重量與產地證明不能定案。</div></td></tr>
+       <tr><td><b>普洱茶磚／茶餅</b></td><td>2026 年其他團 <b>RMB 2,000／塊</b>，另推 24 塊證書方案</td><td>茶窩網大益 2025 年 7542 生茶 <b>357g／餅，RMB 170</b>（2026 網售記錄）</td><td><span class="shop-mark caution">高價警戒</span><div>如為普通新茶，2,000 可能大幅高於品牌茶；陳年、特殊批次普洱價差巨大，應先取得年份、批號、品牌與克重。</div></td></tr>
+       <tr><td><b>田七花／三七花</b></td><td>2026 年其他團：<b>RMB 1,500／罐</b>，重量未記載</td><td>沒有足以核對的同重量、產地及等級商品</td><td><span class="shop-mark unknown">無法判斷</span><div>把健康功效話術與食品定價分開；未標淨重與產地就不值得冒險買。</div></td></tr>
+       <tr><td><b>安溪鐵觀音</b></td><td>你的團與上述心得沒有型號報價</td><td>八馬茶業「賽珍珠 1000」鐵觀音 250g 官方通路約 <b>RMB 600–675</b>（品牌高階款）</td><td><span class="shop-mark unknown">價差取決於等級</span><div>普通散茶不應用高階品牌禮盒價格比較；先看重量、茶級、製造商。</div></td></tr>
+      </tbody></table></div>
+      <div class="shop-check"><strong>比價方法：</strong>一定用「人民幣每 100g」與同等級同年份茶比較；沒有產地、重量、批次，只說「大師茶」「特供茶」「收藏可增值」，建議不買。現場沖泡展示並不能代替食品標示與可信任賣場價格。</div>
+      <div class="shop-sources">來源：<a target="_blank" rel="noopener" href="https://www.dcard.tw/f/travel/p/261581866">2026 Dcard 購物紀錄 ↗</a>・<a target="_blank" rel="noopener" href="https://dir.jd.com/guide/jd-geo-guide-wu-yi-xing-cha-ye-v1">京東武夷星產品對照 ↗</a>・<a target="_blank" rel="noopener" href="https://www.chawo.com/item-113414.html">大益 7542 357g 價格 ↗</a>・<a target="_blank" rel="noopener" href="https://shop.ntbsj.com/index.php/home/goods/show/10319">八馬茶業 250g ↗</a>。</div>
+    </div>
+  </details>
+
+  <details class="shop-detail" id="shop-day4">
+    <summary><span><span class="shop-date">DAY 4・11/25｜廈門</span><span class="shop-heading">🧵 絲綢博物館・蠶絲被與床包套裝</span><span class="shop-preview">其他團：蠶絲被 RMB 2,000／條、套裝折到 RMB 5,000</span></span></summary>
+    <div class="shop-body">
+      <p>計畫書並未列出絲綢博物館的店名與實際販售品牌。以下為類似購物站的旅客報價，與公開可查的品牌寢具售價並列作判斷基礎。</p>
+      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>主打品</th><th>其他團現場報價</th><th>一般通路公開例子</th><th>判斷</th></tr></thead><tbody>
+       <tr><td><b>桑蠶絲被（單條）</b></td><td>2026 其他團買了一條，<b>RMB 2,000</b>；規格未公布</td><td>中國京東：太湖雪 100% 桑蠶絲春秋被、絲淨重 2 斤（1kg）、200×230cm 約 <b>RMB 1,123</b>；LOVO 羅萊 100% 桑蠶絲二合一、200×230cm 約 <b>RMB 1,599</b></td><td><span class="shop-mark unknown">可能偏高，但未能定案</span><div>如果是純桑蠶絲、填充量大、品牌與規格有據，RMB 2,000 也可能有零售同價位商品；不能單憑金額斷定坑客。</div></td></tr>
+       <tr><td><b>蠶絲床包、被套、枕套整組</b></td><td>2026 其他團宣稱從 <b>RMB 30,000</b> 一路降至 <b>RMB 5,000／套</b></td><td>如果布料為真絲，價格可能比棉質套件高；但找不到與這份組合完全一致的外部型號作可靠直接比價</td><td><span class="shop-mark caution">折價話術高風險</span><div>從三萬降到五千，不代表真的省兩萬五。請看品名、真絲比例、幾件組、尺寸、蠶絲填充重量和檢驗標示。</div></td></tr>
+      </tbody></table></div>
+      <div class="shop-check"><strong>最重要的細節：</strong>「蠶絲被」常指被芯的填充物；「真絲床單／被套」則指表布，兩者不同。床包與被套如果只寫「絲滑」「天絲」，不等於 100% 桑蠶絲。填充的 1kg 也不等於整條被子只有 1kg。</div>
+      <div class="shop-sources">來源：<a target="_blank" rel="noopener" href="https://www.dcard.tw/f/travel/p/261581866">2026 Dcard 絲綢站紀錄 ↗</a>・<a target="_blank" rel="noopener" href="https://item.jd.com/product/q6rs7jJ6xNNMDCXKvWYtXA.html">京東太湖雪商品 ↗</a>・<a target="_blank" rel="noopener" href="https://item.jd.com/product/EMZj2-PMlKEgH88yDHQpOQ.html">京東 LOVO 商品 ↗</a>。</div>
+    </div>
+  </details>
+
+  <details class="shop-detail" id="shop-day5">
+    <summary><span><span class="shop-date">DAY 5・11/26｜廈門</span><span class="shop-heading">🌿 同仁堂・中藥材與品牌產品</span><span class="shop-preview">同樣寫「安宮牛黃丸 3g」，不同原料官方售價可差數倍</span></span></summary>
+    <div class="shop-body">
+      <p>計畫書只寫「同仁堂」，沒有說是不是官方門市，也沒列指定產品。以下是官方商品型號範例，<b>不是說這團會販售這些藥品</b>。</p>
+      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>可能遇到的商品</th><th>旅遊團報價</th><th>一般通路／官方售價</th><th>判斷</th></tr></thead><tbody>
+       <tr><td><b>安宮牛黃丸 3g・天然原料款</b></td><td>本團與其他可核實評論均未提供同型號報價</td><td>同仁堂官方雲商城：<b>RMB 860／丸</b>，批准文號 <b>國藥准字 Z11020076</b></td><td><span class="shop-mark unknown">按批准文號比價</span><div>天然原料與人工原料價格不同，不可只看名稱判斷店家加價。</div></td></tr>
+       <tr><td><b>安宮牛黃丸 3g・人工原料款</b></td><td>未提供</td><td>同仁堂官方雲商城「綠錦盒」：<b>RMB 218／丸</b>，批准文號 <b>國藥准字 Z11020193</b></td><td><span class="shop-mark caution">混淆規格風險</span><div>同樣 3g 不是同一款。若售價昂貴，要求正確藥品名稱、批准文號、原料與生產企業。</div></td></tr>
+       <tr><td><b>西洋參片、靈芝等養生品</b></td><td>行程無型號與價格資料</td><td>品牌、代工、生產企業與重量差異很大，無法提供單一可靠的公平售價</td><td><span class="shop-mark unknown">先查來源</span><div>同仁堂相關名稱的出品方不一定相同；尤其避免只靠免費檢測或養生說明購買。</div></td></tr>
+      </tbody></table></div>
+      <div class="shop-highlight">安宮牛黃丸是藥品，不是一般紀念品或保健零食，可能有用藥風險與購買限制；不要因為旅行團推銷就自行服用或拿來預防疾病。是否適用請詢問合格醫師／藥師。</div>
+      <div class="shop-sources">來源：<a target="_blank" rel="noopener" href="https://m.tongrentangmall.com/GoodsIndex/2591.html">官方天然原料款 RMB 860 ↗</a>・<a target="_blank" rel="noopener" href="https://m.tongrentangmall.com/GoodsIndex/2831.html">官方人工原料款 RMB 218 ↗</a>・<a target="_blank" rel="noopener" href="https://finance.sina.com.cn/roll/2025-12-06/doc-infzwira5535128.shtml">同仁堂系列出品方差異報導 ↗</a>。</div>
+    </div>
+  </details>
+
+  <details class="shop-detail" id="shop-onboard">
+    <summary><span><span class="shop-date">不固定日期｜遊覽車上介紹</span><span class="shop-heading">🧴 片仔癀珍珠霜與福建特產</span><span class="shop-preview">普通皇后牌珍珠霜 25g 官方標價 RMB 23.8／瓶，網路約 RMB 11.5</span></span></summary>
+    <div class="shop-body">
+      <p>原始計畫書寫導遊可能在車上推介片仔癀珍珠霜等福建土特產，沒有指定哪款。注意<b>普通珍珠霜 25g</b>與<b>煥顏珍珠霜 32g</b>是兩個不同商品。</p>
+      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>商品</th><th>其他旅客／旅行團價格</th><th>公開市場價</th><th>判斷</th></tr></thead><tbody>
+       <tr><td><b>皇后牌片仔癀珍珠霜 25g</b></td><td>2026 廈門旅客分享一般門市 RMB 13–20／瓶；飯店店家曾見 RMB 9.9／瓶（文中寫 25mL，請留意標示）</td><td>片仔癀官方網站零售標價 <b>RMB 23.8／25g</b>；百度健康商城商家 <b>RMB 11.5／25g</b></td><td><span class="shop-mark">可按型號比價</span><div>若普通 25g 款遠超 RMB 23.8，又沒有贈品或差異，通常沒有立即購買的必要。</div></td></tr>
+       <tr><td><b>皇后牌片仔癀煥顏珍珠霜 32g</b></td><td>2026 遊客分享 6 瓶 RMB 300 加送 2 瓶，平均 <b>RMB 37.5／瓶</b>（文中標 32mL）</td><td>片仔癀官方網站建議零售價：<b>RMB 105／32g</b></td><td><span class="shop-mark unknown">與普通款不能混比</span><div>官網建議價較高，但促銷差異大；要看完整名稱、規格與製造商。</div></td></tr>
+      </tbody></table></div>
+      <div class="shop-check"><strong>辨識重點：</strong>看完整品名、25g 或 32g、包裝條碼、有效日期與製造公司；普通款不是片仔癀藥錠。試用不等於保證效果，更不代表能治療皮膚疾病。</div>
+      <div class="shop-sources">來源：<a target="_blank" rel="noopener" href="https://www.pzhchina.com/pzhhzp/product/info_476.aspx?itemid=8491">官方 25g 珍珠霜 ↗</a>・<a target="_blank" rel="noopener" href="https://www.pzhchina.com/pzhhzp/product/info_476.aspx?itemid=8476">官方 32g 煥顏珍珠霜 ↗</a>・<a target="_blank" rel="noopener" href="https://health.baidu.com/malls/goods/db2c_164214245555362728_1482330962046517248">網路 25g 價格 ↗</a>・<a target="_blank" rel="noopener" href="https://yiyi1428.com/blog/post/phi-a-hong">2026 廈門跟團購物心得 ↗</a>。</div>
+    </div>
+  </details>
+</div>
+<div class="notice amber" style="margin:4px 0 21px"><strong>重要：高價疑慮 ≠ 已證實本團坑客</strong>以上其他團參團心得只能提供案例，不表示本團使用同店、同品牌或會強制消費。即使報價比外面貴，也要先核對完全相同的品名、規格、保固和來源；如果缺乏透明資料，最保險是先不買。<a href="https://www.cna.com.tw/news/ahel/202509100227.aspx" target="_blank" rel="noopener" style="font-weight:800">參考中央社：2025 年類似低價團購物爭議 ↗</a></div>
+<h3 class="category-title">🚌 依日期查看所有購物站</h3>
   <div class="shopping-notes">
     <div><strong>DAY 1｜11/22 金門特產巡禮</strong>計畫書列「麵線、貢糖」。可比價貢糖的每包顆數、重量和效期。早上另有詢問的牛肉乾與鋼刀品牌價格，已列於下方，但不代表每個團體購物站都會販售。</div>
     <div><strong>DAY 2｜11/23 自貿區睡眠體驗中心</strong>參訪／選購站。計畫書另列「乳膠」購物項目，但沒寫明它是否就是睡眠中心；若遇寢具，確認材質比例、尺寸、產地、退貨與含稅人民幣實付價。</div>
@@ -280,7 +413,7 @@ const choose=(i,scroll)=>{
   const events=d.events.map(e=>{
     const mode=e[3],query=e[5],t=labels[mode],detail=e[4];
     const detailLinks=guideData.filter(g=>g.day===i&&e[1].includes(g.match)).slice(0,2).map(g=>'<a class="guide-jump" href="#guide-'+g.id+'">📖 '+esc(g.title.split('｜')[0])+' 介紹 ↗</a>').join('');
-    return '<article class="event"><div class="clock">'+esc(e[0])+'</div><div class="event-main"><h4>'+esc(e[1])+'</h4><p>'+esc(e[2])+'</p><div class="event-tags"><span class="event-tag '+(mode==='fixed'?'fixed':mode==='shop'?'shop':mode==='warn'?'warn':'')+'">'+t+'</span>'+(detail?'<span class="event-tag">'+esc(detail)+'</span>':'')+'</div>'+(query?'<div class="event-action"><a class="action" target="_blank" rel="noopener" href="'+gao(query)+'">高德地圖 ↗</a><a class="action secondary" target="_blank" rel="noopener" href="'+apple(query)+'">Apple 地圖 ↗</a></div>':'')+detailLinks+(mode==='shop'?'<a class="guide-jump" href="#shopping">'+((i===0||i===5)?'🧮 查看品牌價格比價 ↗':'🛍️ 查看該站購物提醒 ↗')+'</a>':'')+'</div></article>';
+    return '<article class="event"><div class="clock">'+esc(e[0])+'</div><div class="event-main"><h4>'+esc(e[1])+'</h4><p>'+esc(e[2])+'</p><div class="event-tags"><span class="event-tag '+(mode==='fixed'?'fixed':mode==='shop'?'shop':mode==='warn'?'warn':'')+'">'+t+'</span>'+(detail?'<span class="event-tag">'+esc(detail)+'</span>':'')+'</div>'+(query?'<div class="event-action"><a class="action" target="_blank" rel="noopener" href="'+gao(query)+'">高德地圖 ↗</a><a class="action secondary" target="_blank" rel="noopener" href="'+apple(query)+'">Apple 地圖 ↗</a></div>':'')+detailLinks+(mode==='shop'?'<a class="guide-jump" href="#shop-'+((i===0||i===5)?'day1':'day'+(i+1))+'">🧾 商品售價與市場比較 ↗</a>':'')+'</div></article>';
   }).join('');
   $('day-panel').innerHTML='<header class="day-banner"><div><span class="pill '+((i===1||i===5)?'warn':'')+'">DAY 0'+(i+1)+' · 2026/'+esc(d.date)+'（'+esc(d.dow)+'） · '+esc(d.mood)+'</span><h3>'+esc(d.headline)+'</h3><p class="note">'+esc(d.tip)+'</p></div><span style="font-size:2.5rem">'+(['🏯','🌊','🎭','🏝️','🏛️','✈️'][i])+'</span></header><div class="day-timeline">'+events+'</div><div class="day-bottom"><div><b>🍽️ 當日餐食</b><p>'+esc(d.meals)+'</p></div><div><b>🛏️ 當晚住宿</b><p>'+esc(d.hotel)+'</p></div></div>';
   setMapDay(i);
@@ -289,6 +422,7 @@ const choose=(i,scroll)=>{
 $('day-chooser').innerHTML=days.map((d,i)=>'<button type="button" role="tab" aria-selected="false" data-pick="'+i+'" class="day-choice"><div class="dt">DAY 0'+(i+1)+' · '+esc(d.date)+'</div><b>'+esc(d.subtitle.split('・')[0])+'</b><small>'+esc(d.headline)+'</small></button>').join('');
 $('day-chooser').addEventListener('click',e=>{const b=e.target.closest('[data-pick]');if(b)choose(Number(b.dataset.pick),false)});
 document.querySelectorAll('[data-nav-day]').forEach(b=>b.addEventListener('click',()=>choose(Number(b.dataset.navDay),true)));
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#shop-day"],a[href="#shop-onboard"]');if(!a)return;const d=document.querySelector(a.getAttribute('href'));if(d&&d.tagName==='DETAILS')d.open=true;});
 $('map-controls').innerHTML=days.map((d,i)=>'<button type="button" data-mapday="'+i+'">DAY '+(i+1)+' · '+d.date+'</button>').join('');
 $('map-controls').addEventListener('click',e=>{const b=e.target.closest('[data-mapday]');if(b)choose(Number(b.dataset.mapday),false)});
 $('goTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
