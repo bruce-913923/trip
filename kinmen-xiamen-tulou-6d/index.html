@@ -323,6 +323,85 @@ function activateMap(){
   window.setTimeout(()=>{if(!mapLoaded){$('map-standby').innerHTML='<span style="font-size:2rem">🧭</span><b>街道底圖暫時無法載入</b><p>可能是網路連線限制；可點下方景點按鈕直接用高德地圖／Apple 地圖開啟導航。</p>';}},14000);
  }catch(e){$('map-standby').innerHTML='<b>目前無法載入互動地圖</b><p>下方景點導航仍可使用。</p>';}
 }
+
+// Public reference prices checked 2026-11-22; values are NT$, not guaranteed shop quotes.
+const priceCatalog={
+ candy:[
+  {id:'c1',name:'金名祖｜豬腳貢糖',spec:'12 入・全素・公開網路特價',ref:100,url:'https://www.kmgn.com.tw/?product_id=1269&route=product%2Fproduct',label:'江南特產店'},
+  {id:'c2',name:'金瑞成｜豬腳貢糖',spec:'12 入・220g±10g・特惠／會員價',ref:120,url:'https://www.jrcjm.com/portal_c1_cnt_page.php?button_num=c1&cnt_id=349419&folder_id=92800&owner_num=c1_59417',label:'品牌門市'},
+  {id:'c3',name:'天工｜招牌豬腳貢糖',spec:'12 入・純素・保存期標示三個月',ref:130,url:'https://www.tico135.com.tw/product/detail/2273934',label:'品牌官網'},
+  {id:'c4',name:'聖祖｜豬腳貢糖',spec:'12 入・會員價 170，原價 200',ref:170,url:'https://www.shengzu.com.tw/products_11.htm',label:'品牌官網'}
+ ],
+ jerky:[
+  {id:'j1',name:'良金｜原味牛肉乾',spec:'165g±3g・高粱原味・特產商行售價',ref:175,url:'https://www.kmsmsh.com.tw/%E8%82%89%E4%B9%BE/%E8%89%AF%E9%87%91%E7%89%9B%E8%82%89%E4%B9%BE',label:'特產商行'},
+  {id:'j2',name:'良金｜原味牛肉乾',spec:'180g・品牌訂購單・滿 5 包可 95 折',ref:200,url:'https://8898.tw/liangjin/order.html',label:'良金訂購單'},
+  {id:'j3',name:'喬安｜原味牛肉乾',spec:'180g・網路商家販售價',ref:180,url:'https://mall.iopenmall.tw/018333/index.php?action=product_detail&prod_no=P1833301928799',label:'iOPEN Mall'},
+  {id:'j4',name:'高坑｜黑胡椒牛肉乾',spec:'160g・比價平台彙整價，請確認同款',ref:239,url:'https://feebee.com.tw/all/%E9%87%91%E9%96%80%E7%89%B9%E7%94%A2%E7%89%9B%E8%82%89%E4%B9%BE/',label:'飛比比價'}
+ ],
+ knife:[
+  {id:'k1',name:'金永利 B1-1',spec:'鋼柄剁刀・約 18.2cm・單支',ref:1480,quote:1600,url:'https://www.olina888.com/products/product-sgAeeKP3qJBKeaQbkbyCui',label:'網路賣場'},
+  {id:'k2',name:'金永利 B1',spec:'鋼柄剁刀＋切刀雙刀禮盒',ref:2749,quote:2900,url:'https://pxbox.es.pxmart.com.tw/product/236082',label:'全聯全電商'},
+  {id:'k3',name:'金合利 D-4',spec:'電木柄切菜刀・單支',ref:1900,quote:1800,url:'https://maestrowu.com.tw/product-detail.php?id=14',label:'品牌官網'},
+  {id:'k4',name:'金合利 F-1',spec:'新式鋼柄雙刀特選禮盒',ref:3800,quote:3600,url:'https://www.maestrowu.com.tw/product-detail.php?id=24',label:'品牌官網'}
+ ],
+ extra:[
+  {id:'e1',name:'馬家｜原味麵線',spec:'360g・8束入・公開門市販售價',ref:230,url:'https://www.kmsmsh.com.tw/%E9%BA%B5%E7%B7%9A-%E9%86%AC%E6%96%99/%E9%A6%AC%E5%AE%B6%E9%BA%B5%E7%B7%9A',label:'特產商行'},
+  {id:'e2',name:'馬家｜高粱麵線',spec:'360g・8束入・同店家價格',ref:230,url:'https://www.kmsmsh.com.tw/%E9%BA%B5%E7%B7%9A-%E9%86%AC%E6%96%99/%E9%A6%AC%E5%AE%B6%E9%BA%B5%E7%B7%9A',label:'特產商行'},
+  {id:'e3',name:'天一｜豬腳貢糖（團購）',spec:'14 顆・210g±5%・11/18 截團促銷；非現售保證',ref:130,url:'https://sichago.com.tw/groupDetail/10418',label:'歷史團購價'}
+ ]
+};
+function renderPriceTables(){
+  ['candy','jerky','knife','extra'].forEach(group=>{
+    const target=$('price-'+group);
+    target.innerHTML=priceCatalog[group].map(item=>{
+      const saved=localStorage.getItem('kinmen_quoted_'+item.id);
+      const quote=saved!==null?saved:(item.quote!==undefined?String(item.quote):'');
+      return '<tr><td><b>'+esc(item.name)+'</b></td><td>'+esc(item.spec)+'</td><td><strong>NT('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const defaultDay=Math.max(0,Math.min(5,parseInt(today.slice(-2),10)-22));
+choose(today.startsWith('2026-11-')?defaultDay:0,false);
+activateMap();
+document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none';img.parentElement.style.minHeight='210px'}));
+})();
+</script>
+</body>
+</html>+item.ref.toLocaleString('en-US')+'</strong></td><td><label><input type="number" class="price-input" min="0" step="1" inputmode="numeric" aria-label="'+esc(item.name)+'現場售價" placeholder="輸入價格" data-price-id="'+item.id+'" value="'+esc(quote)+'"></label><span class="price-status" id="stat-'+item.id+'"></span></td><td><a href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+esc(item.label)+' ↗</a></td></tr>';
+    }).join('');
+  });
+  document.querySelectorAll('[data-price-id]').forEach(input=>{
+    const item=Object.values(priceCatalog).flat().find(p=>p.id===input.dataset.priceId);
+    if(!item)return;
+    function refresh(){
+      const stat=$('stat-'+item.id);
+      if(!input.value){stat.textContent='輸入價格比較';stat.className='price-status';return;}
+      const quote=Number(input.value);
+      if(!Number.isFinite(quote)||quote<0){stat.textContent='價格無效';stat.className='price-status high';return;}
+      const diff=quote-item.ref;
+      const pct=Math.abs(diff)/item.ref*100;
+      stat.textContent=diff>0?'比參考價貴 NT('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const defaultDay=Math.max(0,Math.min(5,parseInt(today.slice(-2),10)-22));
+choose(today.startsWith('2026-11-')?defaultDay:0,false);
+activateMap();
+document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none';img.parentElement.style.minHeight='210px'}));
+})();
+</script>
+</body>
+</html>+diff.toLocaleString('en-US')+'（'+pct.toFixed(1)+'%）':diff<0?'比參考價便宜 NT('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const defaultDay=Math.max(0,Math.min(5,parseInt(today.slice(-2),10)-22));
+choose(today.startsWith('2026-11-')?defaultDay:0,false);
+activateMap();
+document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none';img.parentElement.style.minHeight='210px'}));
+})();
+</script>
+</body>
+</html>+Math.abs(diff).toLocaleString('en-US')+'（'+pct.toFixed(1)+'%）':'與參考價相同';
+      stat.className='price-status '+(diff>0?'high':diff<0?'low':'equal');
+    }
+    refresh();
+    input.addEventListener('input',()=>{localStorage.setItem('kinmen_quoted_'+item.id,input.value);refresh()});
+  });
+}
+renderPriceTables();
+
 const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const defaultDay=Math.max(0,Math.min(5,parseInt(today.slice(-2),10)-22));
 choose(today.startsWith('2026-11-')?defaultDay:0,false);
