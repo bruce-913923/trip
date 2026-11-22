@@ -91,6 +91,7 @@
   .schematic-legend{display:flex;gap:7px;overflow-x:auto;padding:9px 12px;background:#f8fbf7;border-top:1px solid #d9e5dc;scrollbar-width:thin;flex-shrink:0}
   .schematic-legend a{text-decoration:none;white-space:nowrap;font-size:.75rem;font-weight:800;color:#2d5c4b;border:1px solid #d3e1d6;background:#fff;padding:5px 8px;border-radius:9px}
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.css">
 
 </head>
 <body>
@@ -358,26 +359,74 @@
 <footer><div class="wrap">旅程版本｜2026.10.09 楊記地瓜酥更新 · 09.24–09.25 雙人自駕<br><span class="print-note">列印版本：建議 A4 直式，瀏覽器開啟「背景圖形」可保留版面效果。</span></div></footer>
 
 
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.js"></script>
 <script>
 (function(){
-  function makeMap(id, points){
+  function makeMap(id, points) {
     const el = document.getElementById(id);
-    if(!el) return;
-    const toText = v => String(v).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    if (!el) return;
+    // Always keep an offline-readable route schematic underneath the live street map.
+    const safe = v => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const w=900,h=355,pad=45;
-    const xs=points.map(p=>p.lng), ys=points.map(p=>p.lat);
-    const west=Math.min(...xs)-0.075, east=Math.max(...xs)+0.075, south=Math.min(...ys)-0.07, north=Math.max(...ys)+0.07;
-    const X=p=>pad+(p.lng-west)/(east-west)*(w-pad*2);
-    const Y=p=>pad+(north-p.lat)/(north-south)*(h-pad*2);
+    const xs=points.map(p=>p.lng),ys=points.map(p=>p.lat);
+    const west=Math.min(...xs)-.075,east=Math.max(...xs)+.075,south=Math.min(...ys)-.07,north=Math.max(...ys)+.07;
+    const X=p=>pad+(p.lng-west)/(east-west)*(w-2*pad);
+    const Y=p=>pad+(north-p.lat)/(north-south)*(h-2*pad);
     const route=points.filter(p=>!p.optional).map((p,i)=>(i?'L':'M')+X(p).toFixed(1)+','+Y(p).toFixed(1)).join(' ');
-    const optional=points.filter(p=>p.optional);
-    const marks=points.map((p,i)=>{
-      const x=X(p).toFixed(1),y=Y(p).toFixed(1);
+    const marks=points.map(p=>{
+      const x=X(p).toFixed(1), y=Y(p).toFixed(1);
       const url='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.lat+','+p.lng);
-      return '<a href="'+url+'" target="_blank" rel="noopener" aria-label="'+toText(p.name)+'｜開啟 Google Maps"><title>'+toText(p.name)+'｜'+toText(p.note)+'</title><circle cx="'+x+'" cy="'+y+'" r="15" fill="'+(p.optional?'#b8733c':'#173f32')+'" stroke="white" stroke-width="3"/><text x="'+x+'" y="'+(Number(y)+4)+'" text-anchor="middle" font-size="11" font-family="sans-serif" font-weight="800" fill="white">'+toText(p.n)+'</text></a>';
+      return '<a href="'+url+'" target="_blank" rel="noopener" aria-label="'+safe(p.name)+'｜開啟 Google Maps"><title>'+safe(p.name)+'｜'+safe(p.note)+'</title><circle cx="'+x+'" cy="'+y+'" r="15" fill="'+(p.optional?'#b8733c':'#173f32')+'" stroke="white" stroke-width="3"/><text x="'+x+'" y="'+(Number(y)+4)+'" text-anchor="middle" font-size="11" font-family="sans-serif" font-weight="800" fill="white">'+safe(p.n)+'</text></a>';
     }).join('');
-    const legend=points.map(p=>'<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.lat+','+p.lng)+'">'+toText(p.n)+' · '+toText(p.name)+'</a>').join('');
-    el.innerHTML='<div class="schematic-shell"><svg class="schematic-svg" viewBox="0 0 '+w+' '+h+'" role="img" aria-label="按地理相對位置呈現的行程示意，點選標記可開啟 Google 地圖"><rect width="'+w+'" height="'+h+'" fill="#eaf1eb"/><path d="'+route+'" fill="none" stroke="#2d5c4b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8"/>'+marks+'<text x="22" y="31" font-size="16" font-weight="700" fill="#4c6657">行程相對位置 · 非實際道路導航</text></svg><div class="schematic-legend">'+legend+'</div></div>';
+    const legend=points.map(p=>'<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.lat+','+p.lng)+'">'+safe(p.n)+' · '+safe(p.name)+'</a>').join('');
+    el.innerHTML='<div class="schematic-shell"><svg class="schematic-svg" viewBox="0 0 '+w+' '+h+'" role="img" aria-label="網路無法使用時的行程位置示意，點選標記可開啟地圖"><rect width="'+w+'" height="'+h+'" fill="#eaf1eb"/><path d="'+route+'" fill="none" stroke="#2d5c4b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8"/>'+marks+'<text x="22" y="31" font-size="16" font-weight="700" fill="#4c6657">備援行程位置圖 · 非道路導航</text></svg><div class="schematic-legend">'+legend+'</div></div>';
+    if (typeof maplibregl === 'undefined') return;
+
+    const fallback = el.firstElementChild;
+    const layer = document.createElement('div');
+    layer.style.cssText='position:absolute;inset:0;z-index:2;opacity:0;transition:opacity .2s';
+    el.style.position='relative';
+    el.appendChild(layer);
+    let ready=false, backup=false, added=false;
+    let pins=[];
+    try {
+      const map=new maplibregl.Map({
+        container:layer,
+        style:'https://tiles.openfreemap.org/styles/liberty',
+        center:[points[0].lng,points[0].lat],
+        zoom:8,dragRotate:false
+      });
+      map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
+      map.on('style.load', () => {
+        try {
+          pins.forEach(p=>p.remove());
+          pins=points.map(p=>{
+            const element=document.createElement('div'); element.className='map-pin';
+            element.textContent=p.n;
+            if(p.optional)element.style.background='#b8733c';
+            const popup=new maplibregl.Popup({offset:20}).setHTML('<b>'+safe(p.name)+'</b><p>'+safe(p.note)+'</p><a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.lat+','+p.lng)+'" target="_blank" rel="noopener">開啟 Google Maps ↗</a>');
+            return new maplibregl.Marker({element}).setLngLat([p.lng,p.lat]).setPopup(popup).addTo(map);
+          });
+          const coords=points.filter(p=>!p.optional).map(p=>[p.lng,p.lat]);
+          if(map.getLayer('trip-line'))map.removeLayer('trip-line');
+          if(map.getSource('trip-route'))map.removeSource('trip-route');
+          map.addSource('trip-route',{type:'geojson',data:{type:'Feature',properties:{},geometry:{type:'LineString',coordinates:coords}}});
+          map.addLayer({id:'trip-line',type:'line',source:'trip-route',paint:{'line-color':'#c57a3e','line-width':3,'line-dasharray':[2,2]}});
+          const bounds=new maplibregl.LngLatBounds();
+          points.forEach(p=>bounds.extend([p.lng,p.lat]));
+          map.fitBounds(bounds,{padding:40,maxZoom:12,duration:0});
+          added=true;
+        } catch (e) { /* retain fallback */ }
+      });
+      map.on('idle', () => {
+        if(!added||!map.areTilesLoaded())return;
+        ready=true;layer.style.opacity='1';fallback.style.visibility='hidden';
+      });
+      map.on('error', () => {
+        if(!ready&&!backup){backup=true;try{map.setStyle('https://tiles.waymorphic.com/styles/positron')}catch(e){}}
+      });
+      window.setTimeout(()=>{if(!ready&&!backup){backup=true;try{map.setStyle('https://tiles.waymorphic.com/styles/positron')}catch(e){}}},6500);
+    }catch(e){layer.remove();}
   }
 
   makeMap('day1-map', [
