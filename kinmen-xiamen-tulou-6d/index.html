@@ -112,6 +112,38 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
 .shop-report-line input,.shop-report-line select{min-width:0;flex:1 1 120px;border:1px solid #bccdbf;border-radius:9px;padding:9px 11px;font-size:.85rem;background:white;color:var(--ink)}
 .shop-report-form .saved-quote{margin-top:7px;color:#507158;font-size:.79rem;min-height:18px}
 @media(max-width:560px){.shop-detail>summary{padding:14px}.shop-detail .shop-body{padding:12px}.shop-report-line{flex-direction:column}}
+
+/* Fair cross-brand comparison with specification-equivalence safeguards */
+.cb-shell{border:1px solid #c7d6c9;background:#fffdf9;border-radius:22px;overflow:hidden;margin:18px 0 26px;scroll-margin-top:82px;box-shadow:0 12px 25px #142d1e13}
+.cb-head{background:linear-gradient(120deg,#dceade,#f4f7ee);padding:20px;border-bottom:1px solid #d3dfd1}
+.cb-head h3{font-size:1.35rem;color:var(--green);margin:0 0 6px}
+.cb-head p{color:#52645b;font-size:.88rem;margin:0}
+.cb-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.cb-pill{display:inline-block;font-size:.73rem;font-weight:850;border-radius:999px;padding:4px 8px;border:1px solid #d4e2d5;background:#ecf3e8;color:#276044}
+.cb-pill.warn{background:#fff0e0;color:#955733;border-color:#eed2b2}
+.cb-pill.gray{background:#f0f1ef;color:#68796c;border-color:#dfe3dc}
+.cb-nav{display:flex;gap:7px;overflow-x:auto;padding:12px 16px;border-bottom:1px solid #e1e7de;scrollbar-width:thin}
+.cb-nav button{border:1px solid #d3ddd1;background:#f4f7f1;border-radius:99px;padding:8px 12px;font-size:.82rem;color:#2f6248;white-space:nowrap;font-weight:850}
+.cb-nav button[aria-selected=true]{background:var(--green);color:#fff;border-color:var(--green)}
+.cb-body{padding:18px}.cb-body h4{font-size:1.14rem;color:var(--green);margin:0 0 8px}
+.cb-body p{color:#52655b;font-size:.88rem;margin:0 0 13px}
+.cb-table-shell{overflow:auto;border:1px solid #dde6dc;border-radius:14px}
+.cb-table{width:100%;min-width:680px;border-collapse:collapse;font-size:.85rem}
+.cb-table th{background:#f0f4ed;color:#3e5b49;text-align:left;font-size:.76rem;padding:11px 12px;white-space:nowrap}
+.cb-table td{padding:11px 12px;vertical-align:top;border-top:1px solid #e9eee6}
+.cb-table td b{color:var(--green)}.cb-table td small{display:block;color:#6b7b70;line-height:1.5;margin-top:5px}
+.cb-table a{font-size:.8rem;color:#31694f;font-weight:800}
+.cb-normal{font-variant-numeric:tabular-nums;color:#1c5739;font-weight:850;white-space:nowrap}
+.cb-compare-check{background:#f2f7ef;border-left:3px solid #7fa58b;border-radius:10px;padding:13px 15px;margin-top:13px;font-size:.86rem;color:#4f6359}
+.cb-quote{margin-top:15px;padding:14px;border:1px solid #d4e4d6;background:#f4f8f2;border-radius:14px}
+.cb-quote-head{font-size:.91rem;font-weight:850;color:var(--green);margin:0 0 9px}
+.cb-quote-row{display:flex;gap:8px;flex-wrap:wrap}
+.cb-quote-row label{display:grid;gap:4px;font-size:.76rem;color:#51675b;font-weight:850;flex:1 1 130px;min-width:120px}
+.cb-quote-row input{width:100%;border:1px solid #bacfbd;border-radius:9px;padding:9px 11px;background:white;color:var(--ink);font-size:.95rem}
+.cb-quote-result{border-radius:10px;font-size:.86rem;color:#4f6558;min-height:22px;margin:10px 0 0}
+.cb-quote-result.alert{color:#954d30;font-weight:800}
+.cb-footer{font-size:.77rem;color:#697c6c;padding:11px 19px;background:#f5f7f1;border-top:1px solid #e0e9de}
+@media(max-width:560px){.cb-head{padding:16px}.cb-body{padding:13px}.cb-nav{padding:10px}.cb-quote-row{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -124,7 +156,7 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
 <nav aria-label="頁面導航"><div class="wrap nav-inner">
   <a href="#overview">總覽</a><a href="#schedule">每日行程</a>
   <button data-nav-day="0">DAY 1</button><button data-nav-day="1">DAY 2</button><button data-nav-day="2">DAY 3</button><button data-nav-day="3">DAY 4</button><button data-nav-day="4">DAY 5</button><button data-nav-day="5">DAY 6</button>
-  <a href="#shop-audit">購物站比價</a><a href="#shopping">價格速查</a><a href="#guides">景點故事</a><a href="#reviews">旅客心得</a><a href="#map-section">地圖</a><a href="#hotels">住宿</a><a href="#tips">提醒</a>
+  <a href="#cross-brand">跨品牌同級</a><a href="#shop-audit">購物站比價</a><a href="#shopping">價格速查</a><a href="#guides">景點故事</a><a href="#reviews">旅客心得</a><a href="#map-section">地圖</a><a href="#hotels">住宿</a><a href="#tips">提醒</a>
 </div></nav>
 <main>
 <section class="summary" id="overview"><div class="wrap">
@@ -140,7 +172,7 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
 
 
 <section id="shopping"><div class="wrap">
-  <div class="section-head"><div><div class="overline">PRICE CHECK · 2026.11.22</div><h2>金門購物價格速查</h2></div><p>貢糖、牛肉乾、鋼刀與麵線的品牌和實際比價來源。直接在現場輸入店家報價，馬上看到價差；輸入紀錄會保留在這台手機的瀏覽器。</p></div>
+  <div class="section-head"><div><div class="overline">PRICE CHECK · 2026.11.22</div><h2>金門購物價格速查</h2></div><p>貢糖、牛肉乾、鋼刀與麵線的品牌和實際比價來源。（單店現場價格先用同款，再看跨品牌同級比較）直接在現場輸入店家報價，馬上看到價差；輸入紀錄會保留在這台手機的瀏覽器。</p></div>
   <div class="price-intro"><div><b>參考售價均為新台幣 NT$，不是人民幣。</b><p>價格是本次查詢到的公開賣場售價，可能變動。促銷、運費、重量與款式不同時，請先確認是否為同一商品再比較。</p></div><span style="font-size:2.5rem">🧮</span></div>
   
 <div class="shop-audit-intro" id="shop-audit">
@@ -149,7 +181,7 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
 </div>
 <div class="shop-audit-list">
   <details class="shop-detail" id="shop-day1">
-    <summary><span><span class="shop-date">DAY 1・11/22 ＋ DAY 6・11/27｜金門</span><span class="shop-heading">🍬 貢糖・麵線・牛肉乾等特產</span><span class="shop-preview">貢糖 12 入約 NT$100–170；品牌比價表在下方</span></span></summary>
+    <summary><span><span class="shop-date">DAY 1・11/22 ＋ DAY 6・11/27｜金門</span><span class="shop-heading">🍬 貢糖・麵線・牛肉乾等特產</span><span class="shop-preview">貢糖 12 入約 NT$100–170；同品類價與每100g比價在下方</span></span></summary>
     <div class="shop-body">
       <p>計畫書明載兩次金門特產巡禮，第一天提到貢糖及麵線。牛肉乾與鋼刀是你另外詢問的金門商品，不保證每個團體購物站都有販賣。</p>
       <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>主打商品</th><th>團體可能看到</th><th>一般通路公開價</th><th>高價判斷</th></tr></thead><tbody>
@@ -158,7 +190,7 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
       <tr><td><b>牛肉乾、金門鋼刀</b></td><td>不是 Word 已確認的固定購物站商品</td><td>良金、喬安、金合利、金永利等型號價格已整理於下方</td><td><span class="shop-mark unknown">按規格比較</span><div>刀具看型號與套組；牛肉乾看每 100g 價格。</div></td></tr>
       </tbody></table></div>
       <div class="shop-check"><strong>購物策略：</strong>金門標示清楚的食品，通常比大陸站點的高額寢具更容易比價；若只是零售價附近、效期新鮮，又真的喜歡，就不必因為是團體站點而排斥。</div>
-      <a class="guide-jump" href="#price-candy">⬇ 看金門四大類品牌商品表</a>
+      <a class="guide-jump" href="#cross-brand">⬇ 跨品牌同級比較 ↗</a> <a class="guide-jump" href="#price-candy">🧮 個別商品通路價 ↗</a>
     </div>
   </details>
 
@@ -232,6 +264,18 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
   </details>
 </div>
 <div class="notice amber" style="margin:4px 0 21px"><strong>重要：高價疑慮 ≠ 已證實本團坑客</strong>以上其他團參團心得只能提供案例，不表示本團使用同店、同品牌或會強制消費。即使報價比外面貴，也要先核對完全相同的品名、規格、保固和來源；如果缺乏透明資料，最保險是先不買。<a href="https://www.cna.com.tw/news/ahel/202509100227.aspx" target="_blank" rel="noopener" style="font-weight:800">參考中央社：2025 年類似低價團購物爭議 ↗</a></div>
+
+<div class="cb-shell" id="cross-brand">
+  <div class="cb-head">
+    <div class="overline">CROSS-BRAND · FAIR PRICE COMPARISON</div>
+    <h3>跨品牌同規格比價｜先確認等級再比價格</h3>
+    <p>第一層查「完全同款在外面賣多少」；第二層查「其他品牌、同類型且規格接近的替代品」。能確認同級才判斷價差；無法確認材質、等級、重量的，只展示參考價，不硬說誰比較坑。</p>
+    <div class="cb-legend"><span class="cb-pill">可同類比較：品類／規格明確</span><span class="cb-pill warn">條件式：必須補齊品質等級</span><span class="cb-pill gray">不可直接比：品級或材質不同</span></div>
+  </div>
+  <div class="cb-nav" id="cb-nav" role="tablist" aria-label="選擇比價商品類型"></div>
+  <div class="cb-body" id="cb-body" aria-live="polite"></div>
+  <div class="cb-footer">查價基準 2026/11/22。顯示的是公開通路標價／特價或網友具體記錄，不是保證今日成交價；跨幣別商品分開比較，單純通路價格低不代表同品質。</div>
+</div>
 <h3 class="category-title">🚌 依日期查看所有購物站</h3>
   <div class="shopping-notes">
     <div><strong>DAY 1｜11/22 金門特產巡禮</strong>計畫書列「麵線、貢糖」。可比價貢糖的每包顆數、重量和效期。早上另有詢問的牛肉乾與鋼刀品牌價格，已列於下方，但不代表每個團體購物站都會販售。</div>
@@ -243,7 +287,7 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
   </div>
   <div class="notice amber" style="margin:14px 0 20px"><strong>車上推介（不是額外安排的停靠站）</strong>原始計畫書註明導遊可能在遊覽車上介紹「片仔癀珍珠霜等福建土特產」。未載明哪一天、確切品牌、規格或售價，所以不替它編預估時間，也不當作已確認的正式店家。你這團沒有強制購物；想買才向導遊或店員確認售價、成分與效期。</div>
   <h3 class="category-title">🍬 豬腳貢糖｜四家品牌比較</h3><div class="price-table-wrap"><table class="price-table"><thead><tr><th>品牌</th><th>規格／特色</th><th>公開參考價</th><th>現場報價（NT$）</th><th>價源</th></tr></thead><tbody id="price-candy"></tbody></table></div>
-  <div class="guide-tip">這四款都標示 12 入，但單包重量不一定相同：金瑞成標示 220g±10g，其它需看包裝。聖祖 NT$170 是官網會員價，不能單憑比別牌貴就說旅行社加價。買前確認試吃口感、保存期限與多包折扣。</div>
+  <div class="guide-tip">四家皆為豬腳貢糖 12 入，可先看同品類包價。金瑞成 220g、聖祖 240g 的淨重已查到，能計算每 100g 價；金名祖、天工尚未核實淨重，不列入重量單價排名。詳見上方「跨品牌同規格比價」。</div>
   <h3 class="category-title">🥩 牛肉乾｜先看品牌，再核對克數</h3><div class="price-table-wrap"><table class="price-table"><thead><tr><th>品牌</th><th>規格／備註</th><th>公開參考價</th><th>現場報價（NT$）</th><th>價源</th></tr></thead><tbody id="price-jerky"></tbody></table></div>
   <div class="guide-tip">牛肉乾比較容易比錯：不同容量、牛肉角／薄片、口味都會改變售價。未確認重量的價格只能當「大致行情」，不能視為同規格價差。想精準比較可以用「售價 ÷ 克數 × 100」算每 100g 成本。</div>
   <h3 class="category-title">🔪 金門鋼刀｜與早上看到的價牌對照</h3><div class="price-table-wrap"><table class="price-table"><thead><tr><th>品牌／型號</th><th>規格</th><th>網路參考價</th><th>現場報價（NT$）</th><th>價源</th></tr></thead><tbody id="price-knife"></tbody></table></div>
