@@ -122,6 +122,16 @@ h3{font-size:19px;margin:0}
 @media(max-width:540px){.page-tools{gap:8px}.page-tools .small-link{font-size:11px}.geo-controls{gap:6px}.geo-btn{padding:8px 9px;font-size:11px}.map-toolbar{padding:11px 12px}}
 
 .sight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.sight-cluster{grid-column:1 / -1}
+.cluster-label{font-size:11px;font-weight:850;color:#2d7653;display:block;margin-bottom:4px}
+.cluster-desc{font-size:12px;color:#65796b;display:block;margin-top:4px}
+.cluster-stops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:15px 0}
+.cluster-spot{border:1px solid #dce9dd;background:#f7faf6;border-radius:13px;padding:14px}
+.cluster-spot h4{color:var(--deep);font-size:15px;margin:0 0 7px}
+.cluster-spot p{font-size:12px;margin:0 0 9px}
+.cluster-spot .sight-detail{margin:7px 0}
+.cluster-spot .action{margin-top:8px}
+@media(max-width:720px){.cluster-stops{grid-template-columns:1fr}}
 .sight-card{align-self:start;background:#fff;border:1px solid var(--line);border-radius:17px;overflow:hidden;scroll-margin-top:25px}
 .sight-card summary{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;list-style:none;padding:17px 18px;font-weight:850;font-size:14px}
 .sight-card summary::-webkit-details-marker{display:none}
@@ -388,7 +398,7 @@ const days=[
  ['12:45','廈門碼頭 → 午餐餐廳（出發時間推估）','旅客回報從碼頭到俏湖蘭搭遊覽車約 15 分鐘；12:45 為依抵達時間反推的預估，非實際出發紀錄。','estimate','車程約15分鐘（實際回報）',''],
  ['13:00','實際抵達・俏湖蘭午餐','旅客於 11/22 回報：13:00 抵達「俏湖蘭」用午餐，距碼頭約 15 分鐘車程。俏湖蘭·辣椒炒個肉是湘菜連鎖；尚未確認此團用餐分店及詳細菜色。','actual','旅客現場紀錄','廈門俏湖蘭辣椒炒個肉'],
  ['14:00','午餐後搭車前往永定（預估）','暫以 13:00 抵達餐廳、用餐約 1 小時，再估車程約 3–3.5 小時；實際出發時間尚待現場更新。','estimate','午後長途車程',''],
- ['17:30','永定土樓民俗文化村（預估）','因 13:00 才在廈門午餐，土樓景區抵達時間重新估算為傍晚；振成樓、福裕樓參觀停留與日照狀況須看實際車程及導遊安排。','estimate','未確認實際抵達','洪坑土樓群'],
+ ['17:30','洪坑土樓民俗文化村：振成樓＋福裕樓（預估）','這是同一景區內的兩棟代表性土樓，並非三個分散景點。因 13:00 才在廈門午餐，抵達景區暫估為傍晚；實際參觀順序、停留與日照依導遊安排。','estimate','未確認實際抵達','洪坑土樓群'],
  ['19:00','客家風味晚餐（預估）','午後拉車與土樓停留時間均可能變動，實際以導遊安排為準。','estimate','',''],
  ['20:00','篝火狂歡晚會・入住飯店（預估）','如活動照常舉辦，依當晚天候與現場通知參加；預計入住永定土樓王子大酒店。','estimate','住宿','永定土樓王子大酒店']
  ]},
@@ -758,7 +768,7 @@ function renderDay(){
  $('day-stats').innerHTML='<div class="stat"><small>🍽️ 當天餐食</small><strong>'+escapeHTML(d.meals)+'</strong></div><div class="stat"><small>🛏️ 當晚住宿</small><strong>'+escapeHTML(d.hotel)+'</strong></div>';
  $('timeline').innerHTML=d.events.map((e,i)=>{
   const [time,title,description,kind,detail,query]=e;
-  const matching=guideData.filter(g=>g.day===state.day&&title.includes(g.match)).slice(0,2);
+  const matching=guideData.filter(g=>g.day===state.day&&title.includes(g.match)&&!(state.day===0&&['zhencheng','fuyu'].includes(g.id))).slice(0,2);
   const links=[];
   if(query){links.push('<a class="action" href="'+amap(query)+'" target="_blank" rel="noopener">◉ 高德導航</a>');links.push('<a class="action ghost" href="'+apple(query)+'" target="_blank" rel="noopener">Apple 地圖</a>')}
   for(const g of matching)links.push('<button type="button" class="action" data-sight="'+g.id+'">◇ '+escapeHTML(g.title.split('｜')[0])+'</button>');
@@ -770,9 +780,14 @@ function renderDay(){
 }
 function renderSights(){
  daysStrip($('sight-tabs'));
+ // A park is not a third independent stop: Zhencheng and Fuyu are buildings inside Hongkeng Village.
  const all=guideData.filter(g=>g.day===state.day&&!['sleep-center','tea','silk','tongrentang'].includes(g.id));
- $('sight-grid').innerHTML=all.map(g=>'<details class="sight-card" id="guide-'+g.id+'"><summary><span>'+escapeHTML(g.title)+'</span></summary><div class="sight-body"><p>'+escapeHTML(g.desc)+'</p><div class="sight-detail"><b>到現場看什麼</b>'+escapeHTML(g.look)+'</div><div class="sight-detail"><b>旅途提醒</b>'+escapeHTML(g.tips)+'</div><div class="sight-detail"><b>建議停留</b>'+escapeHTML(g.time)+'</div><div class="actions"><a class="action" href="'+amap(g.query)+'" target="_blank" rel="noopener">◉ 高德導航</a>'+(g.source?'<a class="action ghost" href="'+escapeHTML(g.source)+'" target="_blank" rel="noopener">原始資料 ↗</a>':'')+'</div></div></details>').join('');
- if(!all.length)$('sight-grid').innerHTML='<div class="info-card">這天以交通與回程為主，主要參觀點已列於每日時間軸。</div>';
+ const childBuildings=guideData.filter(g=>['zhencheng','fuyu'].includes(g.id));
+ const standardCard=g=>'<details class="sight-card" id="guide-'+g.id+'"><summary><span>'+escapeHTML(g.title)+'</span></summary><div class="sight-body"><p>'+escapeHTML(g.desc)+'</p><div class="sight-detail"><b>到現場看什麼</b>'+escapeHTML(g.look)+'</div><div class="sight-detail"><b>旅途提醒</b>'+escapeHTML(g.tips)+'</div><div class="sight-detail"><b>建議停留</b>'+escapeHTML(g.time)+'</div><div class="actions"><a class="action" href="'+amap(g.query)+'" target="_blank" rel="noopener">◉ 高德導航</a>'+(g.source?'<a class="action ghost" href="'+escapeHTML(g.source)+'" target="_blank" rel="noopener">原始資料 ↗</a>':'')+'</div></div></details>';
+ const groupCard=g=>'<details class="sight-card sight-cluster" id="guide-tulou"><summary><span><span class="cluster-label">1 個景區 · 內含 2 座主要參觀土樓</span>永定洪坑土樓民俗文化村<span class="cluster-desc">振成樓（圓樓）＋福裕樓（府第式）｜同一景區，步行參觀</span></span></summary><div class="sight-body"><p>'+escapeHTML(g.desc)+'</p><div class="sight-detail"><b>怎麼參觀</b>進入洪坑土樓民俗文化村後，依導遊動線步行參觀振成樓、福裕樓；不是遊覽車分別前往三個景點。</div><div class="cluster-stops">'+childBuildings.map((b,i)=>'<article class="cluster-spot"><h4>'+(i+1)+'. '+escapeHTML(b.title)+'</h4><p>'+escapeHTML(b.desc)+'</p><div class="sight-detail"><b>重點</b>'+escapeHTML(b.look)+'</div><div class="sight-detail"><b>現場提醒</b>'+escapeHTML(b.tips)+'</div><div class="sight-detail"><b>建議停留</b>'+escapeHTML(b.time)+'</div><div class="actions"><a class="action ghost" href="'+amap(b.query)+'" target="_blank" rel="noopener">查看這棟樓位置 ↗</a>'+(b.source?'<a class="action ghost" href="'+escapeHTML(b.source)+'" target="_blank" rel="noopener">資料來源 ↗</a>':'')+'</div></article>').join('')+'</div><div class="sight-detail"><b>整個景區停留估計</b>'+escapeHTML(g.time)+'（包含兩棟參觀，請勿再額外加總為第三個景點）</div><div class="actions"><a class="action" href="'+amap(g.query)+'" target="_blank" rel="noopener">◉ 洪坑文化村地圖</a>'+(g.source?'<a class="action ghost" href="'+escapeHTML(g.source)+'" target="_blank" rel="noopener">世界遺產資料 ↗</a>':'')+'</div></div></details>';
+ const visible=all.filter(g=>state.day!==0||!['zhencheng','fuyu'].includes(g.id));
+ $('sight-grid').innerHTML=visible.map(g=>g.id==='tulou'?groupCard(g):standardCard(g)).join('');
+ if(!visible.length)$('sight-grid').innerHTML='<div class="info-card">這天以交通與回程為主，主要參觀點已列於每日時間軸。</div>';
 }
 function renderShopping(){
  document.querySelectorAll('[data-shop-mode]').forEach(b=>b.setAttribute('aria-selected',b.dataset.shopMode===state.shopMode?'true':'false'));
