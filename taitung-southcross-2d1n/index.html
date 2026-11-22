@@ -423,9 +423,9 @@
         ready=true;layer.style.opacity='1';fallback.style.visibility='hidden';
       });
       map.on('error', () => {
-        if(!ready&&!backup){backup=true;try{map.setStyle('https://tiles.waymorphic.com/styles/positron')}catch(e){}}
+        if(!ready&&!backup){backup=true;try{map.setStyle('https://basemaps.cartocdn.com/gl/positron-gl-style/style.json')}catch(e){}}
       });
-      window.setTimeout(()=>{if(!ready&&!backup){backup=true;try{map.setStyle('https://tiles.waymorphic.com/styles/positron')}catch(e){}}},6500);
+      window.setTimeout(()=>{if(!ready&&!backup){backup=true;try{map.setStyle('https://basemaps.cartocdn.com/gl/positron-gl-style/style.json')}catch(e){}}},6500);
     }catch(e){layer.remove();}
   }
 
