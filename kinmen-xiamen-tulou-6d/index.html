@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173e33">
+<meta name="description" content="2026/11/22–11/27 金門 × 廈門 × 永定土樓六日團體行程｜時間軸、住宿、地圖、餐食與交通。">
+<title>金廈 × 永定土樓｜六日旅行手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.css">
+<style>
+:root{--green:#173e33;--green2:#2e6250;--mint:#dbe9dd;--cream:#f6f2e9;--paper:#fffdf8;--ink:#192b25;--sub:#63736b;--line:#dddcd2;--sand:#d5b680;--amber:#a95a36;--rose:#fbede1}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.65}button,input{font:inherit}a{color:inherit}button{cursor:pointer}img{display:block;max-width:100%}.wrap{width:min(1100px,calc(100% - 32px));margin:0 auto}
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:460px;background:radial-gradient(ellipse at 84% 20%,#477968 0,transparent 40%),linear-gradient(115deg,#112e29,#1d4b3d 70%);color:#fff}.hero:after{content:"";position:absolute;z-index:-1;inset:auto -10% -140px 30%;height:330px;border-radius:50%;border:45px solid rgba(214,194,153,.16);transform:rotate(-12deg)}.hero .wrap{padding:75px 0 100px;position:relative}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid #ffffff60;border-radius:99px;background:#ffffff12;font-size:.76rem;letter-spacing:.14em;font-weight:800}.hero h1{font-size:clamp(2.6rem,6.5vw,5.8rem);line-height:1.08;margin:22px 0;letter-spacing:-.055em;max-width:850px}.hero p{font-size:1.03rem;color:#e4eee8;max-width:660px;margin:0}.hero-stats{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}.hero-stats span{display:inline-flex;background:#fff2;border:1px solid #ffffff36;border-radius:12px;padding:7px 12px;font-size:.87rem;font-weight:750}
+nav{position:sticky;z-index:20;top:0;background:#faf7efee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 4px 20px #0000000a}.nav-inner{display:flex;align-items:center;gap:6px;overflow:auto;padding:11px 0;scrollbar-width:none}nav .nav-inner::-webkit-scrollbar{display:none}.nav-inner a,.nav-inner button{flex-shrink:0;border:1px solid transparent;border-radius:99px;background:transparent;color:#466156;padding:7px 13px;text-decoration:none;font-size:.85rem;font-weight:800}.nav-inner a:hover,.nav-inner button:hover{background:#e7ede5}.nav-inner button.active{background:var(--green);color:#fff}section{padding:54px 0;scroll-margin-top:75px}h2{font-size:clamp(1.8rem,3.5vw,2.7rem);letter-spacing:-.035em;line-height:1.18;margin:0 0 12px}h3{line-height:1.25}p{margin:0}.muted{color:var(--sub)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:20px}.section-head p{max-width:550px;color:var(--sub)}.tiny{font-size:.8rem}.small{font-size:.9rem}.overline{color:var(--green2);font-size:.76rem;letter-spacing:.13em;font-weight:850;margin-bottom:8px}
+.summary{position:relative;margin-top:-44px;z-index:2;padding-top:0}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:20px;background:var(--paper);border:1px solid var(--line);box-shadow:0 16px 35px #15332817;overflow:hidden}.metric{padding:21px}.metric+.metric{border-left:1px solid var(--line)}.metric span{display:block;color:var(--sub);font-size:.77rem}.metric b{display:block;font-size:1.13rem;line-height:1.35;margin-top:5px}.route{display:flex;gap:8px;align-items:center;overflow:auto;padding:20px 0;scrollbar-width:none}.route span{white-space:nowrap;border-radius:99px;background:#e9eee6;padding:7px 12px;font-size:.85rem;font-weight:800;border:1px solid #d5ded3}.route i{color:#84958a;font-style:normal}
+.notice{border-radius:16px;background:#edf3ec;border:1px solid #d2e0d5;padding:16px 18px;font-size:.91rem;line-height:1.65}.notice.amber{background:#fff5e9;border-color:#edd1ad;color:#674a31}.notice strong{display:block;color:var(--green);margin-bottom:3px}.notice.amber strong{color:#8b4d2d}
+.day-chooser{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:18px 0}.day-choice{border:1px solid #d7d8ce;background:var(--paper);border-radius:17px;padding:15px 12px;text-align:left;transition:.15s}.day-choice:hover{transform:translateY(-1px)}.day-choice[aria-selected=true]{background:var(--green);color:white;border-color:var(--green);box-shadow:0 8px 18px #173e3324}.day-choice .dt{font-size:.75rem;opacity:.8;font-weight:800}.day-choice b{font-size:1.02rem;display:block;margin-top:4px}.day-choice small{display:block;font-size:.78rem;line-height:1.3;margin-top:7px;opacity:.8}
+.day-panel{background:#fffdf8;border-radius:24px;border:1px solid var(--line);overflow:hidden;box-shadow:0 14px 28px #142b2010}.day-banner{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;padding:28px;background:linear-gradient(120deg,#e5efe4,#f8f6ef);border-bottom:1px solid #d7e2d6}.day-banner h3{font-size:clamp(1.35rem,2.5vw,2rem);margin:4px 0 8px}.pill{display:inline-block;color:#3f654f;background:#d9e7d8;border-radius:99px;padding:4px 9px;font-size:.76rem;font-weight:800}.pill.warn{background:#f7e3ca;color:#995727}.day-banner .note{font-size:.86rem;color:#627467;max-width:650px}.day-timeline{padding:25px 28px 4px}.event{position:relative;display:grid;grid-template-columns:66px 1fr;gap:22px;padding:0 0 25px}.event:before{content:"";position:absolute;top:7px;bottom:-7px;left:77px;border-left:1px solid #d9ded6}.event:last-child:before{display:none}.event .clock{text-align:right;font-variant-numeric:tabular-nums;color:#214d3e;font-weight:850;padding-top:4px;font-size:.88rem}.event-main{position:relative;padding:15px 18px;background:#f9faf5;border:1px solid #e1e5dc;border-radius:15px}.event-main:before{content:"";position:absolute;left:-28px;top:22px;width:12px;height:12px;background:#ba7845;border:3px solid var(--paper);border-radius:50%;box-shadow:0 0 0 1px #dacdbb}.event-main h4{font-size:1.06rem;line-height:1.4;margin:0 0 5px}.event-main p{color:#56685e;font-size:.91rem}.event-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.event-tag{font-size:.72rem;color:#36614e;background:#e5eee6;border:1px solid #cfdece;padding:3px 8px;border-radius:99px;font-weight:750}.event-tag.fixed{background:#e9e6f5;color:#5d4a83;border-color:#dad1f2}.event-tag.shop{background:#fff0e0;color:#9c5b36;border-color:#ead0ac}.event-tag.warn{background:#fff0d8;color:#9c542c;border-color:#e8c7a3}.event-action{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.action{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:10px;font-size:.78rem;text-decoration:none;font-weight:850;background:var(--green);color:#fff;border:1px solid var(--green)}.action.secondary{background:transparent;color:var(--green);border-color:#b8cabe}.day-bottom{padding:17px 28px;background:#f5f6f0;border-top:1px solid #e3e6de;display:grid;grid-template-columns:1fr 1.3fr;gap:14px}.day-bottom b{font-size:.83rem}.day-bottom p{font-size:.86rem;color:#5c6c62;margin-top:3px}
+.map-card{border:1px solid var(--line);border-radius:22px;background:var(--paper);overflow:hidden;box-shadow:0 10px 22px #142b2010}.map-head{padding:18px 20px;border-bottom:1px solid var(--line)}.map-controls{display:flex;gap:7px;overflow:auto;margin-top:12px;padding-bottom:2px}.map-controls button{flex-shrink:0;padding:7px 12px;font-size:.8rem;background:#eff3eb;border:1px solid #d6e0d6;color:var(--green);border-radius:99px;font-weight:800}.map-controls button.selected{background:var(--green);border-color:var(--green);color:white}.map-canvas{height:390px;background:#e7f0e8;position:relative;isolation:isolate}.map-standby{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:20px;background:repeating-linear-gradient(135deg,#eaf1ea,#eaf1ea 25px,#e0ebe1 26px,#e0ebe1 27px);color:#476755;z-index:2}.map-standby b{font-size:1.1rem}.map-standby p{font-size:.87rem;max-width:420px}.map-live{position:absolute;inset:0;z-index:1;opacity:0;transition:opacity .2s}.map-legend{display:flex;gap:7px;padding:14px;overflow:auto;scrollbar-width:thin;border-top:1px solid #e1e5dd}.map-legend a{display:inline-flex;text-decoration:none;white-space:nowrap;border-radius:99px;background:#f0f4ef;border:1px solid #d9e3d9;color:#315b49;padding:6px 10px;font-size:.78rem;font-weight:800}.map-footer{padding:11px 18px;border-top:1px solid #e7e7df;color:var(--sub);font-size:.78rem}.map-pin{display:grid;place-items:center;height:29px;width:29px;background:var(--green);border:3px solid white;box-shadow:0 3px 9px #0003;color:white;border-radius:50%;font-size:.77rem;font-weight:900}.mapboxgl-popup-content,.maplibregl-popup-content{font-family:inherit;border-radius:10px;padding:12px;font-size:13px}
+.stay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.stay-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px}.stay-card h3{font-size:1.24rem;margin:0 0 7px}.stay-card .dates{font-size:.82rem;font-weight:850;color:#2f6953}.stay-card p{color:#5e6c63;font-size:.86rem;margin-top:9px}.stay-card .phone{display:block;margin:14px 0;color:var(--green);text-decoration:none;font-weight:800}
+.photogrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.photo{position:relative;overflow:hidden;border-radius:20px;min-height:230px;background:#bfd2c0}.photo img{height:250px;object-fit:cover;width:100%}.photo .photo-caption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;background:linear-gradient(transparent,#0a2722cc);color:#fff;font-weight:850}.photo-caption small{display:block;font-weight:500;opacity:.8;font-size:.72rem}.photo-caption a{color:#fff}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.info-card{border:1px solid var(--line);border-radius:19px;background:var(--paper);padding:22px}.info-card h3{font-size:1.15rem;margin:0 0 13px}.info-card ul{padding-left:20px;margin:0;color:#50645b;font-size:.92rem}.info-card li+li{margin-top:8px}
+footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;color:#768179}
+.floating{position:fixed;right:15px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:30;border:0;border-radius:99px;background:var(--green);color:white;font-size:.82rem;font-weight:800;padding:11px 15px;box-shadow:0 6px 20px #173e3350}
+@media(max-width:830px){.day-chooser{grid-template-columns:repeat(3,1fr)}.stay-grid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.metric:nth-child(3){border-left:0;border-top:1px solid var(--line)}.metric:nth-child(4){border-top:1px solid var(--line)}}
+@media(max-width:560px){.hero{min-height:395px}.hero .wrap{padding:56px 0 76px}.hero h1{font-size:2.8rem}.hero p{font-size:.92rem}section{padding:43px 0}.summary{margin-top:-32px}.metric{padding:14px}.metric b{font-size:1rem}.day-chooser{gap:7px}.day-choice{padding:13px 9px;border-radius:12px}.day-choice b{font-size:.88rem}.day-choice small{font-size:.7rem}.day-banner{padding:20px;grid-template-columns:1fr}.day-timeline{padding:20px 13px 0}.event{grid-template-columns:49px 1fr;gap:22px}.event:before{left:60px}.event .clock{font-size:.8rem}.event-main{padding:13px}.event-main:before{left:-28px}.day-bottom{grid-template-columns:1fr;padding:18px}.map-canvas{height:345px}.stay-grid,.photogrid,.info-grid{grid-template-columns:1fr}.photo img{height:220px}.hero-stats span{font-size:.75rem}.map-head{padding:15px}}
+@media print{nav,.floating,.map-controls,.action{display:none!important}.hero{min-height:auto}.hero .wrap{padding:22px 0}.summary{margin-top:0}.day-choice{background:white!important;color:var(--ink)!important}.day-choice[aria-selected=false]{display:none}.event-main,.stay-card,.info-card{break-inside:avoid}.map-canvas{height:220px}}
+</style>
+</head>
+<body>
+<header id="top" class="hero"><div class="wrap">
+  <div class="eyebrow">FUJIAN JOURNEY · SIX DAYS</div>
+  <h1>金廈相遇，<br>土樓慢遊。</h1>
+  <p>從金門搭船過海，走進永定客家土樓、東山島海灣與廈門老街。六天行程、交通班次、飯店和自由購物資訊，手機打開就能查。</p>
+  <div class="hero-stats"><span>2026.11.22（日）→ 11.27（五）</span><span>6 天 5 夜</span><span>金門 × 永定 × 漳州 × 廈門</span></div>
+</div></header>
+<nav aria-label="頁面導航"><div class="wrap nav-inner">
+  <a href="#overview">總覽</a><a href="#schedule">每日行程</a>
+  <button data-nav-day="0">DAY 1</button><button data-nav-day="1">DAY 2</button><button data-nav-day="2">DAY 3</button><button data-nav-day="3">DAY 4</button><button data-nav-day="4">DAY 5</button><button data-nav-day="5">DAY 6</button>
+  <a href="#map-section">地圖</a><a href="#hotels">住宿</a><a href="#tips">提醒</a>
+</div></nav>
+<main>
+<section class="summary" id="overview"><div class="wrap">
+  <div class="metrics">
+    <div class="metric"><span>旅程天數</span><b>6 天・5 晚</b></div>
+    <div class="metric"><span>團體人數</span><b>14 位</b></div>
+    <div class="metric"><span>住宿飯店</span><b>永定 1 晚・廈門 4 晚</b></div>
+    <div class="metric"><span>交通方式</span><b>飛機＋小三通＋遊覽車</b></div>
+  </div>
+  <div class="route"><span>高雄／台中</span><i>→</i><span>金門</span><i>→</i><span>廈門</span><i>→</i><span>永定土樓</span><i>→</i><span>東山島</span><i>→</i><span>廈門</span><i>→</i><span>金門</span><i>→</i><span>台灣</span></div>
+  <div class="notice"><strong>購物站自由參觀・沒有強制購物</strong>茶葉、絲綢、乳膠、同仁堂及特產等站點可隨意看看；喜歡再向店員詢價，不需要購買。團體的集合時間與行程仍以當天導遊通知為準。</div>
+</div></section>
+
+<section id="schedule"><div class="wrap">
+  <div class="section-head"><div><div class="overline">ITINERARY</div><h2>每天去哪裡？</h2></div><p>點選日期切換當天時間軸。紫色「固定班次」依計畫書；其他時間依一般車程與參觀節奏推估。</p></div>
+  <div class="day-chooser" id="day-chooser" role="tablist" aria-label="選擇日期"></div>
+  <div class="day-panel" id="day-panel" aria-live="polite"></div>
+</div></section>
+
+<section id="map-section"><div class="wrap">
+  <div class="section-head"><div><div class="overline">INTERACTIVE MAP</div><h2>景點在哪裡？</h2></div><p>一般街道地圖，不是衛星圖。可縮放、拖曳並點擊標記；虛線僅表示行程順序，不代表實際行車路線。</p></div>
+  <div class="map-card">
+    <div class="map-head"><b>路線地圖</b><div class="map-controls" id="map-controls"></div></div>
+    <div class="map-canvas">
+      <div class="map-standby" id="map-standby"><span style="font-size:2rem">🗺️</span><b>正在載入街道地圖</b><p>若中國大陸網路或第三方服務無法使用，下方仍可直接點景點開啟高德地圖或 Apple 地圖導航。</p></div>
+      <div class="map-live" id="map-live"></div>
+    </div>
+    <div class="map-legend" id="map-legend"></div>
+    <div class="map-footer">地點座標用於路線位置參考，實際入口請用下方導航搜尋核對。街道圖採 OpenFreeMap／備援圖源；在中國大陸建議使用高德地圖導航。</div>
+  </div>
+</div></section>
+
+<section id="highlights"><div class="wrap">
+  <div class="section-head"><div><div class="overline">HIGHLIGHTS</div><h2>這趟最值得期待</h2></div><p>古老土樓、海島建築、閩南表演與城市散步。</p></div>
+  <div class="photogrid">
+    <div class="photo"><img loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/China_Fujian_Yongding_Hongkeng_Tulou_Zhencheng_Lou.jpg" alt="永定振成樓從空中俯瞰的環形土樓"><div class="photo-caption">永定・振成樓<small>世界文化遺產土樓群｜影像：<a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:China_Fujian_Yongding_Hongkeng_Tulou_Zhencheng_Lou.jpg">Lennartbj / Wikimedia Commons, CC BY-SA 4.0</a></small></div></div>
+    <div class="photo"><img loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/5/50/Gulangyu_sunlight_rock_2011_12.jpg" alt="廈門鼓浪嶼海岸與建築景色"><div class="photo-caption">廈門・鼓浪嶼<small>漫步萬國建築與海灘｜影像：<a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Gulangyu_sunlight_rock_2011_12.jpg">Wikimedia Commons</a></small></div></div>
+  </div>
+</div></section>
+
+<section id="hotels"><div class="wrap">
+  <div class="section-head"><div><div class="overline">WHERE TO STAY</div><h2>五晚住宿</h2></div><p>以下飯店及電話均依旅行社計畫書；實際房型與訂房狀態須向旅行社確認。</p></div>
+  <div class="stay-grid">
+    <article class="stay-card"><div class="dates">11/22・1 晚</div><h3>永定土樓王子大酒店</h3><p>永定土樓區域，適合隔天接續前往漳州。當晚行程安排客家風味晚餐及篝火活動。</p><a class="phone" href="tel:+865975205555">☎ +86 597-5205555</a><a class="action" target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=永定土樓王子大酒店">查看位置 ↗</a></article>
+    <article class="stay-card"><div class="dates">11/23–11/24・2 晚</div><h3>廈門翔鷺大酒店</h3><p>廈門湖里區的大型商務飯店。請留意團體房型是否為有窗房。</p><a class="phone" href="tel:+865923578888">☎ +86 592-3578888</a><a class="action" target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=廈門翔鷺國際大酒店">查看位置 ↗</a></article>
+    <article class="stay-card"><div class="dates">11/25–11/26・2 晚</div><h3>廈門君泰酒店</h3><p>位於廈門島東南側，靠近環島路與會展中心區域。</p><a class="phone" href="tel:+865926738888">☎ +86 592-6738888</a><a class="action" target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=廈門君泰酒店">查看位置 ↗</a></article>
+  </div>
+</div></section>
+
+<section id="tips"><div class="wrap">
+  <div class="section-head"><div><div class="overline">TRAVEL NOTES</div><h2>出發與當地小提醒</h2></div></div>
+  <div class="info-grid">
+    <div class="info-card"><h3>✈️ 航班與船班</h3><ul><li>11/22 高雄 → 金門：立榮 8915，08:00–09:05（12 人）</li><li>11/22 台中 → 金門：立榮 8955，07:50–08:50（2 人）</li><li>11/22 金門 → 廈門：金星輪 11:30–12:00（14 人）</li><li>11/27 廈門 → 金門：新武夷 10:00–10:30（14 人）</li><li>11/27 金門 → 高雄：立榮 8926，14:55–15:55（12 人）</li><li>11/27 金門 → 台中：華信 776，16:50–17:50（2 人）</li></ul></div>
+    <div class="info-card"><h3>🧳 旅途準備</h3><ul><li>帶妥有效旅行證件及必要入境文件。</li><li>小三通請預留登船報到與通關時間，不能以船開時間才抵碼頭。</li><li>廈門與永定氣溫、降雨及晚上體感可能不同，帶薄外套與雨具。</li><li>手機網路請確認中國大陸可用的 eSIM 或漫遊服務；在當地建議搭配高德地圖。</li><li>鼓浪嶼渡輪、閩南傳奇演出場次以導遊實際安排為準。</li></ul></div>
+    <div class="info-card"><h3>🍴 餐食說明</h3><ul><li>原計畫書：5 次早餐、9 次正餐。</li><li>大陸段以每桌 10 人、8 菜 1 湯含酒水為原訂說明，人數不足可能調整。</li><li>11/25 晚餐為鼓浪嶼／廈門小吃自理。</li><li>11/27 返回台灣，午餐安排金門便當。</li><li>用餐時間是推估，實際依團體動線調整。</li></ul></div>
+    <div class="info-card"><h3>🛍️ 購物站方式</h3><ul><li>金門麵線、貢糖及特產巡禮。</li><li>廈門自貿區睡眠體驗中心、茶文化體驗、絲綢博物館、同仁堂。</li><li>導遊可能介紹福建當地土特產。</li><li><b>沒有強制購物</b>；可以自由看，想買再向店員問價，沒有購買需求就不用買。</li><li>注意貴重物品、發票與信用卡刷卡幣別。</li></ul></div>
+  </div>
+  <div class="notice amber" style="margin-top:17px"><strong>時間說明</strong>除計畫書明載的航班與船班外，網頁中的集合、行車、參觀、吃飯與入住時間均為合理推估，不是旅行社公告。特別是 11/23 永定→東山島→廈門車程長，11/27 船班早，需聽從導遊當日指示。</div>
+</div></section>
+</main>
+<footer><div class="wrap">金廈＋永定土樓精彩六日・行動旅遊手冊｜製作依據：2026/11/22 行程計畫書。<br>照片為景點參考影像；地圖標記位置僅供概覽，實際導航以當地圖資為準。最後更新：2026.11.22。</div></footer>
+<button class="floating" type="button" id="goTop" title="回頁首">↑ 回頂部</button>
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.js"></script>
+<script>
+(function(){
+'use strict';
+const days=[
+ {date:'11/22',dow:'日',subtitle:'金門出發・走進客家土樓',headline:'台灣 → 金門 → 廈門 → 永定',mood:'交通日・移動較多',hotel:'永定土樓王子大酒店',meals:'午：金門牛肉麵｜晚：客家風味',tip:'金門集合與登船時間比較緊湊。11:30 船班是固定時間，前段特產巡禮及午餐可能壓縮，跟導遊保持聯繫。',events:[
+ ['07:50','台中出發・立榮 8955','台中飛金門，預定 08:50 抵達。','fixed','立榮 8955',''],
+ ['08:00','高雄出發・立榮 8915','高雄飛金門，預定 09:05 抵達。','fixed','立榮 8915',''],
+ ['09:20','金門集合・麵線與貢糖巡禮','依團體抵達時間接駁；特產站自由參觀，有需要再詢價。','shop','時間推估','金門貢糖'],
+ ['10:15','金門牛肉麵午餐','計畫書安排的午餐；為配合 11:30 船班，實際時間可能更早、用餐較快。','estimate','時間緊湊',''],
+ ['10:45','前往金門碼頭、報到通關','碼頭及報到時間依導遊為準；不要把 11:30 當成抵達碼頭時間。','warn','通關緩衝','水頭碼頭'],
+ ['11:30','金星輪・金門 → 廈門','船班 11:30–12:00，14 人同行。','fixed','金星輪',''],
+ ['12:45','抵廈門後搭遊覽車前往永定','跨區拉車，保留約 3–3.5 小時作為行程估算，依實際交通調整。','estimate','遊覽車',''],
+ ['16:15','永定土樓民俗文化村','參觀振成樓、福裕樓與客家聚落建築；若通關較慢則縮短停留。','estimate','主景點','洪坑土樓群'],
+ ['18:30','客家風味晚餐','依餐廳與遊覽車抵達時間調整。','estimate','',''],
+ ['19:30','篝火狂歡晚會・入住飯店','活動可能因當晚天候或現場安排調整；入住土樓王子大酒店。','estimate','住宿','永定土樓王子大酒店']
+ ]},
+ {date:'11/23',dow:'一',subtitle:'海邊小鎮・東山島風光',headline:'永定 → 東山島 → 廈門',mood:'本團最長車程之一',hotel:'廈門翔鷺大酒店',meals:'早：飯店｜午：東山島風味｜晚：廈門風味',tip:'永定到東山島、再回廈門是繞路且拉車長的一天；景點參觀時間與集美龍舟池傍晚採光可能受影響。',events:[
+ ['07:00','飯店早餐・退房','盡量早點用餐，準備前往漳州東山島。','estimate','',''],
+ ['07:40','永定出發往東山島','估算約 3–4 小時車程，山區與跨縣道路請依當天交通為準。','estimate','長距離拉車',''],
+ ['11:20','東山島・風動石景區','海邊巨石與濱海景觀，是這一天的主要景點。','estimate','主景點','東山風動石景區'],
+ ['12:05','關帝廟與南門灣','沿東山島古城及海灣散步拍照；行程有些緊，可由導遊調整順序。','estimate','','東山島南門灣'],
+ ['13:05','東山島風味午餐','當地合菜；休息後再前往廈門。','estimate','',''],
+ ['14:00','東山島 → 廈門','估算約 2.5–3 小時長途移動。','estimate','遊覽車',''],
+ ['16:45','自貿區睡眠體驗中心','行程表列出的參訪／購物站，沒有強制消費；想買再詢價。','shop','自由參觀','廈門自貿區'],
+ ['17:35','集美學村＋龍舟池','若時間允許，傍晚到集美學村與龍舟池看建築及水岸。','estimate','','集美學村龍舟池'],
+ ['19:00','廈門風味晚餐・飯店入住','入住廈門翔鷺大酒店，連住兩晚。','estimate','住宿','廈門翔鷺國際大酒店']
+ ]},
+ {date:'11/24',dow:'二',subtitle:'喝茶・閩南老院子與傳奇演出',headline:'茶文化 → 老院子 → 閩南傳奇',mood:'文化演出日',hotel:'廈門翔鷺大酒店',meals:'早：飯店｜午：廈門風味｜晚：當地風味',tip:'《閩南傳奇秀》有固定演出梯次，網站以午後場次概估；實際須以旅行社訂到的場次調整上午與午餐安排。',events:[
+ ['08:00','翔鷺飯店早餐','早餐後在大廳集合。','estimate','',''],
+ ['09:00','中國茶文化體驗・品茶','了解茶葉與泡茶方式，屬自由參觀／選購站，沒有購買義務。','shop','自由參觀','廈門茶文化體驗'],
+ ['11:15','廈門風味午餐','原計畫書安排當地風味餐。','estimate','',''],
+ ['12:45','老院子民俗風情園','閩南民俗文化與傳統聚落主題園區，保留約 1–2 小時參觀。','estimate','文化景點','廈門老院子景區'],
+ ['15:00','《閩南傳奇秀》','大型閩南文化演出。此時間只是示意，必須以實際場次為準。','warn','演出時段待確認','閩南傳奇秀'],
+ ['17:30','返回市區・當地風味晚餐','搭車返回；晚餐時間依演出結束與車流調整。','estimate','',''],
+ ['19:00','回翔鷺飯店休息','連續第二晚住廈門翔鷺大酒店。','estimate','住宿','廈門翔鷺國際大酒店']
+ ]},
+ {date:'11/25',dow:'三',subtitle:'城市步道・鼓浪嶼散策',headline:'絲綢 → 山海步道 → 鼓浪嶼',mood:'步行量較高',hotel:'廈門君泰酒店',meals:'早：飯店｜午：廈門風味｜晚：小吃自理',tip:'鼓浪嶼往返船票與碼頭需由旅行社統一安排。島上多步行，穿好走的鞋；當晚晚餐自理，可逛龍頭路小吃。',events:[
+ ['08:00','飯店早餐・退房','離開翔鷺大酒店，行李跟車。','estimate','',''],
+ ['09:00','絲綢博物館','文化展示兼自由參觀／選購站，沒有強制購物。','shop','自由參觀','廈門絲綢博物館'],
+ ['10:30','山海健康步道／空中步道','欣賞廈門城市與海景，依團體狀況安排適合的路段。','estimate','步行景點','廈門山海健康步道'],
+ ['12:00','廈門風味午餐','團體合菜後接續前往鼓浪嶼。','estimate','',''],
+ ['13:30','搭船前往鼓浪嶼','出發碼頭與航班依旅行社統一安排，並預留安檢、候船時間。','estimate','碼頭集合','鼓浪嶼輪渡碼頭'],
+ ['14:15','鼓浪嶼・萬國建築群','在島上欣賞歷史別墅與多元建築風格，步行探索。','estimate','主景點','鼓浪嶼'],
+ ['15:30','龍頭路商業街','逛街、拍拍照與嘗試當地特色小吃。','estimate','自由散策','鼓浪嶼龍頭路'],
+ ['16:25','港仔後沙灘','海岸漫步與拍照，注意潮汐、天候與安全。','estimate','','鼓浪嶼港仔後沙灘'],
+ ['17:30','返程搭船・晚餐小吃自理','原計畫書晚餐為小吃自理，時間依離島與回程安排。','estimate','自費晚餐',''],
+ ['19:30','入住廈門君泰酒店','連續入住兩晚；實際抵達依船班與交通狀況。','estimate','住宿','廈門君泰酒店']
+ ]},
+ {date:'11/26',dow:'四',subtitle:'古剎・廈大外觀・中山路',headline:'南普陀 → 閩南幻境 → 中山路',mood:'城市文化日',hotel:'廈門君泰酒店',meals:'早：飯店｜午：閩南風味｜晚：中式合菜',tip:'南普陀與廈門大學安排的是寺院參觀＋校園外觀，並非保證進入校園。屿見閩南的場館活動與表演時段以現場安排為準。',events:[
+ ['08:00','君泰飯店早餐','早餐後集合出發。','estimate','',''],
+ ['09:00','同仁堂參訪','行程表列入的站點，可自由參觀、詢價，不需要購買。','shop','自由參觀','廈門同仁堂'],
+ ['10:30','南普陀寺','走訪千年古剎及閩南寺院建築，注意寺院禮儀。','estimate','文化景點','南普陀寺廈門'],
+ ['11:35','廈門大學・外觀','以校門及周邊街景為主，原行程沒有包含校園入內。','estimate','','廈門大學'],
+ ['12:15','閩南風味午餐','團體午餐。','estimate','',''],
+ ['13:45','屿見閩南・時光幻境','閩南主題文化體驗，實際停留與演出依旅行社安排。','estimate','沉浸式文化','屿見閩南時光幻境'],
+ ['16:30','中山路觀光步行街','老城街區散步，逛騎樓與商店街。','estimate','自由散策','廈門中山路步行街'],
+ ['18:20','中式合菜晚餐','計畫書包含的團體晚餐。','estimate','',''],
+ ['19:50','返回廈門君泰酒店','旅程最後一晚，整理隔天通關與回程行李。','estimate','住宿','廈門君泰酒店']
+ ]},
+ {date:'11/27',dow:'五',subtitle:'沿海回程・小三通返金門',headline:'廈門 → 金門 → 高雄／台中',mood:'返程日・船班早',hotel:'回到溫暖的家',meals:'早：飯店｜午：金門便當',tip:'10:00 開船是固定班次，務必預留碼頭報到及通關時間。若交通延誤，七彩環島路及五緣灣大橋車遊可能縮短或取消。',events:[
+ ['06:45','飯店早餐・退房','早起整理行李、確認證件和隨身物品。','estimate','提早集合',''],
+ ['07:30','七彩環島路・車遊','依遊覽車行駛路段欣賞廈門海景；不一定下車。','estimate','車覽','廈門環島路'],
+ ['08:10','車遊五緣灣大橋','路線以導遊當天安排為準，船班優先。','estimate','車覽','廈門五緣灣大橋'],
+ ['08:40','抵廈門碼頭・辦理通關','實際集合時間依船公司與團體規定，需提早抵達。','warn','登船優先','廈門五通客運碼頭'],
+ ['10:00','新武夷・廈門 → 金門','計畫書固定船班 10:00–10:30，14 人同行。','fixed','新武夷',''],
+ ['10:45','金門・莒光樓','通關後前往莒光樓與金門景點。','estimate','','金門莒光樓'],
+ ['11:50','金門便當午餐・特產巡禮','午餐與特產站，購物自由、沒有強制消費。','shop','自由參觀','金門貢糖'],
+ ['13:20','前往金門機場・準備登機','高雄組與台中組班機不同，注意導遊安排。','warn','分流登機','金門機場'],
+ ['14:55','立榮 8926・金門 → 高雄','高雄組 12 人，14:55–15:55。','fixed','立榮 8926',''],
+ ['16:50','華信 776・金門 → 台中','台中組 2 人，16:50–17:50。','fixed','華信 776','']
+ ]}
+];
+const geo=[
+ [{name:'金門機場',lat:24.429,lng:118.359},{name:'水頭碼頭（金門）',lat:24.404,lng:118.295},{name:'五通碼頭（廈門）',lat:24.538,lng:118.172},{name:'洪坑土樓群（永定）',lat:24.6632,lng:116.9735}],
+ [{name:'洪坑土樓群',lat:24.6632,lng:116.9735},{name:'東山島風動石',lat:23.706,lng:117.538},{name:'東山島南門灣',lat:23.693,lng:117.535},{name:'集美學村',lat:24.568,lng:118.104},{name:'翔鷺酒店',lat:24.521,lng:118.107}],
+ [{name:'翔鷺酒店',lat:24.521,lng:118.107},{name:'老院子景區（約略）',lat:24.637,lng:118.062},{name:'翔鷺酒店',lat:24.521,lng:118.107}],
+ [{name:'翔鷺酒店',lat:24.521,lng:118.107},{name:'山海健康步道（約略）',lat:24.486,lng:118.088},{name:'鼓浪嶼',lat:24.448,lng:118.066},{name:'君泰酒店',lat:24.472,lng:118.167}],
+ [{name:'君泰酒店',lat:24.472,lng:118.167},{name:'南普陀寺',lat:24.439,lng:118.102},{name:'廈門大學外側',lat:24.437,lng:118.096},{name:'中山路步行街',lat:24.454,lng:118.078},{name:'君泰酒店',lat:24.472,lng:118.167}],
+ [{name:'君泰酒店',lat:24.472,lng:118.167},{name:'環島路（約略）',lat:24.445,lng:118.156},{name:'五緣灣大橋',lat:24.538,lng:118.169},{name:'廈門五通碼頭',lat:24.538,lng:118.172},{name:'金門水頭碼頭',lat:24.404,lng:118.295},{name:'金門機場',lat:24.429,lng:118.359}]
+];
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const gao=q=>'https://uri.amap.com/search?keyword='+encodeURIComponent(q);
+const apple=q=>'https://maps.apple.com/?q='+encodeURIComponent(q);
+const labels={fixed:'固定班次',estimate:'預估時間',shop:'自由參觀・不強制購物',warn:'需留意'};
+let active=0,map=null,mapLoaded=false,markers=[];
+const choose=(i,scroll)=>{
+  active=i;const d=days[i];
+  $('day-chooser').querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-selected',k===i?'true':'false'));
+  document.querySelectorAll('[data-nav-day]').forEach(b=>b.classList.toggle('active',Number(b.dataset.navDay)===i));
+  const events=d.events.map(e=>{
+    const mode=e[3],query=e[5],t=labels[mode],detail=e[4];
+    return '<article class="event"><div class="clock">'+esc(e[0])+'</div><div class="event-main"><h4>'+esc(e[1])+'</h4><p>'+esc(e[2])+'</p><div class="event-tags"><span class="event-tag '+(mode==='fixed'?'fixed':mode==='shop'?'shop':mode==='warn'?'warn':'')+'">'+t+'</span>'+(detail?'<span class="event-tag">'+esc(detail)+'</span>':'')+'</div>'+(query?'<div class="event-action"><a class="action" target="_blank" rel="noopener" href="'+gao(query)+'">高德地圖 ↗</a><a class="action secondary" target="_blank" rel="noopener" href="'+apple(query)+'">Apple 地圖 ↗</a></div>':'')+'</div></article>';
+  }).join('');
+  $('day-panel').innerHTML='<header class="day-banner"><div><span class="pill '+((i===1||i===5)?'warn':'')+'">DAY 0'+(i+1)+' · 2026/'+esc(d.date)+'（'+esc(d.dow)+'） · '+esc(d.mood)+'</span><h3>'+esc(d.headline)+'</h3><p class="note">'+esc(d.tip)+'</p></div><span style="font-size:2.5rem">'+(['🏯','🌊','🎭','🏝️','🏛️','✈️'][i])+'</span></header><div class="day-timeline">'+events+'</div><div class="day-bottom"><div><b>🍽️ 當日餐食</b><p>'+esc(d.meals)+'</p></div><div><b>🛏️ 當晚住宿</b><p>'+esc(d.hotel)+'</p></div></div>';
+  setMapDay(i);
+  if(scroll) $('schedule').scrollIntoView({behavior:'smooth',block:'start'});
+};
+$('day-chooser').innerHTML=days.map((d,i)=>'<button type="button" role="tab" aria-selected="false" data-pick="'+i+'" class="day-choice"><div class="dt">DAY 0'+(i+1)+' · '+esc(d.date)+'</div><b>'+esc(d.subtitle.split('・')[0])+'</b><small>'+esc(d.headline)+'</small></button>').join('');
+$('day-chooser').addEventListener('click',e=>{const b=e.target.closest('[data-pick]');if(b)choose(Number(b.dataset.pick),false)});
+document.querySelectorAll('[data-nav-day]').forEach(b=>b.addEventListener('click',()=>choose(Number(b.dataset.navDay),true)));
+$('map-controls').innerHTML=days.map((d,i)=>'<button type="button" data-mapday="'+i+'">DAY '+(i+1)+' · '+d.date+'</button>').join('');
+$('map-controls').addEventListener('click',e=>{const b=e.target.closest('[data-mapday]');if(b)choose(Number(b.dataset.mapday),false)});
+$('goTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const linkMarker=(name)=>'<a href="'+gao(name)+'" target="_blank" rel="noopener" style="color:#1c513b;font-weight:750">高德導航 ↗</a>';
+function setMapDay(i){
+ const pts=geo[i];
+ $('map-controls').querySelectorAll('button').forEach(b=>b.classList.toggle('selected',Number(b.dataset.mapday)===i));
+ $('map-legend').innerHTML=pts.map((p,n)=>'<a href="'+gao(p.name)+'" target="_blank" rel="noopener">'+(n+1)+'. '+esc(p.name)+' ↗</a>').join('');
+ if(!map||!mapLoaded)return;
+ markers.forEach(m=>m.remove());markers=[];
+ pts.forEach((p,n)=>{
+   const el=document.createElement('div');el.className='map-pin';el.textContent=String(n+1);
+   const m=new maplibregl.Marker({element:el}).setLngLat([p.lng,p.lat]).setPopup(new maplibregl.Popup({offset:20}).setHTML('<b>'+esc(p.name)+'</b><br>'+linkMarker(p.name))).addTo(map);markers.push(m);
+ });
+ if(map.getLayer('route-line'))map.removeLayer('route-line');
+ if(map.getSource('route-data'))map.removeSource('route-data');
+ if(pts.length>1){
+  map.addSource('route-data',{type:'geojson',data:{type:'Feature',geometry:{type:'LineString',coordinates:pts.map(p=>[p.lng,p.lat])},properties:{}}});
+  map.addLayer({id:'route-line',type:'line',source:'route-data',paint:{'line-color':'#bd7440','line-width':3,'line-dasharray':[2,2],'line-opacity':.82}});
+ }
+ const bounds=new maplibregl.LngLatBounds();
+ pts.forEach(p=>bounds.extend([p.lng,p.lat]));
+ map.fitBounds(bounds,{padding:45,maxZoom:11,duration:650});
+}
+function activateMap(){
+ if(!window.maplibregl){$('map-standby').innerHTML='<b>目前無法載入互動地圖</b><p>下方仍可點選各景點，開啟高德地圖導航。</p>';return;}
+ let backupUsed=false;
+ try{
+  map=new maplibregl.Map({
+   container:'map-live',
+   style:'https://tiles.openfreemap.org/styles/liberty',
+   center:[118.07,24.47],zoom:8,
+   dragRotate:false,pitchWithRotate:false,attributionControl:true
+  });
+  map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
+  map.on('load',()=>{mapLoaded=true;$('map-standby').style.display='none';$('map-live').style.opacity='1';setMapDay(active)});
+  map.on('error',()=>{
+   if(mapLoaded||backupUsed)return;
+   backupUsed=true;
+   try{map.setStyle('https://tiles.waymorphic.com/styles/positron')}catch(e){}
+  });
+  window.setTimeout(()=>{if(!mapLoaded&&!backupUsed){backupUsed=true;try{map.setStyle('https://tiles.waymorphic.com/styles/positron')}catch(e){}}},6000);
+  window.setTimeout(()=>{if(!mapLoaded){$('map-standby').innerHTML='<span style="font-size:2rem">🧭</span><b>街道底圖暫時無法載入</b><p>可能是網路連線限制；可點下方景點按鈕直接用高德地圖／Apple 地圖開啟導航。</p>';}},14000);
+ }catch(e){$('map-standby').innerHTML='<b>目前無法載入互動地圖</b><p>下方景點導航仍可使用。</p>';}
+}
+const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const defaultDay=Math.max(0,Math.min(5,parseInt(today.slice(-2),10)-22));
+choose(today.startsWith('2026-11-')?defaultDay:0,false);
+activateMap();
+document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none';img.parentElement.style.minHeight='210px'}));
+})();
+</script>
+</body>
+</html>
