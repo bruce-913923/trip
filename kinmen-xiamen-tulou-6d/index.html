@@ -155,7 +155,7 @@ footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;colo
   <div class="reviews-grid" style="margin-top:16px">
     <article class="review-card"><span class="review-type risk">Dcard｜2024・其他金廈購物團</span><h3>參團客分享購物站推銷過程</h3><p>一位旅客寫到乳膠、茶葉、蠶絲等站點的長時間說明與團員之間的購買壓力，並提及部分費用未事先充分告知。是當事人的個別體驗，與你這團的購物規則不能混為一談。</p><a href="https://www.dcard.tw/f/travel/p/254925312" target="_blank" rel="noopener">看 Dcard 原始遊記（2024/3）↗</a></article>
     <article class="review-card"><span class="review-type risk">PTT｜2019・其他金廈五日團</span><h3>低價團曾有「購物站停太久」抱怨</h3><p>這篇舊心得抱怨旅遊景點被壓縮、購物站停留偏長以及現場推銷壓力。年份很久，不能推論今日本團必然出現一樣的情況；現場以旅行社安排與你實際經驗為準。</p><a href="https://www.ptt.cc/bbs/travel/M.1558894125.A.5F0.html" target="_blank" rel="noopener">看 PTT 原始心得 ↗</a></article>
-    <article class="review-card"><span class="review-type">Trip.com｜永定土樓旅遊心得</span><h3>土樓最大看點是內外環結構</h3><p>旅遊攻略多建議拍振成樓圓形全景、內庭八卦式分隔、福裕樓的府第格局。這團可能傍晚到，建議先看最重要的建築細節再拍團照。</p><a href="https://www.longyan.gov.cn/fw/zstp/rdlb/202511/t20251107_2255844.htm" target="_blank" rel="noopener">核對龍岩官方景點介紹 ↗</a></article>
+    <article class="review-card"><span class="review-type">龍岩市政府｜永定土樓資料</span><h3>土樓最大看點是內外環結構</h3><p>旅遊攻略多建議拍振成樓圓形全景、內庭八卦式分隔、福裕樓的府第格局。這團可能傍晚到，建議先看最重要的建築細節再拍團照。</p><a href="https://www.longyan.gov.cn/fw/zstp/rdlb/202511/t20251107_2255844.htm" target="_blank" rel="noopener">核對龍岩官方景點介紹 ↗</a></article>
     <article class="review-card"><span class="review-type">Trip.com｜閩南傳奇秀・2026</span><h3>移動座椅與多舞台是觀眾最常提到的特色</h3><p>頁面旅客評分約 4.8/5，評論稱座位會隨演出移動，音樂與場景結合有特色。需注意原計畫書沒有寫確定演出梯次，入場依導遊通知。</p><a href="https://tw.trip.com/travel-guide/attraction/xiamen/huaxia-performance-legend-of-southern-fujian-show-22638192/" target="_blank" rel="noopener">看 Trip.com 旅客評論 ↗</a></article>
     <article class="review-card"><span class="review-type">Trip.com｜嶼見閩南・2026</span><h3>互動表演多，不宜只當拍照景點</h3><p>Trip.com 約 4.6/5，旅客特別提及沉浸式表演與角色互動。平台建議停留 3–5 小時；你這團若只停一個下午，先看演出時刻比較值得。</p><a href="https://tw.trip.com/travel-guide/attraction/xiamen/time-meets-island-150107038/" target="_blank" rel="noopener">看 Trip.com 旅客評論 ↗</a></article>
     <article class="review-card"><span class="review-type">Trip.com｜翔鷺大酒店・2026/8–10</span><h3>房間寬敞受好評，但要確認是不是無窗團體房</h3><p>2026 年住客有稱讚飯店規模、房間和服務的心得，也有入住登記流程、洗衣機不足的抱怨。平台確實有「經濟雙床房－無窗」房型，建議向旅行社查實際配房名稱。</p><a href="https://tw.trip.com/hotels/xiamen-hotel-detail-375295/xianglu-grand-hotel/review.html" target="_blank" rel="noopener">看飯店住客評論 ↗</a></article>
@@ -314,13 +314,19 @@ function activateMap(){
    dragRotate:false,pitchWithRotate:false,attributionControl:true
   });
   map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
-  map.on('load',()=>{mapLoaded=true;$('map-standby').style.display='none';$('map-live').style.opacity='1';setMapDay(active)});
-  map.on('error',()=>{
-   if(mapLoaded||backupUsed)return;
-   backupUsed=true;
-   try{map.setStyle('https://tiles.waymorphic.com/styles/positron')}catch(e){}
+  const showReady=()=>{mapLoaded=true;$('map-standby').style.display='none';$('map-live').style.opacity='1';setMapDay(active)};
+  const useBackup=()=>{
+    if(backupUsed)return;
+    backupUsed=true;mapLoaded=false;
+    $('map-standby').style.display='flex';$('map-live').style.opacity='0';
+    try{map.setStyle('https://basemaps.cartocdn.com/gl/positron-gl-style/style.json')}catch(e){}
+  };
+  map.on('style.load',showReady);
+  map.on('error',(evt)=>{
+    const message=String(evt&&evt.error&&evt.error.message||'');
+    if(!backupUsed&&(!mapLoaded||/403|401|forbidden|tile|load|404/i.test(message)))useBackup();
   });
-  window.setTimeout(()=>{if(!mapLoaded&&!backupUsed){backupUsed=true;try{map.setStyle('https://tiles.waymorphic.com/styles/positron')}catch(e){}}},6000);
+  window.setTimeout(()=>{if(!mapLoaded&&!backupUsed)useBackup()},6500);
   window.setTimeout(()=>{if(!mapLoaded){$('map-standby').innerHTML='<span style="font-size:2rem">🧭</span><b>街道底圖暫時無法載入</b><p>可能是網路連線限制；可點下方景點按鈕直接用高德地圖／Apple 地圖開啟導航。</p>';}},14000);
  }catch(e){$('map-standby').innerHTML='<b>目前無法載入互動地圖</b><p>下方景點導航仍可使用。</p>';}
 }
