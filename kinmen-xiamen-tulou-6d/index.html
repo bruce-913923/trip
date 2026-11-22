@@ -618,6 +618,87 @@ function renderGuides(){
 }
 renderGuides();
 
+
+// Scope-limited comparison: "same exact model", "same product class", and "not directly comparable" never get mixed.
+const crossBrandGroups=[
+  {id:'candy',tab:'🍬 豬腳貢糖',name:'金門豬腳貢糖｜跨四品牌',spec:'全素、麥芽糖外皮＋花生餡、每包 12 入。這是「相同品類」而不是完全相同配方或等級；已知淨重才用每 100g 比價。',currency:'NT$',unit:'g',input:true,qualify:'同品類比較：都是全素 12 入的豬腳貢糖；花生比例、麥芽糖外皮厚度、口感和品牌定位仍可能不同。若比較總價，以 12 入為基準；若比較份量，以每 100g 為基準。',items:[
+    {n:'金名祖 12入豬腳貢糖',price:100,gram:null,note:'12 入／全素；總重待查',state:'可比：同類12入',url:'https://www.kmgn.com.tw/?product_id=1269&route=product%2Fproduct'},
+    {n:'金瑞成 豬腳貢糖',price:120,gram:220,note:'12 入／全素／220g±10g',state:'可換算重量',url:'https://www.kmgn.com.tw/?product_id=223&route=product%2Fproduct'},
+    {n:'天工 招牌豬腳貢糖',price:130,gram:null,note:'12 入／純素；總重待查',state:'可比：同類12入',url:'https://www.tico135.com.tw/product/detail/2273934'},
+    {n:'聖祖 招牌豬腳貢糖',price:170,gram:240,note:'12 入／全素／240g±3%',state:'可換算重量',url:'https://mall.iopenmall.tw/002745/index.php?action=product_detail&prod_no=P0274500153909'}
+  ],same:'同品牌同款另查：聖祖 240g 12 入官方會員價 NT$170；iOPEN 官方旗艦店另見 NT$180，不含個別運費。不同品牌的比較仍須看單包總重。',sameUrl:'https://www.shengzu.com.tw/products_11.htm',excludes:'「香酥／鹹酥／海蘭酥／采玉酥」不是豬腳貢糖；14 入團購包不能直接拿 12 入包價比。'},
+  {id:'jerky',tab:'🥩 原味牛肉乾',name:'金門原味牛肉乾｜跨三品牌',spec:'一般原味「片狀牛肉乾」，不混入牛肉角、辣味／黑胡椒、戰地限定或不同肉品。以每 100g 比價。',currency:'NT$',unit:'g',input:true,qualify:'同一大類：一般原味牛肉乾、非牛肉角，已知重量；但牛肉來源、厚薄、含糖量與調味配方仍不同，因此只比較價格密度，不視為同級品質保證。',items:[
+   {n:'良金 原味牛肉乾',price:170,gram:165,note:'165g／零售特價；非 180g 品牌訂購包',state:'可換算重量',url:'https://www.kmgn.com.tw/?product_id=123&route=product%2Fproduct'},
+   {n:'喬安 原味牛肉乾',price:180,gram:180,note:'180g／一般原味款；不是「戰地／限定版」',state:'可換算重量',url:'https://mall.iopenmall.tw/018333/index.php?action=product_detail&prod_no=P1833301928799'},
+   {n:'高坑 原味牛肉乾',price:180,gram:160,note:'160g±3g／官方售價',state:'可換算重量',url:'https://kow-kun.com.tw/zh-TW/products/beef-jerky-original'}
+  ],same:'同品牌不同通路：喬安一般原味 180g，有特產商行 NT$170 與 iOPEN Mall NT$180；良金 180g 官方訂購單 NT$200，但它是不同重量包裝，不應與 165g 直接比「每包價」。',sameUrl:'https://www.kmgn.com.tw/?path=5_8_18&route=product%2Fcategory',excludes:'牛肉角是不同口感與切型；喬安金門限定版部分為 130g／較高售價，不能混入 180g 一般款。'},
+  {id:'noodles',tab:'🍜 金門麵線',name:'金門原味麵線｜同款跨通路＋條件式跨牌',spec:'原味、手工／日曬、重量 360–400g；跨品牌仍需確認是否真正手工日曬與是否添加其他原料。',currency:'NT$',unit:'g',input:false,qualify:'馬家 360g 原味產品可確實做同款跨通路；上古厝 400g 商品與馬家為不同品牌，待確定是同類手工日曬製程才能同級比。',items:[
+    {n:'馬家 原味麵線｜板農',price:230,gram:360,note:'8 束／360g／純手工原味',state:'同款基準',url:'https://eshop.pcfarm.jil.tw/product?id=10884'},
+    {n:'馬家 原味麵線｜iOPEN Mall',price:210,gram:360,note:'8 束／360g；同品牌同規格、不同通路',state:'同款可直比',url:'https://mall.iopenmall.tw/018333/index.php?action=product_detail&prod_no=P1833301927718'},
+    {n:'上古厝 原味麵線｜賣場',price:130,gram:400,note:'標示 10 束／400g；手工與日曬條件待核實',state:'跨品牌：條件式',url:'https://mall.iopenmall.tw/046530/'}
+  ],same:'已確認馬家原味 360g：板農 NT$230、iOPEN 商家 NT$210，完全同款通路價差 NT$20（運費另計）。',sameUrl:'https://mall.iopenmall.tw/018333/index.php?action=product_detail&prod_no=P1833301927718',excludes:'高粱／山藥等添加口味、粗細不同、非手工乾燥製程，不能與手工原味直接比。'},
+  {id:'latex',tab:'🛏️ 乳膠床墊',name:'乳膠床墊｜先分尺寸、厚度、材質',spec:'同級基準應為整片天然乳膠（非 1–2cm 複合貼層）、同床寬與長、同厚度、接近的乳膠密度及相近布套／保固。',currency:'NT$',unit:'none',input:false,qualify:'同品牌「同尺寸 5 尺、厚 7.5cm」可比通路；不同品牌規格未齊，僅當價格示例。不能把 5 尺、6 尺、10cm、15cm 混成同級排名。',items:[
+    {n:'森好眠 經典天然乳膠',price:10925,gram:null,note:'5 尺／7.5cm／100%天然乳膠／冰絲涼感；PChome 當時特價',state:'明確規格',url:'https://24h.pchome.com.tw/store/DEBR2S'},
+    {n:'森好眠 經典天然乳膠',price:10625,gram:null,note:'5 尺／7.5cm／吸濕排汗款；同厚度不同布套，樂天價區間起價',state:'布套不同，條件式',url:'https://www.rakuten.com.tw/shop/sonmil/product/huvze1udn/'},
+    {n:'森好眠 經典天然乳膠',price:12825,gram:null,note:'6 尺／7.5cm／冰絲涼感；尺寸大一級',state:'尺寸不同不可直比',url:'https://24h.pchome.com.tw/store/DEBR2S'},
+    {n:'其他團 7.5cm 床墊報價',price:44910,gram:null,note:'NT$44,910／床墊＋枕頭和被子組；未確認品牌、尺寸、乳膠比例',state:'非同級實證',url:'https://www.dcard.tw/f/travel/p/254906054'}
+  ],same:'這裡沒有得到「另一品牌且完全同尺寸、厚度、100%天然乳膠」的可靠即時價，因此不能硬稱同級跨品牌貴幾倍。只能提醒其他團價與公開零售價格量級有巨大落差，需要原品名型號。',sameUrl:'https://www.sonmil.com.tw/zh-hant/pages/choose',excludes:'一般彈簧床墊、薄乳膠貼層、6 尺加大或 15cm 厚、混合 SBR 乳膠都不應直接當同級。'},
+  {id:'silk',tab:'🧵 桑蠶絲被',name:'蠶絲被｜看桑蠶絲重量／絲種／尺寸',spec:'至少確認「100%桑蠶絲、長絲、填充淨重（非整條總重）、被子尺寸」，夏被、春秋被與子母被屬不同類。',currency:'RMB',unit:'none',input:false,qualify:'三個都是公開桑蠶絲商品例子，但尺寸、蠶絲填充量、結構不同；只作分層市場範圍，不排誰較貴。需要找到同級的填充克數與絲質才可判定溢價。',items:[
+   {n:'蠶花娘娘 桑蠶長絲夏被',price:584,gram:null,note:'200×230cm／絲重約 1 市斤（500g）／夏被',state:'夏被：獨立比較',url:'https://dir.jd.com/guide/jd-geo-guide-can-si-bei-rou-hu-v1'},
+   {n:'太湖雪 桑蠶長絲被',price:1155,gram:null,note:'150×215cm／絲重約 3 市斤（1500g）',state:'重量及尺寸不同',url:'https://dir.jd.com/guide/jd-geo-guide-can-si-bei-rou-hu-v1'},
+   {n:'慈雲 桑蠶長絲子母被',price:3292,gram:null,note:'200×230cm／2+4 市斤（合計約 3000g）／子母被',state:'子母被非單條',url:'https://dir.jd.com/guide/jd-geo-guide-can-si-bei-rou-hu-v1'}
+  ],same:'同樣報 RMB 2,000 的桑蠶絲被，可能是偏高，也可能合理；不知道蠶絲淨重、長短絲與尺寸就沒有可比基準。',sameUrl:'https://dir.jd.com/guide/jd-geo-guide-can-si-bei-rou-hu-v1',excludes:'絲滑或「天絲／萊賽爾」不等於真絲；被芯填充物與被套布料也不同。RMB 30,000 降到 5,000 的套組促銷，若無同規格外部售價，不可說真的省 RMB 25,000。'},
+  {id:'tea',tab:'🍵 茶葉',name:'茶葉｜同茶種＋同級＋同產地才比',spec:'大紅袍與普洱分開；大紅袍至少核對正岩／半岩／洲茶、焙火、採收批次、品牌、重量；普洱要生熟、年份、茶區、等級、批號。',currency:'RMB',unit:'g',input:false,qualify:'以下是同茶種不同等級的市場例子，僅用每100g展示價差；不是同級的價格排名。旅行團若未標淨重或等級，禁止據此算溢價。',items:[
+   {n:'武夷星 大紅袍「金悅」',price:100,gram:128,note:'128g／大紅袍；產區等級需再確認',state:'級別未知',url:'https://dir.jd.com/guide/jd-geo-guide-wu-yi-xing-cha-ye-v1'},
+   {n:'武夷星 大紅袍「香融」',price:200,gram:170,note:'170g／不同產品系列；不可直接說與金悅同級',state:'級別未知',url:'https://dir.jd.com/guide/jd-geo-guide-wu-yi-xing-cha-ye-v1'},
+   {n:'武夷星「八三茶人」特級',price:350,gram:108,note:'108g／標示特級；與其他兩款未驗證同級',state:'特級，另層',url:'https://dir.jd.com/guide/jd-geo-guide-wu-yi-xing-cha-ye-v1'},
+   {n:'大益 7542 生普洱（2025）',price:170,gram:357,note:'357g／2025 年生茶／2026 賣場顯示缺貨；與大紅袍不同品類',state:'普洱：另一組',url:'https://www.chawo.com/item-113414.html'}
+  ],same:'其他團大紅袍 RMB 800／盒、普洱 RMB 2,000／餅，因缺少淨重／年份／產區等級，無法直接判定超價多少；只能標示待核實的高價風險。',sameUrl:'https://www.dcard.tw/f/travel/p/261581866',excludes:'大紅袍不同山場、焙火與等級；普洱新茶對老茶、生對熟；鐵觀音對大紅袍，都不能混比。'},
+  {id:'knives',tab:'🔪 鋼刀',name:'金門鋼刀｜先分單刀與雙刀組',spec:'只比較相同用途、相近刀型與刀刃材質；剁刀與切菜刀、鋼柄與電木柄不能只看價格。',currency:'NT$',unit:'none',input:false,qualify:'金永利 B1 雙刀與金合利 F1 雙刀都是兩支裝，但刀型、材質、尺寸與鍛造工藝資料不足，不視為完全同級，只供雙刀組預算參考。',items:[
+   {n:'金永利 B1 雙刀禮盒',price:2749,gram:null,note:'剁刀＋切刀；網路商品價',state:'雙刀組：待核對鋼材',url:'https://pxbox.es.pxmart.com.tw/product/236082'},
+   {n:'金合利 F1 雙刀禮盒',price:3800,gram:null,note:'新式鋼柄雙刀禮盒；品牌官網',state:'雙刀組：待核對鋼材',url:'https://www.maestrowu.com.tw/product-detail.php?id=24'},
+   {n:'金永利 B1-1 單支剁刀',price:1480,gram:null,note:'鋼柄剁刀，不可與切菜刀相比',state:'剁刀：另一組',url:'https://www.olina888.com/products/product-sgAeeKP3qJBKeaQbkbyCui'},
+   {n:'金合利 D4 單支切菜刀',price:1900,gram:null,note:'電木柄切菜刀，不可與剁刀相比',state:'切刀：另一組',url:'https://maestrowu.com.tw/product-detail.php?id=14'}
+  ],same:'你拍到的現場報價：B1 NT$2,900 對網路 NT$2,749；F1 NT$3,600 對官網 NT$3,800。**此為各自同款跨通路價差**，比拿 B1 和 F1 直接判斷高低更可靠。',sameUrl:'https://www.maestrowu.com.tw/product-detail.php?id=24',excludes:'店家宣稱炮彈鋼、特殊鍛造，仍需確認實際用鋼、刀型、工藝與保固。不同刀種不以「同是菜刀」當作同級。'},
+  {id:'skincare',tab:'🧴 珍珠霜／同仁堂',name:'片仔癀與同仁堂｜型號／配方先行',spec:'化妝品看完整品名、克數與條碼；藥品還需原料等級、批准文號與製造廠，不同配方即使重 3g 也不可比。',currency:'RMB',unit:'none',input:false,qualify:'片仔癀「皇后牌普通珍珠霜 25g」可同款跨通路比；煥顏 32g 是不同級別。同仁堂安宮牛黃丸天然款與人工款是不同配方，分開列示，不能用價差判斷店家坑客。',items:[
+   {n:'皇后牌 普通珍珠霜',price:23.8,gram:null,note:'25g／片仔癀官方建議零售價',state:'普通款同型號',url:'https://www.pzhchina.com/pzhhzp/product/info_476.aspx?itemid=8491'},
+   {n:'皇后牌 普通珍珠霜',price:11.5,gram:null,note:'25g／百度健康第三方商家，需辨識正品',state:'普通款同型號',url:'https://health.baidu.com/malls/goods/db2c_164214245555362728_1482330962046517248'},
+   {n:'皇后牌 煥顏珍珠霜',price:105,gram:null,note:'32g／高階另一配方',state:'不同款不可直比',url:'https://www.pzhchina.com/pzhhzp/product/info_476.aspx?itemid=8476'},
+   {n:'同仁堂 安宮牛黃丸（人工原料）',price:218,gram:null,note:'3g／批准文號 Z11020193',state:'藥品人工款',url:'https://m.tongrentangmall.com/GoodsIndex/2831.html'},
+   {n:'同仁堂 安宮牛黃丸（天然原料）',price:860,gram:null,note:'3g／批准文號 Z11020076',state:'藥品天然款，與人工款不同',url:'https://m.tongrentangmall.com/GoodsIndex/2591.html'}
+  ],same:'普通珍珠霜 25g 同款約 RMB 11.5–23.8；但第三方賣家需核對真偽。中藥品項不能只看 3g 相同就比價，也不建議旅行中因推銷自行購買服用。',sameUrl:'https://www.pzhchina.com/pzhhzp/product/info_476.aspx?itemid=8491',excludes:'珍珠霜不同系列不能只用每g價格比；含藥品項不能用普通保健食品替代，也應注意攜帶限制。'}
+];
+let cbActive='candy';
+function renderCrossBrand(){
+ const nav=$('cb-nav'),body=$('cb-body');
+ if(!nav||!body)return;
+ nav.innerHTML=crossBrandGroups.map(g=>'<button type="button" role="tab" aria-selected="'+(g.id===cbActive)+'" data-cb="'+g.id+'">'+esc(g.tab)+'</button>').join('');
+ const g=crossBrandGroups.find(x=>x.id===cbActive);
+ let rows=g.items.map((p,i)=>{
+   const unit=g.unit==='g'&&p.gram?g.currency+(p.price/p.gram*100).toFixed(1)+'/100g':(g.unit==='g'?'重量待核實':'規格依說明');
+   return '<tr><td><b>'+esc(p.n)+'</b><small>'+esc(p.note)+'</small></td><td><span class="cb-normal">'+g.currency+' '+p.price.toLocaleString('en-US')+'</span></td><td>'+esc(unit)+'</td><td><span class="cb-pill '+(/待|不同|另一|未知|級別|條件式|無法|非同/.test(p.state)?'warn':'')+'">'+esc(p.state)+'</span><div><a href="'+esc(p.url)+'" target="_blank" rel="noopener noreferrer">商品價源 ↗</a></div></td></tr>';
+ }).join('');
+ body.innerHTML='<h4>'+esc(g.name)+'</h4><p>'+esc(g.spec)+'</p><div class="cb-table-shell"><table class="cb-table"><thead><tr><th>品牌／相同商品</th><th>公開價格</th><th>標準化價格</th><th>可比條件與來源</th></tr></thead><tbody>'+rows+'</tbody></table></div><div class="cb-compare-check"><b>同級比較基準：</b>'+esc(g.qualify)+'</div><div class="cb-compare-check"><b>同款／通路比價：</b>'+esc(g.same)+' <a target="_blank" rel="noopener noreferrer" href="'+esc(g.sameUrl)+'">核對來源 ↗</a></div><div class="cb-compare-check"><b>這些商品不混比：</b>'+esc(g.excludes)+'</div>';
+ if(g.input){
+   body.innerHTML+='<div class="cb-quote"><div class="cb-quote-head">🧮 現場報價換算（'+esc(g.name.split('｜')[0])+'）</div><div class="cb-quote-row"><label>現場一包價格（'+g.currency+'）<input id="cb-quote-price" inputmode="decimal" type="number" min="0" step="0.1" placeholder="例如 170"></label><label>包裝淨重（公克）<input id="cb-quote-weight" inputmode="decimal" type="number" min="1" step="1" placeholder="例如 240"></label></div><p id="cb-quote-result" class="cb-quote-result">輸入價格與淨重，換算每 100g 並與同類已確認樣本對照。</p></div>';
+   const out=$('cb-quote-result'),f=()=>{
+     const p=Number($('cb-quote-price').value),w=Number($('cb-quote-weight').value);
+     if(!p||!w||p<0||w<=0){out.textContent='請輸入正確的現場價格與淨重；缺重量就不判斷。';out.className='cb-quote-result';return;}
+     const rate=p/w*100;
+     const valid=g.items.filter(e=>e.gram&&e.state.indexOf('不同')<0&&e.state.indexOf('另一')<0).map(e=>e.price/e.gram*100);
+     const low=Math.min(...valid),high=Math.max(...valid);
+     let label=rate>high*1.25?'高出已知同類價格區間至少25%，建議先核對型號、食材與品牌定位。':rate>high?'高於已知同類價格區間；不一定是同品質加價。':rate<low?'低於目前已知同類價格區間；也請核對內容量與效期。':'位於目前已知同類價格區間，仍需評估口味與品質。';
+     out.textContent='現場每 100g：'+g.currency+rate.toFixed(1)+'；已查同類樣本約 '+g.currency+low.toFixed(1)+'～'+g.currency+high.toFixed(1)+'/100g。'+label;
+     out.className='cb-quote-result'+(rate>high*1.25?' alert':'');
+   };
+   $('cb-quote-price').addEventListener('input',f);$('cb-quote-weight').addEventListener('input',f);
+ }
+}
+$('cb-nav').addEventListener('click',e=>{const button=e.target.closest('[data-cb]');if(!button)return;cbActive=button.dataset.cb;renderCrossBrand()});
+renderCrossBrand();
+// Deep-linking to a specific on-site product category.
+document.addEventListener('click',e=>{const a=e.target.closest('a[data-cb-link]');if(!a)return;cbActive=a.dataset.cbLink;renderCrossBrand()});
+
 const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const defaultDay=Math.max(0,Math.min(5,parseInt(today.slice(-2),10)-22));
 choose(today.startsWith('2026-11-')?defaultDay:0,false);
