@@ -671,6 +671,7 @@ function locationFailure(err){
  };
  setGeoStatus(errors[err&&err.code]||'無法取得手機定位，請確認瀏覽器定位權限後重試。',true);
  if(gpsWatchId!==null&&navigator.geolocation){navigator.geolocation.clearWatch(gpsWatchId);gpsWatchId=null}
+ gpsPosition=null;gpsFirstFix=false;clearGpsDrawing();
  updateGeoButtons();
 }
 function circleCoordinates(lng,lat,radius){
@@ -727,7 +728,7 @@ function onLocation(position){
  setGeoStatus('目前座標：'+gpsPosition.lat.toFixed(6)+'° N，'+gpsPosition.lng.toFixed(6)+'° E'+uncertainty,false);
  updateGeoButtons();
  drawGps();
- if(!gpsFirstFix){gpsFirstFix=true;focusGps()}
+ if(!gpsFirstFix&&mapInstance&&mapLoaded){gpsFirstFix=true;focusGps()}
 }
 function startGps(){
  if(gpsWatchId!==null){focusGps();return}
@@ -774,7 +775,7 @@ async function loadMap(){
   $('map-wait').textContent='街道地圖載入中，若外部圖資受限仍可使用下方導航連結。';
   mapInstance=new maplibregl.Map({container:'street-map',style:'https://tiles.openfreemap.org/styles/liberty',center:[118.12,24.6],zoom:8,dragRotate:false});
   mapInstance.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
-  mapInstance.on('style.load',()=>{mapLoaded=true;$('street-map').style.opacity='1';$('map-wait').style.display='none';updateMap();drawGps()});
+  mapInstance.on('style.load',()=>{mapLoaded=true;$('street-map').style.opacity='1';$('map-wait').style.display='none';updateMap();drawGps();if(gpsPosition&&!gpsFirstFix){gpsFirstFix=true;focusGps()}});
   mapInstance.on('error',e=>{
    const str=String(e?.error?.message||'');
    if(mapAttempt===0&&(!mapLoaded||/403|401|tile|forbidden|404/i.test(str))){
