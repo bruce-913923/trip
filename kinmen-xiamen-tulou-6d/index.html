@@ -3,370 +3,323 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#173e33">
-<meta name="description" content="2026/11/22–11/27 金門 × 廈門 × 永定土樓六日團體行程｜時間軸、住宿、地圖、餐食與交通。">
-<title>金廈 × 永定土樓｜六日旅行手冊</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="theme-color" content="#123d33">
+<meta name="description" content="2026.11.22–11.27 金門・廈門・永定土樓六日旅行手冊｜每日時間軸、景點導覽、購物價格比較與住宿交通。">
+<title>金廈土樓・六日旅途手冊</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.css">
 <style>
-:root{--green:#173e33;--green2:#2e6250;--mint:#dbe9dd;--cream:#f6f2e9;--paper:#fffdf8;--ink:#192b25;--sub:#63736b;--line:#dddcd2;--sand:#d5b680;--amber:#a95a36;--rose:#fbede1}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.65}button,input{font:inherit}a{color:inherit}button{cursor:pointer}img{display:block;max-width:100%}.wrap{width:min(1100px,calc(100% - 32px));margin:0 auto}
-.hero{position:relative;isolation:isolate;overflow:hidden;min-height:460px;background:radial-gradient(ellipse at 84% 20%,#477968 0,transparent 40%),linear-gradient(115deg,#112e29,#1d4b3d 70%);color:#fff}.hero:after{content:"";position:absolute;z-index:-1;inset:auto -10% -140px 30%;height:330px;border-radius:50%;border:45px solid rgba(214,194,153,.16);transform:rotate(-12deg)}.hero .wrap{padding:75px 0 100px;position:relative}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid #ffffff60;border-radius:99px;background:#ffffff12;font-size:.76rem;letter-spacing:.14em;font-weight:800}.hero h1{font-size:clamp(2.6rem,6.5vw,5.8rem);line-height:1.08;margin:22px 0;letter-spacing:-.055em;max-width:850px}.hero p{font-size:1.03rem;color:#e4eee8;max-width:660px;margin:0}.hero-stats{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}.hero-stats span{display:inline-flex;background:#fff2;border:1px solid #ffffff36;border-radius:12px;padding:7px 12px;font-size:.87rem;font-weight:750}
-nav{position:sticky;z-index:20;top:0;background:#faf7efee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 4px 20px #0000000a}.nav-inner{display:flex;align-items:center;gap:6px;overflow:auto;padding:11px 0;scrollbar-width:none}nav .nav-inner::-webkit-scrollbar{display:none}.nav-inner a,.nav-inner button{flex-shrink:0;border:1px solid transparent;border-radius:99px;background:transparent;color:#466156;padding:7px 13px;text-decoration:none;font-size:.85rem;font-weight:800}.nav-inner a:hover,.nav-inner button:hover{background:#e7ede5}.nav-inner button.active{background:var(--green);color:#fff}section{padding:54px 0;scroll-margin-top:75px}h2{font-size:clamp(1.8rem,3.5vw,2.7rem);letter-spacing:-.035em;line-height:1.18;margin:0 0 12px}h3{line-height:1.25}p{margin:0}.muted{color:var(--sub)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:20px}.section-head p{max-width:550px;color:var(--sub)}.tiny{font-size:.8rem}.small{font-size:.9rem}.overline{color:var(--green2);font-size:.76rem;letter-spacing:.13em;font-weight:850;margin-bottom:8px}
-.summary{position:relative;margin-top:-44px;z-index:2;padding-top:0}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:20px;background:var(--paper);border:1px solid var(--line);box-shadow:0 16px 35px #15332817;overflow:hidden}.metric{padding:21px}.metric+.metric{border-left:1px solid var(--line)}.metric span{display:block;color:var(--sub);font-size:.77rem}.metric b{display:block;font-size:1.13rem;line-height:1.35;margin-top:5px}.route{display:flex;gap:8px;align-items:center;overflow:auto;padding:20px 0;scrollbar-width:none}.route span{white-space:nowrap;border-radius:99px;background:#e9eee6;padding:7px 12px;font-size:.85rem;font-weight:800;border:1px solid #d5ded3}.route i{color:#84958a;font-style:normal}
-.notice{border-radius:16px;background:#edf3ec;border:1px solid #d2e0d5;padding:16px 18px;font-size:.91rem;line-height:1.65}.notice.amber{background:#fff5e9;border-color:#edd1ad;color:#674a31}.notice strong{display:block;color:var(--green);margin-bottom:3px}.notice.amber strong{color:#8b4d2d}
-.day-chooser{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:18px 0}.day-choice{border:1px solid #d7d8ce;background:var(--paper);border-radius:17px;padding:15px 12px;text-align:left;transition:.15s}.day-choice:hover{transform:translateY(-1px)}.day-choice[aria-selected=true]{background:var(--green);color:white;border-color:var(--green);box-shadow:0 8px 18px #173e3324}.day-choice .dt{font-size:.75rem;opacity:.8;font-weight:800}.day-choice b{font-size:1.02rem;display:block;margin-top:4px}.day-choice small{display:block;font-size:.78rem;line-height:1.3;margin-top:7px;opacity:.8}
-.day-panel{background:#fffdf8;border-radius:24px;border:1px solid var(--line);overflow:hidden;box-shadow:0 14px 28px #142b2010}.day-banner{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;padding:28px;background:linear-gradient(120deg,#e5efe4,#f8f6ef);border-bottom:1px solid #d7e2d6}.day-banner h3{font-size:clamp(1.35rem,2.5vw,2rem);margin:4px 0 8px}.pill{display:inline-block;color:#3f654f;background:#d9e7d8;border-radius:99px;padding:4px 9px;font-size:.76rem;font-weight:800}.pill.warn{background:#f7e3ca;color:#995727}.day-banner .note{font-size:.86rem;color:#627467;max-width:650px}.day-timeline{padding:25px 28px 4px}.event{position:relative;display:grid;grid-template-columns:66px 1fr;gap:22px;padding:0 0 25px}.event:before{content:"";position:absolute;top:7px;bottom:-7px;left:77px;border-left:1px solid #d9ded6}.event:last-child:before{display:none}.event .clock{text-align:right;font-variant-numeric:tabular-nums;color:#214d3e;font-weight:850;padding-top:4px;font-size:.88rem}.event-main{position:relative;padding:15px 18px;background:#f9faf5;border:1px solid #e1e5dc;border-radius:15px}.event-main:before{content:"";position:absolute;left:-28px;top:22px;width:12px;height:12px;background:#ba7845;border:3px solid var(--paper);border-radius:50%;box-shadow:0 0 0 1px #dacdbb}.event-main h4{font-size:1.06rem;line-height:1.4;margin:0 0 5px}.event-main p{color:#56685e;font-size:.91rem}.event-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.event-tag{font-size:.72rem;color:#36614e;background:#e5eee6;border:1px solid #cfdece;padding:3px 8px;border-radius:99px;font-weight:750}.event-tag.actual{background:#cfecdf;color:#175b3e;border-color:#a8d7c2}.event-tag.fixed{background:#e9e6f5;color:#5d4a83;border-color:#dad1f2}.event-tag.shop{background:#fff0e0;color:#9c5b36;border-color:#ead0ac}.event-tag.warn{background:#fff0d8;color:#9c542c;border-color:#e8c7a3}.event-action{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.action{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:10px;font-size:.78rem;text-decoration:none;font-weight:850;background:var(--green);color:#fff;border:1px solid var(--green)}.action.secondary{background:transparent;color:var(--green);border-color:#b8cabe}.day-bottom{padding:17px 28px;background:#f5f6f0;border-top:1px solid #e3e6de;display:grid;grid-template-columns:1fr 1.3fr;gap:14px}.day-bottom b{font-size:.83rem}.day-bottom p{font-size:.86rem;color:#5c6c62;margin-top:3px}
-.map-card{border:1px solid var(--line);border-radius:22px;background:var(--paper);overflow:hidden;box-shadow:0 10px 22px #142b2010}.map-head{padding:18px 20px;border-bottom:1px solid var(--line)}.map-controls{display:flex;gap:7px;overflow:auto;margin-top:12px;padding-bottom:2px}.map-controls button{flex-shrink:0;padding:7px 12px;font-size:.8rem;background:#eff3eb;border:1px solid #d6e0d6;color:var(--green);border-radius:99px;font-weight:800}.map-controls button.selected{background:var(--green);border-color:var(--green);color:white}.map-canvas{height:390px;background:#e7f0e8;position:relative;isolation:isolate}.map-standby{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:20px;background:repeating-linear-gradient(135deg,#eaf1ea,#eaf1ea 25px,#e0ebe1 26px,#e0ebe1 27px);color:#476755;z-index:2}.map-standby b{font-size:1.1rem}.map-standby p{font-size:.87rem;max-width:420px}.map-live{position:absolute;inset:0;z-index:1;opacity:0;transition:opacity .2s}.map-legend{display:flex;gap:7px;padding:14px;overflow:auto;scrollbar-width:thin;border-top:1px solid #e1e5dd}.map-legend a{display:inline-flex;text-decoration:none;white-space:nowrap;border-radius:99px;background:#f0f4ef;border:1px solid #d9e3d9;color:#315b49;padding:6px 10px;font-size:.78rem;font-weight:800}.map-footer{padding:11px 18px;border-top:1px solid #e7e7df;color:var(--sub);font-size:.78rem}.map-pin{display:grid;place-items:center;height:29px;width:29px;background:var(--green);border:3px solid white;box-shadow:0 3px 9px #0003;color:white;border-radius:50%;font-size:.77rem;font-weight:900}.mapboxgl-popup-content,.maplibregl-popup-content{font-family:inherit;border-radius:10px;padding:12px;font-size:13px}
-.stay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.stay-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px}.stay-card h3{font-size:1.24rem;margin:0 0 7px}.stay-card .dates{font-size:.82rem;font-weight:850;color:#2f6953}.stay-card p{color:#5e6c63;font-size:.86rem;margin-top:9px}.stay-card .phone{display:block;margin:14px 0;color:var(--green);text-decoration:none;font-weight:800}
-.photogrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.photo{position:relative;overflow:hidden;border-radius:20px;min-height:230px;background:#bfd2c0}.photo img{height:250px;object-fit:cover;width:100%}.photo .photo-caption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;background:linear-gradient(transparent,#0a2722cc);color:#fff;font-weight:850}.photo-caption small{display:block;font-weight:500;opacity:.8;font-size:.72rem}.photo-caption a{color:#fff}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.info-card{border:1px solid var(--line);border-radius:19px;background:var(--paper);padding:22px}.info-card h3{font-size:1.15rem;margin:0 0 13px}.info-card ul{padding-left:20px;margin:0;color:#50645b;font-size:.92rem}.info-card li+li{margin-top:8px}
-footer{padding:35px 0 65px;border-top:1px solid var(--line);font-size:.8rem;color:#768179}
-.floating{position:fixed;right:15px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:30;border:0;border-radius:99px;background:var(--green);color:white;font-size:.82rem;font-weight:800;padding:11px 15px;box-shadow:0 6px 20px #173e3350}
-@media(max-width:830px){.day-chooser{grid-template-columns:repeat(3,1fr)}.stay-grid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.metric:nth-child(3){border-left:0;border-top:1px solid var(--line)}.metric:nth-child(4){border-top:1px solid var(--line)}}
-@media(max-width:560px){.hero{min-height:395px}.hero .wrap{padding:56px 0 76px}.hero h1{font-size:2.8rem}.hero p{font-size:.92rem}section{padding:43px 0}.summary{margin-top:-32px}.metric{padding:14px}.metric b{font-size:1rem}.day-chooser{gap:7px}.day-choice{padding:13px 9px;border-radius:12px}.day-choice b{font-size:.88rem}.day-choice small{font-size:.7rem}.day-banner{padding:20px;grid-template-columns:1fr}.day-timeline{padding:20px 13px 0}.event{grid-template-columns:49px 1fr;gap:22px}.event:before{left:60px}.event .clock{font-size:.8rem}.event-main{padding:13px}.event-main:before{left:-28px}.day-bottom{grid-template-columns:1fr;padding:18px}.map-canvas{height:345px}.stay-grid,.photogrid,.info-grid{grid-template-columns:1fr}.photo img{height:220px}.hero-stats span{font-size:.75rem}.map-head{padding:15px}}
-@media print{nav,.floating,.map-controls,.action{display:none!important}.hero{min-height:auto}.hero .wrap{padding:22px 0}.summary{margin-top:0}.day-choice{background:white!important;color:var(--ink)!important}.day-choice[aria-selected=false]{display:none}.event-main,.stay-card,.info-card{break-inside:avoid}.map-canvas{height:220px}}
-
-/* On-site field guide: prices, stories, reviews */
-.quick-jumps{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
-.quick-jumps a{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;text-decoration:none;border:1px solid #bccfc0;background:#fffdf8;color:var(--green);border-radius:99px;font-size:.85rem;font-weight:850}
-.quick-jumps a:hover{background:#e1eee3}
-.price-intro{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:var(--green);color:white;border-radius:19px;padding:19px 20px;margin-bottom:18px}
-.price-intro p{font-size:.85rem;color:#dbebe1}
-.category-title{font-size:1.19rem;margin:25px 0 10px;display:flex;align-items:center;gap:9px}
-.price-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:17px;background:var(--paper);box-shadow:0 8px 20px #142b2009}
-.price-table{width:100%;border-collapse:collapse;min-width:660px;font-size:.88rem}
-.price-table th{background:#edf2e9;color:#355848;font-size:.78rem;text-align:left;white-space:nowrap;padding:12px 11px}
-.price-table td{padding:12px 11px;border-top:1px solid #e9e9df;vertical-align:middle}
-.price-table td:nth-child(2){color:var(--sub);font-size:.81rem;max-width:230px}
-.price-table td strong{font-size:1.02rem;color:var(--green)}
-.price-table td a{color:#1c6448;font-size:.79rem;font-weight:850;text-underline-offset:3px}
-.price-input{width:96px;border:1px solid #cbd7cb;background:white;border-radius:9px;padding:8px 9px;font-size:.9rem;font-variant-numeric:tabular-nums}
-.price-status{display:block;color:#526d59;margin-top:5px;font-size:.76rem;font-weight:750;white-space:normal;max-width:190px}
-.price-status.high{color:#a94c33}.price-status.low{color:#29714c}.price-status.equal{color:#66776d}
-.price-chip{display:inline-block;padding:3px 8px;background:#e0eee5;border-radius:99px;color:#286045;font-size:.75rem;font-weight:800}
-.guide-tip{font-size:.86rem;color:#52655a;background:#f0f4ec;padding:13px 16px;border-left:3px solid #83a889;border-radius:11px;margin:14px 0}
-.guide-day{padding-top:23px}
-.guide-day>h3{color:var(--green);font-size:1.2rem;margin:0 0 12px}
-.guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-.guide-card{border:1px solid #dadfd5;background:var(--paper);border-radius:17px;overflow:hidden;align-self:start;scroll-margin-top:85px}
-.guide-card summary{list-style:none;padding:16px 18px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:.98rem;font-weight:850;line-height:1.4}
-.guide-card summary::-webkit-details-marker{display:none}.guide-card summary::after{content:"＋";color:var(--green);font-size:1.18rem}.guide-card[open] summary::after{content:"−"}
-.guide-card[open] summary{background:#eef4eb;border-bottom:1px solid #d9e5d9}
-.guide-card .inner{padding:16px 18px;font-size:.89rem}.guide-card .inner p{margin-bottom:12px;color:#43594d}
-.guide-card .label{font-size:.76rem;font-weight:850;color:#276346;margin:9px 0 3px}.guide-card .val{margin:0;color:#526559}
-.guide-card .guide-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
-.guide-jump{display:inline-flex;align-items:center;margin-top:10px;padding:5px 9px;background:#e7efe9;border:1px solid #d1dfd3;border-radius:9px;font-size:.79rem;font-weight:850;text-decoration:none;color:#2c6246}
-.reviews-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.review-card{border:1px solid var(--line);background:var(--paper);border-radius:18px;padding:18px}
-.review-card h3{font-size:1.04rem;margin:7px 0}
-.review-card p{color:#52645a;font-size:.89rem;margin:0 0 12px}
-.review-type{display:inline-block;font-size:.73rem;font-weight:900;padding:4px 9px;border-radius:99px;background:#e5efe8;color:#346249}
-.review-type.risk{background:#fff0dd;color:#9b532e}
-.review-card a{font-size:.84rem;color:var(--green);font-weight:850}
-.shopping-notes{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:14px}
-.shopping-notes>div{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:16px;font-size:.87rem;color:#526559}
-.shopping-notes strong{display:block;color:var(--green);margin-bottom:5px}
-@media(max-width:730px){.guide-grid,.reviews-grid,.shopping-notes{grid-template-columns:1fr}.price-intro{grid-template-columns:1fr}}
-@media print{.price-input{display:none}.guide-card{break-inside:avoid}.quick-jumps{display:none}}
-
-/* Store-by-store item price investigation */
-.shop-audit-intro{background:#edf3ed;border:1px solid #c6dccd;border-radius:18px;padding:17px 19px;margin:12px 0 18px}
-.shop-audit-intro strong{display:block;color:var(--green);font-size:1.02rem}
-.shop-audit-intro p{font-size:.86rem;color:#526659;margin-top:6px}
-.shop-audit-list{display:grid;gap:11px;margin:18px 0 25px}
-.shop-detail{background:var(--paper);border:1px solid #d8ddd3;border-radius:18px;overflow:hidden;scroll-margin-top:88px}
-.shop-detail>summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:17px 20px;list-style:none}
-.shop-detail>summary::-webkit-details-marker{display:none}
-.shop-detail>summary:after{content:'＋';color:#306348;font-size:1.25rem;font-weight:600;flex-shrink:0}
-.shop-detail[open]>summary:after{content:'−'}
-.shop-detail[open]>summary{background:#edf3eb;border-bottom:1px solid #d8e2d5}
-.shop-detail .shop-heading{display:block;font-size:1.06rem;font-weight:850;line-height:1.4}
-.shop-detail .shop-date{display:block;font-size:.75rem;color:#617668;font-weight:850;margin-bottom:4px}
-.shop-detail .shop-preview{font-size:.81rem;color:#67776b;display:block;margin-top:5px;font-weight:450}
-.shop-detail .shop-body{padding:19px}
-.shop-detail .shop-body>p{font-size:.87rem;color:#53675c;margin:0 0 15px}
-.shop-audit-table{width:100%;border-collapse:collapse;font-size:.84rem}
-.shop-audit-table-wrap{overflow-x:auto;border:1px solid #dfe5dc;border-radius:12px}
-.shop-audit-table{min-width:665px}
-.shop-audit-table th{background:#f0f3ec;color:#385545;text-align:left;font-size:.76rem;padding:10px;white-space:nowrap}
-.shop-audit-table td{padding:12px 10px;border-top:1px solid #e6e9e1;vertical-align:top}
-.shop-audit-table th:first-child{width:21%}
-.shop-audit-table th:nth-child(2){width:23%}
-.shop-audit-table th:nth-child(3){width:28%}
-.shop-audit-table th:nth-child(4){width:28%}
-.shop-audit-table b{color:var(--green)}
-.shop-audit-table small{display:block;color:#718077;line-height:1.5;margin-top:5px}
-.shop-audit-table a{color:#2d6850;font-weight:800;text-underline-offset:3px}
-.shop-mark{display:inline-block;font-size:.72rem;border-radius:99px;padding:2px 7px;background:#e7f1e7;color:#34674d;font-weight:850;margin-bottom:4px}
-.shop-mark.caution{background:#fff0dc;color:#975125}
-.shop-mark.unknown{background:#eef0ed;color:#646f66}
-.shop-check{background:#f5f7f2;border-left:3px solid #8eae99;padding:11px 13px;margin-top:13px;border-radius:10px;font-size:.84rem;color:#506456}
-.shop-check strong{color:var(--green)}
-.shop-sources{margin-top:9px;font-size:.75rem;color:#718078}
-.shop-sources a{color:#386b53}
-.shop-highlight{background:#fff5e9;border:1px solid #e7d2b8;border-radius:12px;padding:13px;margin-bottom:12px;color:#704d31;font-size:.86rem}
-.shop-report-form{border:1px solid #c9dacb;border-radius:14px;padding:14px;background:#f1f7f0;margin-top:16px}
-.shop-report-form b{display:block;color:var(--green);margin-bottom:8px}
-.shop-report-line{display:flex;gap:8px;flex-wrap:wrap}
-.shop-report-line input,.shop-report-line select{min-width:0;flex:1 1 120px;border:1px solid #bccdbf;border-radius:9px;padding:9px 11px;font-size:.85rem;background:white;color:var(--ink)}
-.shop-report-form .saved-quote{margin-top:7px;color:#507158;font-size:.79rem;min-height:18px}
-@media(max-width:560px){.shop-detail>summary{padding:14px}.shop-detail .shop-body{padding:12px}.shop-report-line{flex-direction:column}}
-
-/* Fair cross-brand comparison with specification-equivalence safeguards */
-.cb-shell{border:1px solid #c7d6c9;background:#fffdf9;border-radius:22px;overflow:hidden;margin:18px 0 26px;scroll-margin-top:82px;box-shadow:0 12px 25px #142d1e13}
-.cb-head{background:linear-gradient(120deg,#dceade,#f4f7ee);padding:20px;border-bottom:1px solid #d3dfd1}
-.cb-head h3{font-size:1.35rem;color:var(--green);margin:0 0 6px}
-.cb-head p{color:#52645b;font-size:.88rem;margin:0}
-.cb-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
-.cb-pill{display:inline-block;font-size:.73rem;font-weight:850;border-radius:999px;padding:4px 8px;border:1px solid #d4e2d5;background:#ecf3e8;color:#276044}
-.cb-pill.warn{background:#fff0e0;color:#955733;border-color:#eed2b2}
-.cb-pill.gray{background:#f0f1ef;color:#68796c;border-color:#dfe3dc}
-.cb-nav{display:flex;gap:7px;overflow-x:auto;padding:12px 16px;border-bottom:1px solid #e1e7de;scrollbar-width:thin}
-.cb-nav button{border:1px solid #d3ddd1;background:#f4f7f1;border-radius:99px;padding:8px 12px;font-size:.82rem;color:#2f6248;white-space:nowrap;font-weight:850}
-.cb-nav button[aria-selected=true]{background:var(--green);color:#fff;border-color:var(--green)}
-.cb-body{padding:18px}.cb-body h4{font-size:1.14rem;color:var(--green);margin:0 0 8px}
-.cb-body p{color:#52655b;font-size:.88rem;margin:0 0 13px}
-.cb-table-shell{overflow:auto;border:1px solid #dde6dc;border-radius:14px}
-.cb-table{width:100%;min-width:680px;border-collapse:collapse;font-size:.85rem}
-.cb-table th{background:#f0f4ed;color:#3e5b49;text-align:left;font-size:.76rem;padding:11px 12px;white-space:nowrap}
-.cb-table td{padding:11px 12px;vertical-align:top;border-top:1px solid #e9eee6}
-.cb-table td b{color:var(--green)}.cb-table td small{display:block;color:#6b7b70;line-height:1.5;margin-top:5px}
-.cb-table a{font-size:.8rem;color:#31694f;font-weight:800}
-.cb-normal{font-variant-numeric:tabular-nums;color:#1c5739;font-weight:850;white-space:nowrap}
-.cb-compare-check{background:#f2f7ef;border-left:3px solid #7fa58b;border-radius:10px;padding:13px 15px;margin-top:13px;font-size:.86rem;color:#4f6359}
-.cb-quote{margin-top:15px;padding:14px;border:1px solid #d4e4d6;background:#f4f8f2;border-radius:14px}
-.cb-quote-head{font-size:.91rem;font-weight:850;color:var(--green);margin:0 0 9px}
-.cb-quote-row{display:flex;gap:8px;flex-wrap:wrap}
-.cb-quote-row label{display:grid;gap:4px;font-size:.76rem;color:#51675b;font-weight:850;flex:1 1 130px;min-width:120px}
-.cb-quote-row input{width:100%;border:1px solid #bacfbd;border-radius:9px;padding:9px 11px;background:white;color:var(--ink);font-size:.95rem}
-.cb-quote-result{border-radius:10px;font-size:.86rem;color:#4f6558;min-height:22px;margin:10px 0 0}
-.cb-quote-result.alert{color:#954d30;font-weight:800}
-.cb-footer{font-size:.77rem;color:#697c6c;padding:11px 19px;background:#f5f7f1;border-top:1px solid #e0e9de}
-@media(max-width:560px){.cb-head{padding:16px}.cb-body{padding:13px}.cb-nav{padding:10px}.cb-quote-row{flex-direction:column}}
+:root{--bg:#f7f7f4;--paper:#fff;--ink:#192e28;--body:#34483f;--mute:#718277;--line:#e5e9e2;--deep:#153e35;--sea:#387b68;--sage:#edf4ed;--sandy:#f5efe3;--amber:#b66d3a;--blue:#496e8a;--shadow:0 12px 36px rgba(22,54,41,.055)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.6;font-size:15px;text-rendering:optimizeLegibility}
+a{color:inherit}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #86b7a2;outline-offset:3px}[hidden]{display:none!important}
+.container{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+.mast{background:#123d33;color:#fff;overflow:hidden;position:relative}
+.mast::after{content:"";position:absolute;width:650px;height:650px;border:1px solid #ffffff20;border-radius:50%;right:-150px;top:-220px;pointer-events:none;box-shadow:0 0 0 52px #ffffff04,0 0 0 132px #ffffff04}
+.mast-content{padding:34px 0 46px;display:grid;grid-template-columns:1.4fr .65fr;align-items:center;gap:20px;position:relative;z-index:1}
+.brand-line{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:850;letter-spacing:.16em;color:#d3e7dc}
+.brand-symbol{display:grid;place-items:center;width:29px;height:29px;border:1px solid #ffffff50;border-radius:9px;color:#eee8ce;font-size:17px}
+.kicker{margin-top:36px;font-size:12px;letter-spacing:.14em;color:#b4d0c3;font-weight:850}
+.mast h1{font-size:clamp(37px,5.1vw,66px);line-height:1.18;font-weight:800;letter-spacing:-.057em;margin:13px 0}
+.mast h1 em{font-style:normal;color:#c8dabb}
+.mast p{font-size:14px;color:#c8d9ce;max-width:520px;line-height:1.8}
+.mast-facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.mast-facts span{font-size:11px;border:1px solid #ffffff34;border-radius:100px;color:#e6f3e9;padding:6px 11px;background:#ffffff11;font-weight:750}
+.mast-art{display:grid;place-items:center;position:relative;min-height:230px}
+.mast-art svg{width:min(100%,370px);filter:drop-shadow(0 16px 16px #001a1230)}
+.app-shell{display:grid;grid-template-columns:214px minmax(0,1fr);gap:35px;align-items:start;padding:34px 0 90px}
+.side{position:sticky;top:24px}
+.side-box{border:1px solid var(--line);border-radius:19px;padding:12px;background:var(--paper);box-shadow:var(--shadow)}
+.side-title{font-size:11px;letter-spacing:.13em;color:var(--mute);font-weight:900;padding:11px 14px 8px}
+.nav-item{width:100%;display:flex;align-items:center;gap:13px;text-align:left;padding:12px 14px;border:0;background:transparent;color:#526a5c;border-radius:12px;font-weight:800;font-size:14px;transition:background .15s}
+.nav-item .glyph{display:grid;place-items:center;width:24px;font-size:18px}
+.nav-item.active{background:#dfeee4;color:var(--deep)}
+.nav-item:hover:not(.active){background:#f2f6f0}
+.side-note{margin-top:15px;background:#eaf1ea;border-radius:14px;padding:14px;font-size:12px;color:#4f6959}
+.side-note b{display:block;color:var(--deep);font-size:12px;margin-bottom:4px}
+.content{min-width:0}
+.view{animation:appear .15s ease-in}
+@keyframes appear{from{opacity:.65;transform:translateY(4px)}to{opacity:1;transform:none}}
+.page-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:0 0 19px}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);font-weight:900;margin:0 0 7px}
+h2,h3,h4{line-height:1.35;letter-spacing:-.025em}
+h2{margin:0;font-size:clamp(25px,3vw,34px);font-weight:850}
+h3{font-size:19px;margin:0}
+.note{color:var(--mute);font-size:13px;line-height:1.75}
+.small-link{border:0;background:transparent;text-decoration:underline;text-underline-offset:4px;color:var(--sea);font-size:13px;font-weight:800;padding:4px 0}
+.status-strip{display:flex;align-items:center;gap:11px;padding:14px 16px;background:#e9f3eb;border:1px solid #cfdfd1;border-radius:14px;margin-bottom:22px;font-size:13px;color:#385d48}
+.status-strip .dot{width:9px;height:9px;background:#3c9870;border-radius:50%;flex:0 0 auto}
+.status-strip b{color:#245841}
+.date-scroll{display:flex;gap:9px;overflow:auto;padding:1px 1px 9px;scrollbar-width:thin;scroll-snap-type:x proximity;margin:0 0 17px}
+.day-tab{flex:0 0 106px;scroll-snap-align:start;border:1px solid #e0e6df;background:#fff;border-radius:14px;text-align:left;padding:13px 14px;color:#496458}
+.day-tab small{font-size:11px;color:var(--mute);display:block}
+.day-tab strong{font-size:16px;display:block;margin-top:3px}
+.day-tab span{font-size:10px;color:#718477}
+.day-tab[aria-selected=true]{color:white;background:var(--deep);border-color:var(--deep);box-shadow:0 8px 20px #153e3528}
+.day-tab[aria-selected=true] small,.day-tab[aria-selected=true] span{color:#c5dcd0}
+.day-hero{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:23px 24px;box-shadow:var(--shadow);margin-bottom:14px}
+.hero-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.meta-chip{display:inline-flex;align-items:center;padding:4px 9px;border:1px solid #d7e3d7;border-radius:100px;background:#edf4eb;font-size:11px;font-weight:850;color:#3e7154}
+.meta-chip.sand{background:#f9efe3;color:#986544;border-color:#edd9c2}
+.day-hero h3{font-size:clamp(19px,2.8vw,26px);margin:11px 0 7px;line-height:1.42}
+.day-hero p{font-size:13px;color:#687b6e}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0 24px}
+.stat{border:1px solid var(--line);background:#fff;border-radius:15px;padding:14px 17px}
+.stat small{display:block;color:#879588;font-size:11px;font-weight:800;margin-bottom:4px}
+.stat strong{display:block;color:#304e3d;font-size:13px}
+.block-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:20px 0 12px}
+.block-heading h3{font-size:17px}
+.block-heading small{font-size:11px;color:var(--mute)}
+.timeline{position:relative;display:grid;gap:10px;margin:0 0 22px}
+.event{display:grid;grid-template-columns:55px 1fr;gap:13px;position:relative;min-width:0}
+.event-time{color:#34604c;font-size:13px;font-weight:900;padding-top:16px;font-variant-numeric:tabular-nums;text-align:right}
+.event-box{min-width:0;background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;position:relative}
+.event.actual .event-box{border-color:#9fd4b4;background:#f7fcf8}
+.event.actual .event-time{color:#207b50}
+.event-box summary{list-style:none;display:flex;gap:10px;align-items:center;justify-content:space-between;padding:13px 15px;cursor:pointer}
+.event-box summary::-webkit-details-marker{display:none}
+.event-label{flex:1;min-width:0}
+.event-label strong{font-size:14px;display:block;line-height:1.5}
+.event-label small{font-size:11px;color:#7d8e81}
+.event-label .actual-tag{color:#208154;font-weight:850}
+.event-label .fixed-tag{color:#547c9a;font-weight:800}
+.event-label .shop-tag{color:#b0793d;font-weight:800}
+.chev{font-size:19px;color:#8b9f8f;line-height:1;transition:transform .15s}
+.event-box[open] .chev{transform:rotate(45deg)}
+.event-expanded{border-top:1px solid #ecf0e9;padding:14px 15px 16px;background:#fff}
+.event-expanded p{font-size:13px;color:#566d5e;margin:0 0 12px;line-height:1.75}
+.actions{display:flex;gap:7px;flex-wrap:wrap}
+.action{border:1px solid #d5e2d5;border-radius:9px;background:#eef5ee;padding:7px 10px;text-decoration:none;color:#276349;font-size:12px;font-weight:800;display:inline-flex;align-items:center;gap:6px}
+.action.ghost{background:white}
+.action:hover{background:#dbe9dd}
+.map-panel{background:#fff;border:1px solid var(--line);border-radius:17px;margin-top:10px;overflow:hidden}
+.map-panel>summary{list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center;padding:17px 18px;cursor:pointer;font-weight:850;font-size:14px}
+.map-panel>summary::-webkit-details-marker{display:none}.map-panel>summary::after{content:'＋';color:var(--sea);font-size:19px}
+.map-panel[open]>summary::after{content:'−'}
+.map-panel>div{border-top:1px solid var(--line)}
+.map-help{padding:12px 17px;color:var(--mute);font-size:12px}
+.map-frame{height:330px;background:#e8f0e8;position:relative}
+.map-canvas{position:absolute;inset:0;opacity:0;transition:opacity .2s}
+.map-wait{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;flex-direction:column;color:#526d5e;font-size:13px;padding:24px;text-align:center;background:repeating-linear-gradient(135deg,#edf4ed,#edf4ed 22px,#e6eee7 23px,#e6eee7 24px)}
+.map-places{display:flex;overflow-x:auto;gap:7px;padding:12px 14px}
+.map-places a{white-space:nowrap;border:1px solid #d8e5d9;background:#f4f8f3;padding:6px 10px;border-radius:100px;text-decoration:none;font-size:11px;font-weight:750;color:#3d6d50}
+.map-pin{width:28px;height:28px;display:grid;place-items:center;background:#1c6447;border:2px solid white;border-radius:99px;color:white;font-size:12px;font-weight:900;box-shadow:0 3px 7px #0003}
+.sight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.sight-card{align-self:start;background:#fff;border:1px solid var(--line);border-radius:17px;overflow:hidden;scroll-margin-top:25px}
+.sight-card summary{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;list-style:none;padding:17px 18px;font-weight:850;font-size:14px}
+.sight-card summary::-webkit-details-marker{display:none}
+.sight-card summary::after{content:'+';font-weight:600;color:var(--sea);font-size:20px}
+.sight-card[open] summary::after{content:'−'}
+.sight-card[open] summary{background:#eff6ef}
+.sight-body{padding:17px 18px 18px;border-top:1px solid #e3ede3}
+.sight-body p{font-size:13px;color:#53695c;margin:0 0 12px}
+.sight-detail{display:grid;gap:3px;margin:10px 0;color:#566d5f;font-size:12px}
+.sight-detail b{color:#2e6247;font-size:11px}
+.section-lede{font-size:13px;max-width:620px;color:var(--mute);margin:9px 0 20px}
+.mode-switch{display:inline-flex;background:#edf2ec;border:1px solid #dfe6df;border-radius:12px;padding:4px;margin:0 0 16px}
+.mode-switch button{border:0;background:transparent;border-radius:9px;padding:8px 14px;color:#667d6b;font-weight:850;font-size:12px}
+.mode-switch button[aria-selected=true]{color:var(--deep);background:white;box-shadow:0 2px 9px #00000012}
+.shopping-principle{padding:14px 17px;background:#f3f7f1;border:1px solid #dce9dc;border-radius:14px;margin-bottom:17px}
+.shopping-principle strong{font-size:13px;color:#2d6649}
+.shopping-principle p{font-size:12px;color:#5e7565;margin-top:4px}
+.shop-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 14px}
+.shop-pick{border:1px solid var(--line);background:white;border-radius:13px;padding:11px 13px;text-align:left;color:#355c45}
+.shop-pick[aria-selected=true]{background:#e9f2e8;border-color:#9ec4a7}
+.shop-pick small{display:block;font-size:10px;color:var(--mute);font-weight:700}
+.shop-pick strong{font-size:12px;display:block;line-height:1.55;margin-top:3px}
+.report{background:#fff;border:1px solid var(--line);border-radius:17px;overflow:hidden}
+.report-head{padding:17px 19px;border-bottom:1px solid var(--line)}
+.report-head span{font-size:11px;font-weight:850;color:var(--sea)}
+.report-head h3{font-size:18px;margin:6px 0}
+.report-head p{font-size:12px;color:var(--mute)}
+.report-body{padding:17px}
+.report-body p{font-size:13px;color:#53695f;margin:0 0 12px}
+.report-body .shop-highlight{background:#fff6ec;color:#805630;border-radius:11px;border:1px solid #f1dcc2;padding:12px 14px;font-size:12px;margin-bottom:13px}
+.report-body .shop-audit-table-wrap,.price-grid-wrap{overflow:auto;border:1px solid #e5e9e1;border-radius:12px}
+.report-body table,.price-grid{width:100%;min-width:645px;border-collapse:collapse;font-size:12px}
+.report-body th,.price-grid th{text-align:left;color:#3d634d;background:#eef4ed;padding:11px;font-weight:850;font-size:11px}
+.report-body td,.price-grid td{padding:12px 11px;vertical-align:top;border-top:1px solid #edf1e9;line-height:1.7}
+.report-body td b,.price-grid td b{color:var(--deep)}
+.report-body td small{display:block;color:var(--mute);font-size:11px}
+.report-body .shop-mark{display:inline-block;border-radius:100px;color:#3d7450;background:#e6f3e7;padding:2px 7px;font-size:10px;font-weight:850;white-space:nowrap}
+.report-body .shop-mark.caution{color:#9e5b28;background:#fdf0df}
+.report-body .shop-mark.unknown{color:#697d6d;background:#f0f2ed}
+.report-body .shop-check{background:#f1f6ee;padding:12px 14px;color:#556d5e;border-left:3px solid #8db6a0;border-radius:9px;margin:15px 0;font-size:12px}
+.report-body .shop-sources{color:#88958b;font-size:11px;border-top:1px solid var(--line);padding-top:12px;margin-top:15px}
+.report-body a,.price-grid a{color:#28684b;font-weight:800;text-underline-offset:3px}
+.brand-tabs{display:flex;gap:7px;overflow:auto;scrollbar-width:thin;padding-bottom:11px}
+.brand-tab{flex-shrink:0;border:1px solid #dce6dc;background:white;border-radius:100px;padding:8px 12px;color:#496653;font-weight:800;font-size:12px}
+.brand-tab[aria-selected=true]{background:var(--deep);color:#fff;border-color:var(--deep)}
+.grade-guide{display:grid;gap:10px;margin:12px 0 15px}
+.grade-row{background:#f3f7f1;border-radius:11px;padding:11px 14px;font-size:12px;color:#526b5c}
+.grade-row b{display:block;color:#245c40;margin-bottom:3px}
+.grade-row.warn{background:#fdf5e9;color:#755f3a}.grade-row.warn b{color:#9b6832}
+.compare-hero{padding:15px 18px;background:white;border:1px solid var(--line);border-radius:15px;margin:0 0 13px}
+.compare-hero h3{margin:0 0 7px}
+.compare-hero p{font-size:12px;color:var(--mute);margin:0}
+.quote-box{padding:16px;background:#eaf3e9;border-radius:13px;margin-top:13px}
+.quote-box>strong{font-size:13px;color:#275c43}
+.quote-fields{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.quote-fields label{display:grid;gap:5px;color:#536e5d;font-weight:800;font-size:11px;flex:1 1 130px}
+.quote-fields input{width:100%;padding:9px 11px;border:1px solid #b8ceb9;border-radius:9px;background:white;font-size:14px}
+.quote-result{font-size:12px;color:#325c42;margin-top:9px;min-height:20px}
+.price-mini{margin-top:16px}
+.price-mini summary{cursor:pointer;color:#306a4d;font-weight:800;font-size:12px}
+.price-mini .price-grid-wrap{margin-top:10px}
+.price-mini input{width:85px;border:1px solid #c4d6c6;border-radius:7px;padding:6px;font-size:12px}
+.price-mini .price-result{display:block;color:#3c7853;font-size:10px}
+.price-mini .price-result.warn{color:#a66034}
+.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.info-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+.info-card.wide{grid-column:span 2}
+.info-card h3{font-size:17px;margin-bottom:13px}
+.info-card p{font-size:12px;color:#607466}
+.info-card .sub{color:#30724e;font-size:11px;font-weight:850;margin-bottom:9px}
+.info-card ul{padding-left:18px;margin:0;color:#52685c;font-size:12px}
+.info-card li+li{margin-top:7px}
+.hotel-card{display:flex;flex-direction:column;gap:8px}
+.hotel-card .hotel-meta{color:#427659;font-size:11px;font-weight:850}
+.hotel-card a{font-size:12px;color:#29684a;text-decoration:none;font-weight:800}
+.hbar{height:1px;background:var(--line);margin:26px 0}
+.reviews{display:grid;gap:8px}
+.review{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.review summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:13px 15px;gap:13px;font-size:13px;font-weight:850}
+.review summary::-webkit-details-marker{display:none}.review summary::after{content:'＋';color:#65816a}
+.review[open] summary::after{content:'−'}
+.review-inner{padding:0 15px 16px;color:#5b6e5f;font-size:12px}
+.review-inner p{margin:0 0 10px}
+.review-inner a{color:#2b694c;font-weight:800}
+.endnote{margin-top:32px;padding:22px 0;border-top:1px solid var(--line);color:#849387;font-size:11px;line-height:1.8}
+.bottom-nav{display:none}
+.maplibregl-popup-content{font-family:inherit}
+@media(max-width:900px){.container{width:min(100% - 34px,860px)}.app-shell{grid-template-columns:174px minmax(0,1fr);gap:20px}.mast-content{padding:25px 0 33px}.mast-art{min-height:180px}.mast-art svg{width:min(100%,260px)}.kicker{margin-top:25px}}
+@media(max-width:720px){
+ .container{width:calc(100% - 28px)}
+ .mast-content{display:block;padding:23px 0 31px}
+ .mast-art{position:absolute;right:-45px;bottom:-22px;min-height:0;width:220px;opacity:.25;z-index:-1}
+ .mast h1{font-size:38px;margin:10px 0}
+ .mast p{max-width:350px;font-size:12px}
+ .kicker{margin-top:23px;font-size:10px}
+ .mast-facts{gap:6px;margin-top:16px}
+ .mast-facts span{font-size:10px;padding:4px 8px}
+ .app-shell{display:block;padding:22px 0 100px}
+ .side{display:none}
+ .page-heading{margin-bottom:15px}
+ h2{font-size:26px}
+ .status-strip{font-size:12px;padding:12px 14px}
+ .day-tab{flex-basis:98px}
+ .day-hero{padding:18px}
+ .stats-grid{gap:8px}
+ .stat{padding:11px 12px}
+ .event{grid-template-columns:49px 1fr;gap:10px}
+ .event-time{font-size:12px;padding-top:15px}
+ .event-box summary{padding:12px}
+ .event-label strong{font-size:13px}
+ .sight-grid,.info-grid,.shop-picker{grid-template-columns:1fr}
+ .info-card.wide{grid-column:span 1}
+ .bottom-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;bottom:0;left:0;right:0;z-index:60;background:#ffffffee;backdrop-filter:blur(18px);border-top:1px solid #dfe6df;padding:8px 6px calc(7px + env(safe-area-inset-bottom));box-shadow:0 -7px 20px #173e3510}
+ .bottom-nav button{display:flex;align-items:center;flex-direction:column;gap:2px;border:0;background:transparent;color:#809487;font-size:10px;font-weight:850;padding:4px 2px;border-radius:9px}
+ .bottom-nav button .glyph{font-size:20px;line-height:1.25}
+ .bottom-nav button.active{color:#176747;background:#edf5ed}
+ .report-body{padding:12px}
+ .map-frame{height:290px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.view{animation:none}}
+@media print{.side,.bottom-nav{display:none}.app-shell{display:block}.view[hidden]{display:block!important}.day-tab{display:none}.page-heading{page-break-after:avoid}.event{break-inside:avoid}.mast{background:#fff;color:#111}.mast p,.mast-facts span,.mast .brand-line{color:#111}}
 </style>
 </head>
 <body>
-<header id="top" class="hero"><div class="wrap">
-  <div class="eyebrow">FUJIAN JOURNEY · SIX DAYS</div>
-  <h1>金廈相遇，<br>土樓慢遊。</h1>
-  <p>從金門搭船過海，走進永定客家土樓、東山島海灣與廈門老街。六天行程、交通班次、飯店和自由購物資訊，手機打開就能查。</p>
-  <div class="hero-stats"><span>2026.11.22（日）→ 11.27（五）</span><span>6 天 5 夜</span><span>金門 × 永定 × 漳州 × 廈門</span></div>
-</div></header>
-<nav aria-label="頁面導航"><div class="wrap nav-inner">
-  <a href="#overview">總覽</a><a href="#schedule">每日行程</a>
-  <button data-nav-day="0">DAY 1</button><button data-nav-day="1">DAY 2</button><button data-nav-day="2">DAY 3</button><button data-nav-day="3">DAY 4</button><button data-nav-day="4">DAY 5</button><button data-nav-day="5">DAY 6</button>
-  <a href="#cross-brand">跨品牌同級</a><a href="#shop-audit">購物站比價</a><a href="#shopping">價格速查</a><a href="#guides">景點故事</a><a href="#reviews">旅客心得</a><a href="#map-section">地圖</a><a href="#hotels">住宿</a><a href="#tips">提醒</a>
-</div></nav>
-<main>
-<section class="summary" id="overview"><div class="wrap">
-  <div class="metrics">
-    <div class="metric"><span>旅程天數</span><b>6 天・5 晚</b></div>
-    <div class="metric"><span>團體人數</span><b>14 位</b></div>
-    <div class="metric"><span>住宿飯店</span><b>永定 1 晚・廈門 4 晚</b></div>
-    <div class="metric"><span>交通方式</span><b>飛機＋小三通＋遊覽車</b></div>
+<header class="mast">
+ <div class="container mast-content">
+  <div>
+   <div class="brand-line"><span class="brand-symbol">✦</span> FUJIAN · TRAVEL JOURNAL</div>
+   <div class="kicker">22—27 NOVEMBER · 2026</div>
+   <h1>金廈・土樓<br><em>旅途手冊。</em></h1>
+   <p>六天的山海路線、值得看的景點與不踩雷購物資訊，整理成一份能在旅途中真正使用的隨身指南。</p>
+   <div class="mast-facts"><span>06 DAYS / 05 NIGHTS</span><span>金門 → 廈門 → 永定</span><span>實際紀錄＋預估行程</span></div>
   </div>
-  <div class="route"><span>高雄／台中</span><i>→</i><span>金門</span><i>→</i><span>廈門</span><i>→</i><span>永定土樓</span><i>→</i><span>東山島</span><i>→</i><span>廈門</span><i>→</i><span>金門</span><i>→</i><span>台灣</span></div>
-  <div class="quick-jumps"><a href="#shop-audit">🧾 購物站避坑價</a><a href="#shopping">🛍️ 商品價格</a><a href="#guides">📖 景點介紹</a><a href="#reviews">💬 社群心得</a><a href="#schedule">🗓️ 今日行程</a></div><div class="notice" style="margin-bottom:12px"><strong>11/22 現場更新｜13:00 俏湖蘭午餐（廈門）</strong>午餐已確認在廈門的「俏湖蘭」，從碼頭搭車約 15 分鐘，13:00 抵達。後續永定土樓參觀時間是重新推估，尚非實際到達紀錄。</div><div class="notice"><strong>購物站自由參觀・沒有強制購物</strong>茶葉、絲綢、乳膠、同仁堂及特產等站點可隨意看看；喜歡再向店員詢價，不需要購買。團體的集合時間與行程仍以當天導遊通知為準。</div>
-</div></section>
-
-
-<section id="shopping"><div class="wrap">
-  <div class="section-head"><div><div class="overline">PRICE CHECK · 2026.11.22</div><h2>金門購物價格速查</h2></div><p>貢糖、牛肉乾、鋼刀與麵線的品牌和實際比價來源。（單店現場價格先用同款，再看跨品牌同級比較）直接在現場輸入店家報價，馬上看到價差；輸入紀錄會保留在這台手機的瀏覽器。</p></div>
-  <div class="price-intro"><div><b>金門商品售價為新台幣 NT$；中國大陸購物站採人民幣 RMB。</b><p>公開資料以 2026/11/22 查詢為基準、可能隨時變動。先比較同品牌同型號，再比較跨品牌同級商品。需核對淨重、材質、等級、包裝、促銷條件與運費；不符合規格者只當價格參考。</p></div><span style="font-size:2.5rem">🧮</span></div>
-  
-<div class="shop-audit-intro" id="shop-audit">
-  <strong>先看「這一站主打商品和市場價」，不是只看停靠時間。</strong>
-  <p>每張卡分成：其他旅行團曾遇到的實際報價 → 一般通路公開售價 → 是否有高價風險。計畫書沒提供站點營業商家、品牌與型號，所以不會把其他團售價當成你這團售價；人民幣 RMB、台幣 NT$ 分別標示，請勿直接混算。</p>
+  <div class="mast-art"><svg viewBox="0 0 350 265" role="img" aria-label="以環形土樓和山景為靈感的裝飾圖">
+<defs><linearGradient id="fg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e5d4a2"/><stop offset="1" stop-color="#adbf9a"/></linearGradient></defs>
+<path d="M12 191 Q86 99 146 169 Q224 47 342 168 L342 250 L12 250 Z" fill="#739b87" opacity=".37"/>
+<path d="M0 217 Q100 158 194 219 Q273 153 350 202 L350 264 L0 264 Z" fill="#83ac92" opacity=".28"/>
+<ellipse cx="176" cy="180" rx="117" ry="70" fill="#0d3027" opacity=".28"/>
+<path d="M58 155 C58 76 290 76 290 155 L290 190 C287 270 57 269 58 190 Z" fill="#c1c5a0"/>
+<path d="M58 153 C62 76 287 76 290 153 C287 229 59 229 58 153 Z" fill="url(#fg)"/>
+<path d="M75 152 C80 96 268 96 273 152 C271 204 78 205 75 152 Z" fill="#dbe0bd"/>
+<path d="M106 151 C110 112 240 112 244 151 C238 185 111 185 106 151 Z" fill="#2e6758"/>
+<path d="M108 151 C112 116 239 116 244 151" fill="none" stroke="#e3e7c4" stroke-width="11"/>
+<path d="M63 153 C66 219 281 218 285 153" fill="none" stroke="#567d65" stroke-width="9" opacity=".7"/>
+<path d="M76 178 C102 199 249 200 272 178" fill="none" stroke="#f2e7c8" stroke-width="5" stroke-dasharray="9 11"/>
+<path d="M74 126 C101 93 252 91 274 127" fill="none" stroke="#f0e7ca" stroke-width="6"/>
+<circle cx="166" cy="150" r="5" fill="#b7caa9"/><circle cx="196" cy="150" r="5" fill="#b7caa9"/>
+</svg></div>
+ </div>
+</header>
+<div class="container app-shell" id="app">
+ <aside class="side">
+  <div class="side-box" aria-label="主要功能">
+   <div class="side-title">EXPLORE THE TRIP</div>
+   <button class="nav-item active" type="button" data-route="plan"><span class="glyph">◷</span>每日行程</button>
+   <button class="nav-item" type="button" data-route="sights"><span class="glyph">◇</span>景點導覽</button>
+   <button class="nav-item" type="button" data-route="shop"><span class="glyph">▤</span>購物比價</button>
+   <button class="nav-item" type="button" data-route="info"><span class="glyph">⌂</span>住宿交通</button>
+  </div>
+  <div class="side-note"><b>資料標示原則</b>綠色＝現場回報<br>藍色＝計畫書班次<br>其他＝合理估計<br><br>所有購物站都沒有強制消費。</div>
+ </aside>
+ <main class="content">
+  <section class="view" id="view-plan" aria-labelledby="plan-title">
+    <header class="page-heading"><div><div class="eyebrow">YOUR DAILY PLAN</div><h2 id="plan-title">每日行程</h2></div><button type="button" class="small-link" id="today-button">查看今天</button></header>
+    <div class="status-strip"><span class="dot"></span><div><b>旅程現場紀錄</b>｜11/22 已回報 13:00 抵達廈門「俏湖蘭」午餐，碼頭至餐廳約 15 分鐘車程。</div></div>
+    <div class="date-scroll" id="day-tabs" role="tablist" aria-label="選擇旅遊日期"></div>
+    <div class="day-hero" id="day-hero"></div>
+    <div class="stats-grid" id="day-stats"></div>
+    <div class="block-heading"><h3>行程時間軸</h3><small>點開站點看詳情與導航</small></div>
+    <div class="timeline" id="timeline"></div>
+    <details class="map-panel" id="map-panel">
+      <summary>🗺️ 路線位置與街道地圖</summary>
+      <div><div class="map-help">需要時才載入街道圖。若地圖無法顯示，下面的景點連結仍能開啟高德導航；虛線只表示順序，不是道路導航。</div><div class="map-frame"><div class="map-wait" id="map-wait">正在準備街道地圖…</div><div class="map-canvas" id="street-map"></div></div><div class="map-places" id="map-places"></div></div>
+    </details>
+  </section>
+  <section class="view" id="view-sights" hidden aria-labelledby="sights-title">
+    <header class="page-heading"><div><div class="eyebrow">PLACES & STORIES</div><h2 id="sights-title">景點導覽</h2></div></header>
+    <p class="section-lede">把旅遊團的景點名稱轉成真正看得懂的背景知識。依日期切換，每個景點只顯示重點；點開才看歷史、拍照位置、停留建議與資料來源。</p>
+    <div class="date-scroll" id="sight-tabs" role="tablist" aria-label="選擇景點日期"></div>
+    <div class="sight-grid" id="sight-grid"></div>
+  </section>
+  <section class="view" id="view-shop" hidden aria-labelledby="shop-title">
+    <header class="page-heading"><div><div class="eyebrow">SMART SHOPPING</div><h2 id="shop-title">購物比價</h2></div></header>
+    <p class="section-lede">重點不是每一站有沒有購物，而是「它賣什麼、同款外面多少、不同品牌同級商品多少」。比價基準、商品級別和公開價源都清楚標示。</p>
+    <div class="shopping-principle"><strong>所有購物均為自由選擇，沒有強制購物。</strong><p>其他旅行團的售價只是歷史案例，不是你這一團的報價；不明規格不算溢價，不同品質等級不硬排高低。</p></div>
+    <div class="mode-switch" role="tablist" aria-label="購物頁內容"><button data-shop-mode="stops" aria-selected="true">依購物站查</button><button data-shop-mode="compare" aria-selected="false">跨品牌同級比價</button></div>
+    <div id="shop-stops"><div class="shop-picker" id="shop-picker"></div><div id="shop-report"></div></div>
+    <div id="shop-compare" hidden><div class="brand-tabs" id="brand-tabs" role="tablist" aria-label="選擇商品類型"></div><div id="compare-content"></div></div>
+  </section>
+  <section class="view" id="view-info" hidden aria-labelledby="info-title">
+    <header class="page-heading"><div><div class="eyebrow">STAY & ESSENTIALS</div><h2 id="info-title">住宿與交通</h2></div></header>
+    <p class="section-lede">飯店、交通班次與注意事項集中放在這裡，不與每日時間軸或購物比較混在一起。</p>
+    <div class="block-heading"><h3>五晚住宿</h3><small>依旅行社行程表</small></div>
+    <div class="info-grid" id="hotel-grid"></div>
+    <div class="hbar"></div>
+    <div class="info-grid">
+      <article class="info-card"><h3>✈️ 高雄／台中飛金門</h3><ul><li>11/22 立榮 8915：高雄 08:00 → 金門 09:05（12 人）</li><li>11/22 立榮 8955：台中 07:50 → 金門 08:50（2 人）</li><li>11/27 立榮 8926：金門 14:55 → 高雄 15:55（12 人）</li><li>11/27 華信 776：金門 16:50 → 台中 17:50（2 人）</li></ul></article>
+      <article class="info-card"><h3>⛴️ 小三通船班</h3><ul><li>11/22 金星輪：金門 11:30 → 廈門 12:00（原訂）</li><li>11/27 新武夷：廈門 10:00 → 金門 10:30（原訂）</li><li>船班可能因天候、海象或營運異動；務必提前報到通關。</li><li>實際集合時間以導遊通知為準，不以開船時間才到碼頭。</li></ul></article>
+      <article class="info-card"><h3>🍲 餐食與自由時間</h3><ul><li>計畫書：5 次早餐、9 次正餐。</li><li>11/22 午餐已實際更新為廈門「俏湖蘭」，13:00 抵達。</li><li>11/25 鼓浪嶼／廈門小吃晚餐自理。</li><li>11/27 金門午餐原訂便當；實際依當天行程安排。</li></ul></article>
+      <article class="info-card"><h3>🧳 出發／回程提醒</h3><ul><li>隨身帶好有效證件及入境文件。</li><li>中國大陸可使用 eSIM／漫遊，導航優先高德地圖。</li><li>帶好走的鞋、薄外套與雨具。</li><li>購買刀具應依航空公司及海關規範辦理託運與申報，不要放隨身行李。</li></ul></article>
+    </div>
+    <div class="hbar"></div>
+    <div class="block-heading"><h3>社群與旅客評價</h3><small>點開閱讀摘要與原文</small></div>
+    <div class="shopping-principle"><strong>評論不等於本團實況。</strong><p>Dcard／PTT 是其他團旅客的個別經驗，Trip.com 是景點或飯店住客評論，不可當作本團旅行社的直接評價。</p></div>
+    <div class="reviews" id="review-list"></div>
+  </section>
+  <footer class="endnote">© 2026 金廈・土樓旅途手冊。依本次行程資料、旅客現場回報及公開價格來源整理。<br>綠色標籤為實際紀錄；航班／船班為原訂資料；其餘時間皆為估計，請以導遊與交通業者即時公告為準。所有參考價格可能變動。</footer>
+ </main>
 </div>
-<div class="shop-audit-list">
-  <details class="shop-detail" id="shop-day1">
-    <summary><span><span class="shop-date">DAY 1・11/22 ＋ DAY 6・11/27｜金門</span><span class="shop-heading">🍬 貢糖・麵線・牛肉乾等特產</span><span class="shop-preview">貢糖 12 入約 NT$100–170；同品類價與每100g比價在下方</span></span></summary>
-    <div class="shop-body"><a class="guide-jump" href="#cross-brand" data-cb-link="candy" style="margin:0 0 13px">🍬 比較四家豬腳貢糖／原味牛肉乾 ↗</a>
-      <p>計畫書明載兩次金門特產巡禮，第一天提到貢糖及麵線。牛肉乾與鋼刀是你另外詢問的金門商品，不保證每個團體購物站都有販賣。</p>
-      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>主打商品</th><th>團體可能看到</th><th>一般通路公開價</th><th>高價判斷</th></tr></thead><tbody>
-      <tr><td><b>豬腳貢糖 12 入</b></td><td>旅行團伴手禮門市報價未知</td><td>金名祖 NT$100、金瑞成 NT$120、天工 NT$130、聖祖 NT$170（會員價），詳見下方品牌比價表</td><td><span class="shop-mark">可直接比價</span><div>有品牌、12 入及重量就能比較；聖祖定價較高不等於旅行團加價。</div></td></tr>
-      <tr><td><b>手工／高粱麵線</b></td><td>可試吃與購買，店名未列</td><td>馬家 360g（8 束）公開價約 NT$230；同規格與製法再比</td><td><span class="shop-mark unknown">先核對</span><div>重量、束數、口味及品牌不同，不要只看盒數。</div></td></tr>
-      <tr><td><b>牛肉乾、金門鋼刀</b></td><td>不是 Word 已確認的固定購物站商品</td><td>良金、喬安、金合利、金永利等型號價格已整理於下方</td><td><span class="shop-mark unknown">按規格比較</span><div>刀具看型號與套組；牛肉乾看每 100g 價格。</div></td></tr>
-      </tbody></table></div>
-      <div class="shop-check"><strong>購物策略：</strong>金門標示清楚的食品，通常比大陸站點的高額寢具更容易比價；若只是零售價附近、效期新鮮，又真的喜歡，就不必因為是團體站點而排斥。</div>
-      <a class="guide-jump" href="#cross-brand">⬇ 跨品牌同級比較 ↗</a> <a class="guide-jump" href="#price-candy">🧮 個別商品通路價 ↗</a>
-    </div>
-  </details>
-
-  <details class="shop-detail" id="shop-day2">
-    <summary><span><span class="shop-date">DAY 2・11/23｜廈門</span><span class="shop-heading">🛏️ 自貿區睡眠體驗中心・乳膠寢具</span><span class="shop-preview">其他團曾報 7.5cm 床墊 NT$44,910；與零售通路有顯著價差疑慮</span></span></summary>
-    <div class="shop-body"><a class="guide-jump" href="#cross-brand" data-cb-link="latex" style="margin:0 0 13px">🛏️ 比較乳膠床墊尺寸與材質 ↗</a>
-      <div class="shop-highlight"><strong>最需要注意的購物站。</strong> 2024 年 Dcard 有旅客記錄名稱相近的「自貿睡眠體驗中心」販售乳膠床墊；2025–2026 年也有低價廈門團的高額寢具消費爭議。這些是<b>其他團／其他店的經驗</b>，不能證明本團是同一家或會開同樣價格。</div>
-      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>主打商品</th><th>其他團實際報價</th><th>一般零售通路（供比較）</th><th>判斷</th></tr></thead><tbody>
-       <tr><td><b>乳膠床墊 7.5cm</b><small>品牌尺寸不明</small></td><td>2024 年 Dcard：<b>NT$44,910</b>，原組合含枕頭與被子</td><td>PChome 森好眠 5 尺 7.5cm <b>NT$10,925</b>；另有 HABABY 加大雙人 7.5cm 約 NT$15,800</td><td><span class="shop-mark caution">高價警戒</span><div>明顯高於多個同厚度零售例子；但品牌、尺寸、密度、贈品及售後不同，不能直接當成完全同款的溢價。</div></td></tr>
-       <tr><td><b>乳膠床墊 10cm／15cm</b></td><td>2024 年另一團：10cm 約 NT$50,000–60,000；15cm 約 NT$60,000–70,000</td><td>PChome 森好眠 5 尺 10cm <b>NT$12,635</b>；5 尺 15cm 約 <b>NT$19,760</b></td><td><span class="shop-mark caution">高價警戒</span><div>相近厚度可查得更低價；如無精確品牌型號與保固，先不要在現場決定。</div></td></tr>
-       <tr><td><b>乳膠床墊／枕頭／被子組</b></td><td>2026 年另團：床墊約 <b>RMB 15,988</b>／張，尺寸未記載</td><td>無法與特定型號對應。一般公開零售床墊有大量不同品牌、厚度、尺寸與材質</td><td><span class="shop-mark unknown">無法直接換算溢價</span><div>要問枕頭數、被子材質、床墊尺寸、乳膠含量及運送退貨條件。</div></td></tr>
-      </tbody></table></div>
-      <div class="shop-check"><strong>現場一定問：</strong>乳膠比例是多少？是整塊乳膠還是混合材質？床墊尺寸與密度？有無完整品牌官網／型號可查？送貨到台灣與退貨誰付運費？宣稱疾病治療效果沒有明確證據時，不要視為可信賣點。</div>
-      <div class="shop-sources">來源：<a target="_blank" rel="noopener" href="https://www.dcard.tw/f/travel/p/254906054">2024 Dcard 同類站點原文 ↗</a>・<a target="_blank" rel="noopener" href="https://www.dcard.tw/f/travel/p/261581866">2026 Dcard 實際報價 ↗</a>・<a target="_blank" rel="noopener" href="https://24h.pchome.com.tw/store/DEBR2S">PChome 同厚度零售例子 ↗</a>・<a target="_blank" rel="noopener" href="https://feebee.com.tw/all/%E5%8A%A0%E5%A4%A7%E9%9B%99%E4%BA%BA%20%E4%B9%B3%E8%86%A0%E5%BA%8A%E5%A2%8A/">HABABY 比價資料 ↗</a>。</div>
-    </div>
-  </details>
-
-  <details class="shop-detail" id="shop-day3">
-    <summary><span><span class="shop-date">DAY 3・11/24｜廈門</span><span class="shop-heading">🍵 茶文化體驗・大紅袍、普洱、田七花</span><span class="shop-preview">其他團：大紅袍 RMB 800／盒、普洱 RMB 2,000／磚</span></span></summary>
-    <div class="shop-body"><a class="guide-jump" href="#cross-brand" data-cb-link="tea" style="margin:0 0 13px">🍵 比較同茶種與級別 ↗</a>
-      <p>你的團寫的是「中國茶文化－品茶」，沒有寫店家名稱。以下商品來自 2026 年不同金廈團的茶葉站心得，並非確定你一定會遇到的品牌或價格。</p>
-      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>可能主打</th><th>其他團實際報價</th><th>一般市場公開價例子</th><th>判斷</th></tr></thead><tbody>
-       <tr><td><b>武夷大紅袍</b></td><td>2026 年有團員買 <b>RMB 800／盒</b>；未公布淨重／茶級</td><td>京東消費指南：武夷星「金悅」128g 約 <b>RMB 100</b>、「香融」170g 禮盒約 <b>RMB 200</b>、「八三茶人」特級 108g 約 <b>RMB 350</b>；是不同茶款、並非同品質單價</td><td><span class="shop-mark caution">不明品牌高價要警覺</span><div>800 比多個知名品牌零售例子高；但若是特殊正岩、稀有等級，價格可能不同，無重量與產地證明不能定案。</div></td></tr>
-       <tr><td><b>普洱茶磚／茶餅</b></td><td>2026 年其他團 <b>RMB 2,000／塊</b>，另推 24 塊證書方案</td><td>茶窩網大益 2025 年 7542 生茶 <b>357g／餅，RMB 170</b>（2026 查詢到的賣場標價（當時顯示缺貨））</td><td><span class="shop-mark caution">高價警戒</span><div>如為普通新茶，2,000 可能大幅高於品牌茶；陳年、特殊批次普洱價差巨大，應先取得年份、批號、品牌與克重。</div></td></tr>
-       <tr><td><b>田七花／三七花</b></td><td>2026 年其他團：<b>RMB 1,500／罐</b>，重量未記載</td><td>沒有足以核對的同重量、產地及等級商品</td><td><span class="shop-mark unknown">無法判斷</span><div>把健康功效話術與食品定價分開；未標淨重與產地就不值得冒險買。</div></td></tr>
-       <tr><td><b>安溪鐵觀音</b></td><td>你的團與上述心得沒有型號報價</td><td>八馬茶業「賽珍珠 1000」鐵觀音 250g 官方通路約 <b>RMB 600–675</b>（品牌高階款）</td><td><span class="shop-mark unknown">價差取決於等級</span><div>普通散茶不應用高階品牌禮盒價格比較；先看重量、茶級、製造商。</div></td></tr>
-      </tbody></table></div>
-      <div class="shop-check"><strong>比價方法：</strong>一定用「人民幣每 100g」與同等級同年份茶比較；沒有產地、重量、批次，只說「大師茶」「特供茶」「收藏可增值」，建議不買。現場沖泡展示並不能代替食品標示與可信任賣場價格。</div>
-      <div class="shop-sources">來源：<a target="_blank" rel="noopener" href="https://www.dcard.tw/f/travel/p/261581866">2026 Dcard 購物紀錄 ↗</a>・<a target="_blank" rel="noopener" href="https://dir.jd.com/guide/jd-geo-guide-wu-yi-xing-cha-ye-v1">京東武夷星產品對照 ↗</a>・<a target="_blank" rel="noopener" href="https://www.chawo.com/item-113414.html">大益 7542 357g 價格 ↗</a>・<a target="_blank" rel="noopener" href="https://shop.ntbsj.com/index.php/home/goods/show/10319">八馬茶業 250g ↗</a>。</div>
-    </div>
-  </details>
-
-  <details class="shop-detail" id="shop-day4">
-    <summary><span><span class="shop-date">DAY 4・11/25｜廈門</span><span class="shop-heading">🧵 絲綢博物館・蠶絲被與床包套裝</span><span class="shop-preview">其他團：蠶絲被 RMB 2,000／條、套裝折到 RMB 5,000</span></span></summary>
-    <div class="shop-body"><a class="guide-jump" href="#cross-brand" data-cb-link="silk" style="margin:0 0 13px">🧵 比較桑蠶絲被等級與淨重 ↗</a>
-      <p>計畫書並未列出絲綢博物館的店名與實際販售品牌。以下為類似購物站的旅客報價，與公開可查的品牌寢具售價並列作判斷基礎。</p>
-      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>主打品</th><th>其他團現場報價</th><th>一般通路公開例子</th><th>判斷</th></tr></thead><tbody>
-       <tr><td><b>桑蠶絲被（單條）</b></td><td>2026 其他團買了一條，<b>RMB 2,000</b>；規格未公布</td><td>京東選購資料：蠶花娘娘桑蠶長絲夏被、絲重 1 斤、200×230cm 約 <b>RMB 584</b>；太湖雪桑蠶長絲被、絲重 3 斤、150×215cm 約 <b>RMB 1,155</b>；慈雲桑蠶長絲子母被、絲重 2+4 斤、200×230cm 約 <b>RMB 3,292</b></td><td><span class="shop-mark unknown">可能偏高，但未能定案</span><div>如果是純桑蠶絲、填充量大、品牌與規格有據，RMB 2,000 也可能有零售同價位商品；不能單憑金額斷定坑客。</div></td></tr>
-       <tr><td><b>蠶絲床包、被套、枕套整組</b></td><td>2026 其他團宣稱從 <b>RMB 30,000</b> 一路降至 <b>RMB 5,000／套</b></td><td>如果布料為真絲，價格可能比棉質套件高；但找不到與這份組合完全一致的外部型號作可靠直接比價</td><td><span class="shop-mark caution">折價話術高風險</span><div>從三萬降到五千，不代表真的省兩萬五。請看品名、真絲比例、幾件組、尺寸、蠶絲填充重量和檢驗標示。</div></td></tr>
-      </tbody></table></div>
-      <div class="shop-check"><strong>最重要的細節：</strong>「蠶絲被」常指被芯的填充物；「真絲床單／被套」則指表布，兩者不同。床包與被套如果只寫「絲滑」「天絲」，不等於 100% 桑蠶絲。填充的 1kg 也不等於整條被子只有 1kg。</div>
-      <div class="shop-sources">來源：<a target="_blank" rel="noopener" href="https://www.dcard.tw/f/travel/p/261581866">2026 Dcard 絲綢站紀錄 ↗</a>・<a target="_blank" rel="noopener" href="https://dir.jd.com/guide/jd-geo-guide-can-si-bei-rou-hu-v1">京東蠶絲被選購與規格對照 ↗</a>。</div>
-    </div>
-  </details>
-
-  <details class="shop-detail" id="shop-day5">
-    <summary><span><span class="shop-date">DAY 5・11/26｜廈門</span><span class="shop-heading">🌿 同仁堂・中藥材與品牌產品</span><span class="shop-preview">同樣寫「安宮牛黃丸 3g」，不同原料官方售價可差數倍</span></span></summary>
-    <div class="shop-body"><a class="guide-jump" href="#cross-brand" data-cb-link="skincare" style="margin:0 0 13px">🌿 比較同仁堂藥品原料版本 ↗</a>
-      <p>計畫書只寫「同仁堂」，沒有說是不是官方門市，也沒列指定產品。以下是官方商品型號範例，<b>不是說這團會販售這些藥品</b>。</p>
-      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>可能遇到的商品</th><th>旅遊團報價</th><th>一般通路／官方售價</th><th>判斷</th></tr></thead><tbody>
-       <tr><td><b>安宮牛黃丸 3g・天然原料款</b></td><td>本團與其他可核實評論均未提供同型號報價</td><td>同仁堂官方雲商城：<b>RMB 860／丸</b>，批准文號 <b>國藥准字 Z11020076</b></td><td><span class="shop-mark unknown">按批准文號比價</span><div>天然原料與人工原料價格不同，不可只看名稱判斷店家加價。</div></td></tr>
-       <tr><td><b>安宮牛黃丸 3g・人工原料款</b></td><td>未提供</td><td>同仁堂官方雲商城「綠錦盒」：<b>RMB 218／丸</b>，批准文號 <b>國藥准字 Z11020193</b></td><td><span class="shop-mark caution">混淆規格風險</span><div>同樣 3g 不是同一款。若售價昂貴，要求正確藥品名稱、批准文號、原料與生產企業。</div></td></tr>
-       <tr><td><b>西洋參片、靈芝等養生品</b></td><td>行程無型號與價格資料</td><td>品牌、代工、生產企業與重量差異很大，無法提供單一可靠的公平售價</td><td><span class="shop-mark unknown">先查來源</span><div>同仁堂相關名稱的出品方不一定相同；尤其避免只靠免費檢測或養生說明購買。</div></td></tr>
-      </tbody></table></div>
-      <div class="shop-highlight">安宮牛黃丸是藥品，不是一般紀念品或保健零食，可能有用藥風險與購買限制；不要因為旅行團推銷就自行服用或拿來預防疾病。是否適用請詢問合格醫師／藥師。</div>
-      <div class="shop-sources">來源：<a target="_blank" rel="noopener" href="https://m.tongrentangmall.com/GoodsIndex/2591.html">官方天然原料款 RMB 860 ↗</a>・<a target="_blank" rel="noopener" href="https://m.tongrentangmall.com/GoodsIndex/2831.html">官方人工原料款 RMB 218 ↗</a>・<a target="_blank" rel="noopener" href="https://finance.sina.com.cn/roll/2025-12-06/doc-infzwira5535128.shtml">同仁堂系列出品方差異報導 ↗</a>。</div>
-    </div>
-  </details>
-
-  <details class="shop-detail" id="shop-onboard">
-    <summary><span><span class="shop-date">不固定日期｜遊覽車上介紹</span><span class="shop-heading">🧴 片仔癀珍珠霜與福建特產</span><span class="shop-preview">普通皇后牌珍珠霜 25g 官方標價 RMB 23.8／瓶，網路約 RMB 11.5</span></span></summary>
-    <div class="shop-body"><a class="guide-jump" href="#cross-brand" data-cb-link="skincare" style="margin:0 0 13px">🧴 比較片仔癀珍珠霜同型號 ↗</a>
-      <p>原始計畫書寫導遊可能在車上推介片仔癀珍珠霜等福建土特產，沒有指定哪款。注意<b>普通珍珠霜 25g</b>與<b>煥顏珍珠霜 32g</b>是兩個不同商品。</p>
-      <div class="shop-audit-table-wrap"><table class="shop-audit-table"><thead><tr><th>商品</th><th>其他旅客／旅行團價格</th><th>公開市場價</th><th>判斷</th></tr></thead><tbody>
-       <tr><td><b>皇后牌片仔癀珍珠霜 25g</b></td><td>2026 廈門旅客分享一般門市 RMB 13–20／瓶；飯店店家曾見 RMB 9.9／瓶（文中寫 25mL，請留意標示）</td><td>片仔癀官方網站零售標價 <b>RMB 23.8／25g</b>；百度健康商城商家 <b>RMB 11.5／25g</b></td><td><span class="shop-mark">可按型號比價</span><div>若普通 25g 款遠超 RMB 23.8，又沒有贈品或差異，通常沒有立即購買的必要。</div></td></tr>
-       <tr><td><b>皇后牌片仔癀煥顏珍珠霜 32g</b></td><td>2026 遊客分享 6 瓶 RMB 300 加送 2 瓶，平均 <b>RMB 37.5／瓶</b>（文中標 32mL）</td><td>片仔癀官方網站建議零售價：<b>RMB 105／32g</b></td><td><span class="shop-mark unknown">與普通款不能混比</span><div>官網建議價較高，但促銷差異大；要看完整名稱、規格與製造商。</div></td></tr>
-      </tbody></table></div>
-      <div class="shop-check"><strong>辨識重點：</strong>看完整品名、25g 或 32g、包裝條碼、有效日期與製造公司；普通款不是片仔癀藥錠。試用不等於保證效果，更不代表能治療皮膚疾病。</div>
-      <div class="shop-sources">來源：<a target="_blank" rel="noopener" href="https://www.pzhchina.com/pzhhzp/product/info_476.aspx?itemid=8491">官方 25g 珍珠霜 ↗</a>・<a target="_blank" rel="noopener" href="https://www.pzhchina.com/pzhhzp/product/info_476.aspx?itemid=8476">官方 32g 煥顏珍珠霜 ↗</a>・<a target="_blank" rel="noopener" href="https://health.baidu.com/malls/goods/db2c_164214245555362728_1482330962046517248">網路 25g 價格 ↗</a>・<a target="_blank" rel="noopener" href="https://yiyi1428.com/blog/post/phi-a-hong">2026 廈門跟團購物心得 ↗</a>。</div>
-    </div>
-  </details>
-</div>
-<div class="notice amber" style="margin:4px 0 21px"><strong>重要：高價疑慮 ≠ 已證實本團坑客</strong>以上其他團參團心得只能提供案例，不表示本團使用同店、同品牌或會強制消費。即使報價比外面貴，也要先核對完全相同的品名、規格、保固和來源；如果缺乏透明資料，最保險是先不買。<a href="https://www.cna.com.tw/news/ahel/202509100227.aspx" target="_blank" rel="noopener" style="font-weight:800">參考中央社：2025 年類似低價團購物爭議 ↗</a></div>
-
-<div class="cb-shell" id="cross-brand">
-  <div class="cb-head">
-    <div class="overline">CROSS-BRAND · FAIR PRICE COMPARISON</div>
-    <h3>跨品牌同規格比價｜先確認等級再比價格</h3>
-    <p>第一層查「完全同款在外面賣多少」；第二層查「其他品牌、同類型且規格接近的替代品」。能確認同級才判斷價差；無法確認材質、等級、重量的，只展示參考價，不硬說誰比較坑。</p>
-    <div class="cb-legend"><span class="cb-pill">可同類比較：品類／規格明確</span><span class="cb-pill warn">條件式：必須補齊品質等級</span><span class="cb-pill gray">不可直接比：品級或材質不同</span></div>
-  </div>
-  <div class="cb-nav" id="cb-nav" role="tablist" aria-label="選擇比價商品類型"></div>
-  <div class="cb-body" id="cb-body" aria-live="polite"></div>
-  <div class="cb-footer">查價基準 2026/11/22。顯示的是公開通路標價／特價或網友具體記錄，不是保證今日成交價；跨幣別商品分開比較，單純通路價格低不代表同品質。</div>
-</div>
-<h3 class="category-title">🚌 依日期查看所有購物站</h3>
-  <div class="shopping-notes">
-    <div><strong>DAY 1｜11/22 金門特產巡禮</strong>計畫書列「麵線、貢糖」。可比價貢糖的每包顆數、重量和效期。早上另有詢問的牛肉乾與鋼刀品牌價格，已列於下方，但不代表每個團體購物站都會販售。</div>
-    <div><strong>DAY 2｜11/23 自貿區睡眠體驗中心</strong>參訪／選購站。計畫書另列「乳膠」購物項目，但沒寫明它是否就是睡眠中心；若遇寢具，確認材質比例、尺寸、產地、退貨與含稅人民幣實付價。</div>
-    <div><strong>DAY 3｜11/24 中國茶文化・品茶</strong>可以聽茶葉解說、試喝再自行決定是否購買。確認茶種、產地、年份、淨重、每 100g 價格與密封保存方式，不要只比較禮盒售價。</div>
-    <div><strong>DAY 4｜11/25 絲綢博物館</strong>計畫書未列正式店名。若有蠶絲被或絲綢用品，先看蠶絲含量、填充重量（非整床總重量）、檢驗標籤與發票；沒有需要就不買。</div>
-    <div><strong>DAY 5｜11/26 同仁堂</strong>可能有中藥、保健產品或品牌展示，實際品項未知。確認成分、適用對象、注意事項、保存期限與是否能合法攜帶回台；不要因為推銷而購買不需要的產品。</div>
-    <div><strong>DAY 6｜11/27 金門特產巡禮</strong>回台前的特產選購，仍可使用下方貢糖、麵線等品牌比價表。要留意登機時間、提袋數量與液體／刀具的行李限制。</div>
-  </div>
-  <div class="notice amber" style="margin:14px 0 20px"><strong>車上推介（不是額外安排的停靠站）</strong>原始計畫書註明導遊可能在遊覽車上介紹「片仔癀珍珠霜等福建土特產」。未載明哪一天、確切品牌、規格或售價，所以不替它編預估時間，也不當作已確認的正式店家。你這團沒有強制購物；想買才向導遊或店員確認售價、成分與效期。</div>
-  <h3 class="category-title">🍬 豬腳貢糖｜四家品牌比較</h3><div class="price-table-wrap"><table class="price-table"><thead><tr><th>品牌</th><th>規格／特色</th><th>公開參考價</th><th>現場報價（NT$）</th><th>價源</th></tr></thead><tbody id="price-candy"></tbody></table></div>
-  <div class="guide-tip">四家皆為豬腳貢糖 12 入，可先看同品類包價。金瑞成 220g、聖祖 240g 的淨重已查到，能計算每 100g 價；金名祖、天工尚未核實淨重，不列入重量單價排名。詳見上方「跨品牌同規格比價」。</div>
-  <h3 class="category-title">🥩 牛肉乾｜先看品牌，再核對克數</h3><div class="price-table-wrap"><table class="price-table"><thead><tr><th>品牌</th><th>規格／備註</th><th>公開參考價</th><th>現場報價（NT$）</th><th>價源</th></tr></thead><tbody id="price-jerky"></tbody></table></div>
-  <div class="guide-tip">下方僅列一般「原味牛肉乾」，並區分良金 165g 與 180g、喬安 180g、高坑 160g。牛肉角、戰地限定版、辣味或黑胡椒是不同系列，不放入同級單價排序。每 100g 價格請看上方跨品牌比價卡。</div>
-  <h3 class="category-title">🔪 金門鋼刀｜與早上看到的價牌對照</h3><div class="price-table-wrap"><table class="price-table"><thead><tr><th>品牌／型號</th><th>規格</th><th>網路參考價</th><th>現場報價（NT$）</th><th>價源</th></tr></thead><tbody id="price-knife"></tbody></table></div>
-  <div class="guide-tip">鋼刀是按「型號＋單刀或刀組」比價。早上看到的價牌：金永利 B1-1 NT$1,600、B1 雙刀 NT$2,900、金合利 D4 NT$1,800、F1 雙刀 NT$3,600，已預填供你直接比較。特價可能不含運費或有數量限制；購買後放托運行李，勿隨身登機。</div>
-  <h3 class="category-title">🍜 麵線與其他特產</h3><div class="price-table-wrap"><table class="price-table"><thead><tr><th>品牌</th><th>規格</th><th>公開參考價</th><th>現場報價（NT$）</th><th>價源</th></tr></thead><tbody id="price-extra"></tbody></table></div>
-  <div class="shopping-notes">
-    <div><strong>旅遊團購物站：完全自由</strong>這團沒有強制購物。喜歡商品再問價格、有效日期與退貨條件；不買直接參觀即可。店家若主張「團員優惠」，可和上方公開價核對。</div>
-    <div><strong>乳膠／絲綢／茶葉／同仁堂</strong>品項沒有統一可比規格，勿只看標價打幾折；請要求重量、材質、成分、產地與人民幣實付價明確列出。沒有需求就不必當場決定。</div>
-  </div>
-</div></section>
-<section id="schedule"><div class="wrap">
-  <div class="section-head"><div><div class="overline">ITINERARY</div><h2>每天去哪裡？</h2></div><p>點選日期切換當天時間軸。綠色「當日實際紀錄」為旅客現場回報，紫色「固定班次」為計畫書班次，其餘時間為預估。</p></div>
-  <div class="day-chooser" id="day-chooser" role="tablist" aria-label="選擇日期"></div>
-  <div class="day-panel" id="day-panel" aria-live="polite"></div>
-</div></section>
-
-<section id="guides"><div class="wrap"><div class="section-head"><div><div class="overline">SCENIC FIELD GUIDE</div><h2>景點背景與看點</h2></div><p>按照六天的行程排列；點景點名稱展開歷史、拍照重點、建議停留與實用提醒。</p></div><div class="guide-tip">要預先讀的重點：振成樓和福裕樓、東山島三景、閩南傳奇、鼓浪嶼、中山路。每個導覽卡都會附資料來源連結。</div><div id="guide-cards"></div></div></section>
-<section id="map-section"><div class="wrap">
-  <div class="section-head"><div><div class="overline">INTERACTIVE MAP</div><h2>景點在哪裡？</h2></div><p>一般街道地圖，不是衛星圖。可縮放、拖曳並點擊標記；虛線僅表示行程順序，不代表實際行車路線。</p></div>
-  <div class="map-card">
-    <div class="map-head"><b>路線地圖</b><div class="map-controls" id="map-controls"></div></div>
-    <div class="map-canvas">
-      <div class="map-standby" id="map-standby"><span style="font-size:2rem">🗺️</span><b>正在載入街道地圖</b><p>若中國大陸網路或第三方服務無法使用，下方仍可直接點景點開啟高德地圖或 Apple 地圖導航。</p></div>
-      <div class="map-live" id="map-live"></div>
-    </div>
-    <div class="map-legend" id="map-legend"></div>
-    <div class="map-footer">地點座標用於路線位置參考，實際入口請用下方導航搜尋核對。街道圖採 OpenFreeMap／備援圖源；在中國大陸建議使用高德地圖導航。</div>
-  </div>
-</div></section>
-
-<section id="highlights"><div class="wrap">
-  <div class="section-head"><div><div class="overline">HIGHLIGHTS</div><h2>這趟最值得期待</h2></div><p>古老土樓、海島建築、閩南表演與城市散步。</p></div>
-  <div class="photogrid">
-    <div class="photo"><img loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/China_Fujian_Yongding_Hongkeng_Tulou_Zhencheng_Lou.jpg" alt="永定振成樓從空中俯瞰的環形土樓"><div class="photo-caption">永定・振成樓<small>世界文化遺產土樓群｜影像：<a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:China_Fujian_Yongding_Hongkeng_Tulou_Zhencheng_Lou.jpg">Lennartbj / Wikimedia Commons, CC BY-SA 4.0</a></small></div></div>
-    <div class="photo"><img loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Gulangyu.jpg" alt="廈門鼓浪嶼海岸與建築景色"><div class="photo-caption">廈門・鼓浪嶼<small>漫步萬國建築與海灘｜影像：<a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Gulangyu.jpg">Jakob Montrasio / Wikimedia Commons, CC BY 2.0</a></small></div></div>
-  </div>
-</div></section>
-
-<section id="hotels"><div class="wrap">
-  <div class="section-head"><div><div class="overline">WHERE TO STAY</div><h2>五晚住宿</h2></div><p>以下飯店及電話均依旅行社計畫書；實際房型與訂房狀態須向旅行社確認。</p></div>
-  <div class="stay-grid">
-    <article class="stay-card"><div class="dates">11/22・1 晚</div><h3>永定土樓王子大酒店</h3><p>永定土樓區域，適合隔天接續前往漳州。當晚行程安排客家風味晚餐及篝火活動。</p><a class="phone" href="tel:+865975205555">☎ +86 597-5205555</a><a class="action" target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=永定土樓王子大酒店">查看位置 ↗</a></article>
-    <article class="stay-card"><div class="dates">11/23–11/24・2 晚</div><h3>廈門翔鷺大酒店</h3><p>廈門湖里區的大型商務飯店。請留意團體房型是否為有窗房。</p><a class="phone" href="tel:+865923578888">☎ +86 592-3578888</a><a class="action" target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=廈門翔鷺國際大酒店">查看位置 ↗</a></article>
-    <article class="stay-card"><div class="dates">11/25–11/26・2 晚</div><h3>廈門君泰酒店</h3><p>位於廈門島東南側，靠近環島路與會展中心區域。</p><a class="phone" href="tel:+865926738888">☎ +86 592-6738888</a><a class="action" target="_blank" rel="noopener" href="https://uri.amap.com/search?keyword=廈門君泰酒店">查看位置 ↗</a></article>
-  </div>
-</div></section>
-
-
-<section id="reviews"><div class="wrap">
-  <div class="section-head"><div><div class="overline">COMMUNITY & GUEST REVIEWS</div><h2>其他旅客真實心得</h2></div><p>區分網友參團遊記、景點評論與飯店住客反饋，僅摘要與本次行程相關的部分。</p></div>
-  <div class="notice amber"><strong>不是這一團的評價</strong>目前沒有查到能確認屬於本次 2026/11/22、14 人同團、同業者的公開評論。下面的 Dcard、PTT 是其他旅行團，不能用來指稱本團強制購物；你已說明這團是自願選購。</div>
-  <div class="reviews-grid" style="margin-top:16px">
-    <article class="review-card"><span class="review-type risk">Dcard｜2024・其他金廈購物團</span><h3>參團客分享購物站推銷過程</h3><p>一位旅客寫到乳膠、茶葉、蠶絲等站點的長時間說明與團員之間的購買壓力，並提及部分費用未事先充分告知。是當事人的個別體驗，與你這團的購物規則不能混為一談。</p><a href="https://www.dcard.tw/f/travel/p/254925312" target="_blank" rel="noopener">看 Dcard 原始遊記（2024/3）↗</a></article>
-    <article class="review-card"><span class="review-type risk">PTT｜2019・其他金廈五日團</span><h3>低價團曾有「購物站停太久」抱怨</h3><p>這篇舊心得抱怨旅遊景點被壓縮、購物站停留偏長以及現場推銷壓力。年份很久，不能推論今日本團必然出現一樣的情況；現場以旅行社安排與你實際經驗為準。</p><a href="https://www.ptt.cc/bbs/travel/M.1558894125.A.5F0.html" target="_blank" rel="noopener">看 PTT 原始心得 ↗</a></article>
-    <article class="review-card"><span class="review-type">龍岩市政府｜永定土樓資料</span><h3>土樓最大看點是內外環結構</h3><p>旅遊攻略多建議拍振成樓圓形全景、內庭八卦式分隔、福裕樓的府第格局。這團可能傍晚到，建議先看最重要的建築細節再拍團照。</p><a href="https://www.longyan.gov.cn/fw/zstp/rdlb/202511/t20251107_2255844.htm" target="_blank" rel="noopener">核對龍岩官方景點介紹 ↗</a></article>
-    <article class="review-card"><span class="review-type">Trip.com｜閩南傳奇秀・2026</span><h3>移動座椅與多舞台是觀眾最常提到的特色</h3><p>頁面旅客評分約 4.8/5，評論稱座位會隨演出移動，音樂與場景結合有特色。需注意原計畫書沒有寫確定演出梯次，入場依導遊通知。</p><a href="https://tw.trip.com/travel-guide/attraction/xiamen/huaxia-performance-legend-of-southern-fujian-show-22638192/" target="_blank" rel="noopener">看 Trip.com 旅客評論 ↗</a></article>
-    <article class="review-card"><span class="review-type">Trip.com｜嶼見閩南・2026</span><h3>互動表演多，不宜只當拍照景點</h3><p>Trip.com 約 4.6/5，旅客特別提及沉浸式表演與角色互動。平台建議停留 3–5 小時；你這團若只停一個下午，先看演出時刻比較值得。</p><a href="https://tw.trip.com/travel-guide/attraction/xiamen/time-meets-island-150107038/" target="_blank" rel="noopener">看 Trip.com 旅客評論 ↗</a></article>
-    <article class="review-card"><span class="review-type">Trip.com｜翔鷺大酒店・2026/8–10</span><h3>房間寬敞受好評，但要確認是不是無窗團體房</h3><p>2026 年住客有稱讚飯店規模、房間和服務的心得，也有入住登記流程、洗衣機不足的抱怨。平台確實有「經濟雙床房－無窗」房型，建議向旅行社查實際配房名稱。</p><a href="https://tw.trip.com/hotels/xiamen-hotel-detail-375295/xianglu-grand-hotel/review.html" target="_blank" rel="noopener">看飯店住客評論 ↗</a></article>
-    <article class="review-card"><span class="review-type risk">Dcard｜2024・金廈團遊記（上集）</span><h3>土樓風景值得看，但旅行節奏可能很趕</h3><p>同一位旅客在上集分享，第一天因交通抵達晚，還有景點只停留約十分鐘；第二天才前往土樓。提醒我們：同樣寫「參觀土樓」，實際停留多久仍取決於通關和遊覽車動線。這不是本團的案例。</p><a href="https://www.dcard.tw/f/travel/p/254906054" target="_blank" rel="noopener">閱讀 Dcard 原始遊記（上集）↗</a></article>
-  </div>
-  <div class="guide-tip">閱讀社群評論請看發文日期、旅行社是否相同、是不是同一套行程與飯店房型。單篇個人心得不是普遍事實，旅遊平台的分數也會變動。</div>
-</div></section>
-<section id="tips"><div class="wrap">
-  <div class="section-head"><div><div class="overline">TRAVEL NOTES</div><h2>出發與當地小提醒</h2></div></div>
-  <div class="info-grid">
-    <div class="info-card"><h3>✈️ 航班與船班</h3><ul><li>11/22 高雄 → 金門：立榮 8915，08:00–09:05（12 人）</li><li>11/22 台中 → 金門：立榮 8955，07:50–08:50（2 人）</li><li>11/22 金門 → 廈門：金星輪 11:30–12:00（14 人）</li><li>11/27 廈門 → 金門：新武夷 10:00–10:30（14 人）</li><li>11/27 金門 → 高雄：立榮 8926，14:55–15:55（12 人）</li><li>11/27 金門 → 台中：華信 776，16:50–17:50（2 人）</li></ul></div>
-    <div class="info-card"><h3>🧳 旅途準備</h3><ul><li>帶妥有效旅行證件及必要入境文件。</li><li>小三通請預留登船報到與通關時間，不能以船開時間才抵碼頭。</li><li>廈門與永定氣溫、降雨及晚上體感可能不同，帶薄外套與雨具。</li><li>手機網路請確認中國大陸可用的 eSIM 或漫遊服務；在當地建議搭配高德地圖。</li><li>鼓浪嶼渡輪、閩南傳奇演出場次以導遊實際安排為準。</li></ul></div>
-    <div class="info-card"><h3>🍴 餐食說明</h3><ul><li>原計畫書：5 次早餐、9 次正餐。</li><li>大陸段以每桌 10 人、8 菜 1 湯含酒水為原訂說明，人數不足可能調整。</li><li>11/25 晚餐為鼓浪嶼／廈門小吃自理。</li><li>11/27 返回台灣，午餐安排金門便當。</li><li>用餐時間是推估，實際依團體動線調整。</li></ul></div>
-    <div class="info-card"><h3>🛍️ 購物站方式</h3><ul><li>金門麵線、貢糖及特產巡禮。</li><li>廈門自貿區睡眠體驗中心、茶文化體驗、絲綢博物館、同仁堂。</li><li>導遊可能在車上介紹片仔癀珍珠霜等福建土特產，這是車上推介，非指定停靠站；不需要購買。</li><li><b>沒有強制購物</b>；可以自由看，想買再向店員問價，沒有購買需求就不用買。</li><li>注意貴重物品、發票與信用卡刷卡幣別。</li></ul></div>
-  </div>
-  <div class="notice amber" style="margin-top:17px"><strong>時間說明</strong>除計畫書明載的航班與船班外，網頁中的集合、行車、參觀、吃飯與入住時間均為合理推估，不是旅行社公告。特別是 11/23 永定→東山島→廈門車程長，11/27 船班早，需聽從導遊當日指示。</div>
-</div></section>
-</main>
-<footer><div class="wrap">金廈＋永定土樓精彩六日・行動旅遊手冊｜製作依據：2026/11/22 行程計畫書。<br>照片為景點參考影像；地圖標記位置僅供概覽，實際導航以當地圖資為準。最後更新：2026.11.22。</div></footer>
-<button class="floating" type="button" id="goTop" title="回頁首">↑ 回頂部</button>
-<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.js"></script>
+<nav class="bottom-nav" aria-label="旅程主要導覽">
+ <button type="button" data-route="plan" class="active"><span class="glyph">◷</span>行程</button>
+ <button type="button" data-route="sights"><span class="glyph">◇</span>景點</button>
+ <button type="button" data-route="shop"><span class="glyph">▤</span>比價</button>
+ <button type="button" data-route="info"><span class="glyph">⌂</span>資訊</button>
+</nav>
 <script>
-(function(){
-'use strict';
 const days=[
  {date:'11/22',dow:'日',subtitle:'金門出發・走進客家土樓',headline:'台灣 → 金門 → 廈門 → 永定',mood:'交通日・移動較多',hotel:'永定土樓王子大酒店',meals:'午：俏湖蘭・廈門（實際）｜晚：客家風味（原規劃）',tip:'11/22 實際紀錄：13:00 抵達廈門「俏湖蘭」用午餐，從碼頭搭車約 15 分鐘（旅客提供）。原先網站預估的金門牛肉麵午餐已取消。午後前往永定的時間重新推估，尚未確認。',events:[
  ['07:50','台中出發・立榮 8955','台中飛金門，預定 08:50 抵達。','fixed','立榮 8955',''],
@@ -438,6 +391,7 @@ const days=[
  ['16:50','華信 776・金門 → 台中','台中組 2 人，16:50–17:50。','fixed','華信 776','']
  ]}
 ];
+
 const geo=[
  [{name:'金門機場',lat:24.429,lng:118.359},{name:'水頭碼頭（金門）',lat:24.404,lng:118.295},{name:'五通碼頭（廈門）',lat:24.538,lng:118.172},{name:'洪坑土樓群（永定）',lat:24.6632,lng:116.9735}],
  [{name:'洪坑土樓群',lat:24.6632,lng:116.9735},{name:'東山島風動石',lat:23.706,lng:117.538},{name:'東山島南門灣',lat:23.693,lng:117.535},{name:'集美學村',lat:24.568,lng:118.104},{name:'翔鷺酒店',lat:24.521,lng:118.107}],
@@ -446,81 +400,7 @@ const geo=[
  [{name:'君泰酒店',lat:24.472,lng:118.167},{name:'南普陀寺',lat:24.439,lng:118.102},{name:'廈門大學外側',lat:24.437,lng:118.096},{name:'中山路步行街',lat:24.454,lng:118.078},{name:'君泰酒店',lat:24.472,lng:118.167}],
  [{name:'君泰酒店',lat:24.472,lng:118.167},{name:'環島路（約略）',lat:24.445,lng:118.156},{name:'五緣灣大橋',lat:24.538,lng:118.169},{name:'廈門五通碼頭',lat:24.538,lng:118.172},{name:'金門水頭碼頭',lat:24.404,lng:118.295},{name:'金門機場',lat:24.429,lng:118.359}]
 ];
-const $=id=>document.getElementById(id);
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const gao=q=>'https://uri.amap.com/search?keyword='+encodeURIComponent(q);
-const apple=q=>'https://maps.apple.com/?q='+encodeURIComponent(q);
-const labels={fixed:'固定班次',estimate:'預估時間',shop:'自由參觀・不強制購物',warn:'需留意',actual:'當日實際紀錄'};
-let active=0,map=null,mapLoaded=false,markers=[];
-const choose=(i,scroll)=>{
-  active=i;const d=days[i];
-  $('day-chooser').querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-selected',k===i?'true':'false'));
-  document.querySelectorAll('[data-nav-day]').forEach(b=>b.classList.toggle('active',Number(b.dataset.navDay)===i));
-  const events=d.events.map(e=>{
-    const mode=e[3],query=e[5],t=labels[mode],detail=e[4];
-    const detailLinks=guideData.filter(g=>g.day===i&&e[1].includes(g.match)).slice(0,2).map(g=>'<a class="guide-jump" href="#guide-'+g.id+'">📖 '+esc(g.title.split('｜')[0])+' 介紹 ↗</a>').join('');
-    return '<article class="event"><div class="clock">'+esc(e[0])+'</div><div class="event-main"><h4>'+esc(e[1])+'</h4><p>'+esc(e[2])+'</p><div class="event-tags"><span class="event-tag '+(mode==='fixed'?'fixed':mode==='shop'?'shop':mode==='warn'?'warn':mode==='actual'?'actual':'')+'">'+t+'</span>'+(detail?'<span class="event-tag">'+esc(detail)+'</span>':'')+'</div>'+(query?'<div class="event-action"><a class="action" target="_blank" rel="noopener" href="'+gao(query)+'">高德地圖 ↗</a><a class="action secondary" target="_blank" rel="noopener" href="'+apple(query)+'">Apple 地圖 ↗</a></div>':'')+detailLinks+(mode==='shop'?'<a class="guide-jump" href="#shop-'+((i===0||i===5)?'day1':'day'+(i+1))+'">🧾 商品售價與市場比較 ↗</a>':'')+'</div></article>';
-  }).join('');
-  $('day-panel').innerHTML='<header class="day-banner"><div><span class="pill '+((i===1||i===5)?'warn':'')+'">DAY 0'+(i+1)+' · 2026/'+esc(d.date)+'（'+esc(d.dow)+'） · '+esc(d.mood)+'</span><h3>'+esc(d.headline)+'</h3><p class="note">'+esc(d.tip)+'</p></div><span style="font-size:2.5rem">'+(['🏯','🌊','🎭','🏝️','🏛️','✈️'][i])+'</span></header><div class="day-timeline">'+events+'</div><div class="day-bottom"><div><b>🍽️ 當日餐食</b><p>'+esc(d.meals)+'</p></div><div><b>🛏️ 當晚住宿</b><p>'+esc(d.hotel)+'</p></div></div>';
-  setMapDay(i);
-  if(scroll) $('schedule').scrollIntoView({behavior:'smooth',block:'start'});
-};
-$('day-chooser').innerHTML=days.map((d,i)=>'<button type="button" role="tab" aria-selected="false" data-pick="'+i+'" class="day-choice"><div class="dt">DAY 0'+(i+1)+' · '+esc(d.date)+'</div><b>'+esc(d.subtitle.split('・')[0])+'</b><small>'+esc(d.headline)+'</small></button>').join('');
-$('day-chooser').addEventListener('click',e=>{const b=e.target.closest('[data-pick]');if(b)choose(Number(b.dataset.pick),false)});
-document.querySelectorAll('[data-nav-day]').forEach(b=>b.addEventListener('click',()=>choose(Number(b.dataset.navDay),true)));
-document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#shop-day"],a[href="#shop-onboard"]');if(!a)return;const d=document.querySelector(a.getAttribute('href'));if(d&&d.tagName==='DETAILS')d.open=true;});
-$('map-controls').innerHTML=days.map((d,i)=>'<button type="button" data-mapday="'+i+'">DAY '+(i+1)+' · '+d.date+'</button>').join('');
-$('map-controls').addEventListener('click',e=>{const b=e.target.closest('[data-mapday]');if(b)choose(Number(b.dataset.mapday),false)});
-$('goTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-const linkMarker=(name)=>'<a href="'+gao(name)+'" target="_blank" rel="noopener" style="color:#1c513b;font-weight:750">高德導航 ↗</a>';
-function setMapDay(i){
- const pts=geo[i];
- $('map-controls').querySelectorAll('button').forEach(b=>b.classList.toggle('selected',Number(b.dataset.mapday)===i));
- $('map-legend').innerHTML=pts.map((p,n)=>'<a href="'+gao(p.name)+'" target="_blank" rel="noopener">'+(n+1)+'. '+esc(p.name)+' ↗</a>').join('');
- if(!map||!mapLoaded)return;
- markers.forEach(m=>m.remove());markers=[];
- pts.forEach((p,n)=>{
-   const el=document.createElement('div');el.className='map-pin';el.textContent=String(n+1);
-   const m=new maplibregl.Marker({element:el}).setLngLat([p.lng,p.lat]).setPopup(new maplibregl.Popup({offset:20}).setHTML('<b>'+esc(p.name)+'</b><br>'+linkMarker(p.name))).addTo(map);markers.push(m);
- });
- if(map.getLayer('route-line'))map.removeLayer('route-line');
- if(map.getSource('route-data'))map.removeSource('route-data');
- if(pts.length>1){
-  map.addSource('route-data',{type:'geojson',data:{type:'Feature',geometry:{type:'LineString',coordinates:pts.map(p=>[p.lng,p.lat])},properties:{}}});
-  map.addLayer({id:'route-line',type:'line',source:'route-data',paint:{'line-color':'#bd7440','line-width':3,'line-dasharray':[2,2],'line-opacity':.82}});
- }
- const bounds=new maplibregl.LngLatBounds();
- pts.forEach(p=>bounds.extend([p.lng,p.lat]));
- map.fitBounds(bounds,{padding:45,maxZoom:11,duration:650});
-}
-function activateMap(){
- if(!window.maplibregl){$('map-standby').innerHTML='<b>目前無法載入互動地圖</b><p>下方仍可點選各景點，開啟高德地圖導航。</p>';return;}
- let backupUsed=false;
- try{
-  map=new maplibregl.Map({
-   container:'map-live',
-   style:'https://tiles.openfreemap.org/styles/liberty',
-   center:[118.07,24.47],zoom:8,
-   dragRotate:false,pitchWithRotate:false,attributionControl:true
-  });
-  map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
-  const showReady=()=>{mapLoaded=true;$('map-standby').style.display='none';$('map-live').style.opacity='1';setMapDay(active)};
-  const useBackup=()=>{
-    if(backupUsed)return;
-    backupUsed=true;mapLoaded=false;
-    $('map-standby').style.display='flex';$('map-live').style.opacity='0';
-    try{map.setStyle('https://basemaps.cartocdn.com/gl/positron-gl-style/style.json')}catch(e){}
-  };
-  map.on('style.load',showReady);
-  map.on('error',(evt)=>{
-    const message=String(evt&&evt.error&&evt.error.message||'');
-    if(!backupUsed&&(!mapLoaded||/403|401|forbidden|tile|load|404/i.test(message)))useBackup();
-  });
-  window.setTimeout(()=>{if(!mapLoaded&&!backupUsed)useBackup()},6500);
-  window.setTimeout(()=>{if(!mapLoaded){$('map-standby').innerHTML='<span style="font-size:2rem">🧭</span><b>街道底圖暫時無法載入</b><p>可能是網路連線限制；可點下方景點按鈕直接用高德地圖／Apple 地圖開啟導航。</p>';}},14000);
- }catch(e){$('map-standby').innerHTML='<b>目前無法載入互動地圖</b><p>下方景點導航仍可使用。</p>';}
-}
-// Public reference prices checked 2026-11-22; values are NT$, not guaranteed shop quotes.
+
 const priceCatalog={
  candy:[
   {id:'c1',name:'金名祖｜豬腳貢糖',spec:'12 入・全素・公開網路特價',ref:100,url:'https://www.kmgn.com.tw/?product_id=1269&route=product%2Fproduct',label:'江南特產店'},
@@ -547,37 +427,6 @@ const priceCatalog={
  ]
 };
 
-function renderPriceTables(){
-  const safeGet=k=>{try{return localStorage.getItem(k)}catch(_){return null}};
-  const safeSet=(k,v)=>{try{localStorage.setItem(k,v)}catch(_){}};
-  ['candy','jerky','knife','extra'].forEach(group=>{
-    const target=$('price-'+group);
-    target.innerHTML=priceCatalog[group].map(item=>{
-      const saved=safeGet('kinmen_quoted_'+item.id);
-      const quote=saved!==null?saved:(item.quote!==undefined?String(item.quote):'');
-      return '<tr><td><b>'+esc(item.name)+'</b></td><td>'+esc(item.spec)+'</td><td><strong>NT$'+item.ref.toLocaleString('en-US')+'</strong></td><td><input type="number" class="price-input" min="0" step="1" inputmode="numeric" aria-label="'+esc(item.name)+'現場售價" placeholder="輸入價格" data-price-id="'+item.id+'" value="'+esc(quote)+'"><span class="price-status" id="stat-'+item.id+'"></span></td><td><a href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+esc(item.label)+' ↗</a></td></tr>';
-    }).join('');
-  });
-  document.querySelectorAll('[data-price-id]').forEach(input=>{
-    const item=Object.values(priceCatalog).flat().find(p=>p.id===input.dataset.priceId);
-    if(!item)return;
-    function refresh(){
-      const stat=$('stat-'+item.id);
-      if(!input.value){stat.textContent='輸入價格比較';stat.className='price-status';return;}
-      const quote=Number(input.value);
-      if(!Number.isFinite(quote)||quote<0){stat.textContent='價格無效';stat.className='price-status high';return;}
-      const diff=quote-item.ref;
-      const pct=Math.abs(diff)/item.ref*100;
-      stat.textContent=diff>0?'比參考價貴 NT$'+diff.toLocaleString('en-US')+'（'+pct.toFixed(1)+'%）':diff<0?'比參考價便宜 NT$'+Math.abs(diff).toLocaleString('en-US')+'（'+pct.toFixed(1)+'%）':'與參考價相同';
-      stat.className='price-status '+(diff>0?'high':diff<0?'low':'equal');
-    }
-    refresh();
-    input.addEventListener('input',()=>{safeSet('kinmen_quoted_'+item.id,input.value);refresh()});
-  });
-}
-renderPriceTables();
-
-// Per-stop field guide. Explanations distinguish sourced site history from itinerary estimates.
 const guideData=[
 {day:0,id:'tulou',match:'土樓民俗文化村',title:'永定土樓民俗文化村｜世界遺產',desc:'福建土樓不是單獨的一棟房子，而是一套整個家族共同生活的防禦型住宅。厚實的夯土外牆、向內開放的天井、少量的外側開口，兼顧居住與防護。福建土樓的代表性建築於 2008 年列入 UNESCO 世界遺產。洪坑村保留許多不同平面形式的土樓。',look:'先從溪橋看村落與土樓的關係，再近距離觀察夯土牆、木構廊道、集體生活空間。',tips:'這天從廈門轉車到永定，抵達可能已是下午；先看最核心的兩棟，別把時間全花在買紀念品。',time:'景區若要仔細走 1.5–2 小時；跟團實際時間依車程。',source:'https://whc.unesco.org/en/list/1113/',sourceLabel:'UNESCO 官方介紹',query:'洪坑土樓民俗文化村'},
 {day:0,id:'zhencheng',match:'土樓民俗文化村',title:'振成樓｜人稱「土樓王子」',desc:'振成樓是洪坑土樓群最著名的圓樓之一。外環四層、每層四十八間，依八卦方位分隔；內環有兩層，中央公共廳堂融合中西建築元素。比起只在外面拍照，走進庭院才看得出同一棟樓如何讓許多家庭共同生活。',look:'站在中央天井向上拍環形樓層；看防火隔牆、樓梯、拱門和中堂石柱。',tips:'建議先拍全景再細看，部分樓層可能限制參觀或另有管理要求，不要預設能登高。',time:'建議 25–40 分鐘。',source:'https://www.longyan.gov.cn/fw/zstp/rdlb/202511/t20251107_2255844.htm',sourceLabel:'龍岩市政府景區介紹',query:'永定振成樓'},
@@ -605,23 +454,7 @@ const guideData=[
 {day:5,id:'bridge',match:'五緣灣大橋',title:'五緣灣大橋｜現代廈門的海灣',desc:'五緣灣在廈門島東北部，是近代都市更新及休閒水岸的一部分；經過大橋可以看海灣、道路與現代城市天際線。',look:'車上欣賞兩側海灣與橋樑構造即可。',tips:'此站主要是車覽，無法保證停車拍照。船班優先。',time:'車覽約 5–15 分鐘。',source:'',sourceLabel:'',query:'廈門五緣灣大橋'},
 {day:5,id:'juguang',match:'莒光樓',title:'金門莒光樓｜戰地精神象徵',desc:'莒光樓建於 1952 年，以中國傳統城樓風格結合現代基座，展示金門戰地文化與民俗。金門觀光旅遊網介紹頂樓可遠眺金廈風景，館內也有胡璉將軍相關展示。',look:'先拍整棟樓的外觀與牌樓式屋頂，時間允許上樓俯瞰金門。',tips:'官方介紹參觀免費；團體實際停留取決於返台班機的報到時間。',time:'建議 30–60 分鐘。',source:'https://kinmen.travel/zh-tw/Travel/Attraction/389',sourceLabel:'金門觀光官方介紹',query:'金門莒光樓'}
 ];
-function renderGuides(){
- const target=$('guide-cards');
- target.innerHTML=days.map((day,d)=>'<div class="guide-day"><h3>DAY 0'+(d+1)+' · '+esc(day.date)+'｜'+esc(day.headline)+'</h3><div class="guide-grid">'+guideData.filter(g=>g.day===d).map(g=>
-   '<details class="guide-card" id="guide-'+esc(g.id)+'"><summary>'+esc(g.title)+'</summary><div class="inner"><p>'+esc(g.desc)+'</p><div class="label">🔎 到現場看什麼</div><p class="val">'+esc(g.look)+'</p><div class="label">💡 跟團實用提醒</div><p class="val">'+esc(g.tips)+'</p><div class="label">⏱️ 建議停留</div><p class="val">'+esc(g.time)+'</p><div class="guide-links"><a class="action" target="_blank" rel="noopener" href="'+gao(g.query)+'">高德地圖 ↗</a>'+(g.source?'<a class="action secondary" target="_blank" rel="noopener" href="'+esc(g.source)+'">'+esc(g.sourceLabel)+' ↗</a>':'')+'</div></div></details>'
- ).join('')+'</div></div>').join('');
- // Clicking a deep link opens the corresponding accordion.
- document.addEventListener('click',e=>{
-  const a=e.target.closest('a[href^="#guide-"]');
-  if(!a)return;
-  const details=document.getElementById(a.getAttribute('href').slice(1));
-  if(details)details.open=true;
- });
-}
-renderGuides();
 
-
-// Scope-limited comparison: "same exact model", "same product class", and "not directly comparable" never get mixed.
 const crossBrandGroups=[
   {id:'candy',tab:'🍬 豬腳貢糖',name:'金門豬腳貢糖｜跨四品牌',spec:'全素、麥芽糖外皮＋花生餡、每包 12 入。這是「相同品類」而不是完全相同配方或等級；已知淨重才用每 100g 比價。',currency:'NT$',unit:'g',input:true,qualify:'同品類比較：都是全素 12 入的豬腳貢糖；花生比例、麥芽糖外皮厚度、口感和品牌定位仍可能不同。若比較總價，以 12 入為基準；若比較份量，以每 100g 為基準。',items:[
     {n:'金名祖 12入豬腳貢糖',price:100,gram:null,note:'12 入／全素；總重待查',state:'可比：同類12入',url:'https://www.kmgn.com.tw/?product_id=1269&route=product%2Fproduct'},
@@ -670,43 +503,196 @@ const crossBrandGroups=[
    {n:'同仁堂 安宮牛黃丸（天然原料）',price:860,gram:null,note:'3g／批准文號 Z11020076',state:'藥品天然款，與人工款不同',url:'https://m.tongrentangmall.com/GoodsIndex/2591.html'}
   ],same:'普通珍珠霜 25g 同款約 RMB 11.5–23.8；但第三方賣家需核對真偽。中藥品項不能只看 3g 相同就比價，也不建議旅行中因推銷自行購買服用。',sameUrl:'https://www.pzhchina.com/pzhhzp/product/info_476.aspx?itemid=8491',excludes:'珍珠霜不同系列不能只用每g價格比；含藥品項不能用普通保健食品替代，也應注意攜帶限制。'}
 ];
-let cbActive='candy';
-function renderCrossBrand(){
- const nav=$('cb-nav'),body=$('cb-body');
- if(!nav||!body)return;
- nav.innerHTML=crossBrandGroups.map(g=>'<button type="button" role="tab" aria-selected="'+(g.id===cbActive)+'" data-cb="'+g.id+'">'+esc(g.tab)+'</button>').join('');
- const g=crossBrandGroups.find(x=>x.id===cbActive);
- let rows=g.items.map((p,i)=>{
-   const unit=g.unit==='g'&&p.gram?g.currency+(p.price/p.gram*100).toFixed(1)+'/100g':(g.unit==='g'?'重量待核實':'規格依說明');
-   return '<tr><td><b>'+esc(p.n)+'</b><small>'+esc(p.note)+'</small></td><td><span class="cb-normal">'+g.currency+' '+p.price.toLocaleString('en-US')+'</span></td><td>'+esc(unit)+'</td><td><span class="cb-pill '+(/待|不同|另一|未知|級別|條件式|無法|非同/.test(p.state)?'warn':'')+'">'+esc(p.state)+'</span><div><a href="'+esc(p.url)+'" target="_blank" rel="noopener noreferrer">商品價源 ↗</a></div></td></tr>';
- }).join('');
- body.innerHTML='<h4>'+esc(g.name)+'</h4><p>'+esc(g.spec)+'</p><div class="cb-table-shell"><table class="cb-table"><thead><tr><th>品牌／相同商品</th><th>公開價格</th><th>標準化價格</th><th>可比條件與來源</th></tr></thead><tbody>'+rows+'</tbody></table></div><div class="cb-compare-check"><b>同級比較基準：</b>'+esc(g.qualify)+'</div><div class="cb-compare-check"><b>同款／通路比價：</b>'+esc(g.same)+' <a target="_blank" rel="noopener noreferrer" href="'+esc(g.sameUrl)+'">核對來源 ↗</a></div><div class="cb-compare-check"><b>這些商品不混比：</b>'+esc(g.excludes)+'</div>';
- if(g.input){
-   body.innerHTML+='<div class="cb-quote"><div class="cb-quote-head">🧮 現場報價換算（'+esc(g.name.split('｜')[0])+'）</div><div class="cb-quote-row"><label>現場一包價格（'+g.currency+'）<input id="cb-quote-price" inputmode="decimal" type="number" min="0" step="0.1" placeholder="例如 170"></label><label>包裝淨重（公克）<input id="cb-quote-weight" inputmode="decimal" type="number" min="1" step="1" placeholder="例如 240"></label></div><p id="cb-quote-result" class="cb-quote-result">輸入價格與淨重，換算每 100g 並與同類已確認樣本對照。</p></div>';
-   const out=$('cb-quote-result'),f=()=>{
-     const p=Number($('cb-quote-price').value),w=Number($('cb-quote-weight').value);
-     if(!p||!w||p<0||w<=0){out.textContent='請輸入正確的現場價格與淨重；缺重量就不判斷。';out.className='cb-quote-result';return;}
-     const rate=p/w*100;
-     const valid=g.items.filter(e=>e.gram&&e.state.indexOf('不同')<0&&e.state.indexOf('另一')<0).map(e=>e.price/e.gram*100);
-     const low=Math.min(...valid),high=Math.max(...valid);
-     let label=rate>high*1.25?'高出已知同類價格區間至少25%，建議先核對型號、食材與品牌定位。':rate>high?'高於已知同類價格區間；不一定是同品質加價。':rate<low?'低於目前已知同類價格區間；也請核對內容量與效期。':'位於目前已知同類價格區間，仍需評估口味與品質。';
-     out.textContent='現場每 100g：'+g.currency+rate.toFixed(1)+'；已查同類樣本約 '+g.currency+low.toFixed(1)+'～'+g.currency+high.toFixed(1)+'/100g。'+label;
-     out.className='cb-quote-result'+(rate>high*1.25?' alert':'');
-   };
-   $('cb-quote-price').addEventListener('input',f);$('cb-quote-weight').addEventListener('input',f);
- }
-}
-$('cb-nav').addEventListener('click',e=>{const button=e.target.closest('[data-cb]');if(!button)return;cbActive=button.dataset.cb;renderCrossBrand()});
-renderCrossBrand();
-// Deep-linking to a specific on-site product category.
-document.addEventListener('click',e=>{const a=e.target.closest('a[data-cb-link]');if(!a)return;cbActive=a.dataset.cbLink;renderCrossBrand()});
+const storeData=[{"id":"shop-day1","title":"🍬 貢糖・麵線・牛肉乾等特產","date":"DAY 1・11/22 ＋ DAY 6・11/27｜金門","preview":"貢糖 12 入約 NT$100–170；同品類價與每100g比價在下方","body":"<a class=\"guide-jump\" href=\"#cross-brand\" data-cb-link=\"candy\" style=\"margin:0 0 13px\">🍬 比較四家豬腳貢糖／原味牛肉乾 ↗</a>\n      <p>計畫書明載兩次金門特產巡禮，第一天提到貢糖及麵線。牛肉乾與鋼刀是你另外詢問的金門商品，不保證每個團體購物站都有販賣。</p>\n      <div class=\"shop-audit-table-wrap\"><table class=\"shop-audit-table\"><thead><tr><th>主打商品</th><th>團體可能看到</th><th>一般通路公開價</th><th>高價判斷</th></tr></thead><tbody>\n      <tr><td><b>豬腳貢糖 12 入</b></td><td>旅行團伴手禮門市報價未知</td><td>金名祖 NT$100、金瑞成 NT$120、天工 NT$130、聖祖 NT$170（會員價），詳見下方品牌比價表</td><td><span class=\"shop-mark\">可直接比價</span><div>有品牌、12 入及重量就能比較；聖祖定價較高不等於旅行團加價。</div></td></tr>\n      <tr><td><b>手工／高粱麵線</b></td><td>可試吃與購買，店名未列</td><td>馬家 360g（8 束）公開價約 NT$230；同規格與製法再比</td><td><span class=\"shop-mark unknown\">先核對</span><div>重量、束數、口味及品牌不同，不要只看盒數。</div></td></tr>\n      <tr><td><b>牛肉乾、金門鋼刀</b></td><td>不是 Word 已確認的固定購物站商品</td><td>良金、喬安、金合利、金永利等型號價格已整理於下方</td><td><span class=\"shop-mark unknown\">按規格比較</span><div>刀具看型號與套組；牛肉乾看每 100g 價格。</div></td></tr>\n      </tbody></table></div>\n      <div class=\"shop-check\"><strong>購物策略：</strong>金門標示清楚的食品，通常比大陸站點的高額寢具更容易比價；若只是零售價附近、效期新鮮，又真的喜歡，就不必因為是團體站點而排斥。</div>\n      <a class=\"guide-jump\" href=\"#cross-brand\">⬇ 跨品牌同級比較 ↗</a> <a class=\"guide-jump\" href=\"#price-candy\">🧮 個別商品通路價 ↗</a>\n    "},{"id":"shop-day2","title":"🛏️ 自貿區睡眠體驗中心・乳膠寢具","date":"DAY 2・11/23｜廈門","preview":"其他團曾報 7.5cm 床墊 NT$44,910；與零售通路有顯著價差疑慮","body":"<a class=\"guide-jump\" href=\"#cross-brand\" data-cb-link=\"latex\" style=\"margin:0 0 13px\">🛏️ 比較乳膠床墊尺寸與材質 ↗</a>\n      <div class=\"shop-highlight\"><strong>最需要注意的購物站。</strong> 2024 年 Dcard 有旅客記錄名稱相近的「自貿睡眠體驗中心」販售乳膠床墊；2025–2026 年也有低價廈門團的高額寢具消費爭議。這些是<b>其他團／其他店的經驗</b>，不能證明本團是同一家或會開同樣價格。</div>\n      <div class=\"shop-audit-table-wrap\"><table class=\"shop-audit-table\"><thead><tr><th>主打商品</th><th>其他團實際報價</th><th>一般零售通路（供比較）</th><th>判斷</th></tr></thead><tbody>\n       <tr><td><b>乳膠床墊 7.5cm</b><small>品牌尺寸不明</small></td><td>2024 年 Dcard：<b>NT$44,910</b>，原組合含枕頭與被子</td><td>PChome 森好眠 5 尺 7.5cm <b>NT$10,925</b>；另有 HABABY 加大雙人 7.5cm 約 NT$15,800</td><td><span class=\"shop-mark caution\">高價警戒</span><div>明顯高於多個同厚度零售例子；但品牌、尺寸、密度、贈品及售後不同，不能直接當成完全同款的溢價。</div></td></tr>\n       <tr><td><b>乳膠床墊 10cm／15cm</b></td><td>2024 年另一團：10cm 約 NT$50,000–60,000；15cm 約 NT$60,000–70,000</td><td>PChome 森好眠 5 尺 10cm <b>NT$12,635</b>；5 尺 15cm 約 <b>NT$19,760</b></td><td><span class=\"shop-mark caution\">高價警戒</span><div>相近厚度可查得更低價；如無精確品牌型號與保固，先不要在現場決定。</div></td></tr>\n       <tr><td><b>乳膠床墊／枕頭／被子組</b></td><td>2026 年另團：床墊約 <b>RMB 15,988</b>／張，尺寸未記載</td><td>無法與特定型號對應。一般公開零售床墊有大量不同品牌、厚度、尺寸與材質</td><td><span class=\"shop-mark unknown\">無法直接換算溢價</span><div>要問枕頭數、被子材質、床墊尺寸、乳膠含量及運送退貨條件。</div></td></tr>\n      </tbody></table></div>\n      <div class=\"shop-check\"><strong>現場一定問：</strong>乳膠比例是多少？是整塊乳膠還是混合材質？床墊尺寸與密度？有無完整品牌官網／型號可查？送貨到台灣與退貨誰付運費？宣稱疾病治療效果沒有明確證據時，不要視為可信賣點。</div>\n      <div class=\"shop-sources\">來源：<a target=\"_blank\" rel=\"noopener\" href=\"https://www.dcard.tw/f/travel/p/254906054\">2024 Dcard 同類站點原文 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://www.dcard.tw/f/travel/p/261581866\">2026 Dcard 實際報價 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://24h.pchome.com.tw/store/DEBR2S\">PChome 同厚度零售例子 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://feebee.com.tw/all/%E5%8A%A0%E5%A4%A7%E9%9B%99%E4%BA%BA%20%E4%B9%B3%E8%86%A0%E5%BA%8A%E5%A2%8A/\">HABABY 比價資料 ↗</a>。</div>\n    "},{"id":"shop-day3","title":"🍵 茶文化體驗・大紅袍、普洱、田七花","date":"DAY 3・11/24｜廈門","preview":"其他團：大紅袍 RMB 800／盒、普洱 RMB 2,000／磚","body":"<a class=\"guide-jump\" href=\"#cross-brand\" data-cb-link=\"tea\" style=\"margin:0 0 13px\">🍵 比較同茶種與級別 ↗</a>\n      <p>你的團寫的是「中國茶文化－品茶」，沒有寫店家名稱。以下商品來自 2026 年不同金廈團的茶葉站心得，並非確定你一定會遇到的品牌或價格。</p>\n      <div class=\"shop-audit-table-wrap\"><table class=\"shop-audit-table\"><thead><tr><th>可能主打</th><th>其他團實際報價</th><th>一般市場公開價例子</th><th>判斷</th></tr></thead><tbody>\n       <tr><td><b>武夷大紅袍</b></td><td>2026 年有團員買 <b>RMB 800／盒</b>；未公布淨重／茶級</td><td>京東消費指南：武夷星「金悅」128g 約 <b>RMB 100</b>、「香融」170g 禮盒約 <b>RMB 200</b>、「八三茶人」特級 108g 約 <b>RMB 350</b>；是不同茶款、並非同品質單價</td><td><span class=\"shop-mark caution\">不明品牌高價要警覺</span><div>800 比多個知名品牌零售例子高；但若是特殊正岩、稀有等級，價格可能不同，無重量與產地證明不能定案。</div></td></tr>\n       <tr><td><b>普洱茶磚／茶餅</b></td><td>2026 年其他團 <b>RMB 2,000／塊</b>，另推 24 塊證書方案</td><td>茶窩網大益 2025 年 7542 生茶 <b>357g／餅，RMB 170</b>（2026 查詢到的賣場標價（當時顯示缺貨））</td><td><span class=\"shop-mark caution\">高價警戒</span><div>如為普通新茶，2,000 可能大幅高於品牌茶；陳年、特殊批次普洱價差巨大，應先取得年份、批號、品牌與克重。</div></td></tr>\n       <tr><td><b>田七花／三七花</b></td><td>2026 年其他團：<b>RMB 1,500／罐</b>，重量未記載</td><td>沒有足以核對的同重量、產地及等級商品</td><td><span class=\"shop-mark unknown\">無法判斷</span><div>把健康功效話術與食品定價分開；未標淨重與產地就不值得冒險買。</div></td></tr>\n       <tr><td><b>安溪鐵觀音</b></td><td>你的團與上述心得沒有型號報價</td><td>八馬茶業「賽珍珠 1000」鐵觀音 250g 官方通路約 <b>RMB 600–675</b>（品牌高階款）</td><td><span class=\"shop-mark unknown\">價差取決於等級</span><div>普通散茶不應用高階品牌禮盒價格比較；先看重量、茶級、製造商。</div></td></tr>\n      </tbody></table></div>\n      <div class=\"shop-check\"><strong>比價方法：</strong>一定用「人民幣每 100g」與同等級同年份茶比較；沒有產地、重量、批次，只說「大師茶」「特供茶」「收藏可增值」，建議不買。現場沖泡展示並不能代替食品標示與可信任賣場價格。</div>\n      <div class=\"shop-sources\">來源：<a target=\"_blank\" rel=\"noopener\" href=\"https://www.dcard.tw/f/travel/p/261581866\">2026 Dcard 購物紀錄 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://dir.jd.com/guide/jd-geo-guide-wu-yi-xing-cha-ye-v1\">京東武夷星產品對照 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://www.chawo.com/item-113414.html\">大益 7542 357g 價格 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://shop.ntbsj.com/index.php/home/goods/show/10319\">八馬茶業 250g ↗</a>。</div>\n    "},{"id":"shop-day4","title":"🧵 絲綢博物館・蠶絲被與床包套裝","date":"DAY 4・11/25｜廈門","preview":"其他團：蠶絲被 RMB 2,000／條、套裝折到 RMB 5,000","body":"<a class=\"guide-jump\" href=\"#cross-brand\" data-cb-link=\"silk\" style=\"margin:0 0 13px\">🧵 比較桑蠶絲被等級與淨重 ↗</a>\n      <p>計畫書並未列出絲綢博物館的店名與實際販售品牌。以下為類似購物站的旅客報價，與公開可查的品牌寢具售價並列作判斷基礎。</p>\n      <div class=\"shop-audit-table-wrap\"><table class=\"shop-audit-table\"><thead><tr><th>主打品</th><th>其他團現場報價</th><th>一般通路公開例子</th><th>判斷</th></tr></thead><tbody>\n       <tr><td><b>桑蠶絲被（單條）</b></td><td>2026 其他團買了一條，<b>RMB 2,000</b>；規格未公布</td><td>京東選購資料：蠶花娘娘桑蠶長絲夏被、絲重 1 斤、200×230cm 約 <b>RMB 584</b>；太湖雪桑蠶長絲被、絲重 3 斤、150×215cm 約 <b>RMB 1,155</b>；慈雲桑蠶長絲子母被、絲重 2+4 斤、200×230cm 約 <b>RMB 3,292</b></td><td><span class=\"shop-mark unknown\">可能偏高，但未能定案</span><div>如果是純桑蠶絲、填充量大、品牌與規格有據，RMB 2,000 也可能有零售同價位商品；不能單憑金額斷定坑客。</div></td></tr>\n       <tr><td><b>蠶絲床包、被套、枕套整組</b></td><td>2026 其他團宣稱從 <b>RMB 30,000</b> 一路降至 <b>RMB 5,000／套</b></td><td>如果布料為真絲，價格可能比棉質套件高；但找不到與這份組合完全一致的外部型號作可靠直接比價</td><td><span class=\"shop-mark caution\">折價話術高風險</span><div>從三萬降到五千，不代表真的省兩萬五。請看品名、真絲比例、幾件組、尺寸、蠶絲填充重量和檢驗標示。</div></td></tr>\n      </tbody></table></div>\n      <div class=\"shop-check\"><strong>最重要的細節：</strong>「蠶絲被」常指被芯的填充物；「真絲床單／被套」則指表布，兩者不同。床包與被套如果只寫「絲滑」「天絲」，不等於 100% 桑蠶絲。填充的 1kg 也不等於整條被子只有 1kg。</div>\n      <div class=\"shop-sources\">來源：<a target=\"_blank\" rel=\"noopener\" href=\"https://www.dcard.tw/f/travel/p/261581866\">2026 Dcard 絲綢站紀錄 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://dir.jd.com/guide/jd-geo-guide-can-si-bei-rou-hu-v1\">京東蠶絲被選購與規格對照 ↗</a>。</div>\n    "},{"id":"shop-day5","title":"🌿 同仁堂・中藥材與品牌產品","date":"DAY 5・11/26｜廈門","preview":"同樣寫「安宮牛黃丸 3g」，不同原料官方售價可差數倍","body":"<a class=\"guide-jump\" href=\"#cross-brand\" data-cb-link=\"skincare\" style=\"margin:0 0 13px\">🌿 比較同仁堂藥品原料版本 ↗</a>\n      <p>計畫書只寫「同仁堂」，沒有說是不是官方門市，也沒列指定產品。以下是官方商品型號範例，<b>不是說這團會販售這些藥品</b>。</p>\n      <div class=\"shop-audit-table-wrap\"><table class=\"shop-audit-table\"><thead><tr><th>可能遇到的商品</th><th>旅遊團報價</th><th>一般通路／官方售價</th><th>判斷</th></tr></thead><tbody>\n       <tr><td><b>安宮牛黃丸 3g・天然原料款</b></td><td>本團與其他可核實評論均未提供同型號報價</td><td>同仁堂官方雲商城：<b>RMB 860／丸</b>，批准文號 <b>國藥准字 Z11020076</b></td><td><span class=\"shop-mark unknown\">按批准文號比價</span><div>天然原料與人工原料價格不同，不可只看名稱判斷店家加價。</div></td></tr>\n       <tr><td><b>安宮牛黃丸 3g・人工原料款</b></td><td>未提供</td><td>同仁堂官方雲商城「綠錦盒」：<b>RMB 218／丸</b>，批准文號 <b>國藥准字 Z11020193</b></td><td><span class=\"shop-mark caution\">混淆規格風險</span><div>同樣 3g 不是同一款。若售價昂貴，要求正確藥品名稱、批准文號、原料與生產企業。</div></td></tr>\n       <tr><td><b>西洋參片、靈芝等養生品</b></td><td>行程無型號與價格資料</td><td>品牌、代工、生產企業與重量差異很大，無法提供單一可靠的公平售價</td><td><span class=\"shop-mark unknown\">先查來源</span><div>同仁堂相關名稱的出品方不一定相同；尤其避免只靠免費檢測或養生說明購買。</div></td></tr>\n      </tbody></table></div>\n      <div class=\"shop-highlight\">安宮牛黃丸是藥品，不是一般紀念品或保健零食，可能有用藥風險與購買限制；不要因為旅行團推銷就自行服用或拿來預防疾病。是否適用請詢問合格醫師／藥師。</div>\n      <div class=\"shop-sources\">來源：<a target=\"_blank\" rel=\"noopener\" href=\"https://m.tongrentangmall.com/GoodsIndex/2591.html\">官方天然原料款 RMB 860 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://m.tongrentangmall.com/GoodsIndex/2831.html\">官方人工原料款 RMB 218 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://finance.sina.com.cn/roll/2025-12-06/doc-infzwira5535128.shtml\">同仁堂系列出品方差異報導 ↗</a>。</div>\n    "},{"id":"shop-onboard","title":"🧴 片仔癀珍珠霜與福建特產","date":"不固定日期｜遊覽車上介紹","preview":"普通皇后牌珍珠霜 25g 官方標價 RMB 23.8／瓶，網路約 RMB 11.5","body":"<a class=\"guide-jump\" href=\"#cross-brand\" data-cb-link=\"skincare\" style=\"margin:0 0 13px\">🧴 比較片仔癀珍珠霜同型號 ↗</a>\n      <p>原始計畫書寫導遊可能在車上推介片仔癀珍珠霜等福建土特產，沒有指定哪款。注意<b>普通珍珠霜 25g</b>與<b>煥顏珍珠霜 32g</b>是兩個不同商品。</p>\n      <div class=\"shop-audit-table-wrap\"><table class=\"shop-audit-table\"><thead><tr><th>商品</th><th>其他旅客／旅行團價格</th><th>公開市場價</th><th>判斷</th></tr></thead><tbody>\n       <tr><td><b>皇后牌片仔癀珍珠霜 25g</b></td><td>2026 廈門旅客分享一般門市 RMB 13–20／瓶；飯店店家曾見 RMB 9.9／瓶（文中寫 25mL，請留意標示）</td><td>片仔癀官方網站零售標價 <b>RMB 23.8／25g</b>；百度健康商城商家 <b>RMB 11.5／25g</b></td><td><span class=\"shop-mark\">可按型號比價</span><div>若普通 25g 款遠超 RMB 23.8，又沒有贈品或差異，通常沒有立即購買的必要。</div></td></tr>\n       <tr><td><b>皇后牌片仔癀煥顏珍珠霜 32g</b></td><td>2026 遊客分享 6 瓶 RMB 300 加送 2 瓶，平均 <b>RMB 37.5／瓶</b>（文中標 32mL）</td><td>片仔癀官方網站建議零售價：<b>RMB 105／32g</b></td><td><span class=\"shop-mark unknown\">與普通款不能混比</span><div>官網建議價較高，但促銷差異大；要看完整名稱、規格與製造商。</div></td></tr>\n      </tbody></table></div>\n      <div class=\"shop-check\"><strong>辨識重點：</strong>看完整品名、25g 或 32g、包裝條碼、有效日期與製造公司；普通款不是片仔癀藥錠。試用不等於保證效果，更不代表能治療皮膚疾病。</div>\n      <div class=\"shop-sources\">來源：<a target=\"_blank\" rel=\"noopener\" href=\"https://www.pzhchina.com/pzhhzp/product/info_476.aspx?itemid=8491\">官方 25g 珍珠霜 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://www.pzhchina.com/pzhhzp/product/info_476.aspx?itemid=8476\">官方 32g 煥顏珍珠霜 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://health.baidu.com/malls/goods/db2c_164214245555362728_1482330962046517248\">網路 25g 價格 ↗</a>・<a target=\"_blank\" rel=\"noopener\" href=\"https://yiyi1428.com/blog/post/phi-a-hong\">2026 廈門跟團購物心得 ↗</a>。</div>\n    "}];
+const reviewData=[{"type":"Dcard｜2024・其他金廈購物團","title":"參團客分享購物站推銷過程","desc":"一位旅客寫到乳膠、茶葉、蠶絲等站點的長時間說明與團員之間的購買壓力，並提及部分費用未事先充分告知。是當事人的個別體驗，與你這團的購物規則不能混為一談。","link":"https://www.dcard.tw/f/travel/p/254925312","linkText":"看 Dcard 原始遊記（2024/3）↗"},{"type":"PTT｜2019・其他金廈五日團","title":"低價團曾有「購物站停太久」抱怨","desc":"這篇舊心得抱怨旅遊景點被壓縮、購物站停留偏長以及現場推銷壓力。年份很久，不能推論今日本團必然出現一樣的情況；現場以旅行社安排與你實際經驗為準。","link":"https://www.ptt.cc/bbs/travel/M.1558894125.A.5F0.html","linkText":"看 PTT 原始心得 ↗"},{"type":"龍岩市政府｜永定土樓資料","title":"土樓最大看點是內外環結構","desc":"旅遊攻略多建議拍振成樓圓形全景、內庭八卦式分隔、福裕樓的府第格局。這團可能傍晚到，建議先看最重要的建築細節再拍團照。","link":"https://www.longyan.gov.cn/fw/zstp/rdlb/202511/t20251107_2255844.htm","linkText":"核對龍岩官方景點介紹 ↗"},{"type":"Trip.com｜閩南傳奇秀・2026","title":"移動座椅與多舞台是觀眾最常提到的特色","desc":"頁面旅客評分約 4.8/5，評論稱座位會隨演出移動，音樂與場景結合有特色。需注意原計畫書沒有寫確定演出梯次，入場依導遊通知。","link":"https://tw.trip.com/travel-guide/attraction/xiamen/huaxia-performance-legend-of-southern-fujian-show-22638192/","linkText":"看 Trip.com 旅客評論 ↗"},{"type":"Trip.com｜嶼見閩南・2026","title":"互動表演多，不宜只當拍照景點","desc":"Trip.com 約 4.6/5，旅客特別提及沉浸式表演與角色互動。平台建議停留 3–5 小時；你這團若只停一個下午，先看演出時刻比較值得。","link":"https://tw.trip.com/travel-guide/attraction/xiamen/time-meets-island-150107038/","linkText":"看 Trip.com 旅客評論 ↗"},{"type":"Trip.com｜翔鷺大酒店・2026/8–10","title":"房間寬敞受好評，但要確認是不是無窗團體房","desc":"2026 年住客有稱讚飯店規模、房間和服務的心得，也有入住登記流程、洗衣機不足的抱怨。平台確實有「經濟雙床房－無窗」房型，建議向旅行社查實際配房名稱。","link":"https://tw.trip.com/hotels/xiamen-hotel-detail-375295/xianglu-grand-hotel/review.html","linkText":"看飯店住客評論 ↗"},{"type":"Dcard｜2024・金廈團遊記（上集）","title":"土樓風景值得看，但旅行節奏可能很趕","desc":"同一位旅客在上集分享，第一天因交通抵達晚，還有景點只停留約十分鐘；第二天才前往土樓。提醒我們：同樣寫「參觀土樓」，實際停留多久仍取決於通關和遊覽車動線。這不是本團的案例。","link":"https://www.dcard.tw/f/travel/p/254906054","linkText":"閱讀 Dcard 原始遊記（上集）↗"}];
 
-const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-const defaultDay=Math.max(0,Math.min(5,parseInt(today.slice(-2),10)-22));
-choose(today.startsWith('2026-11-')?defaultDay:0,false);
-activateMap();
-document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none';img.parentElement.style.minHeight='210px'}));
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const escapeHTML=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const amap=q=>'https://uri.amap.com/search?keyword='+encodeURIComponent(q);
+const apple=q=>'https://maps.apple.com/?q='+encodeURIComponent(q);
+const safeStore={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const today=()=>{const d=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());return d};
+const now=today();
+const startDay=now.startsWith('2026-11-')?Math.max(0,Math.min(5,Number(now.slice(-2))-22)):0;
+const state={view:'plan',day:startDay,shopMode:'stops',shopId:'shop-day1',brand:'candy'};
+const hotelData=[
+ {dates:'11/22 · 1 晚',title:'永定土樓王子大酒店',location:'永定區・客家土樓附近',phone:'+865975205555',display:'+86 597-5205555',query:'永定土樓王子大酒店',memo:'方便接續第二天東山島行程。'},
+ {dates:'11/23–11/24 · 2 晚',title:'廈門翔鷺大酒店',location:'廈門・湖里區',phone:'+865923578888',display:'+86 592-3578888',query:'廈門翔鷺國際大酒店',memo:'團體房型請向旅行社確認是否有窗。'},
+ {dates:'11/25–11/26 · 2 晚',title:'廈門君泰酒店',location:'廈門・環島路／會展區域',phone:'+865926738888',display:'+86 592-6738888',query:'廈門君泰酒店',memo:'最後兩晚連住，回程請留意碼頭報到。'}
+];
+const statusOf=k=>({actual:'現場實際',fixed:'原訂班次',shop:'自由參觀',warn:'需留意',estimate:'估計時間'}[k]||'估計時間');
+const specialShopDay={0:'shop-day1',1:'shop-day2',2:'shop-day3',3:'shop-day4',4:'shop-day5',5:'shop-day1'};
+const shopByDay={0:'candy',1:'latex',2:'tea',3:'silk',4:'skincare',5:'candy'};
+const hotspotIcons=['⛩️','🌊','🎭','🏝️','🏛️','✈️'];
+function selectView(view,scroll){
+ if(!['plan','sights','shop','info'].includes(view))view='plan';
+ state.view=view;
+ document.querySelectorAll('.view').forEach(el=>el.hidden=el.id!=='view-'+view);
+ document.querySelectorAll('[data-route]').forEach(el=>{
+  const active=el.dataset.route===view;el.classList.toggle('active',active);el.setAttribute('aria-current',active?'page':'false')
+ });
+ if(view==='plan'){renderDay();if($('map-panel').open)requestAnimationFrame(()=>mapInstance&&mapInstance.resize())}
+ if(view==='sights')renderSights();
+ if(view==='shop')renderShopping();
+ if(scroll!==false)window.scrollTo({top:document.getElementById('app').offsetTop-8,behavior:'smooth'});
+ try{history.replaceState(null,'','#'+({plan:'schedule',sights:'guides',shop:'shopping',info:'hotels'}[view]))}catch(e){}
+}
+function daysStrip(container){
+ container.innerHTML=days.map((day,i)=>'<button type="button" role="tab" class="day-tab" data-day="'+i+'" aria-selected="'+(i===state.day)+'"><small>DAY 0'+(i+1)+' · '+escapeHTML(day.dow)+'</small><strong>'+escapeHTML(day.date)+'</strong><span>'+escapeHTML(day.headline.split(' → ').slice(-2).join(' → '))+'</span></button>').join('');
+}
+function selectDay(day){
+ state.day=Math.max(0,Math.min(5,day));renderDay();renderSights();updateMap();
+ if(state.view==='plan'&&$('map-panel').open&&mapInstance)requestAnimationFrame(()=>mapInstance.resize());
+}
+function renderDay(){
+ daysStrip($('day-tabs'));
+ const d=days[state.day];
+ $('day-hero').innerHTML='<div class="hero-meta"><span class="meta-chip">DAY 0'+(state.day+1)+' / 2026.'+escapeHTML(d.date.replace('/','.'))+'</span><span class="meta-chip sand">'+escapeHTML(d.mood)+'</span></div><h3>'+escapeHTML(d.headline)+'</h3><p>'+escapeHTML(d.tip)+'</p>';
+ $('day-stats').innerHTML='<div class="stat"><small>🍽️ 當天餐食</small><strong>'+escapeHTML(d.meals)+'</strong></div><div class="stat"><small>🛏️ 當晚住宿</small><strong>'+escapeHTML(d.hotel)+'</strong></div>';
+ $('timeline').innerHTML=d.events.map((e,i)=>{
+  const [time,title,description,kind,detail,query]=e;
+  const matching=guideData.filter(g=>g.day===state.day&&title.includes(g.match)).slice(0,2);
+  const links=[];
+  if(query){links.push('<a class="action" href="'+amap(query)+'" target="_blank" rel="noopener">◉ 高德導航</a>');links.push('<a class="action ghost" href="'+apple(query)+'" target="_blank" rel="noopener">Apple 地圖</a>')}
+  for(const g of matching)links.push('<button type="button" class="action" data-sight="'+g.id+'">◇ '+escapeHTML(g.title.split('｜')[0])+'</button>');
+  if(kind==='shop')links.push('<button type="button" class="action" data-shop-jump="'+specialShopDay[state.day]+'">▤ 商品與行情</button>');
+  return '<div class="event '+(kind==='actual'?'actual':'')+'"><div class="event-time">'+escapeHTML(time)+'</div><details class="event-box" '+(kind==='actual'?'open':'')+'><summary><span class="event-label"><strong>'+escapeHTML(title)+'</strong><small class="'+({actual:'actual-tag',fixed:'fixed-tag',shop:'shop-tag'}[kind]||'')+'">'+statusOf(kind)+(detail?'　·　'+escapeHTML(detail):'')+'</small></span><span class="chev">＋</span></summary><div class="event-expanded"><p>'+escapeHTML(description)+'</p>'+(links.length?'<div class="actions">'+links.join('')+'</div>':'')+'</div></details></div>';
+ }).join('');
+ $('map-places').innerHTML=geo[state.day].map((p,i)=>'<a target="_blank" rel="noopener" href="'+amap(p.name)+'">'+(i+1)+' · '+escapeHTML(p.name)+' ↗</a>').join('');
+ const selected=$('day-tabs').querySelector('[aria-selected="true"]');if(selected)selected.scrollIntoView({block:'nearest',inline:'center'});
+}
+function renderSights(){
+ daysStrip($('sight-tabs'));
+ const all=guideData.filter(g=>g.day===state.day&&!['sleep-center','tea','silk','tongrentang'].includes(g.id));
+ $('sight-grid').innerHTML=all.map(g=>'<details class="sight-card" id="guide-'+g.id+'"><summary><span>'+escapeHTML(g.title)+'</span></summary><div class="sight-body"><p>'+escapeHTML(g.desc)+'</p><div class="sight-detail"><b>到現場看什麼</b>'+escapeHTML(g.look)+'</div><div class="sight-detail"><b>旅途提醒</b>'+escapeHTML(g.tips)+'</div><div class="sight-detail"><b>建議停留</b>'+escapeHTML(g.time)+'</div><div class="actions"><a class="action" href="'+amap(g.query)+'" target="_blank" rel="noopener">◉ 高德導航</a>'+(g.source?'<a class="action ghost" href="'+escapeHTML(g.source)+'" target="_blank" rel="noopener">原始資料 ↗</a>':'')+'</div></div></details>').join('');
+ if(!all.length)$('sight-grid').innerHTML='<div class="info-card">這天以交通與回程為主，主要參觀點已列於每日時間軸。</div>';
+}
+function renderShopping(){
+ document.querySelectorAll('[data-shop-mode]').forEach(b=>b.setAttribute('aria-selected',b.dataset.shopMode===state.shopMode?'true':'false'));
+ $('shop-stops').hidden=state.shopMode!=='stops';
+ $('shop-compare').hidden=state.shopMode!=='compare';
+ if(state.shopMode==='stops')renderStore();else renderCompare();
+}
+function renderStore(){
+ const stationTitles=[['11/22 ＋ 11/27','金門特產'],['11/23','乳膠寢具'],['11/24','茶葉文化'],['11/25','絲綢用品'],['11/26','同仁堂'],['車上介紹','片仔癀珍珠霜']];
+ $('shop-picker').innerHTML=storeData.map((store,i)=>'<button type="button" class="shop-pick" data-store="'+store.id+'" aria-selected="'+(store.id===state.shopId)+'"><small>'+stationTitles[i][0]+'</small><strong>'+stationTitles[i][1]+'</strong></button>').join('');
+ const store=storeData.find(x=>x.id===state.shopId)||storeData[0];
+ const group=({'shop-day1':'candy','shop-day2':'latex','shop-day3':'tea','shop-day4':'silk','shop-day5':'skincare','shop-onboard':'skincare'})[store.id]||'candy';
+ $('shop-report').innerHTML='<article class="report"><div class="report-head"><span>'+escapeHTML(store.date)+'</span><h3>'+escapeHTML(store.title)+'</h3><p>'+escapeHTML(store.preview)+'</p></div><div class="report-body"><div class="actions" style="margin-bottom:13px"><button type="button" class="action" data-brand-jump="'+group+'">▤ 對照其他品牌同級價 ↗</button></div>'+store.body+'</div></article>';
+}
+function renderCompare(){
+ $('brand-tabs').innerHTML=crossBrandGroups.map(g=>'<button class="brand-tab" type="button" data-brand="'+g.id+'" aria-selected="'+(state.brand===g.id)+'">'+escapeHTML(g.tab)+'</button>').join('');
+ const g=crossBrandGroups.find(g=>g.id===state.brand)||crossBrandGroups[0];
+ const rows=g.items.map(p=>{
+  const pp=g.unit==='g'&&p.gram?g.currency+' '+(100*p.price/p.gram).toFixed(1)+' / 100g':'不適用／待補規格';
+  const type=/待|不同|另一|未知|級別|條件式|無法|非同/.test(p.state)?'warn':'';
+  return '<tr><td><b>'+escapeHTML(p.n)+'</b><br><span style="color:#7a8e7c;font-size:11px">'+escapeHTML(p.note)+'</span></td><td><b>'+escapeHTML(g.currency)+' '+Number(p.price).toLocaleString('en-US')+'</b></td><td>'+escapeHTML(pp)+'</td><td><span class="meta-chip '+type+'">'+escapeHTML(p.state)+'</span><br><a target="_blank" rel="noopener noreferrer" href="'+escapeHTML(p.url)+'">售價來源 ↗</a></td></tr>';
+ }).join('');
+ const possible=priceCatalog[({candy:'candy',jerky:'jerky',noodles:'extra',knives:'knife'})[g.id]];
+ $('compare-content').innerHTML='<div class="compare-hero"><h3>'+escapeHTML(g.name)+'</h3><p>'+escapeHTML(g.spec)+'</p></div><div class="price-grid-wrap"><table class="price-grid"><thead><tr><th>品牌／商品</th><th>參考售價</th><th>重量標準化</th><th>同級條件／來源</th></tr></thead><tbody>'+rows+'</tbody></table></div><div class="grade-guide"><div class="grade-row"><b>比較基準</b>'+escapeHTML(g.qualify)+'</div><div class="grade-row"><b>同款跨通路</b>'+escapeHTML(g.same)+'　<a class="small-link" href="'+escapeHTML(g.sameUrl)+'" target="_blank" rel="noopener">查資料來源 ↗</a></div><div class="grade-row warn"><b>不可混比</b>'+escapeHTML(g.excludes)+'</div></div>'+(g.input?'<div class="quote-box"><strong>現場報價快速換算</strong><div class="quote-fields"><label>店家售價（'+g.currency+'）<input id="quote-price" type="number" min="0" step="1" inputmode="decimal" placeholder="輸入金額"></label><label>商品淨重（g）<input id="quote-weight" type="number" min="1" step="1" inputmode="decimal" placeholder="輸入克數"></label></div><p class="quote-result" id="quote-result">輸入金額和重量後，計算每 100g 市價。</p></div>':'')+(possible?'<details class="price-mini"><summary>▸ 檢視個別品牌原始價源與記錄現場價格</summary><div class="price-grid-wrap"><table class="price-grid"><thead><tr><th>品牌與型號</th><th>規格</th><th>通路價</th><th>現場價</th></tr></thead><tbody>'+possible.map(p=>'<tr><td><b>'+escapeHTML(p.name)+'</b><br><a href="'+escapeHTML(p.url)+'" target="_blank" rel="noopener">來源 ↗</a></td><td>'+escapeHTML(p.spec)+'</td><td>'+g.currency+' '+p.ref+'</td><td><input class="record-quote" data-quote-id="'+p.id+'" data-quote-ref="'+p.ref+'" type="number" min="0" inputmode="numeric" placeholder="填價格" value="'+escapeHTML(safeStore.get('on_site_'+p.id)||'')+'"><span class="price-result" id="quote-r-'+p.id+'"></span></td></tr>').join('')+'</tbody></table></div></details>':'');
+ if(g.input){
+  const p=$('quote-price'),w=$('quote-weight'),out=$('quote-result');
+  const calculate=()=>{
+    const cost=Number(p.value),gram=Number(w.value);
+    if(!p.value||!w.value||cost<=0||gram<=0){out.textContent='請輸入有效的價格與淨重；規格不完整就不判定高價。';return;}
+    const rate=100*cost/gram;
+    const ref=g.items.filter(x=>x.gram&&x.state.indexOf('另一')<0&&x.state.indexOf('不同')<0).map(x=>100*x.price/x.gram);
+    const low=Math.min(...ref),high=Math.max(...ref);
+    const msg='每 100g 約 '+g.currency+' '+rate.toFixed(1)+'；同類已知樣本 '+g.currency+' '+low.toFixed(1)+'–'+high.toFixed(1)+'/100g。';
+    out.textContent=msg+(rate>high*1.25?'明顯高於這組樣本，建議先核對同級條件。':rate>high?'高於樣本區間，但可能有品質差別。':'價格可參考，仍須確認口感與品質。');
+  };
+  p.addEventListener('input',calculate);w.addEventListener('input',calculate);
+ }
+ const updateRecord=inp=>{
+  const v=Number(inp.value),ref=Number(inp.dataset.quoteRef),line=$('quote-r-'+inp.dataset.quoteId);
+  if(!line)return;
+  line.textContent=!inp.value?'':v===ref?'與參考價相同':v>ref?'貴 '+(v-ref)+' 元':'便宜 '+(ref-v)+' 元';
+  line.classList.toggle('warn',!!inp.value&&v>ref);
+ };
+ document.querySelectorAll('.record-quote').forEach(el=>{updateRecord(el);el.addEventListener('input',()=>{safeStore.set('on_site_'+el.dataset.quoteId,el.value);updateRecord(el)})});
+}
+function renderInfo(){
+ $('hotel-grid').innerHTML=hotelData.map(h=>'<article class="info-card hotel-card"><div class="hotel-meta">'+escapeHTML(h.dates)+'</div><h3>'+escapeHTML(h.title)+'</h3><p>'+escapeHTML(h.location)+'</p><p>'+escapeHTML(h.memo)+'</p><div class="actions"><a class="action" href="tel:'+h.phone+'">☎ '+h.display+'</a><a class="action ghost" href="'+amap(h.query)+'" target="_blank" rel="noopener">◉ 位置</a></div></article>').join('');
+ $('review-list').innerHTML=reviewData.map(r=>'<details class="review"><summary>'+escapeHTML(r.title)+'</summary><div class="review-inner"><div style="color:#7d907f;font-size:11px;font-weight:800;margin-bottom:6px">'+escapeHTML(r.type)+'</div><p>'+r.desc+'</p>'+(r.link?'<a href="'+escapeHTML(r.link)+'" target="_blank" rel="noopener">'+escapeHTML(r.linkText)+'</a>':'')+'</div></details>').join('');
+}
+let mapInstance=null,mapLoaded=false,mapMarkers=[],mapAttempt=0;
+function ensureMapScript(){
+ if(window.maplibregl)return Promise.resolve();
+ if(window.__mapLoader)return window.__mapLoader;
+ window.__mapLoader=new Promise((res,rej)=>{
+  const script=document.createElement('script');script.src='https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.js';script.async=true;script.onload=res;script.onerror=()=>rej(new Error('無法載入地圖程式'));document.head.appendChild(script);
+ });
+ return window.__mapLoader;
+}
+function updateMap(){
+ $('map-places').innerHTML=geo[state.day].map((p,i)=>'<a href="'+amap(p.name)+'" target="_blank" rel="noopener">'+(i+1)+' · '+escapeHTML(p.name)+' ↗</a>').join('');
+ if(!mapInstance||!mapLoaded)return;
+ const list=geo[state.day],bounds=new maplibregl.LngLatBounds();
+ mapMarkers.forEach(m=>m.remove());mapMarkers=[];
+ list.forEach((p,i)=>{
+  const mark=document.createElement('div');mark.className='map-pin';mark.textContent=i+1;
+  mapMarkers.push(new maplibregl.Marker({element:mark}).setLngLat([p.lng,p.lat]).setPopup(new maplibregl.Popup({offset:14}).setHTML('<b>'+escapeHTML(p.name)+'</b><br><a href="'+amap(p.name)+'" target="_blank" rel="noopener">高德導航 ↗</a>')).addTo(mapInstance));
+  bounds.extend([p.lng,p.lat]);
+ });
+ if(mapInstance.getLayer('trip-line'))mapInstance.removeLayer('trip-line');
+ if(mapInstance.getSource('trip-route'))mapInstance.removeSource('trip-route');
+ mapInstance.addSource('trip-route',{type:'geojson',data:{type:'Feature',properties:{},geometry:{type:'LineString',coordinates:list.map(x=>[x.lng,x.lat])}}});
+ mapInstance.addLayer({id:'trip-line',type:'line',source:'trip-route',paint:{'line-color':'#ac6f41','line-width':3,'line-dasharray':[2,2]}});
+ mapInstance.resize();mapInstance.fitBounds(bounds,{padding:45,maxZoom:11,duration:350});
+}
+async function loadMap(){
+ if(mapInstance){mapInstance.resize();return}
+ try{
+  await ensureMapScript();
+  $('map-wait').textContent='街道地圖載入中，若外部圖資受限仍可使用下方導航連結。';
+  mapInstance=new maplibregl.Map({container:'street-map',style:'https://tiles.openfreemap.org/styles/liberty',center:[118.12,24.6],zoom:8,dragRotate:false});
+  mapInstance.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
+  mapInstance.on('style.load',()=>{mapLoaded=true;$('street-map').style.opacity='1';$('map-wait').style.display='none';updateMap()});
+  mapInstance.on('error',e=>{
+   const str=String(e?.error?.message||'');
+   if(mapAttempt===0&&(!mapLoaded||/403|401|tile|forbidden|404/i.test(str))){
+    mapAttempt++;mapLoaded=false;$('street-map').style.opacity='0';$('map-wait').style.display='flex';
+    try{mapInstance.setStyle('https://basemaps.cartocdn.com/gl/positron-gl-style/style.json')}catch(e){}
+   }
+  });
+  setTimeout(()=>{if(!mapLoaded&&mapAttempt===0){mapAttempt++;try{mapInstance.setStyle('https://basemaps.cartocdn.com/gl/positron-gl-style/style.json')}catch(e){}}},6000);
+  setTimeout(()=>{if(!mapLoaded)$('map-wait').textContent='目前無法顯示街道圖。下方仍提供逐站高德導航連結。'},14000);
+ }catch(e){$('map-wait').textContent='地圖程式暫時無法載入，請點下方景點使用高德地圖導航。'}
+}
+document.addEventListener('click',e=>{
+ const route=e.target.closest('[data-route]');if(route){selectView(route.dataset.route);return}
+ const day=e.target.closest('[data-day]');if(day){selectDay(Number(day.dataset.day));return}
+ const todayBtn=e.target.closest('#today-button');if(todayBtn){selectDay(startDay);return}
+ const sight=e.target.closest('[data-sight]');if(sight){
+  selectView('sights',true);
+  setTimeout(()=>{const el=$('guide-'+sight.dataset.sight);if(el){el.open=true;el.scrollIntoView({behavior:'smooth',block:'start'})}},160);return
+ }
+ const shop=e.target.closest('[data-shop-jump]');if(shop){state.shopId=shop.dataset.shopJump;state.shopMode='stops';selectView('shop');return}
+ const mode=e.target.closest('[data-shop-mode]');if(mode){state.shopMode=mode.dataset.shopMode;renderShopping();return}
+ const store=e.target.closest('[data-store]');if(store){state.shopId=store.dataset.store;renderStore();return}
+ const brand=e.target.closest('[data-brand]');if(brand){state.brand=brand.dataset.brand;renderCompare();return}
+ const brandJump=e.target.closest('[data-brand-jump]');if(brandJump){state.brand=brandJump.dataset.brandJump;state.shopMode='compare';renderShopping();return}
+});
+$('map-panel').addEventListener('toggle',e=>{if(e.target.open)loadMap()});
+window.addEventListener('hashchange',()=>{
+ const hash=location.hash.slice(1);
+ if(hash==='guides')selectView('sights',false);
+ else if(['shopping','shop-audit','cross-brand'].includes(hash)){if(hash==='cross-brand')state.shopMode='compare';selectView('shop',false)}
+ else if(hash==='hotels'||hash==='tips')selectView('info',false);
+ else if(['schedule','day1','day2','day3','day4','day5','day6'].includes(hash)){if(hash.startsWith('day'))state.day=Math.max(0,Number(hash.slice(-1))-1);selectView('plan',false)}
+});
+renderInfo();
+renderDay();
+renderSights();
+const initialHash=location.hash.slice(1);
+if(initialHash==='guides')selectView('sights',false);
+else if(['shopping','shop-audit','cross-brand'].includes(initialHash)){if(initialHash==='cross-brand')state.shopMode='compare';selectView('shop',false)}
+else if(initialHash==='hotels'||initialHash==='tips')selectView('info',false);
+else if(initialHash.startsWith('shop-day')){state.shopId=initialHash;state.shopMode='stops';selectView('shop',false)}
+else if(['day1','day2','day3','day4','day5','day6'].includes(initialHash)){state.day=Number(initialHash.slice(-1))-1;selectView('plan',false)}
+else selectView('plan',false);
 })();
-</script>
-</body>
-</html>
+
+</script></body></html>
