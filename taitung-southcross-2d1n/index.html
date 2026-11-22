@@ -84,8 +84,14 @@
     .timeline:before{left:65px}.stop{grid-template-columns:50px 1fr;gap:28px}.stop-card:before{left:-35px}.time{font-size:.82rem}.stop-card{padding:17px}.place img{height:175px}.places{grid-template-columns:1fr}.feature-copy{padding:24px}.feature-copy .mini{grid-template-columns:1fr 1fr}.checklist{grid-template-columns:1fr}.clock{grid-template-columns:1fr 1fr}
   }
   @media print{.nav,.stop-actions{display:none}.hero{min-height:420px}.summary{margin-top:0}.place,.stop-card,.hotel-card,.prep,.feature,.checkpoint{break-inside:avoid}.print-note{display:block}}
+
+  .schematic-shell{height:100%;display:flex;flex-direction:column;background:#eaf1eb}
+  .schematic-svg{width:100%;flex:1;min-height:0}
+  .schematic-svg a{cursor:pointer}
+  .schematic-legend{display:flex;gap:7px;overflow-x:auto;padding:9px 12px;background:#f8fbf7;border-top:1px solid #d9e5dc;scrollbar-width:thin;flex-shrink:0}
+  .schematic-legend a{text-decoration:none;white-space:nowrap;font-size:.75rem;font-weight:800;color:#2d5c4b;border:1px solid #d3e1d6;background:#fff;padding:5px 8px;border-radius:9px}
 </style>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
 </head>
 <body>
 <header class="hero" id="top">
@@ -351,25 +357,27 @@
 </main>
 <footer><div class="wrap">旅程版本｜2026.10.09 楊記地瓜酥更新 · 09.24–09.25 雙人自駕<br><span class="print-note">列印版本：建議 A4 直式，瀏覽器開啟「背景圖形」可保留版面效果。</span></div></footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <script>
 (function(){
   function makeMap(id, points){
     const el = document.getElementById(id);
-    if(!el || typeof L === 'undefined') return;
-    const map = L.map(id, {scrollWheelZoom:false});
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom:19,
-      attribution:'&copy; OpenStreetMap contributors'
-    }).addTo(map);
-    const latlngs = points.filter(p => !p.optional).map(p => [p.lat,p.lng]);
-    const allLatlngs = points.map(p => [p.lat,p.lng]);
-    L.polyline(latlngs, {color:'#2d5c4b', weight:4, opacity:.82, dashArray:'7,8'}).addTo(map);
-    points.forEach(p => {
-      const icon = L.divIcon({className:'', html:'<span class="map-pin">'+p.n+'</span>', iconSize:[24,24], iconAnchor:[12,12]});
-      L.marker([p.lat,p.lng], {icon}).addTo(map).bindPopup('<b>'+p.name+'</b><br>'+p.note);
-    });
-    map.fitBounds(allLatlngs, {padding:[28,28]});
+    if(!el) return;
+    const toText = v => String(v).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    const w=900,h=355,pad=45;
+    const xs=points.map(p=>p.lng), ys=points.map(p=>p.lat);
+    const west=Math.min(...xs)-0.075, east=Math.max(...xs)+0.075, south=Math.min(...ys)-0.07, north=Math.max(...ys)+0.07;
+    const X=p=>pad+(p.lng-west)/(east-west)*(w-pad*2);
+    const Y=p=>pad+(north-p.lat)/(north-south)*(h-pad*2);
+    const route=points.filter(p=>!p.optional).map((p,i)=>(i?'L':'M')+X(p).toFixed(1)+','+Y(p).toFixed(1)).join(' ');
+    const optional=points.filter(p=>p.optional);
+    const marks=points.map((p,i)=>{
+      const x=X(p).toFixed(1),y=Y(p).toFixed(1);
+      const url='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.lat+','+p.lng);
+      return '<a href="'+url+'" target="_blank" rel="noopener" aria-label="'+toText(p.name)+'｜開啟 Google Maps"><title>'+toText(p.name)+'｜'+toText(p.note)+'</title><circle cx="'+x+'" cy="'+y+'" r="15" fill="'+(p.optional?'#b8733c':'#173f32')+'" stroke="white" stroke-width="3"/><text x="'+x+'" y="'+(Number(y)+4)+'" text-anchor="middle" font-size="11" font-family="sans-serif" font-weight="800" fill="white">'+toText(p.n)+'</text></a>';
+    }).join('');
+    const legend=points.map(p=>'<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.lat+','+p.lng)+'">'+toText(p.n)+' · '+toText(p.name)+'</a>').join('');
+    el.innerHTML='<div class="schematic-shell"><svg class="schematic-svg" viewBox="0 0 '+w+' '+h+'" role="img" aria-label="按地理相對位置呈現的行程示意，點選標記可開啟 Google 地圖"><rect width="'+w+'" height="'+h+'" fill="#eaf1eb"/><path d="'+route+'" fill="none" stroke="#2d5c4b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8"/>'+marks+'<text x="22" y="31" font-size="16" font-weight="700" fill="#4c6657">行程相對位置 · 非實際道路導航</text></svg><div class="schematic-legend">'+legend+'</div></div>';
   }
 
   makeMap('day1-map', [
