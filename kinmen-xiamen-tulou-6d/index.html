@@ -905,7 +905,7 @@ function initLatexShop(){
   if(!comparable){result.textContent='折合約 '+format(price)+'；尺寸、厚度或內部結構尚不符合台灣的參考樣本，不能判定價差。';result.classList.add('warn');return}
   const min=range[0],max=range[1];
   const label=price>max*1.25?'超過同厚度樣本上緣 25% 以上，建議先暫緩購買，核對密度、布套、保固。':price>max?'高於公開樣本區間，但不一定是同等級。':price>=min?'落在樣本區間，但品質仍待核對。':'低於樣本區間，仍須確認材質與保固。';
-  result.textContent='折合約 '+format(price)+'；台灣同厚度雙人房 5 尺參考 '+format(min)+'～'+format(max)+'。'+label+(extra===''?' （未含未知的運費、關稅）':'');
+  result.textContent='折合約 '+format(price)+'；台灣同厚度雙人床 5 尺參考 '+format(min)+'～'+format(max)+'。'+label+(extra===''?' （未含未知的運費、關稅）':'');
   result.classList.toggle('warn',price>max||extra==='');
  }
  if(result.dataset.inited==='1'){calc();return}
