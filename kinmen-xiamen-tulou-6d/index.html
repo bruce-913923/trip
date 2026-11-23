@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#123d33">
-<meta name="app-build" content="2026.11.23-fengdong-deep.1">
+<meta name="app-build" content="2026.11.23-fengdong-deep.2">
 <meta name="description" content="2026.11.22–11.27 金門・廈門・永定土樓六日旅行手冊｜每日時間軸、景點導覽、購物價格比較與住宿交通。">
 <title>金廈土樓・六日旅途手冊</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.css">
@@ -622,7 +622,7 @@ h3{font-size:19px;margin:0}
   <section class="view" id="view-info" hidden aria-labelledby="info-title">
     <header class="page-heading"><div><div class="eyebrow">STAY & ESSENTIALS</div><h2 id="info-title">住宿與交通</h2></div></header>
     <p class="section-lede">飯店、交通班次與注意事項集中放在這裡，不與每日時間軸或購物比較混在一起。</p>
-    <div class="updater-tools"><button type="button" id="check-update">↻ 檢查網站更新</button><small id="update-status" role="status" aria-live="polite">目前網站版本：2026.11.23-fengdong-deep.1。進入網站時會自動檢查更新。</small></div>
+    <div class="updater-tools"><button type="button" id="check-update">↻ 檢查網站更新</button><small id="update-status" role="status" aria-live="polite">目前網站版本：2026.11.23-fengdong-deep.2。進入網站時會自動檢查更新。</small></div>
     <div class="block-heading"><h3>五晚住宿</h3><small>依旅行社行程表</small></div>
     <div class="info-grid" id="hotel-grid"></div>
     <div class="hbar"></div>
@@ -1384,7 +1384,8 @@ document.addEventListener('click',e=>{
 $('map-panel').addEventListener('toggle',e=>{if(e.target.open)loadMap()});
 window.addEventListener('hashchange',()=>{
  const hash=location.hash.slice(1);
- if(hash==='guides')selectView('sights',false);
+ if(hash==='fengdong-guide'){state.day=1;selectView('sights',false);setTimeout(()=>{$('guide-fengdong')?.scrollIntoView({behavior:'smooth',block:'start'})},120)}
+ else if(hash==='guides')selectView('sights',false);
  else if(['shopping','shop-audit','cross-brand','price-candy'].includes(hash)){if(hash==='cross-brand'||hash==='price-candy'){state.shopMode='compare';if(hash==='price-candy')state.brand='candy'}selectView('shop',false)}
  else if(hash.startsWith('shop-day')||hash==='shop-onboard'){state.shopId=hash;state.shopMode='stops';selectView('shop',false)}
  else if(hash==='hotels'||hash==='tips')selectView('info',false);
@@ -1395,7 +1396,8 @@ renderDay();
 updateGeoButtons();
 renderSights();
 const initialHash=location.hash.slice(1);
-if(initialHash==='guides')selectView('sights',false);
+if(initialHash==='fengdong-guide'){state.day=1;selectView('sights',false);setTimeout(()=>{$('guide-fengdong')?.scrollIntoView({behavior:'smooth',block:'start'})},150)}
+else if(initialHash==='guides')selectView('sights',false);
 else if(['shopping','shop-audit','cross-brand'].includes(initialHash)){if(initialHash==='cross-brand')state.shopMode='compare';selectView('shop',false)}
 else if(initialHash==='hotels'||initialHash==='tips')selectView('info',false);
 else if(initialHash.startsWith('shop-day')||initialHash==='shop-onboard'){state.shopId=initialHash;state.shopMode='stops';selectView('shop',false)}
