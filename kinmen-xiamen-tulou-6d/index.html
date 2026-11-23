@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#123d33">
-<meta name="app-build" content="2026.11.22-pull.1">
+<meta name="app-build" content="2026.11.23-latex.2">
 <meta name="description" content="2026.11.22–11.27 金門・廈門・永定土樓六日旅行手冊｜每日時間軸、景點導覽、購物價格比較與住宿交通。">
 <title>金廈土樓・六日旅途手冊</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.css">
@@ -884,11 +884,41 @@ function renderShopping(){
  $('shop-compare').hidden=state.shopMode!=='compare';
  if(state.shopMode==='stops')renderStore();else renderCompare();
 }
+const latexRanges={'5':[3900,7505],'7.5':[6900,10925],'10':[8500,12635],'15':[16000,19760]};
+function initLatexShop(){
+ const result=$('latex-quote-result');
+ if(!result)return;
+ const fields=['latex-depth','latex-size','latex-type','latex-quote-rmb','latex-extra-rmb'];
+ function calc(){
+  const q=$('latex-quote-rmb').value;
+  const extra=$('latex-extra-rmb').value;
+  if(!q||Number(q)<=0){result.textContent='輸入人民幣報價後，這裡會顯示台幣換算與台灣同厚度的參考售價。';return}
+  const n=Number(q),fee=Number(extra||0);
+  if(!Number.isFinite(n)||!Number.isFinite(fee)||fee<0){result.textContent='請填寫有效金額';return}
+  const price=(n+fee)*4.94,format=v=>'NT$'+Math.round(v).toLocaleString('zh-TW');
+  const range=latexRanges[$('latex-depth').value];
+  const comparable=$('latex-size').value==='5'&&$('latex-type').value==='natural'&&!!range;
+  if(!comparable){result.textContent='折合約 '+format(price)+'；尺寸、厚度或內部結構尚不符合台灣的參考樣本，不能判定價差。';result.classList.add('warn');return}
+  const min=range[0],max=range[1];
+  const label=price>max*1.25?'超過同厚度樣本上緣 25% 以上，建議先暫緩購買，核對密度、布套、保固。':price>max?'高於公開樣本區間，但不一定是同等級。':price>=min?'落在樣本區間，但品質仍待核對。':'低於樣本區間，仍須確認材質與保固。';
+  result.textContent='折合約 '+format(price)+'；台灣同厚度雙人房 5 尺參考 '+format(min)+'～'+format(max)+'。'+label+(extra===''?' （未含未知的運費、關稅）':'');
+  result.classList.toggle('warn',price>max||extra==='');
+ }
+ if(result.dataset.inited==='1'){calc();return}
+ result.dataset.inited='1';
+ fields.forEach(id=>{const node=$(id),old=safeStore.get('latex-shop-'+id);if(old!==null)node.value=old;node.addEventListener('input',()=>{safeStore.set('latex-shop-'+id,node.value);calc()});node.addEventListener('change',()=>{safeStore.set('latex-shop-'+id,node.value);calc()})});
+ document.querySelectorAll('[data-latex-check]').forEach(node=>{const key='latex-chk-'+node.dataset.latexCheck;node.checked=safeStore.get(key)==='1';node.addEventListener('change',()=>safeStore.set(key,node.checked?'1':'0'))});
+ calc();
+}
+
 function renderStore(){
  const stationTitles=[['11/22 ＋ 11/27','金門特產'],['11/23','乳膠寢具'],['11/24','茶葉文化'],['11/25','絲綢用品'],['11/26','同仁堂'],['車上介紹','片仔癀珍珠霜']];
  $('shop-picker').innerHTML=storeData.map((store,i)=>'<button type="button" class="shop-pick" data-store="'+store.id+'" aria-selected="'+(store.id===state.shopId)+'"><small>'+stationTitles[i][0]+'</small><strong>'+stationTitles[i][1]+'</strong></button>').join('');
  const store=storeData.find(x=>x.id===state.shopId)||storeData[0];
  const group=({'shop-day1':'candy','shop-day2':'latex','shop-day3':'tea','shop-day4':'silk','shop-day5':'skincare','shop-onboard':'skincare'})[store.id]||'candy';
+ $('latex-deep-dive').hidden=store.id!=='shop-day2';
+ $('shop-report').hidden=store.id==='shop-day2';
+ if(store.id==='shop-day2'){initLatexShop();return}
  $('shop-report').innerHTML='<article class="report"><div class="report-head"><span>'+escapeHTML(store.date)+'</span><h3>'+escapeHTML(store.title)+'</h3><p>'+escapeHTML(store.preview)+'</p></div><div class="report-body"><div class="actions" style="margin-bottom:13px"><button type="button" class="action" data-brand-jump="'+group+'">▤ 對照其他品牌同級價 ↗</button></div>'+store.body+'</div></article>';
 }
 function renderCompare(){
