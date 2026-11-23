@@ -275,6 +275,41 @@ h3{font-size:19px;margin:0}
 .pull-icon{font-size:18px;line-height:1;display:inline-block;min-width:18px;text-align:center}
 @keyframes pull-spin{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.pull-refresh{transition:none}.pull-refresh.working .pull-icon{animation:none}}
+
+.latex-fg{padding:0 0 17px;color:#51675a}
+.latex-lead{background:#e9f3ea;border:1px solid #d4e5d4;border-radius:15px;padding:17px;margin-bottom:13px}
+.latex-lead h3{font-size:19px;margin:2px 0 8px;color:#1e5940}
+.latex-lead p{font-size:12px;line-height:1.8;margin:0}
+.latex-depths{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.latex-depths div{text-align:center;background:#fff;border:1px solid #dce5d9;border-radius:11px;padding:12px 5px}
+.latex-depths b{display:block;color:#245e43;font-size:17px}
+.latex-depths small{font-size:10px;color:#718475;line-height:1.4;display:block}
+.latex-heading{font-size:15px;color:#23583e;margin:21px 0 10px;font-weight:850}
+.latex-table-wrap{overflow-x:auto;border:1px solid #e1e9e0;border-radius:11px}
+.latex-prices{width:100%;min-width:650px;border-collapse:collapse;font-size:12px}
+.latex-prices th,.latex-prices td{padding:11px 10px;border-top:1px solid #ecf0e9;text-align:left;vertical-align:top;line-height:1.6}
+.latex-prices thead th{background:#eef5ed;color:#386650;font-size:11px}
+.latex-prices tbody th{color:#27684b;white-space:nowrap}
+.latex-prices td b{font-size:14px;color:#21583d;display:block}
+.latex-prices td a{color:#286c4e;display:block;font-size:10px;margin-top:4px}
+.latex-caption{font-size:11px;color:#7a8a7c;line-height:1.7;margin:10px 0}
+.latex-quote-card{background:#f5faf4;border:1px solid #cfdfcc;border-radius:14px;padding:14px}
+.latex-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.latex-form label{font-size:11px;color:#36654a;font-weight:850;display:flex;flex-direction:column;gap:5px}
+.latex-form input,.latex-form select{min-width:0;width:100%;padding:10px;background:#fff;color:#274332;border:1px solid #bbd0bd;border-radius:9px;font-size:12px}
+.latex-output{display:block;font-size:12px;color:#22583f;background:#e5f1e5;border-radius:10px;padding:13px;margin:13px 0 0;line-height:1.8}
+.latex-output.warn{background:#fff0e2;color:#995c32}
+.latex-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.latex-list label{font-size:11px;line-height:1.65;color:#536b5a;background:#fff;border:1px solid #e2eae1;border-radius:10px;padding:11px;display:flex;gap:8px;align-items:flex-start}
+.latex-list input{flex:0 0 auto;margin:3px 0 0;accent-color:#2c7954;width:16px;height:16px}
+.latex-advice{display:grid;gap:8px}
+.latex-advice p{padding:12px;background:#f1f7ef;border-radius:9px;border-left:3px solid #a5c5a3;font-size:12px;line-height:1.75;margin:0}
+.latex-advice b{color:#2a674a}
+.latex-old-reviews{margin:15px 0;border:1px solid #efdbc6;border-radius:11px;background:#fff8f1;padding:12px}
+.latex-old-reviews summary{font-size:11px;color:#94633e;cursor:pointer;font-weight:850}
+.latex-old-reviews p{font-size:11px;margin:10px 0;line-height:1.7}
+.latex-old-reviews a{color:#88643d}
+@media(max-width:630px){.latex-depths{grid-template-columns:repeat(2,1fr)}.latex-form,.latex-list{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -356,7 +391,61 @@ h3{font-size:19px;margin:0}
     <p class="section-lede">重點不是每一站有沒有購物，而是「它賣什麼、同款外面多少、不同品牌同級商品多少」。比價基準、商品級別和公開價源都清楚標示。</p>
     <div class="shopping-principle"><strong>所有購物均為自由選擇，沒有強制購物。</strong><p>其他旅行團的售價只是歷史案例，不是你這一團的報價；不明規格不算溢價，不同品質等級不硬排高低。</p></div>
     <div class="mode-switch" role="tablist" aria-label="購物頁內容"><button data-shop-mode="stops" aria-selected="true">依購物站查</button><button data-shop-mode="compare" aria-selected="false">跨品牌同級比價</button></div>
-    <div id="shop-stops"><div class="shop-picker" id="shop-picker"></div><div id="shop-report"></div></div>
+    <div id="shop-stops"><div class="shop-picker" id="shop-picker"></div><div id="latex-deep-dive" hidden>
+<section class="latex-fg" id="latex-field-guide">
+  <div class="latex-lead"><div class="eyebrow">DAY 02 · 現場採購速查</div><h3>乳膠床墊：先看厚度，再比價格</h3><p>以下台灣價採「標準雙人 5 尺、約 150×186–188cm、整塊天然乳膠芯」為相近產品基準，並非已證實材質、密度、布套和保固完全相同。</p></div>
+  <div class="latex-depths">
+   <div><b>5 cm</b><small>既有硬床加墊</small></div><div><b>7.5 cm</b><small>舊床升級舒適度</small></div>
+   <div><b>10 cm</b><small>可評估直接搭床架</small></div><div><b>15 cm</b><small>厚型、重視支撐試躺</small></div>
+  </div>
+  <h4 class="latex-heading">台灣兩大品牌・同厚度價格比較</h4>
+  <div class="latex-table-wrap"><table class="latex-prices">
+  <thead><tr><th>乳膠芯厚度</th><th>班尼斯・5 尺</th><th>森好眠・5 尺</th><th>補充比較</th></tr></thead>
+  <tbody>
+   <tr><th>5 cm</th><td><b>NT$3,900</b><a href="https://www.bennis.com.tw/product_detail.php?id=486" target="_blank" rel="noopener">馬來西亞天然乳膠 ↗</a></td><td><b>NT$7,505</b><a href="https://24h.pchome.com.tw/store/DEBR2S" target="_blank" rel="noopener">經典冰絲涼感 ↗</a></td><td>HOLA 5cm 約 NT$8,980，頁面顯示補貨中。<a href="https://www.hola.com.tw/p/016050630" target="_blank" rel="noopener">查看 ↗</a></td></tr>
+   <tr><th>7.5 cm</th><td><b>NT$6,900</b><a href="https://www.bennis.com.tw/product_detail.php?id=490" target="_blank" rel="noopener">約150×186cm ↗</a></td><td><b>NT$10,925</b><a href="https://24h.pchome.com.tw/store/DEBR2S" target="_blank" rel="noopener">約150×188cm ↗</a></td><td>厚度同級；布套、保固與密度需另核實</td></tr>
+   <tr><th>10 cm</th><td><b>NT$8,500</b><a href="https://www.bennis.com.tw/product_detail.php?id=494" target="_blank" rel="noopener">約150×186cm ↗</a></td><td><b>NT$12,635</b><a href="https://24h.pchome.com.tw/store/DEBR2S" target="_blank" rel="noopener">約150×188cm ↗</a></td><td>比較整塊乳膠芯，不可混入彈簧複合墊</td></tr>
+   <tr><th>15 cm</th><td><b>NT$16,000–16,800</b><a href="https://www.bennis.com.tw/products.php?mid=1&sid=40" target="_blank" rel="noopener">官網不同頁面標價不同 ↗</a></td><td><b>NT$19,760</b><a href="https://24h.pchome.com.tw/store/DEBR2S" target="_blank" rel="noopener">經典冰絲涼感 ↗</a></td><td>以購物車實際價為準；厚型仍需試躺</td></tr>
+  </tbody></table></div>
+  <p class="latex-caption">查價日 2026/11/23；PChome 為頁面所列 95 折參考價，庫存與價格會變動。班尼斯自述高密度 85kg/m³、高純度 95；森好眠主張不含合成 SBR。不同系列的檢驗方式不完全一致，不能只用低價判定品質。</p>
+
+  <h4 class="latex-heading">輸入店家報價・即時換算</h4>
+  <div class="latex-quote-card">
+    <div class="latex-form">
+      <label>乳膠芯厚度<select id="latex-depth"><option value="5">5 公分</option><option value="7.5">7.5 公分</option><option value="10" selected>10 公分</option><option value="15">15 公分</option><option value="other">其他／不確定</option></select></label>
+      <label>床墊尺寸<select id="latex-size"><option value="5">5 尺雙人・約150×186–188</option><option value="6">6 尺雙人加大</option><option value="other">其他／尚未確認</option></select></label>
+      <label>店家宣稱的結構<select id="latex-type"><option value="unknown">尚未確認</option><option value="natural">整塊天然乳膠床芯</option><option value="mix">天然／合成混合乳膠</option><option value="hybrid">泡棉／彈簧加乳膠貼層</option></select></label>
+      <label>床墊報價・人民幣 RMB<input type="number" min="0" step="1" inputmode="decimal" id="latex-quote-rmb" placeholder="例如 2500"></label>
+      <label>附加費用・人民幣 RMB<input type="number" min="0" step="1" inputmode="decimal" id="latex-extra-rmb" placeholder="運費、稅費，未知可留空"></label>
+    </div>
+    <output id="latex-quote-result" class="latex-output">輸入售價後，會換算台幣並對照台灣同厚度產品；規格不符時不會硬算溢價。</output>
+    <p class="latex-caption">暫用 11/23 市場匯率 RMB 1 ≈ NT$4.94；實際刷卡及換匯成本可能更高。附加費用若未知，顯示的不是最終到手成本。</p>
+  </div>
+
+  <h4 class="latex-heading">店內必問的 10 項規格</h4>
+  <div class="latex-list">
+   <label><input type="checkbox" data-latex-check="0">品牌、完整型號、製造商及正式標籤</label>
+   <label><input type="checkbox" data-latex-check="1">長 × 寬 × 高，乳膠「芯」的厚度是多少</label>
+   <label><input type="checkbox" data-latex-check="2">整塊乳膠、拼接乳膠，還是只有薄薄乳膠貼層</label>
+   <label><input type="checkbox" data-latex-check="3">天然橡膠 NR／合成膠 SBR 比例與證明</label>
+   <label><input type="checkbox" data-latex-check="4">乳膠芯密度 kg/m³ 與軟硬度，是否可實際試躺</label>
+   <label><input type="checkbox" data-latex-check="5">檢驗報告對應同型號、同一製造商，不只看標章</label>
+   <label><input type="checkbox" data-latex-check="6">床墊、枕頭、被子逐項報價，拆開看折扣</label>
+   <label><input type="checkbox" data-latex-check="7">寄送台灣運費、關稅、搬運樓層、刷卡費</label>
+   <label><input type="checkbox" data-latex-check="8">保固與退貨條件，包括國際退運誰負擔</label>
+   <label><input type="checkbox" data-latex-check="9">正式發票及合約，出貨型號與試躺樣品相同</label>
+  </div>
+
+  <h4 class="latex-heading">採購建議</h4>
+  <div class="latex-advice">
+    <p><b>厚度只是一個指標：</b>5cm 通常是加墊，7.5cm 可以改善舊床，10–15cm 可評估獨立使用；仍須依床架、體型與睡姿選軟硬，不是越厚越好。</p>
+    <p><b>檢驗要看細項：</b>天然乳膠經發泡硫化需要助劑，「100%天然」通常是指原料不混 SBR；SGS、ECO、OEKO-TEX 檢測項目不同，不能只看 Logo。</p>
+    <p><b>先算套裝和物流：</b>贈送枕頭或棉被不能和單床墊價格直接比較；請拆分單價，並把寄台灣費用算入總額。</p>
+    <p><b>沒有書面保固／退貨就別急著買：</b>海外大型床墊退運可能昂貴，遇「今天才有」的催促先保留報價。</p>
+    <p><b>潮濕環境要通風：</b>乳膠也怕長期受潮、高溫與日曬，床架需有足夠空氣流通，不能把「天然防蟎」當成永不發霉。</p>
+  </div>
+  <details class="latex-old-reviews"><summary>查看其他金廈團購買乳膠的高額報價案例（非同款）</summary><p>2024 年其他團曾記錄床墊加枕頭與被子組約 NT$44,910；2026 年另有團員回報約 RMB 15,988，品牌與尺寸不明。這些只能說明推銷風險，<b>不能拿整組價直接和台灣單床墊價算溢價</b>。</p><p><a target="_blank" rel="noopener" href="https://www.dcard.tw/f/travel/p/254906054">2024 旅客經驗 ↗</a> · <a target="_blank" rel="noopener" href="https://www.dcard.tw/f/travel/p/261581866">2026 旅客心得 ↗</a></p></details>
+</section></div><div id="shop-report"></div></div>
     <div id="shop-compare" hidden><div class="brand-tabs" id="brand-tabs" role="tablist" aria-label="選擇商品類型"></div><div id="compare-content"></div></div>
   </section>
   <section class="view" id="view-info" hidden aria-labelledby="info-title">
