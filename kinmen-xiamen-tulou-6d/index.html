@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#123d33">
-<meta name="app-build" content="2026.11.23-d2arrival.1">
+<meta name="app-build" content="2026.11.23-d2exit-plan.1">
 <meta name="description" content="2026.11.22–11.27 金門・廈門・永定土樓六日旅行手冊｜每日時間軸、景點導覽、購物價格比較與住宿交通。">
 <title>金廈土樓・六日旅途手冊</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.css">
@@ -395,7 +395,7 @@ h3{font-size:19px;margin:0}
   <div id="update-banner" class="update-banner" hidden><div><strong>網站有新版可以使用</strong><span>找到更新後的行程資料，點一下就能載入，不必刪除桌面圖示。</span></div><button type="button" id="apply-update">立即更新</button></div>
   <section class="view" id="view-plan" aria-labelledby="plan-title">
     <header class="page-heading"><div><div class="eyebrow">YOUR DAILY PLAN</div><h2 id="plan-title">每日行程</h2></div><div class="page-tools"><button type="button" class="small-link" id="today-button">查看今天</button><button type="button" class="small-link" id="quick-locate">◎ 我在哪裡</button></div></header>
-    <div class="status-strip"><span class="dot"></span><div><b>旅程現場紀錄</b>｜11/23 11:00 已抵達東山島風動石景區入口（實際回報）；11/22 13:00 抵達廈門「俏湖蘭」午餐。</div></div>
+    <div class="status-strip"><span class="dot"></span><div><b>旅程現場紀錄</b>｜11/23 11:00 實際抵達東山島風動石景區入口，預計12:00離開（尚未確認）；11/22 13:00 抵達「俏湖蘭」午餐。</div></div>
     <div class="date-scroll" id="day-tabs" role="tablist" aria-label="選擇旅遊日期"></div>
     <div class="day-hero" id="day-hero"></div>
     <div class="stats-grid" id="day-stats"></div>
@@ -491,7 +491,7 @@ h3{font-size:19px;margin:0}
   <section class="view" id="view-info" hidden aria-labelledby="info-title">
     <header class="page-heading"><div><div class="eyebrow">STAY & ESSENTIALS</div><h2 id="info-title">住宿與交通</h2></div></header>
     <p class="section-lede">飯店、交通班次與注意事項集中放在這裡，不與每日時間軸或購物比較混在一起。</p>
-    <div class="updater-tools"><button type="button" id="check-update">↻ 檢查網站更新</button><small id="update-status" role="status" aria-live="polite">目前網站版本：2026.11.23-d2arrival.1。進入網站時會自動檢查更新。</small></div>
+    <div class="updater-tools"><button type="button" id="check-update">↻ 檢查網站更新</button><small id="update-status" role="status" aria-live="polite">目前網站版本：2026.11.23-d2exit-plan.1。進入網站時會自動檢查更新。</small></div>
     <div class="block-heading"><h3>五晚住宿</h3><small>依旅行社行程表</small></div>
     <div class="info-grid" id="hotel-grid"></div>
     <div class="hbar"></div>
@@ -531,10 +531,11 @@ const days=[
  ['19:15','客家風味晚餐（預估）','若土樓導覽約 17:30 開始、持續 1.5 小時，晚餐可能在 19:15 後；這是推估，並非導遊確認的開飯時間。','estimate','視導覽結束時間',''],
  ['20:30','篝火狂歡晚會・入住飯店（預估）','導覽與晚餐結束後若活動照常舉辦，依當晚天候與導遊通知參加；夜間時間僅為推估。','estimate','住宿','永定土樓王子大酒店']
  ]},
- {date:'11/23',dow:'一',subtitle:'海邊小鎮・東山島風光',headline:'永定 → 東山島 → 廈門',mood:'本團最長車程之一',hotel:'廈門翔鷺大酒店',meals:'早：飯店｜午：東山島風味｜晚：廈門風味',tip:'現場紀錄：11/23 11:00 抵達東山島風動石景區入口，比原估 11:20 早 20 分鐘；這是入口時間。當天其他時間仍為預估，等待現場更新。',events:[
+ {date:'11/23',dow:'一',subtitle:'海邊小鎮・東山島風光',headline:'永定 → 東山島 → 廈門',mood:'本團最長車程之一',hotel:'廈門翔鷺大酒店',meals:'早：飯店｜午：東山島風味｜晚：廈門風味',tip:'11/23 11:00 實際抵達風動石景區入口；預計12:00離開，景區預留約60分鐘。12:00目前只是現場預估，後續關帝廟、南門灣與午餐時間仍待確認。',events:[
  ['07:00','飯店早餐・退房','盡量早點用餐，準備前往漳州東山島。','estimate','',''],
  ['07:40','永定出發往東山島','估算約 3–4 小時車程，山區與跨縣道路請依當天交通為準。','estimate','長距離拉車',''],
  ['11:00','抵達東山島・風動石景區入口','11/23 11:00 團員實際回報抵達風動石景區入口。這是入口到達時間，不代表已開始參觀、抵達風動石本體或完成景區導覽。','actual','現場回報・抵達入口','東山風動石景區'],
+ ['12:00','預計離開風動石景區','團員11/23現場回報：預計12:00離開風動石景區；尚未確認實際離開時間。由11:00抵達入口至預計離開約60分鐘。','estimate','現場預估・尚未離開',''],
  ['12:05','關帝廟與南門灣','沿東山島古城及海灣散步拍照；行程有些緊，可由導遊調整順序。','estimate','','東山島南門灣'],
  ['13:05','東山島風味午餐','當地合菜；休息後再前往廈門。','estimate','',''],
  ['14:00','東山島 → 廈門','估算約 2.5–3 小時長途移動。','estimate','遊覽車',''],
