@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#123d33">
-<meta name="app-build" content="2026.11.23-d2exit-plan.1">
+<meta name="app-build" content="2026.11.23-fengdong-deep.1">
 <meta name="description" content="2026.11.22–11.27 金門・廈門・永定土樓六日旅行手冊｜每日時間軸、景點導覽、購物價格比較與住宿交通。">
 <title>金廈土樓・六日旅途手冊</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.css">
@@ -350,6 +350,57 @@ h3{font-size:19px;margin:0}
 @media(max-width:680px){.shopping-highlights{grid-template-columns:1fr}.shopping-fields,.shopping-checklist{grid-template-columns:1fr}}
 .shopping-same{display:flex;align-items:flex-start;gap:9px;padding:10px 0;color:#536c55;font-size:11px;line-height:1.6}
 .shopping-same input{width:17px;height:17px;flex:0 0 auto;margin-top:1px;accent-color:#2c7954}
+
+/* Dongshan Fengdongshi 60 minute illustrated-by-details field guide */
+.fengdong-deep-guide{border:1px solid #cbdccb;background:#fff;border-radius:18px;overflow:hidden;margin:0 0 17px;scroll-margin-top:18px}
+.fengdong-deep-guide>summary{cursor:pointer;list-style:none;padding:19px 18px;background:linear-gradient(135deg,#e8f5ec,#f7f9ef);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.fengdong-deep-guide>summary::-webkit-details-marker{display:none}
+.fengdong-deep-guide>summary::after{content:'＋';font-size:20px;color:#357253}
+.fengdong-deep-guide[open]>summary::after{content:'−'}
+.fengdong-deep-guide>summary small{display:block;font-size:10px;color:#43785b;font-weight:850;letter-spacing:.06em}
+.fengdong-deep-guide>summary strong{display:block;font-size:20px;color:#1c533c;margin:6px 0}
+.fengdong-deep-guide>summary em{display:block;font-size:11px;color:#668471;font-weight:500;font-style:normal;line-height:1.6}
+.fd-guide-body{padding:18px 17px 20px}
+.fd-arrival{border:1px solid #d6e7d9;background:#f6fbf5;padding:14px;border-radius:13px;display:grid;grid-template-columns:1fr 30px 1fr;gap:8px;align-items:center}
+.fd-arrival>div{text-align:center}
+.fd-arrival small{display:block;font-size:10px;color:#688773}
+.fd-arrival b{font-size:23px;color:#28634a;font-variant-numeric:tabular-nums}
+.fd-arrival .fd-arrow{text-align:center;color:#8caa8f;font-size:18px}
+.fd-arrival p{grid-column:1/-1;color:#647b6a;margin:7px 2px 0;font-size:11px;line-height:1.8}
+.fd-lede{padding:15px 14px;margin:15px 0;border-left:4px solid #71a17c;background:#eff5ec;border-radius:10px;color:#2d5e45}
+.fd-lede p{font-size:12px;line-height:1.85;margin:6px 0 0;color:#4d6756}
+.fd-section-heading{font-size:16px;color:#245c41;margin:21px 0 11px;font-weight:850}
+.fd-section-heading small{font-size:10px;color:#7c937e;font-weight:600}
+.fd-mini-route{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.fd-mini-route div{padding:12px 9px;border:1px solid #deebdf;border-radius:11px;background:#fff;min-width:0}
+.fd-mini-route time{display:block;color:#377650;font-weight:900;font-size:11px}
+.fd-mini-route b{display:block;color:#2c6148;font-size:12px;margin:5px 0}
+.fd-mini-route span{color:#667a6a;font-size:10px;line-height:1.55;display:block}
+.fd-priority-note{background:#fff8ef;border:1px solid #eadbc6;color:#8e633b;padding:12px;border-radius:11px;font-size:12px;line-height:1.75;margin:12px 0}
+.fd-stories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.fd-story{background:#fff;border:1px solid #e1e9df;border-radius:14px;padding:15px}
+.fd-story-index{font-size:10px;font-weight:900;color:#71917a;letter-spacing:.035em;display:flex;justify-content:space-between}
+.fd-story-index span{color:#31704e}
+.fd-story h5{font-size:15px;font-weight:900;line-height:1.45;color:#22523d;margin:9px 0}
+.fd-story p{font-size:12px;color:#536958;line-height:1.85;margin:10px 0}
+.fd-story p b{color:#2b5b45}
+.fd-look{font-size:11px;line-height:1.8;background:#eaf5ec;border-radius:10px;padding:11px;color:#3e6950}
+.fd-look b{display:block;color:#286747;font-size:11px}
+.fd-alert{margin-top:8px;border-radius:9px;color:#885e3e;background:#fff6ed;padding:10px;font-size:11px;line-height:1.7}
+.fd-extra{display:grid;gap:8px}
+.fd-extra details{background:#fff;border:1px solid #e0e9dd;border-radius:10px;overflow:hidden}
+.fd-extra summary{list-style:none;cursor:pointer;padding:13px;color:#2d684a;font-size:12px;font-weight:850}
+.fd-extra summary::-webkit-details-marker{display:none}
+.fd-extra details[open] summary{background:#eef6ed}
+.fd-extra p{font-size:12px;line-height:1.8;padding:4px 13px 13px;margin:0;color:#5b705f}
+.fd-takeaway{margin:17px 0;background:#e9f4eb;padding:14px;border-radius:11px;color:#286245;line-height:1.85;font-size:12px}
+.fd-photo-tips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fd-photo-tips div{background:#f5f8f3;border:1px solid #e4ede1;border-radius:11px;padding:12px;color:#64776b;line-height:1.6;font-size:10px}
+.fd-photo-tips b{display:block;color:#316f4a;font-size:12px;margin-bottom:5px}
+.fd-sources{margin-top:18px;border-top:1px solid #dce8d9;padding:14px 0 0;color:#809187;line-height:1.9;font-size:10px}
+.fd-sources b{color:#476e50}
+.fd-sources a{color:#2f6f50;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:740px){.fd-mini-route{grid-template-columns:repeat(2,minmax(0,1fr))}.fd-stories{grid-template-columns:1fr}.fd-photo-tips{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -424,6 +475,86 @@ h3{font-size:19px;margin:0}
     <header class="page-heading"><div><div class="eyebrow">PLACES & STORIES</div><h2 id="sights-title">景點導覽</h2></div></header>
     <p class="section-lede">把旅遊團的景點名稱轉成真正看得懂的背景知識。依日期切換，每個景點只顯示重點；點開才看歷史、拍照位置、停留建議與資料來源。</p>
     <div class="date-scroll" id="sight-tabs" role="tablist" aria-label="選擇景點日期"></div>
+    
+<div id="fengdong-guide-panel" hidden>
+ <details class="fengdong-deep-guide" id="guide-fengdong" open>
+  <summary><span><small>11/23 · 東山島 · 現場可讀</small><strong>風動石景區｜不只一顆石頭</strong><em>約 60 分鐘自助深度導覽・點開看地質、歷史與拍照重點</em></span></summary>
+  <div class="fd-guide-body">
+   <div class="fd-arrival">
+    <div><small>實際抵達景區入口</small><b>11:00</b></div><span class="fd-arrow">→</span>
+    <div><small>預計離開景區</small><b>12:00</b></div>
+    <p>11:00 為你實際回報的入口時間；12:00 是團員提供的預計離開時間，<b>尚未確認實際出園</b>。以下只是參觀優先順序，不是景區官方定線；從哪個門進、導遊帶哪條路，仍以現場為準。</p>
+   </div>
+
+   <div class="fd-lede"><b>先建立一張腦中的地圖</b><p>你現在不是在看「一個單獨的奇石公園」，而是走進面海的銅山古城舊址：<b>巨石</b>代表海岸地質，<b>關帝廟</b>代表軍民的信仰，<b>古城牆</b>代表明代海防，<b>海蝕岩岸</b>則提醒你這裡原本就是一處要扼守海路的岬角。</p></div>
+   <h4 class="fd-section-heading">只有一小時：必看順序 <small>不含接駁，依現場步行動線調整</small></h4>
+   <div class="fd-mini-route">
+    <div><time>15 分</time><b>① 風動石</b><span>看巨石底下的支點，別只拍正面</span></div>
+    <div><time>15 分</time><b>② 東山關帝廟</b><span>看太子亭屋脊、斗拱、石雕</span></div>
+    <div><time>10 分</time><b>③ 銅山古城</b><span>從城牆理解明代海防</span></div>
+    <div><time>15 分</time><b>④ 臨海步道</b><span>看海蝕岩、拍海岸與東門嶼</span></div>
+    <div><time>5 分</time><b>⑤ 走回集合點</b><span>確認出口與車輛停靠位置</span></div>
+   </div>
+   <div class="fd-priority-note"><b>真正在有限時間最值得看的：</b>至少看完「風動石＋關帝廟＋一小段海景」。虎崆滴玉、釣鰲台、石僧拜塔及黃道周紀念館是<b>經過才加看</b>，不用為了打卡離隊或跑完整條木棧道。</div>
+
+   <h4 class="fd-section-heading">四個主景點，深入看什麼</h4>
+   <div class="fd-stories">
+    <article class="fd-story" id="fd-rock">
+     <div class="fd-story-index">01 · 地質奇觀 <span>最重要</span></div>
+     <h5>風動石：近 200 噸，為何看起來快掉下來？</h5>
+     <p>巨石約高 <b>4.37 公尺、重約 200 噸</b>，形似巨大的仙桃。它坐落在向海傾斜的花崗岩基座上，傳統資料形容兩石接觸面只有十多平方公分，因此有「天下第一奇石」的稱號。</p>
+     <p><b>從科學角度：</b>海岸花崗岩內有天然裂隙（節理），長時間經風化與侵蝕，岩體逐漸剝離、磨圓。雖然「看起來接觸很少」，巨石仍可能因重心位置與基座的接觸支撐關係而保持平衡。<b>這不代表隨便吹風就會肉眼可見地晃動，更不是漂浮。</b></p>
+     <p><b>從地方傳說：</b>相傳大風吹時石會微微搖動，但船隻用繩索拖拉也拉不倒。這類故事表現島民對奇石的敬畏，<b>不是已經科學驗證的實驗紀錄</b>。</p>
+     <div class="fd-look"><b>現場任務</b>繞著允許通行的觀景區看看：巨石與基座的接觸點在哪裡？從不同角度，石頭下緣的懸空感是否不同？再找石面上的「銅山風動石」題字。</div>
+     <div class="fd-alert">不要用手推、攀爬或靠近禁止進入的基岩邊緣；請依現場護欄與告示觀賞。</div>
+    </article>
+    <article class="fd-story" id="fd-guandi">
+     <div class="fd-story-index">02 · 古蹟與台灣的連結 <span>很推薦</span></div>
+     <h5>東山關帝廟：一座建在海防要塞內的「祖廟」</h5>
+     <p>始建於<b>明洪武二十年（1387）</b>。當時朝廷在東山興建銅山守禦千戶所防備海上侵擾；關帝的忠義、守信形象與軍人守護城寨的精神相連，因此同期設廟。後經多次擴建與重修，<b>1996 年列入中國全國重點文物保護單位</b>。</p>
+     <p><b>為什麼與台灣有關？</b>明清以來，隨漁民、戍兵、移民與海上商貿活動，東山關帝信仰傳至澎湖與台灣，成為許多關帝廟的香緣來源之一。不是台灣所有關帝廟都只能從這裡分靈，但它確實是兩岸關帝信俗的重要祖廟。</p>
+     <p><b>最值得抬頭看的是「太子亭」：</b>廟門由石柱、層疊的<b>木斗拱</b>支撐，屋脊飾有八仙過海、瑞獸、歷史人物等密集的<b>彩色剪瓷雕</b>；再看大殿的金漆木雕、石雕與碑刻，就會理解為什麼它有「閩南建築藝術博物館」之稱。</p>
+     <div class="fd-look"><b>現場任務</b>先停在廟門外抬頭看屋脊，找人物與神獸的細節，再看下方的斗拱如何一層層承住屋頂。入內若開放，再看大殿的雕飾、匾額與祭祀空間。</div>
+     <div class="fd-alert">這裡仍是信仰場所，不是每個區域都適合拍照；以現場祭祀動線與告示為準。</div>
+    </article>
+    <article class="fd-story" id="fd-city">
+     <div class="fd-story-index">03 · 明代海防</div>
+     <h5>銅山古城：這裡曾經是防海盜、守海路的軍事城寨</h5>
+     <p>在<b>1387 年</b>興建的銅山守禦千戶所，是明朝沿海防禦體系的一部分。古城沿岵嶁山地勢而建，歷史資料記載城牆長度約 1,900 公尺、高約 7 公尺；這是<b>當年的城防規模</b>，不代表今天仍能完整走到相同長度的城牆。</p>
+     <p>為何選這裡？東山島向台灣海峽凸出，岬角可俯視航路和近海灣澳；海防部隊需要觀察、示警與保護居民。<b>古城、關帝廟、海邊瞭望點</b>其實是同一套軍民生活與防禦空間。</p>
+     <div class="fd-look"><b>現場任務</b>看石砌城牆、城石如何沿坡地排列，再找面向大海的觀景方向：假如你是 600 年前的守城士兵，會從哪裡觀察海上船隻？</div>
+    </article>
+    <article class="fd-story" id="fd-coast">
+     <div class="fd-story-index">04 · 海岸地形與攝影</div>
+     <h5>濱海木棧道：看被海浪長時間雕出的岩岸</h5>
+     <p>景區臨海的礁石與崖壁能觀察<b>花崗岩節理、差異風化、浪蝕</b>帶來的各種岩石輪廓。從海岸可眺望東門嶼（又稱塔嶼）；晴朗時，海島、海面和附近古城構成東山島最有代表性的景致。</p>
+     <p>景區有很長的沿海步道，但你今天只有約一小時，<b>只走入口附近一段觀景處即可</b>，不要為了走完整條步道錯過集合。</p>
+     <div class="fd-look"><b>現場任務</b>選安全的欄杆旁，試著把「風化巨石／古城建築／海面」放進同一張照片。看看浪花是撞在大塊花崗岩上，還是流進裂隙和狹窄的海蝕區。</div>
+     <div class="fd-alert">臨海岩面與木棧道可能受海霧、水花影響而濕滑，風大時不要越過護欄或走到潮間帶。</div>
+    </article>
+   </div>
+
+   <h4 class="fd-section-heading">看到指標再補看：四個隱藏亮點</h4>
+   <div class="fd-extra">
+    <details><summary>🪨 釣鰲台｜文人看海的高處</summary><p>釣鰲台為臨海巨岩與傳統觀景勝地。「釣鰲」帶有獨占鰲頭、登科的文人意象；石壁與周邊有歷代題刻。適合遠眺海面，不必冒險登到岩石邊緣。</p></details>
+    <details><summary>🙏 石僧拜塔｜像和尚行禮的天然岩石</summary><p>天然巨石外形被形容為一名合掌禮拜的僧人，方向朝向海上東門嶼的文峰塔。這是民間命名的<b>想像式景觀</b>，不是真實雕刻的僧像。</p></details>
+    <details><summary>🌊 虎崆滴玉｜海蝕洞與滴水傳說</summary><p>「崆」是岩洞，洞口形似虎口而得名；地方記錄說洞內有岩壁滲水、落水如珠玉的聲音。潮汐或大浪時不要為了找洞深入濕滑岩區，若不在團體動線上可以略過。</p></details>
+    <details><summary>📖 黃道周紀念館｜明末名臣與書法家的家鄉</summary><p>黃道周（1585–1646）是東山出身的明末學者、書法家與官員，以剛直與講學聞名。紀念館所在處與舊崇文書院有關；可理解銅山除了駐軍、海商，也有書院與讀書文化。若只有一小時，不建議特別繞路入館。</p></details>
+   </div>
+   <div class="fd-takeaway"><b>用一句話記住這裡：</b>這是「靠海守城的明代軍事小鎮」，後來留下了地質奇石、關帝祖廟、古城與海岸風景；不是只有一塊石頭的打卡公園。</div>
+   <h4 class="fd-section-heading">實地拍照的小提醒</h4>
+   <div class="fd-photo-tips"><div><b>拍風動石</b><span>從斜側方把石座與下方懸空感拍進去，注意護欄。</span></div><div><b>拍關帝廟</b><span>手機鏡頭稍微拉遠，讓太子亭屋脊、石柱、斗拱一起入鏡。</span></div><div><b>拍海景</b><span>用岩岸當前景、遠方東門嶼當背景，避免背對團隊越走越遠。</span></div></div>
+   <div class="fd-sources"><b>核實資料／延伸閱讀：</b>
+    <a target="_blank" rel="noopener" href="https://www.fj.gov.cn/zwgk/ztzl/sxzygwzxsgzx/sdjj/wvjj/202604/t20260416_7125221.htm">福建省政府：東山古城與風動石</a> ·
+    <a target="_blank" rel="noopener" href="https://fjrb.fjdaily.com/pc/con/202611/04/content_575123.html">福建省文物局：東山關帝廟建築細節</a> ·
+    <a target="_blank" rel="noopener" href="https://www.fj.gov.cn/zwgk/ztzl/sxzygwzxsgzx/flsxkmh/202502/t20250226_6768361.htm">福建省政府：銅山海防古城</a> ·
+    <a target="_blank" rel="noopener" href="https://blog.sciencenet.cn/blog-1243751-1508376.html">科學網：花崗岩風化與平衡觀察</a> ·
+    <a target="_blank" rel="noopener" href="https://www.kmdn.gov.tw/1117/1271/1274/264539/">金門日報：台灣旅客景區細訪</a> ·
+    <a target="_blank" rel="noopener" href="https://zhangzhou.bendibao.com/tour/2023919/11024.shtm">風動石景區遊覽範圍</a>
+   </div>
+  </div>
+ </details>
+</div>
     <div class="sight-grid" id="sight-grid"></div>
   </section>
   <section class="view" id="view-shop" hidden aria-labelledby="shop-title">
@@ -491,7 +622,7 @@ h3{font-size:19px;margin:0}
   <section class="view" id="view-info" hidden aria-labelledby="info-title">
     <header class="page-heading"><div><div class="eyebrow">STAY & ESSENTIALS</div><h2 id="info-title">住宿與交通</h2></div></header>
     <p class="section-lede">飯店、交通班次與注意事項集中放在這裡，不與每日時間軸或購物比較混在一起。</p>
-    <div class="updater-tools"><button type="button" id="check-update">↻ 檢查網站更新</button><small id="update-status" role="status" aria-live="polite">目前網站版本：2026.11.23-d2exit-plan.1。進入網站時會自動檢查更新。</small></div>
+    <div class="updater-tools"><button type="button" id="check-update">↻ 檢查網站更新</button><small id="update-status" role="status" aria-live="polite">目前網站版本：2026.11.23-fengdong-deep.1。進入網站時會自動檢查更新。</small></div>
     <div class="block-heading"><h3>五晚住宿</h3><small>依旅行社行程表</small></div>
     <div class="info-grid" id="hotel-grid"></div>
     <div class="hbar"></div>
@@ -536,7 +667,7 @@ const days=[
  ['07:40','永定出發往東山島','估算約 3–4 小時車程，山區與跨縣道路請依當天交通為準。','estimate','長距離拉車',''],
  ['11:00','抵達東山島・風動石景區入口','11/23 11:00 團員實際回報抵達風動石景區入口。這是入口到達時間，不代表已開始參觀、抵達風動石本體或完成景區導覽。','actual','現場回報・抵達入口','東山風動石景區'],
  ['12:00','預計離開風動石景區','團員11/23現場回報：預計12:00離開風動石景區；尚未確認實際離開時間。由11:00抵達入口至預計離開約60分鐘。','estimate','現場預估・尚未離開',''],
- ['12:05','關帝廟與南門灣','沿東山島古城及海灣散步拍照；行程有些緊，可由導遊調整順序。','estimate','','東山島南門灣'],
+ ['12:05','南門灣及關帝廟（視實際動線）','東山關帝廟位於風動石景區／關帝文化產業園內，若已在11:00–12:00景區參觀時看過，就不用把廟當成出園後另一個必走站；出園後南門灣、銅陵老街依導遊實際安排。','estimate','僅預估・景區關帝廟勿重複計時','東山島南門灣'],
  ['13:05','東山島風味午餐','當地合菜；休息後再前往廈門。','estimate','',''],
  ['14:00','東山島 → 廈門','估算約 2.5–3 小時長途移動。','estimate','遊覽車',''],
  ['16:45','自貿區睡眠體驗中心','行程表列出的參訪／購物站，沒有強制消費；想買再詢價。','shop','自由參觀','廈門自貿區'],
@@ -630,7 +761,7 @@ const guideData=[
 {day:0,id:'fuyu',match:'土樓民俗文化村',title:'福裕樓｜府第式土樓',desc:'福裕樓不像振成樓是圓形，而是偏向府第式、庭院式的聚落住宅。看這棟可以理解：土樓並非一律都要圓形，客家家族會因地形、家族需求與當代風格發展多樣建築。',look:'看對稱院落、門廊、紅磚與木構造，以及多進式的住宅佈局。',tips:'若時間很短，把振成樓作為第一優先，福裕樓補充另一種土樓樣式。',time:'建議 20–30 分鐘。',source:'https://www.longyan.gov.cn/fw/zstp/rdlb/202511/t20251107_2255844.htm',sourceLabel:'龍岩市政府',query:'永定福裕樓'},
 {day:0,id:'bonfire',match:'篝火狂歡',title:'篝火狂歡晚會｜客家夜間活動',desc:'計畫書列有篝火晚會，通常是團體交流與夜間民俗氛圍活動；節目形式、是否有客家歌舞、地點與是否因天候停辦，文件並沒有寫明。',look:'當作旅行第一晚的文化體驗，不用期待每晚有固定規模的大型表演。',tips:'若天氣轉冷帶薄外套，活動仍依飯店或導遊當晚確認。',time:'約 30–60 分鐘（純推估）。',source:'',sourceLabel:'',query:'永定土樓王子大酒店'},
 {day:1,id:'sleep-center',match:'自貿區睡眠體驗中心',title:'自貿區睡眠體驗中心｜購物站',desc:'行程表列出的「自貿區睡眠體驗中心」，屬團體參訪／自由選購。原計畫書購物說明另提到乳膠，但沒有明確說它與睡眠中心為同一商家，因此不將店家或商品視為已驗證。',look:'若有床墊、枕頭、乳膠或寢具產品，可先了解材質、尺寸、保固與商品標示。',tips:'沒有強制購物。先確認產品淨重、填充比例、產地與人民幣含稅價，特別注意大型寢具是否可退貨以及寄回台灣的運費。',time:'參訪停留約 40–60 分鐘為網站推估，實際依導遊。',source:'',sourceLabel:'',query:'廈門自貿區'},
-{day:1,id:'fengdong',match:'風動石',title:'東山風動石｜海邊巨石奇觀',desc:'東山島的代表地標，海邊巨石因形態與「風吹似乎會晃動」的傳說而聞名。景區依著礁石海岸，還能觀察古城、海景與閩南石頭景觀的組合。',look:'從側面拍巨石與石座的比例，再把海景帶進畫面。',tips:'海邊風較大，岩石邊注意腳步；不要攀爬危險邊緣。',time:'建議 30–45 分鐘。',source:'https://www.trip.com/travel-guide/destination/dongshan-2662/',sourceLabel:'景區資訊與評論',query:'東山風動石景區'},
+{day:1,id:'fengdong',match:'風動石',title:'風動石景區｜60分鐘深度自助導覽',desc:'景區核心是約200噸的風動石、始建於1387年的東山關帝廟、銅山古城海防遺址與海蝕岩岸。已增設詳細參觀指南，包含地質成因、閩南雕刻、關帝信俗與隱藏景點。',look:'優先看巨石接觸支點、關帝廟太子亭屋脊剪瓷雕、古城防線及一段臨海木棧道。',tips:'11:00已抵達入口，12:00為預計出園；順序依導遊實際動線，不必為小景點離隊。',time:'本團預計整個景區約60分鐘，非單一巨石停留60分鐘。',source:'https://www.fj.gov.cn/zwgk/ztzl/sxzygwzxsgzx/sdjj/wvjj/202604/t20260416_7125221.htm',sourceLabel:'福建省官方介紹',query:'東山風動石景區'},
 {day:1,id:'guandi',match:'關帝廟',title:'東山關帝廟｜閩南與海洋信仰',desc:'東山島關帝信仰具有地方歷史意義，廟宇裝飾和屋脊細節能觀察閩南傳統匠藝。它與海島社會的航海、商貿及宗教活動相連，適合與風動石一起看。',look:'留意牌樓、剪黏、木雕、石雕與廟前廣場的視角。',tips:'進廟時尊重祭祀活動，拍照先看現場告示。',time:'建議 20–30 分鐘。',source:'https://www.trip.com/travel-guide/destination/dongshan-2662/',sourceLabel:'東山島旅遊指南',query:'東山關帝廟'},
 {day:1,id:'nanmen',match:'南門灣',title:'南門灣｜彩色海灣聚落',desc:'南門灣沿著彎曲海岸分布民居與海堤，因彩色房屋與海景相映而受攝影旅客歡迎。這裡的魅力是漁港小鎮的生活氛圍，不是有大量需要逐一買票的景點。',look:'從高處看彎月形海岸，沿海堤拍房屋、海浪、居民生活。',tips:'跟團時間少，選一段海堤散步就好；沿岸汽機車及潮汐仍要注意。',time:'建議 30–50 分鐘。',source:'https://www.trip.com/moments/destination-dongshan-island-2140865/',sourceLabel:'旅客東山島遊記',query:'東山島南門灣'},
 {day:1,id:'jimei',match:'集美學村',title:'集美學村＋龍舟池｜華僑教育建築',desc:'集美學村與陳嘉庚推動的教育事業密切相關，學校建築呈現閩南屋頂、現代式教學建築與西式元素相融合的「嘉庚風格」。龍舟池是景觀核心之一，池岸邊能看連續的校舍立面。',look:'沿龍舟池取景，看紅瓦與白色牆面倒映水中。',tips:'若 11/23 車程較晚，只能夕陽或夜間短停，不能當成完整步行參訪。',time:'建議 30–45 分鐘。',source:'https://tw.trip.com/travel-guide/attraction/xiamen/the-jimei-school-village-75842',sourceLabel:'集美景點資訊',query:'集美學村龍舟池'},
@@ -926,7 +1057,8 @@ function renderSights(){
  const standardCard=g=>'<details class="sight-card" id="guide-'+g.id+'"><summary><span>'+escapeHTML(g.title)+'</span></summary><div class="sight-body"><p>'+escapeHTML(g.desc)+'</p><div class="sight-detail"><b>到現場看什麼</b>'+escapeHTML(g.look)+'</div><div class="sight-detail"><b>旅途提醒</b>'+escapeHTML(g.tips)+'</div><div class="sight-detail"><b>建議停留</b>'+escapeHTML(g.time)+'</div><div class="actions"><a class="action" href="'+amap(g.query)+'" target="_blank" rel="noopener">◉ 高德導航</a>'+(g.source?'<a class="action ghost" href="'+escapeHTML(g.source)+'" target="_blank" rel="noopener">原始資料 ↗</a>':'')+'</div></div></details>';
  const groupCard=g=>'<details class="sight-card sight-cluster" id="guide-tulou"><summary><span><span class="cluster-label">1 個景區 · 當地導覽 1.5 小時 · 內含 2 棟樓</span>永定洪坑土樓民俗文化村<span class="cluster-desc">振成樓（圓樓）＋福裕樓（府第式）｜同一景區，步行參觀</span></span></summary><div class="sight-body"><p>'+escapeHTML(g.desc)+'</p><div class="sight-detail"><b>怎麼參觀</b>導遊告知由當地導覽員帶領整個文化村行程約 90 分鐘，步行看振成樓、福裕樓；並非三個獨立車遊景點，也不是每棟各 90 分鐘。</div><div class="cluster-stops">'+childBuildings.map((b,i)=>'<article class="cluster-spot"><h4>'+(i+1)+'. '+escapeHTML(b.title)+'</h4><p>'+escapeHTML(b.desc)+'</p><div class="sight-detail"><b>重點</b>'+escapeHTML(b.look)+'</div><div class="sight-detail"><b>現場提醒</b>'+escapeHTML(b.tips)+'</div><div class="sight-detail"><b>團體參觀時間</b>包含在景區整體 90 分鐘內，由當地導覽員分配；自行參觀才參考 '+escapeHTML(b.time)+'</div><div class="actions"><a class="action ghost" href="'+amap(b.query)+'" target="_blank" rel="noopener">查看這棟樓位置 ↗</a>'+(b.source?'<a class="action ghost" href="'+escapeHTML(b.source)+'" target="_blank" rel="noopener">資料來源 ↗</a>':'')+'</div></article>').join('')+'</div><div class="sight-detail"><b>整個景區導覽時長（導遊告知）</b>'+escapeHTML(g.time)+'（包含兩棟樓，不需另行加總；開始與結束時間以現場通知為準）</div><div class="actions"><a class="action" href="'+amap(g.query)+'" target="_blank" rel="noopener">◉ 洪坑文化村地圖</a>'+(g.source?'<a class="action ghost" href="'+escapeHTML(g.source)+'" target="_blank" rel="noopener">世界遺產資料 ↗</a>':'')+'</div></div></details>';
  const visible=all.filter(g=>state.day!==0||!['zhencheng','fuyu'].includes(g.id));
- $('sight-grid').innerHTML=visible.map(g=>g.id==='tulou'?groupCard(g):standardCard(g)).join('');
+ $('fengdong-guide-panel').hidden=state.day!==1;
+ $('sight-grid').innerHTML=visible.filter(g=>g.id!=='fengdong'||state.day!==1).map(g=>g.id==='tulou'?groupCard(g):standardCard(g)).join('');
  if(!visible.length)$('sight-grid').innerHTML='<div class="info-card">這天以交通與回程為主，主要參觀點已列於每日時間軸。</div>';
 }
 function renderShopping(){
