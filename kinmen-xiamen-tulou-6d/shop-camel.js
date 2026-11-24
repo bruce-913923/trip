@@ -1,0 +1,1 @@
+shopDeepDive['shop-day5']="<section class=\"shopping-guide\"><header class=\"shopping-header\"><small>◆ 11/26 · DAY 5</small><h3>駝奶購物站</h3><p>11/24 旅客更正：第五天是駝奶購物站，不是同仁堂。店名、商品與現場報價尚待確認。</p></header><p>核對駝奶含量、淨重、成分及買贈數量。不能把駝奶視為治療疾病的藥物。入境前確認檢疫限制。</p><div class=\"actions\"><a class=\"action\" href=\"camel-milk.html\">完整駝奶指南與每公斤價格計算 ↗</a></div></section>";
