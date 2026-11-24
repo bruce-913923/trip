@@ -39,7 +39,8 @@ jobs:
           for attempt in $(seq 1 24); do
             artifact_count="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts?per_page=100" --jq '[.artifacts[] | select(.name == "github-pages" and .expired == false)] | length' 2>/dev/null || echo 0)"
             if [ "$artifact_count" = "1" ]; then
-              echo "Pages artifact is available"
+              echo "Pages artifact is available; allowing deployment API to index it"
+              sleep 35
               exit 0
             fi
             if [ "$artifact_count" != "0" ]; then
