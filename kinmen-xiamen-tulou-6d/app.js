@@ -189,7 +189,7 @@ function renderDay(){
   if(query){links.push('<a class="action" href="'+amap(query)+'" target="_blank" rel="noopener">◉ 高德導航</a>');links.push('<a class="action ghost" href="'+apple(query)+'" target="_blank" rel="noopener">Apple 地圖</a>')}
   for(const g of matching)links.push('<button type="button" class="action" data-sight="'+g.id+'">◇ '+escapeHTML(g.title.split('｜')[0])+'</button>');
   if(detail==='住宿')links.push('<a class="action" href="hotels.html">住宿房價 ↗</a>');
-  if(kind==='shop')links.push('<button type="button" class="action" data-shop-jump="'+specialShopDay[state.day]+'">▤ 商品與行情</button>');
+  if(kind==='shop'||(kind==='actual'&&/第六空間|睡眠體驗|云浔茶堂|絲綢博物館|西域臻坊|駝奶/.test(title)))links.push('<button type="button" class="action" data-shop-jump="'+specialShopDay[state.day]+'">▤ 商品與行情</button>');
   return '<div class="event '+(kind==='actual'?'actual':'')+'"><div class="event-time">'+escapeHTML(time)+'</div><details class="event-box" '+(kind==='actual'?'open':'')+'><summary><span class="event-label"><strong>'+escapeHTML(title)+'</strong><small class="'+({actual:'actual-tag',fixed:'fixed-tag',shop:'shop-tag'}[kind]||'')+'">'+statusOf(kind)+(detail?'　·　'+escapeHTML(detail):'')+'</small></span><span class="chev">＋</span></summary><div class="event-expanded"><p>'+escapeHTML(description)+'</p>'+(links.length?'<div class="actions">'+links.join('')+'</div>':'')+'</div></details></div>';
  }).join('');
  $('map-places').innerHTML=geo[state.day].map((p,i)=>'<a target="_blank" rel="noopener" href="'+amap(p.name)+'">'+(i+1)+' · '+escapeHTML(p.name)+' ↗</a>').join('');
@@ -577,6 +577,7 @@ updateGeoButtons();
 renderSights();
 const initialHash=location.hash.slice(1);
 if(!openRouteHash(initialHash))selectView('plan',false);
+else if(state.view==='shop'&&!['latex-history','tea-history'].includes(initialHash))requestAnimationFrame(()=>document.getElementById('app').scrollIntoView({block:'start',behavior:'auto'}));
 // Check on opening, and whenever the Home Screen app returns to foreground.
 setTimeout(()=>checkFreshVersion({autoReload:true}),1600);
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')checkFreshVersion({autoReload:false})});
